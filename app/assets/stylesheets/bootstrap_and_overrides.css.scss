@@ -1,3 +1,64 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+
+.nav {
+    padding-top: 17px;
+}
+
+ 
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
+.navbar .dropdown-menu [class*="span"] {
+    padding-top: 10px;
+}
+.navbar .dropdown-menu > li.column-menu ul {
+    display: inline-block;
+    list-style: none outside none;
+    margin: 0 0 16px;
+    width: 100%;
+}
+.navbar .dropdown-menu > li.column-menu li {
+    display: inline;
+    padding-left: 10px;
+    float: left;
+    width: 100%;
+}
+.navbar .dropdown-menu > li.column-menu.firstcolumn {
+    margin-left: 0;
+}
+
+ 
+.body {
+padding: 0px;
+}
+
+ 
+
+.center {
+margin-left: auto;
+margin-right: auto;
+}
+.center.navbar .nav,
+.center.navbar .nav > li {
+float:none;
+display:inline-block;
+*display:inline; /* ie7 fix */
+*zoom:1; /* hasLayout ie7 trigger */
+vertical-align: top;
+}
+.center.navbar-inner {
+text-align:center;
+}
+.center .dropdown-menu {
+text-align: left;
+}
+.navbar-inner {
+margin: 0 auto;
+}
+
+
+ 

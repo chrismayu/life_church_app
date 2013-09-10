@@ -64,6 +64,7 @@ gem "strongbox"
 gem "nifty-generators", :group => :development
 gem 'validates_formatting_of'
 gem 'exception_notification' 
+gem 'gmaps4rails'
  
 
 group :development, :test do

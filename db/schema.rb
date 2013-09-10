@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828162157) do
+ActiveRecord::Schema.define(:version => 20130831164050) do
+
+  create_table "abouts", :force => true do |t|
+    t.string   "service_day_1"
+    t.string   "service_time_1"
+    t.string   "service_day_2"
+    t.string   "service_time_2"
+    t.string   "service_day_3"
+    t.string   "service_time_3"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "phone_number"
+    t.string   "toll_free_phone_number"
+    t.string   "fax_number"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

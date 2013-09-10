@@ -1,4 +1,7 @@
 LifeChurchApp::Application.routes.draw do
+  resources :abouts
+
+
   authenticated :user do
     root :to => 'home#index'
   end

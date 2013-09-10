@@ -1,5 +1,75 @@
-<%= link_to "Life Church App", root_path, :class => 'brand' %>
-<ul class="nav">
+<div class="masthead ">
+ 
+ 
+
+<%= link_to image_tag("LifeLogo.png", :size => "190x45" ), root_path, :class=>'brand nav pull-left'%>
+
+
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">  
+<span class="icon-bar"></span>  
+<span class="icon-bar"></span>  
+<span class="icon-bar"></span>  
+</a>   
+  <div class="nav-collapse ">
+
+<ul class="nav-pills nav">
+	
+	
+	<li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About </a>
+	    <ul class="dropdown-menu span6">
+	        <li class="column-menu span3 firstcolumn">
+			<p>Test</p>
+	            <ul>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	            </ul>
+	        </li>
+	        <li class="column-menu span3">
+			<p>Test</p>
+	            <ul>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>
+	
+	
+	<li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connect </a>
+	    <ul class="dropdown-menu span6">
+	        <li class="column-menu span3 firstcolumn">
+	
+	            <ul>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	            </ul>
+	        </li>
+	        <li class="column-menu span3">
+	            <ul>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	                <li><a href="#">Item</a></li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>
+  <li>
+    <%= link_to 'Resources', "/#" %>
+    </li>
+	<li>
+    	<%= link_to 'Give', "http://life-church-e-giving.herokuapp.com/" %>
+    </li>
+ 
+	
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
@@ -19,8 +89,24 @@
       </li>
     <% end %>
   <% else %>
-    <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
+ 
   <% end %>
 </ul>
+<ul class="nav nav-pills pull-right">
+ <li>
+<form class="navbar-search form-search">
+ 
+ <div class="input-append">
+
+  <input type="text" class="input-medium search-query" placeholder="Search">
+  <button type="submit" class="btn"><i class="icon-search"></i></button>
+   </div>
+</form> 
+ 
+ 
+
+ </li>
+</ul>
+
+</div>
+</div>

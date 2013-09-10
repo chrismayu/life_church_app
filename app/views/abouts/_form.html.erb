@@ -1,0 +1,22 @@
+<%= simple_form_for @about, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :service_day_1 %>
+  <%= f.input :service_time_1 %>
+  <%= f.input :service_day_2 %>
+  <%= f.input :service_time_2 %>
+  <%= f.input :service_day_3 %>
+  <%= f.input :service_time_3 %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :postal_code %>
+  <%= f.input :phone_number %>
+  <%= f.input :toll_free_phone_number %>
+  <%= f.input :fax_number %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :gmaps %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                abouts_path, :class => 'btn' %>
+  </div>
+<% end %>
