@@ -2,7 +2,7 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   def index
-    @abouts = About.all
+    @abouts = About.last
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,17 +21,7 @@ class AboutsController < ApplicationController
     end
   end
 
-  # GET /abouts/new
-  # GET /abouts/new.json
-  def new
-    @about = About.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @about }
-    end
-  end
-
+ 
   # GET /abouts/1/edit
   def edit
     @about = About.find(params[:id])
@@ -69,15 +59,5 @@ class AboutsController < ApplicationController
     end
   end
 
-  # DELETE /abouts/1
-  # DELETE /abouts/1.json
-  def destroy
-    @about = About.find(params[:id])
-    @about.destroy
-
-    respond_to do |format|
-      format.html { redirect_to abouts_url }
-      format.json { head :no_content }
-    end
-  end
+ 
 end
