@@ -1,5 +1,8 @@
 LifeChurchApp::Application.routes.draw do
  
+  resources :staffs
+
+
   post 'abouts/contact' 
  
   resources :abouts
