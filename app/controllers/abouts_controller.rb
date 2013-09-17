@@ -1,9 +1,25 @@
 class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
+  
+      def contact
+        @message = Message.new(params[:message])
+ 
+        if @message.valid?
+           ContactMailer.site_message(@message).deliver
+          redirect_to(abouts_path, :notice => "Your message was successfully sent.")
+        else
+          flash.now.alert = "Please fill all fields."
+          render :new
+        end
+      end
+  
+  
   def index
     @abouts = About.last
-
+    @message = Message.new
+    abouts = About.last
+     @json = abouts.to_gmaps4rails
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @abouts }
@@ -14,6 +30,8 @@ class AboutsController < ApplicationController
   # GET /abouts/1.json
   def show
     @about = About.find(params[:id])
+    abouts = About.find(params[:id])
+     @jsons = About.find(params[:id]).to_gmaps4rails
     @json = About.all.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb

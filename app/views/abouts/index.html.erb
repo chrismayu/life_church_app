@@ -3,7 +3,6 @@
   <h1>General Info</h1>
 </div>
 
- 
  <div class="row-fluid">
  <div class="span3">
 	<h3>Service Times</h3>
@@ -70,12 +69,19 @@
 	</p>
 		
 </div>
+</div>
+
 
 <div class="row-fluid">
 	<div class="span8">
-    	<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
-	</div>
+     
 	
+	<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	
+	
+	
+	
+	</div> 
   	<div class="span4">
 		<h2>Snail mail</h2>
 		<address>
@@ -88,40 +94,32 @@
 		</address>
 	</div>
 </div>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-  
-    </tr>
-  </thead>
-  <tbody>
+<h3>Contact Us</h3>
+<form class="well span8">
+  <div class="row">
+		<div class="span3">
+<%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => abouts_contact_path do |f| %>
+ 
+    <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span3"}  %>
    
-      <tr>
-        <td><%= link_to @abouts.id,about_path(@abouts) %></td>
-        <td><%=@abouts.service_day_1 %></td>
-        <td><%=@abouts.service_time_1 %></td>
-        <td><%=@abouts.service_day_2 %></td>
-        <td><%=@abouts.service_time_2 %></td>
-        <td><%=@abouts.service_day_3 %></td>
-        <td><%=@abouts.service_time_3 %></td>
-        <td><%=@abouts.address %></td>
-        <td><%=@abouts.city %></td>
-        <td><%=@abouts.postal_code %></td>
-        <td><%=@abouts.phone_number %></td>
-        <td><%=@abouts.toll_free_phone_number %></td>
-        <td><%=@abouts.fax_number %></td>
-        <td><%=@abouts.latitude %></td>
-        <td><%=@abouts.longitude %></td>
-        <td><%=@abouts.gmaps %></td>
-        <td><%=l@abouts.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_about_path(@abouts), :class => 'btn btn-mini' %>
-       
-        </td>
-      </tr>
-  
-  </tbody>
-</table>
- <%= debug(@abouts) if Rails.env.development? %>
+	  <%= f.input_field :email,  :label =>"Email Address", :placeholder=>"Your Email Address", :input_html => { :class => "enroll_input span3"}  %> 
+ 
+	<%= f.input :subject,  :label=>'Subject:' , :selected=>["Please Choose"],  collection: [ "General Customer Service", "Prayer Request"]%> 
+	
+		</div>
+		<div class="span5">
+	<%= f.input :body, :label=>'Message:', as: :text, :input_html => { :class => "input-xlarge span5", :rows => 10} %>
+ 
+  </div>
+ <br>
+	    <%= f.button :submit, 'Send Message', :class => 'btn-primary pull-right btn btn-flat' %>
+ 
+ 		</div>
+	</form>
+<% end %>
+
+
+ 
+
+
+ 

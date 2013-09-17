@@ -1,13 +1,24 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
-
+ @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
 .nav {
     padding-top: 17px;
 }
 
- 
+.btn-flat {
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:0px;
+  	border-width:0;
+  	background-image:none;
+  	padding:13px;
+  	margin:0 auto;
+  	margin-top:15px;
+  	//width:15%;
+    font-size:13pt;
+     
+}
 
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;    
@@ -34,9 +45,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
  
 .body {
 padding: 0px;
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+font-size:13pt;
 }
 
  
+ .nav {
+ 
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
 
 .center {
 margin-left: auto;
