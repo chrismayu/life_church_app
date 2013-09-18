@@ -3,6 +3,25 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
  @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
+.pull-center{text-align:center;margin:0 auto !important;}
+.pull-middle{vertical-align:middle;padding-top:17% !important;}
+.pull-bottom{position:absolute;bottom:0;}
+.offsetHalf1 {margin-left:12.9% !important;} 
+
+#main {
+ float: none; margin-left: auto; margin-right: auto;  
+}
+
+#left {
+ margin:0 auto;
+ float:left;
+}
+
+#right {
+ margin:0 auto;
+ float:right;
+}
+
 .nav {
     padding-top: 17px;
 }

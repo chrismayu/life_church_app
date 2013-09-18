@@ -1,0 +1,70 @@
+  <h3> Life Church Staff </h3> 
+<div class="span8"  id="main">
+<table class="table table-striped">
+ 
+  <tbody>
+ 
+
+
+<% @church_staffs.each.with_index do |church_staff, index| %>
+ <tr>
+      <td>
+ 
+
+<div class="row-fluid offsetHalf1"  id="main">
+ 
+ <% if index.even? %> 
+<div class="span2"  >
+  <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+</div>
+<% end%>
+
+
+<div class="span4">
+  <blockquote>
+    <p><%= church_staff.first_name %> <%= church_staff.last_name %></p>
+    <small><cite title="Source Title">Gotham, United Kingdom  <i class="icon-map-marker"></i></cite></small>
+  </blockquote>
+  <p>
+    <i class="icon-envelope"></i> <%= church_staff.contact_email %> <br>
+    <i class="icon-globe"></i> www.bootsnipp.com <br>
+    <i class="icon-gift"></i> January 30, 1974<br>
+      <%= church_staff.spouse_first_name %> <br>
+      <%= church_staff.title %> <br>
+      <%= "#{time_ago_in_words(church_staff.started_service)}" %> <br>
+      <%= church_staff.description %> <br>
+      <%= church_staff.image %> <br>	 
+  </p>
+</div>
+
+
+ <% if index.odd? %>
+<div class="span2"  >
+  <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+</div>
+<% end%>
+
+
+
+	 	<br>
+	<br>
+	<br><br>
+<br>
+<br><br>
+<br>
+<br>
+	
+		 
+</div>
+  
+</td>
+</tr>
+
+
+<% end %>
+
+
+
+  </tbody>
+</table>
+	</div>	

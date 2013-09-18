@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130831164050) do
+ActiveRecord::Schema.define(:version => 20130918151640) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(:version => 20130831164050) do
     t.datetime "updated_at",             :null => false
   end
 
+  create_table "church_staffs", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "spouse_first_name"
+    t.string   "title"
+    t.date     "started_service"
+    t.text     "description"
+    t.string   "contact_email"
+    t.string   "image"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "birth_location"
+    t.string   "category"
+    t.integer  "rank"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -43,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20130831164050) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "site_setups", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

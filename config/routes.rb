@@ -1,5 +1,15 @@
 LifeChurchApp::Application.routes.draw do
  
+ 
+  resources :site_setups
+
+
+ match 'staff' => 'church_staffs#current_staff', :as => 'church_staff', :via => :get 
+ 
+  resources :church_staffs
+
+ match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
+
   post 'abouts/contact' 
  
   resources :abouts
