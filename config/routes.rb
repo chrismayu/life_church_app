@@ -1,6 +1,9 @@
 LifeChurchApp::Application.routes.draw do
  
  
+  resources :staff_ranks
+
+
   resources :site_setups
 
 

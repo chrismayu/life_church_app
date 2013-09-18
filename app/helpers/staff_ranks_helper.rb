@@ -1,0 +1,2 @@
+module StaffRanksHelper
+end
