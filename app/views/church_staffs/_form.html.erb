@@ -10,16 +10,33 @@
   <%= f.input :title %>
  
 	<%= f.input :started_service, :label=>"Joined the Church:", :wrapper => :append do %>
-	  <%= f.input_field :date_of_birth, :id=> 'started_service',   :as => :string,  :placeholder=>"Click here to which Start Date" %><span class="add-on"><i class="icon-calendar"></i></span>
+	  <%= f.input_field :started_service, :id=> 'started_service',   :as => :string,  :placeholder=>"Click here to which Start Date" %><span class="add-on"><i class="icon-calendar"></i></span>
 	<% end %>
 	
-  <%= f.input :description %>
-  <%= f.input :contact_email %>
-  <%= f.input :image %>
-  <%= f.input :category %>
-  <%= f.input :rank %>
  
+
+	<%= f.input :description , :label=>'Description :',  :input_html => { :class => "enroll_input span8", :rows => 4} %> 
+	
+ 
+
+	<%= f.input :contact_email,  :label=>"Email Address:",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"}, :required => true %>
+
+ 
+  
+<%= f.input :rank, collection: StaffRank.all, label_method: :category, value_method: :ranking,label: "Select Category:", include_blank: false %>
+
 	  <%= f.input :birth_location, :label=>"Location of Birth:", :placeholder=>"ex. Woodstock, Ontario", :input_html => { :class => "enroll_input span4"}  %>
+
+
+
+
+  <%= f.input :facebook %>
+<%= f.input :linked_in %>
+<%= f.input :google_plus %>
+
+<%= f.input :twitter %>
+
+ 
 
  
   <div class="form-actions">

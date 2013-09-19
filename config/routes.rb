@@ -1,13 +1,14 @@
 LifeChurchApp::Application.routes.draw do
  
- 
+    get "site_setups/site_setup"
+    
   resources :staff_ranks
 
 
   resources :site_setups
 
-
- match 'staff' => 'church_staffs#current_staff', :as => 'church_staff', :via => :get 
+ get "church_staffs/current_staff"
+ #match 'current_staff' => 'church_staffs#current_staff', :as => 'church_staff', :via => :get 
  
   resources :church_staffs
 

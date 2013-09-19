@@ -24,7 +24,7 @@
 	            <ul>
 					<li><%= link_to 'Our Mission & Methods', abouts_path %></li>
 	                <li><%= link_to 'What We Believe', abouts_path %></li>
-					<li><%= link_to 'Our Staff', church_staff_path %></li>
+					<li><%= link_to 'Our Staff', church_staffs_current_staff_path %></li>
 					<li><%= link_to 'Our Facilities', abouts_path %></li>
 	                <li><%= link_to 'Membership', abouts_path %></li> 
 	            </ul>
@@ -86,6 +86,13 @@
 						    </li>
  					 
 
+							  <li>
+							    <%= link_to site_setups_site_setup_path do %>
+							  <i class="icon-globe"></i> Site Setup		 <% end %>
+							    </li>
+
+ 
+
                            <li class="divider"></li>
 						    <li>
 						    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
@@ -116,19 +123,7 @@
 
 
  
- <li class=" pull-right">
-<form class="navbar-search form-search">
  
- <div class="input-append">
-
-  <input type="text" class="input-medium search-query" placeholder="Search">
-  <button type="submit" class="btn"><i class="icon-search"></i></button>
-   </div>
-</form> 
- 
- 
-
- </li>
  
     </ul>
 </div>

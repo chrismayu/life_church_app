@@ -1,35 +1,69 @@
 <%- model_class = ChurchStaff -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @church_staff.first_name %> <%= @church_staff.last_name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
-  <dd><%= @church_staff.first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-  <dd><%= @church_staff.last_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:spouse_first_name) %>:</strong></dt>
-  <dd><%= @church_staff.spouse_first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @church_staff.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:started_service) %>:</strong></dt>
-  <dd><%= @church_staff.started_service %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @church_staff.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-  <dd><%= @church_staff.contact_email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= @church_staff.image %></dd>
-</dl>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              church_staffs_path, :class => 'btn'  %>
+
+<div class="row-fluid offsetHalf1"  id="main">
+ 
+<div class="span2"  >
+  <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+</div>
+ 
+
+
+<div class="span4">
+
+	<dl class="dl-horizontal">
+	  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+	  <dd><%= @church_staff.first_name %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+	  <dd><%= @church_staff.last_name %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:spouse_first_name) %>:</strong></dt>
+	  <dd><%= @church_staff.spouse_first_name %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+	  <dd><%= @church_staff.title %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:started_service) %>:</strong></dt>
+	  <dd><%= @church_staff.started_service %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+	  <dd><%= @church_staff.description %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
+	  <dd><%= @church_staff.contact_email %></dd>
+	  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+	  <dd>
+		 <% for staff_ranks in @church_staff.staff_ranks %>
+	      <%=  staff_ranks.category %> 
+	     <% end%>
+		</dd>
+		<dt><strong>facebook:</strong></dt>
+	  <dd><%= @church_staff.facebook %></dd>
+	  <dt><strong>linked_in:</strong></dt>
+	  <dd><%= @church_staff.linked_in %></dd>
+	  <dt><strong>google_plus:</strong></dt>
+	  <dd><%= @church_staff.google_plus %></dd>
+		<dt><strong>twitter:</strong></dt>
+	  <dd><%= @church_staff.twitter %></dd>
+	</dl> 
+  </p>
+</div>
+
+ 
+		 
+</div>
+
+<br>
+<br>
+
+ 
+<div class="form-actions"  >
+  <%= link_to t('.back', :default => t("helpers.links.View All Staff")),
+             church_staffs_path, :class => 'btn btn-flat btn-success'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_church_staff_path(@church_staff), :class => 'btn' %>
+              edit_church_staff_path(@church_staff), :class => 'btn btn-flat' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              church_staff_path(@church_staff),
+             church_staff_path(@church_staff),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger btn-flat' %>
 </div>

@@ -1,6 +1,13 @@
 class SiteSetupsController < ApplicationController
   # GET /site_setups
   # GET /site_setups.json
+  
+  def site_setup
+    
+    
+    
+  end
+  
   def index
     @site_setups = SiteSetup.all
 

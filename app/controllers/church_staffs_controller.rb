@@ -58,7 +58,7 @@ class ChurchStaffsController < ApplicationController
 
     respond_to do |format|
       if @church_staff.save
-        format.html { redirect_to @church_staff, notice: 'Church staff was successfully created.' }
+        format.html { redirect_to church_staff_path(@church_staff), notice: 'Church staff was successfully created.' }
         format.json { render json: @church_staff, status: :created, location: @church_staff }
       else
         format.html { render action: "new" }
@@ -74,7 +74,7 @@ class ChurchStaffsController < ApplicationController
 
     respond_to do |format|
       if @church_staff.update_attributes(params[:church_staff])
-        format.html { redirect_to @church_staff, notice: 'Church staff was successfully updated.' }
+        format.html { redirect_to church_staff_path(@church_staff), notice: 'Church staff was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
