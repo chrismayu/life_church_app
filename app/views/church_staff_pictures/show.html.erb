@@ -1,0 +1,50 @@
+<%- model_class = ChurchStaffPicture -%>
+<div class="page-header">
+  <h2>	<% if @church_staff_picture.church_staff != nil %>
+
+	    <%= @church_staff_picture.church_staff.full_name %>
+
+	  <% else %>
+	    <em>Not setup to Staff</em>
+	  <% end %>  - Picture </h2>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @church_staff_picture.first_name %>
+	
+		 <% if @church_staff_picture.church_staff != nil %>
+
+		    <%= @church_staff_picture.church_staff.full_name %>
+
+		  <% else %>
+		    <em>Not setup to Staff</em>
+		  <% end %>
+	</dd>
+	
+	<br>
+	<br>
+ 
+  <dt><strong>Picture:</strong></dt>
+  <dd>	<% if @church_staff_picture.image_processed? %>
+	    <%= image_tag(@church_staff_picture.staff_image_url(:thumb), :class =>"img-rounded" ) %>
+
+	  <% else %>
+	    <em>Processing...</em>
+	  <% end %>
+	
+	
+	</dd>
+ 
+</dl>
+
+<div class="form-actions">
+ 
+			  <%= link_to t('.back', :default => t("helpers.links.view all pictures")),
+	                      church_staff_pictures_path, :class => 'btn   btn-success btn-flat ' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              church_staff_picture_path(@church_staff_picture),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger btn-flat' %>
+</div>

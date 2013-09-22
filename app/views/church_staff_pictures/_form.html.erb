@@ -1,0 +1,20 @@
+ 
+  <div class="form-actions">
+File: <%= @church_staff_picture.image_name %>
+  </div>
+
+<%= simple_form_for @church_staff_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  
+
+<%= f.hidden_field :key %>
+
+ 
+
+<%= f.input :church_staff_id, collection: ChurchStaff.all, label_method: :full_name , value_method: :id ,label: "Select Category:", include_blank: false %>
+ 
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                church_staff_pictures_path, :class => 'btn' %>
+  </div>
+<% end %>

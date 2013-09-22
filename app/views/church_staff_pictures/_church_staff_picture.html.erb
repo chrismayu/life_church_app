@@ -1,0 +1,17 @@
+
+
+<div class="church_staff_picture">
+  <% if church_staff_picture.image_processed? %>
+    <%= image_tag(church_staff_picture.staff_image_url(:thumb)) %>
+
+  <% else %>
+    <em>Processing...</em>
+  <% end %>
+  <div class="name"><%= church_staff_picture.first_name %></div>
+  <div class="actions">
+    <%= link_to "edit", edit_church_staff_picture_path(church_staff_picture) %> |
+    <%= link_to "remove", church_staff_picture, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>
+
+ 

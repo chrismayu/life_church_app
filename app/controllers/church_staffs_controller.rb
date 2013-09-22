@@ -55,6 +55,9 @@ class ChurchStaffsController < ApplicationController
   # POST /church_staffs.json
   def create
     @church_staff = ChurchStaff.new(params[:church_staff])
+    
+    full_name = "#{@church_staff.first_name} #{@church_staff.last_name}"
+    @church_staff.update_attribute(:full_name, full_name)
 
     respond_to do |format|
       if @church_staff.save
@@ -71,7 +74,8 @@ class ChurchStaffsController < ApplicationController
   # PUT /church_staffs/1.json
   def update
     @church_staff = ChurchStaff.find(params[:id])
-
+     full_name = "#{@church_staff.first_name} #{@church_staff.last_name}"
+    @church_staff.update_attribute(:full_name, full_name)
     respond_to do |format|
       if @church_staff.update_attributes(params[:church_staff])
         format.html { redirect_to church_staff_path(@church_staff), notice: 'Church staff was successfully updated.' }

@@ -8,7 +8,14 @@
 <div class="row-fluid offsetHalf1"  id="main">
  
 <div class="span2"  >
-  <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+	<% for church_staff_picture in @church_staff.church_staff_pictures %>
+  <% if church_staff_picture.image_processed? %>
+    <%= image_tag(church_staff_picture.staff_image_url(:main), :class =>"img-rounded" ) %>
+
+  <% else %>
+     <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+  <% end %>
+ <% end %>
 </div>
  
 
@@ -20,33 +27,93 @@
 	  <dd><%= @church_staff.first_name %></dd>
 	  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
 	  <dd><%= @church_staff.last_name %></dd>
+	
+ 
+	<% unless @church_staff.spouse_first_name !=nil %>
 	  <dt><strong><%= model_class.human_attribute_name(:spouse_first_name) %>:</strong></dt>
 	  <dd><%= @church_staff.spouse_first_name %></dd>
+	<% end %>
+	
 	  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
 	  <dd><%= @church_staff.title %></dd>
+	 <% if @church_staff.started_service? %>
 	  <dt><strong><%= model_class.human_attribute_name(:started_service) %>:</strong></dt>
-	  <dd><%= @church_staff.started_service %></dd>
+	  <dd><%= time_ago_in_words(@church_staff.started_service.to_formatted_s(:long) ) %></dd>
+		<% end %>
+	 	<% unless @church_staff.description  !=nil %>
 	  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
 	  <dd><%= @church_staff.description %></dd>
+		<% end %>
+		
+	   <% unless @church_staff.contact_email !=nil %>
 	  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
 	  <dd><%= @church_staff.contact_email %></dd>
+		<% end %>
+		
 	  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
 	  <dd>
 		 <% for staff_ranks in @church_staff.staff_ranks %>
 	      <%=  staff_ranks.category %> 
 	     <% end%>
 		</dd>
-		<dt><strong>facebook:</strong></dt>
-	  <dd><%= @church_staff.facebook %></dd>
+		
+	 
+			<% unless @church_staff.birth_location !=nil %>
+			<dt><strong>location of birth:</strong></dt>
+		    <dd><%= @church_staff.birth_location %></dd>
+		    <% end%>
+			 <% if @church_staff.birthday? %>
+			<dt><strong>Birthday:</strong></dt>
+		    <dd><%= @church_staff.birthday %></dd>
+		    <% end%>
+		
+		
+		
+		
+			 <% if @church_staff.phone_number? %>
+		<dt><strong>Phone Number:</strong></dt>
+	    <dd><%= @church_staff.phone_number %></dd>
+	    <% end%>
+	
+		 	 <% if @church_staff.phone_ext? %>
+		<dt><strong>phone_ext:</strong></dt>
+	    <dd><%= @church_staff.phone_ext %></dd>
+	    <% end%>
+		
+		 <% unless @church_staff.facebook !=nil %>
+		<dt><strong>Facebook:</strong></dt>
+	    <dd><%= @church_staff.facebook %></dd>
+	    <% end%>
+	
+		 <% unless @church_staff.url !=nil %>
+		<dt><strong>Website:</strong></dt>
+	    <dd><%= @church_staff.url %></dd>
+	    <% end%>
+	
+		 <% unless @church_staff.blog !=nil %>
+		<dt><strong>Blog:</strong></dt>
+	    <dd><%= @church_staff.blog %></dd>
+	    <% end%>
+	
+	  <% unless @church_staff.linked_in !=nil %>
 	  <dt><strong>linked_in:</strong></dt>
 	  <dd><%= @church_staff.linked_in %></dd>
+	<% end%>
+
+	  <% unless @church_staff.google_plus !=nil %>
 	  <dt><strong>google_plus:</strong></dt>
 	  <dd><%= @church_staff.google_plus %></dd>
+	<% end%>
+
+	  <% unless @church_staff.twitter !=nil %>
 		<dt><strong>twitter:</strong></dt>
 	  <dd><%= @church_staff.twitter %></dd>
+	<% end%>
 	</dl> 
   </p>
 </div>
+
+ 
 
  
 		 

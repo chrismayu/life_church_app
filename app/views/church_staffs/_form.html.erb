@@ -7,29 +7,41 @@
 
  	  <%= f.input :spouse_first_name, :label=>"Spouse's name:", :placeholder=>"Spouse's name", :input_html => { :class => "enroll_input span4"}  %>
  
-  <%= f.input :title %>
+  <%= f.input :title, :label=>"Official Title:", :placeholder=>"Official Title", :input_html => { :class => "enroll_input span4"}  %>
  
 	<%= f.input :started_service, :label=>"Joined the Church:", :wrapper => :append do %>
-	  <%= f.input_field :started_service, :id=> 'started_service',   :as => :string,  :placeholder=>"Click here to which Start Date" %><span class="add-on"><i class="icon-calendar"></i></span>
+	  <%= f.input_field :started_service, :id=> 'start_date',   :as => :string,  :placeholder=>"Click here to select date" %><span class="add-on"><i class="icon-calendar"></i></span>
 	<% end %>
 	
  
+ 
 
-	<%= f.input :description , :label=>'Description :',  :input_html => { :class => "enroll_input span8", :rows => 4} %> 
+
+	<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about Yourself" , :input_html => { :class => "enroll_input span8", :rows => 4} %> 
 	
  
 
-	<%= f.input :contact_email,  :label=>"Email Address:",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"}, :required => true %>
+	<%= f.input :phone_number,  :label=>"Phone Number:",   :placeholder=>"Phone Number" ,  :input_html => { :class => "enroll_input span3"}  %>
+		<%= f.input :phone_ext,  :label=>"Phone Ext:",   :placeholder=>"Phone Ext" ,  :input_html => { :class => "enroll_input span3"}  %>
 
- 
+ 	<%= f.input :contact_email,  :label=>"Email Address:",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
   
 <%= f.input :rank, collection: StaffRank.all, label_method: :category, value_method: :ranking,label: "Select Category:", include_blank: false %>
 
 	  <%= f.input :birth_location, :label=>"Location of Birth:", :placeholder=>"ex. Woodstock, Ontario", :input_html => { :class => "enroll_input span4"}  %>
 
 
+	<%= f.input :birthday, :label=>"Birthday:",  :hint => "Don't worry - the Year will not be shown ;)", :wrapper => :append do %>
+	  <%= f.input_field :birthday, :id=> 'birthday',   :as => :string, :placeholder=>"Your Birthday" %><span class="add-on"><i class="icon-calendar"></i></span>
+	<% end %>
+ 
+
+ 
 
 
+
+<%= f.input :blog %>
+<%= f.input :url %>
   <%= f.input :facebook %>
 <%= f.input :linked_in %>
 <%= f.input :google_plus %>

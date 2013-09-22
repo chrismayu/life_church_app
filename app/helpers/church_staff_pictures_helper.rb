@@ -1,0 +1,2 @@
+module ChurchStaffPicturesHelper
+end

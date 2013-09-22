@@ -11,6 +11,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
    gem 'jquery-fileupload-rails'
    gem 'bootstrap-modal-rails'
+   gem 'jquery-ui-rails'
 end
 gem 'jquery-rails'
 gem 'bootstrap-sass'
@@ -65,6 +66,8 @@ gem "nifty-generators", :group => :development
 gem 'validates_formatting_of'
 gem 'exception_notification' 
 gem 'gmaps4rails'
+ 
+ gem 'fog'
  
 
 group :development, :test do

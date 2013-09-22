@@ -342,6 +342,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails
   figaro
+  fog
   font-awesome-rails
   gmaps4rails
   guard-bundler
