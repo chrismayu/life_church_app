@@ -1,0 +1,11 @@
+<%= simple_form_for @service_time, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :day %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :service_name %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                service_times_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -2,6 +2,9 @@ LifeChurchApp::Application.routes.draw do
  
 
 
+  resources :service_times
+
+
   get "church_staff_pictures/step_1"
 
   resources :church_staff_pictures
