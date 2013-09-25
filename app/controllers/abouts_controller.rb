@@ -2,6 +2,8 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   
+  before_filter :authenticate_user!, :except => [:index]
+  
       def contact
         @message = Message.new(params[:message])
  
@@ -17,6 +19,7 @@ class AboutsController < ApplicationController
   
   def index
     @abouts = About.last
+    @service_times = ServiceTime.all
     @message = Message.new
     abouts = About.last
      @json = abouts.to_gmaps4rails
@@ -29,9 +32,9 @@ class AboutsController < ApplicationController
   # GET /abouts/1
   # GET /abouts/1.json
   def show
-    @about = About.find(params[:id])
-    abouts = About.find(params[:id])
-     @jsons = About.find(params[:id]).to_gmaps4rails
+    @about = About.last
+    abouts = About.last
+     @jsons = About.last.to_gmaps4rails
     @json = About.all.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
@@ -45,21 +48,7 @@ class AboutsController < ApplicationController
     @about = About.find(params[:id])
   end
 
-  # POST /abouts
-  # POST /abouts.json
-  def create
-    @about = About.new(params[:about])
-
-    respond_to do |format|
-      if @about.save
-        format.html { redirect_to @about, notice: 'About was successfully created.' }
-        format.json { render json: @about, status: :created, location: @about }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @about.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  
 
   # PUT /abouts/1
   # PUT /abouts/1.json
@@ -68,7 +57,7 @@ class AboutsController < ApplicationController
 
     respond_to do |format|
       if @about.update_attributes(params[:about])
-        format.html { redirect_to @about, notice: 'About was successfully updated.' }
+        format.html { redirect_to @about, notice: 'General Info was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

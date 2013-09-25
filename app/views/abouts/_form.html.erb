@@ -1,33 +1,29 @@
 <%= simple_form_for @about, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :service_day_1 %>
-  <%= f.input :service_time_1 %>
-  <%= f.input :service_day_2 %>
-  <%= f.input :service_time_2 %>
-  <%= f.input :service_day_3 %>
-  <%= f.input :service_time_3 %>
-  <%= f.input :address %>
-  <%= f.input :city %>
-  <%= f.input :postal_code %>
-  <%= f.input :phone_number %>
-  <%= f.input :toll_free_phone_number %>
-  <%= f.input :fax_number %>
-  <%= f.input :latitude %>
-  <%= f.input :longitude %>
-  <%= f.input :gmaps %>
-
-  <%= f.input :youtube %>
-  <%= f.input :facebook %>
-  <%= f.input :video_stream %>
-  <%= f.input :twitter %>
-  <%= f.input :country %>
-  <%= f.input :province %>
+ 
+ 
 
 
-
+	  <%= f.input :address, :label=>'Address:', :placeholder=>"Address" %>
+	  <%= f.input :city, :label=>'City:', :placeholder=>"City"  %>
+	  <%= f.input :province, :label=>'Province:', :placeholder=>"Province"   %> 
+      <%= f.input :country, :as=>:string,  :label=>"Country:", :placeholder=>"Canada" %> 
+	  <%= f.input :postal_code , :label=>'Postal Code :', :placeholder=>"Postal Code" %> 
+	  <%= f.input :phone_number, :label=>'Phone:',  :placeholder=>"Phone"  %>
+	  <%= f.input :toll_free_phone_number, :label=>'Toll Free Number:',  :placeholder=>"Toll Free Phone"  %>
+	  <%= f.input :fax_number, :label=>'Fax Number:',  :placeholder=>"Fax Number"  %>
+	  <%= f.input :youtube, :label=>'Youtube:',  :placeholder=>"Youtube"  %>
+	<%= f.input :facebook, :label=>'Facebook:',  :placeholder=>"Facebook Link"  %>
+	<%= f.input :video_stream , :label=>'Link Video Stream  :',  :placeholder=>"Video Stream "  %>
+	<%= f.input :twitter, :label=>'Twitter:',  :placeholder=>"Twitter"  %>
+	
+	
+	
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary btn btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                abouts_path, :class => 'btn' %>
+                abouts_path, :class => 'btn btn-flat' %>
   </div>
-<% end %>
+<% end %> 
+
+

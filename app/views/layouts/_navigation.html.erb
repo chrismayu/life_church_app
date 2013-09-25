@@ -23,7 +23,7 @@
 			<p>Who We Are</p>
 	            <ul>
 					<li><%= link_to 'Our Mission & Methods', abouts_path %></li>
-	                <li><%= link_to 'What We Believe', abouts_path %></li>
+	                <li><%= link_to 'What We Believe', abouts_path + "#comment" %></li>
 					<li><%= link_to 'Our Staff', church_staffs_current_staff_path %></li>
 					<li><%= link_to 'Our Facilities', abouts_path %></li>
 	                <li><%= link_to 'Membership', abouts_path %></li> 
@@ -32,9 +32,9 @@
 	        <li class="column-menu span3">
 			<p>General Info</p>
 	            <ul>
-	                <li><%= link_to 'Service Times', abouts_path %></li>
-					<li><%= link_to 'Directions', abouts_path %></li>
-					<li><%= link_to 'Contact Us', abouts_path %></li>
+	                <li><%= link_to 'Service Times', abouts_path + "#service_times" %></li>
+					<li><%= link_to 'Directions', abouts_path + "#direction" %></li>
+					<li><%= link_to 'Contact Us', abouts_path + "#contact" %></li>
 	            </ul>
 	        </li>
 	    </ul>

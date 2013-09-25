@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20130924014850) do
 
   create_table "service_times", :force => true do |t|
     t.string   "day"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.time     "start_time"
+    t.time     "end_time"
     t.string   "service_name"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

@@ -16,6 +16,8 @@
 
 <div class="span4">  <h3>Site</h3>  
 	<p>	 
+		<%= link_to t('.trip_setup', :default => t("helpers.links.Service Times")),
+			                      service_times_path, :class => 'btn btn-info btn-flat btn-mini' %>
 	</p>
 
    </div>
@@ -43,15 +45,17 @@
 
 <div class="span4">  <h3>Staff Setup</h3>  
 	<p>	Setup Staff
+		<%= link_to t('.trip_setup', :default => t("helpers.links.Church Staff Setup")),
+		                      church_staffs_path, :class => 'btn btn-info btn-flat' %>
 	</p>
 
-  <%= link_to t('.trip_setup', :default => t("helpers.links.Church Staff Setup")),
-	                      church_staffs_path, :class => 'btn btn-info btn-flat' %>  </div>
+ </div>
 
 
 <div class="span4">  <h3>   </h3>  
-	<p>
-		
+	<p>About
+		<%= link_to t('.show', :default => t("helpers.links.About")),
+		                      abouts_path, :class => 'btn btn-info btn-flat' %>
 	</p>
 
   </div>

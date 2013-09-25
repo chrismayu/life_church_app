@@ -4,14 +4,13 @@
 </div>
 
 <dl class="dl-horizontal">
+	<dt><strong><%= model_class.human_attribute_name(:service_name) %>:</strong></dt>
+  <dd><%= @service_time.service_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:day) %>:</strong></dt>
   <dd><%= @service_time.day %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @service_time.start_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
-  <dd><%= @service_time.end_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_name) %>:</strong></dt>
-  <dd><%= @service_time.service_name %></dd>
+  <dd><%= @service_time.start_time.strftime("%l:%M %p") %></dd>
+ 
 </dl>
 
 <div class="form-actions">

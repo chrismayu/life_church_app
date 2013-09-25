@@ -1,4 +1,7 @@
 class ServiceTimesController < ApplicationController
+  before_filter :authenticate_user! 
+  
+  
   # GET /service_times
   # GET /service_times.json
   def index
