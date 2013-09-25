@@ -1,0 +1,11 @@
+<%= simple_form_for @event_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :event_image %>
+  <%= f.input :linked_event %>
+  <%= f.input :description %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                event_pictures_path, :class => 'btn' %>
+  </div>
+<% end %>

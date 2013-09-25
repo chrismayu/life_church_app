@@ -2,6 +2,12 @@ LifeChurchApp::Application.routes.draw do
  
 
 
+  resources :event_pictures
+
+
+  resources :events
+
+
   resources :service_times
 
 
