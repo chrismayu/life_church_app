@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925004112) do
+ActiveRecord::Schema.define(:version => 20130926023055) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -81,8 +81,11 @@ ActiveRecord::Schema.define(:version => 20130925004112) do
     t.string   "event_image"
     t.string   "linked_event"
     t.text     "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "event_id"
+    t.string   "eventimage"
+    t.boolean  "image_processed"
   end
 
   create_table "events", :force => true do |t|
@@ -97,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20130925004112) do
     t.boolean  "display_main_page"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.time     "event_start_time"
   end
 
   create_table "roles", :force => true do |t|

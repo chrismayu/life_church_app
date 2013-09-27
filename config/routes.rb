@@ -2,6 +2,8 @@ LifeChurchApp::Application.routes.draw do
  
 
 
+  get "event_pictures/step_1"
+  get "event_pictures/step_2"
   resources :event_pictures
 
 
@@ -31,14 +33,16 @@ LifeChurchApp::Application.routes.draw do
  match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
 
   post 'abouts/contact' 
- 
+  get "abouts/home"
+  root :to => 'abouts#home'
+  
   resources :abouts
 
 
   authenticated :user do
-    root :to => 'home#index'
+     root :to => 'abouts#home'  #root :to => 'home#index'
   end
-  root :to => "home#index"
+  
   devise_for :users
   resources :users
   

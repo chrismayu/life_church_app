@@ -1,16 +1,37 @@
 <%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :event_name %>
-  <%= f.input :event_date %>
-  <%= f.input :event_time %>
-  <%= f.input :contact_email %>
+
+   <div class="form-actions">
+  <%= f.input :event_name, :label=>"Name of Event:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input span4"}   %>
+ 	<%= f.input :event_date, :label=>"Event Start Date:",  :hint => "Select the first day of the Event", :wrapper => :append do %>
+	  <%= f.input_field :event_date, :id=> 'event_date',   :as => :string, :placeholder=>"Start Date of Event" %><span class="add-on"><i class="icon-calendar"></i></span>
+	<% end %>
+	
+	 
+  <%= f.input :event_start_time, :as => :hour,  label: "Starts At:" , :hint =>'24hour'  %>
+  <%= f.input :contact_email,  :label=>"Contact Email:",  :hint => "Will not be display on the site - Linked to only",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
   <%= f.input :location %>
-  <%= f.input :contact_person %>
-  <%= f.input :description %>
-  <%= f.input :remove_event_date %>
+  <%= f.input :contact_person,  :label=>"Contact Person:", :placeholder=>"Contact Person" ,  :input_html => { :class => "enroll_input span3"}  %>
+  	<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the event" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+
+	<%= f.input :remove_event_date, :label=>"Date to disable from site:",  :hint => "The date the Event will automatically stop being viewed on the site", :wrapper => :append do %>
+	  <%= f.input_field :remove_event_date, :id=> 'remove_event_date',   :as => :string, :placeholder=>"Date to disable event" %><span class="add-on"><i class="icon-calendar"></i></span>
+	<% end %>
+
   <%= f.input :display_main_page %>
+
+
+
+ 
+
+ </div>
+	
+
+	
+	
+	
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                events_path, :class => 'btn' %>
+                events_path, :class => 'btn btn-flat' %>
   </div>
 <% end %>

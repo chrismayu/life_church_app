@@ -9,7 +9,7 @@ class HourInput < SimpleForm::Inputs::Base
   def hour_options
     hour = [['Select one...', '00:00:00']]
     (7..20).each do |h|
-      %w(00 15 30 45).each do |m|
+      %w(00 30).each do |m|
         hour.push ["#{h}h #{m}", "#{"%02d" % h}:#{m}:00"]
       end
     end

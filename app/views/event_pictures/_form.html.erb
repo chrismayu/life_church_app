@@ -1,3 +1,6 @@
+<%= debug params if Rails.env.development? %>
+<%= debug @event_picture if Rails.env.development? %>
+
 <%= simple_form_for @event_picture, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
   <%= f.input :event_image %>

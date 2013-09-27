@@ -1,15 +1,17 @@
 <%- model_class = Event -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+	<h4>Event Details for:</h4>
+  <h1><%= @event.event_name %></h1>
 </div>
-
+<div class="form-actions">
 <dl class="dl-horizontal">
+ 
   <dt><strong><%= model_class.human_attribute_name(:event_name) %>:</strong></dt>
   <dd><%= @event.event_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
-  <dd><%= @event.event_date %></dd>
+  <dd><%= @event.event_date.strftime("%b %d") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
-  <dd><%= @event.event_time %></dd>
+  <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
   <dd><%= @event.contact_email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
@@ -19,19 +21,32 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:remove_event_date) %>:</strong></dt>
-  <dd><%= @event.remove_event_date %></dd>
+  <dd><%= @event.remove_event_date.strftime("%b %d") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:display_main_page) %>:</strong></dt>
   <dd><%= @event.display_main_page %></dd>
+        
+
 </dl>
 
+</div>
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              events_path, :class => 'btn'  %>
+<p><h5>Picture:</h5></p>
+<%= render :partial => 'picture' %>
+
+
+</div>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.View all Events")),
+              events_path, :class => 'btn btn-flat btn-info'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_event_path(@event), :class => 'btn' %>
+              edit_event_path(@event), :class => 'btn btn-flat btn-primary ' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               event_path(@event),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger btn-flat ' %>
+	 
+
+ 
+
 </div>

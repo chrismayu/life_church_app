@@ -1,0 +1,26 @@
+<div class="row">
+ <div class="span4">
+   
+
+<% if @event.event_pictures.present? %>
+<% for event_picture in @event.event_pictures %>
+<% if event_picture.image_processed? %>
+    <%= image_tag(event_picture.event_image_url(:thumb), :class =>"img-rounded" ) %>
+  <% else %>
+    <em>Processing...</em>
+  <% end %>
+
+	 <%= link_to t('.destroy', :default => t("helpers.links.Remove Picture")),
+              event_picture_path(event_picture),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger btn-flat' %>
+<% end %>
+
+<% else %>
+ <%= link_to t('.picture', :default => t("helpers.links.Add a Picture")),
+               event_pictures_step_1_path(:event_id => @event), :class => 'btn btn-flat btn-success'  %>
+
+<% end %>
+</div>
+</div>

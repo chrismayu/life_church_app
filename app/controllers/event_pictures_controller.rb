@@ -21,10 +21,43 @@ class EventPicturesController < ApplicationController
     end
   end
 
+ def step_1
+      @uploader = EventPicture.new.event_image
+       @uploader.success_action_redirect = event_pictures_step_2_url(:event_id => params[:event_id])
+   # PdfDocument.create!(key: params[:key], :thumb => "thumb", :pdf_form => "Passport", :pdf_passport => true, applicant_id: params[:applicant_id])
+     
+   # @uploader.key = @pdf_document.applicant_id
+   # @uploader.success_action_redirect = new_pdf_document_url(:event_id => params[:event_id])
+   
+   
+   
+ end
+
+
+  def step_2
+    
+     @event_picture = EventPicture.new(key: params[:key], event_id: params[:event_id])
+    
+    respond_to do |format|
+      if @event_picture.save
+       #  format.html { redirect_to @event_picture, notice: 'Event picture was successfully created.' }
+         #format.html { redirect_to @event_picture, notice: 'Event picture was successfully created.' }
+        
+       format.html { redirect_to event_path(@event_picture.event_id), notice: 'This Event picture was successfully created.' }
+        # format.html { redirect_to events_path, notice: 'This Event picture was successfully created.' }
+       
+        else
+          format.html { render action: "step_1" }
+          format.json { render json: @event_picture.errors, status: :unprocessable_entity }
+        end
+    end
+
+  end
+
   # GET /event_pictures/new
   # GET /event_pictures/new.json
   def new
-    @event_picture = EventPicture.new
+    @event_picture = EventPicture.new(key: params[:key])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -73,10 +106,11 @@ class EventPicturesController < ApplicationController
   # DELETE /event_pictures/1.json
   def destroy
     @event_picture = EventPicture.find(params[:id])
+    redirect_id = @event_picture.event_id
     @event_picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to event_pictures_url }
+      format.html { redirect_to event_path(redirect_id), notice: 'Event picture has been removed.'  }
       format.json { head :no_content }
     end
   end

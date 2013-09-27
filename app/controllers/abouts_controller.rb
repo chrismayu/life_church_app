@@ -2,7 +2,16 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :home]
+  
+  def home
+     @events = Event.where(id: Event.pluck(:id).sample(3))
+    
+    
+  end
+  
+  
+  
   
       def contact
         @message = Message.new(params[:message])
