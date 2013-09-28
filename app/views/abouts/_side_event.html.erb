@@ -5,20 +5,9 @@
 
 
  
-
- 
-				<% if event.event_pictures.present? %>
-				<% for event_picture in event.event_pictures %>
-				<% if event_picture.image_processed? %>
-				    <%= image_tag(event_picture.event_image_url(:main), :class =>"img-rounded" ) %>
-				  <% else %>
-				    <em>Processing...</em>
-				  <% end %>
-
-				<% end %>
-
-	<% end %>
+    <%= display_sidebar_event_picture(event) %>
 
  
 
-				<% end %>
+
+<% end %>

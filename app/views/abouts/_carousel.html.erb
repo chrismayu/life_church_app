@@ -1,5 +1,5 @@
 
-	<div id="myCarousel" class="carousel slide">
+	<div id="myCarousel" class="carousel slide span8 " style="height: 450px; width: 650px; margin: 0 auto">
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -10,6 +10,9 @@
 		 
 		 <% @events.each.with_index  do |event, index| %>
 		   
+		
+	 
+		
 				<% if index == 0 %> 
 	 	<div class="item active">
 	 
@@ -17,28 +20,18 @@
 			    	<div class="item">
 			  <% end %>
 		
+ 
+		 	<%= display_carousel_event_picture(event) %>
 		
-		 
-						<% if event.event_pictures.present? %>
-						<% for event_picture in event.event_pictures %>
-						<% if event_picture.image_processed? %>
-						    <%= image_tag(event_picture.event_image_url(:main), :class =>"img-rounded" , :width => 650, :height => 300 ) %>
-						  <% else %>
-						    <em>Processing...</em>
-						  <% end %>
-
-						<% end %>
-
-
-						<% end %>
-						<div class="container">
-					<div class="carousel-caption">
-						<h4><%= event.event_name %></h4>
-						<p><%= event.event_date %> at <%= event.event_start_time.strftime("%l:%M %p") %></p>
+						 
 					 
-			              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+		<div class="carousel-caption">
+		<h4><%= event.event_name %></h4>
+		<p><%= event.event_date %> at <%= event.event_start_time.strftime("%l:%M %p") %>
+	 <%= link_to 'Learn More', learn_more_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%></p>
+            
 					 </div>
-					</div>
+				 
 				</div>
 		 
 			
@@ -54,4 +47,10 @@
 		
 		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+		
+		
+		
+		
+		
+		 
 

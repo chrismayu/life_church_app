@@ -9,6 +9,18 @@ class EventsController < ApplicationController
       format.json { render json: @events }
     end
   end
+  
+  def learn_more
+    @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @event }
+    end
+    
+  end
+  
+  
 
   # GET /events/1
   # GET /events/1.json

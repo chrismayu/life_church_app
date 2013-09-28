@@ -5,8 +5,8 @@ class AboutsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :home]
   
   def home
-     @events = Event.where(id: Event.pluck(:id).sample(3))
-    
+     @events = Event.where(id: Event.pluck(:id).sample(10))
+    @abouts = About.last
     
   end
   

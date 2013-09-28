@@ -3,6 +3,24 @@ body { padding-top: 90px; }
 @import "bootstrap-responsive";
  @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
+.content-carousel .container .carousel .carousel-inner .item { padding:0 5% }
+
+.newStep {
+    display: inline-block;
+    width: your-image-width;
+    height: your-image-height;
+    background: url('/assets/new_step.png');
+}
+
+.newStep:hover {
+    background: url('/assets/new_step_highlighted.png');
+}
+
+ .icon-cog {
+    color: blue;
+}
+
+
 .pull-center{text-align:center;margin:0 auto !important;}
 .pull-middle{vertical-align:middle;padding-top:17% !important;}
 .pull-bottom{position:absolute;bottom:0;}
@@ -25,6 +43,21 @@ body { padding-top: 90px; }
 .nav {
     padding-top: 17px;
 }
+
+.btn-mini-flat {
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:0px;
+  	border-width:0;
+  	background-image:none;
+  	padding:3px;
+  	margin:0 auto;
+  	margin-top:8px;
+  	//width:15%;
+    font-size:10pt;
+     
+}
+
+
 
 .btn-flat {
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
