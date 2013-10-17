@@ -7,6 +7,12 @@ class About < ActiveRecord::Base
     "#{self.address}, #{self.city}, #{self.postal_code}" 
   end
 
+  def prod_img_full
+    "twitter.jpg"
+  end
 
+  def prod_img_over
+    "twitter-hover.jpg"
+  end
 
 end

@@ -1,11 +1,74 @@
  
+ <div id='background' class='row-fluid'>
+        <div class='span12'>
+	
+	
+            <div class='row span12'>
+		<br>
+	        <%= image_tag("clear.png", size: "20x450")%><%= image_tag("disciples.png", size: "373x29")%><%= link_to (image_tag( "service_time.png", size: "273x29", :class=>'image_no_padding')),  root_path  %><%= link_to (image_tag( "new_here.png", size: "131x29", :class=>'image_no_padding' )),  root_path  %><%= link_to (image_tag( "contact.png", size: "132x29", :class=>'image_no_padding')),  root_path  %>
+
+ </div>
  
-  
-    <div class="row-fluid">
-      <div><%= render :partial => 'carousel' , :picture => @events %></div>
-      <div><%= render :partial => 'side_event' , :picture => @events %></div>
-      <div><%= render :partial => 'side_social_media' , :picture => @abouts %></div>
-    </div>
+
+    <div  id='site-column' class="row-fluid ">
+ 
+ <div>
+ 
+ <%= render :partial => 'carousel' , :picture => @events %></div>
+ <div class="row-fluid">
+	 <div class="span2 " style="height: 450px; width: 216px;">
+  <%= render :partial => 'side_event' , :picture => @events %></div>
+     
+		  <div class="span1"> 
+			 
+			<br>
+			<%= image_tag("join_us.png")%>
+			<br>
+			<br>
+			 
+			
+	<%= link_to (image_tag( "live.png", size: "40x50",
+	            alt: @abouts.facebook, 
+	            mouseover: "live_hover.png")).html_safe,  root_path  %>
+	
+	<br>
+	<br>
+ 
+				<%= link_to (image_tag( "facebook.png", size: "40x50",
+				            alt: @abouts.facebook, 
+				            mouseover: "facebook_hover.png")).html_safe,  root_path  %>
+							<br>
+							<br>
+							 
+				
+							<%= link_to (image_tag( "twitter.png", size: "40x50",
+							            alt: @abouts.facebook, 
+							            mouseover: "twitter_hover.png")).html_safe,  root_path  %>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+						 
+										
+	</div>
+</div>
+</div>	
+	
+	
+</div> <%# row fluid %>
+	
+	
+ </div>  <%# span 12 %>
+ 
+</div>  
  
  
   

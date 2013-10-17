@@ -5,15 +5,80 @@ body { padding-top: 90px; }
 
 .content-carousel .container .carousel .carousel-inner .item { padding:0 5% }
 
+.image_no_padding{
+	
+	padding:0px;
+	padding-left:0px;
+	padding-right:0px;	
+}
+
+#site-column
+{
+    top: 0;
+    bottom: 0;
+    min-height: 100%;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    background-color: white;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.container{
+          width: 975px;
+          }
+
+.column-wrap
+{
+    overflow: hidden;
+}
+
+.span8{
+  	border: 0px solid #DDD;
+}
+
+.span2{
+  
+	border: 0px solid #DDD;
+}
+.span12{
+ 
+	
+	width: 925px;
+}
+
+.twitter-button{
+	
+	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:0px;
+  	border-width:0;
+  	background-image:none;
+  	padding:3px;
+  	margin:0 auto;
+  	margin-top:8px;
+  	//width:15%;
+    font-size:6pt;
+    text-align:center;
+    vertical-align:bottom;
+}
+
+.sideevent { 
+	border-collapse: separate;
+    border-spacing: 0 0px;
+
+}
+ 
+
+
 .newStep {
     display: inline-block;
     width: your-image-width;
     height: your-image-height;
-    background: url('/assets/new_step.png');
+    background: url('/assets/twitter.png');
 }
 
 .newStep:hover {
-    background: url('/assets/new_step_highlighted.png');
+    background: url('/assets/twitter-hover.png');
 }
 
  .icon-cog {
@@ -57,6 +122,12 @@ body { padding-top: 90px; }
      
 }
 
+.btn-blue{
+	
+	
+	
+	
+}
 
 
 .btn-flat {

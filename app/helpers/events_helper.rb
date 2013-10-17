@@ -47,7 +47,7 @@ module EventsHelper
        end  
         else
 
-         return image_tag (placeholder_image_url "652x452")
+         return image_tag (placeholder_image_url "652x455")
        end  
        
         #return image_tag (placeholder_image_url "652x452")

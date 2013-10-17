@@ -1,12 +1,22 @@
-	<%=@abouts.address %><br>
-	<%=@abouts.city %><br>
-	<%=@abouts.province %><br>
-	<%=@abouts.postal_code %><br>
-	 <i class="icon-phone"></i>  <%=@abouts.facebook %><br>
-	<br>
-	
-	<br>
-	
-	<%= link_to ' <i style="font-size: 44px;" class="icon-facebook-sign"></i>'.html_safe, root_path %> 
+
  
-    <%= link_to "", root_path, :class => "newStep" %>
+
+<%= link_to (image_tag( "twitter.png", size: "40x50",
+            alt: @abouts.facebook, 
+            mouseover: "twitter-hover.png")+"TWITTER" ).html_safe,  root_path, :class => 'twitter-button'  %>
+	 
+
+	<br>
+		<br>
+	<%= link_to image_tag( "twitter.png", size: "40x50",
+	            alt: @abouts.facebook, 
+	            mouseover: "twitter-hover.png"), 
+	           root_path %>
+			<br>
+				<br>
+			<%= link_to image_tag( "twitter.png", size: "40x50",
+			            alt: @abouts.facebook, 
+			            mouseover: "twitter-hover.png"), 
+			           root_path %>
+		     
+ 
