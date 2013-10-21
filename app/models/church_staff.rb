@@ -1,5 +1,6 @@
 class ChurchStaff < ActiveRecord::Base
-  attr_accessible :contact_email, :birth_location, :birthday, :blog, :url, :phone_ext, :phone_number, :category,:twitter, :full_name, :facebook, :blog, :google_plus, :linked_in,   :rank, :description, :first_name, :image, :last_name, :spouse_first_name, :started_service, :title
+  include Tokenable
+  attr_accessible :contact_email, :birth_location, :email_id, :birthday, :blog, :url, :phone_ext, :phone_number, :category, :twitter, :full_name, :facebook, :blog, :google_plus, :linked_in,   :rank, :description, :first_name, :image, :last_name, :spouse_first_name, :started_service, :title
 
 has_many :staff_ranks, :foreign_key => :ranking, :primary_key =>  :rank
 has_many :church_staff_pictures, :foreign_key => :church_staff_id, :primary_key =>  :id, :inverse_of => :church_staff, :dependent => :destroy

@@ -99,6 +99,14 @@
 		<dt><strong>twitter:</strong></dt>
 	  <dd><%= @church_staff.twitter %></dd>
 	<% end%>
+	
+		<dt><strong>twitter:</strong></dt>
+	  <dd><%= @church_staff.email_id %></dd>
+	 <%= link_to t('.new', :default => t("helpers.links.Contact")),
+                      contact_staff_path(:staff => @church_staff.email_id), :class => 'btn   btn-success btn-mini-flat' %><br>
+ 
+	
+	
 	</dl> 
   </p>
 </div>

@@ -49,7 +49,8 @@ LifeChurchApp::Application.routes.draw do
   
   devise_for :users
   resources :users
-  
+  match 'contact_staff' => 'contact_staff#new', :as => 'contact_staff', :via => :get
+  match 'contact_staff' => 'contact_staff#create', :as => 'contact_staff', :via => :post  
   
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

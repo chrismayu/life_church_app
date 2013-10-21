@@ -64,6 +64,7 @@ class ChurchStaffsController < ApplicationController
         format.html { redirect_to church_staff_path(@church_staff), notice: 'Church staff was successfully created.' }
         format.json { render json: @church_staff, status: :created, location: @church_staff }
       else
+        flash.now.alert = "Please fill all required fields."
         format.html { render action: "new" }
         format.json { render json: @church_staff.errors, status: :unprocessable_entity }
       end

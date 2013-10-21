@@ -5,6 +5,6 @@ class ContactMailer < ActionMailer::Base
 
     def site_message(message)
       @message = message
-      mail(:subject => "[YourWebsite.tld] #{message.subject}")
+      mail(:subject => "Life Church #{message.subject}")
     end
 end

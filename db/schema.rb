@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926023055) do
+ActiveRecord::Schema.define(:version => 20131021140516) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130926023055) do
     t.string   "url"
     t.integer  "phone_ext"
     t.string   "phone_number"
+    t.string   "email_id"
   end
 
   create_table "event_pictures", :force => true do |t|

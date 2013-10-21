@@ -31,7 +31,8 @@
     <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
   </blockquote>
   <p>
-    <i class="icon-envelope"></i> <%= church_staff.contact_email %> <br>
+    <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact")),
+                      contact_staff_path(:staff => church_staff.email_id), :class => 'btn   btn-success btn-mini-flat' %><br>
     <i class="icon-globe"></i> <%= church_staff.url %>  <br>
     <i class="icon-gift"></i> <%= church_staff.birthday %> <br>
         <i class="icon-smile"></i> <%= church_staff.spouse_first_name %> <br>

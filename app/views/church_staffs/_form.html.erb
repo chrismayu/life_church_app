@@ -24,7 +24,7 @@
 	<%= f.input :phone_number,  :label=>"Phone Number:",   :placeholder=>"Phone Number" ,  :input_html => { :class => "enroll_input span3"}  %>
 		<%= f.input :phone_ext,  :label=>"Phone Ext:",   :placeholder=>"Phone Ext" ,  :input_html => { :class => "enroll_input span3"}  %>
 
- 	<%= f.input :contact_email,  :label=>"Email Address:",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
+ 	<%= f.input :contact_email,  :label=>"Email Address:",  :hint => "Your email will NOT be visible to anyone - just used to contact you)", :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
   
 <%= f.input :rank, collection: StaffRank.all, label_method: :category, value_method: :ranking,label: "Select Category:", include_blank: false %>
 
