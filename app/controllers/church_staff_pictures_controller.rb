@@ -2,11 +2,33 @@ class ChurchStaffPicturesController < ApplicationController
   # GET /church_staff_pictures
   # GET /church_staff_pictures.json
   
-  def step_1
-        @uploader = ChurchStaffPicture.new.staff_image
-        @uploader.success_action_redirect = new_church_staff_picture_url
-  end
   
+  def step_1
+       @uploader = ChurchStaffPicture.new.staff_image
+        @uploader.success_action_redirect = church_staff_pictures_step_2_url(:church_staff_id => params[:church_staff_id])
+
+  end
+
+
+   def step_2
+
+      @church_staff_picture = ChurchStaffPicture.new(key: params[:key], church_staff_id: params[:church_staff_id])
+     respond_to do |format|
+       if @church_staff_picture.save
+         format.html { redirect_to church_staff_path(@church_staff_picture.church_staff_id), notice: 'Church staff picture was successfully created.' }
+     
+       else
+         format.html { render action: "step_1" }
+         format.json { render json: @church_staff_picture.errors, status: :unprocessable_entity }
+       end
+     end
+
+
+
+
+   end
+   
+   
   
   def index
     @church_staff_pictures = ChurchStaffPicture.all
@@ -87,11 +109,17 @@ class ChurchStaffPicturesController < ApplicationController
   # DELETE /church_staff_pictures/1.json
   def destroy
     @church_staff_picture = ChurchStaffPicture.find(params[:id])
+    redirect_id =  @church_staff_picture.church_staff_id
     @church_staff_picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to church_staff_pictures_url }
+      format.html { redirect_to church_staff_path(redirect_id), notice: 'Staff picture has been removed.'  }
       format.json { head :no_content }
     end
   end
+  
+  
+   
+  
+  
 end
