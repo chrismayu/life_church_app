@@ -29,6 +29,5 @@ puts 'DEFAULT Service Times'
 StaffRank.create!(:day => "Tuesday", :service_name => "Tuesday Morning Prayer", :start_time => "09/24/2013 07:30")
 StaffRank.create!(:day => "Sunday", :service_name => "Sunday Morning Service", :start_time => "09/24/2013 10:00")
 StaffRank.create!(:day => "Wednesday", :service_name => "Wednesday Night Service", :start_time => "09/24/2013 19:30")
-
  
  
