@@ -49,11 +49,15 @@ LifeChurchApp::Application.routes.draw do
   
   devise_for :users
   resources :users
+  
   match 'contact_event' => 'contact_event#new', :as => 'contact_event', :via => :get
   match 'contact_event' => 'contact_event#create', :as => 'contact_event', :via => :post
 
   match 'contact_staff' => 'contact_staff#new', :as => 'contact_staff', :via => :get
   match 'contact_staff' => 'contact_staff#create', :as => 'contact_staff', :via => :post  
+
+  match 'contact_tech' => 'contact_tech#new', :as => 'contact_tech', :via => :get
+  match 'contact_tech' => 'contact_tech#create', :as => 'contact_tech', :via => :post
   
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

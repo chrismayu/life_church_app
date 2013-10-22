@@ -2,9 +2,9 @@
 
 
 <div class="page-header">
-  <h1>Contact Us</h1>
+  <h1>Technical Support</h1>
 </div>
-<%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_path do |f| %>
+<%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_tech_path do |f| %>
 <table class="table table-striped">
 
   <tbody>
@@ -12,24 +12,22 @@
 	  <th>
 		<br>
  
+		
     <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span5"}  %>
    
     
     
 	<%= f.input :email,  :label=>"Email Address:",  :input_html => { :class => "enroll_input span4"}, :wrapper => :append do %>
-	  <%= f.input_field :email,   :placeholder=>"Your Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
+	  <%= f.input_field :email,   :placeholder=>"Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
 	<% end %>
 
     
 
-	<%= f.input :subject,  :label=>'Subject:' , :selected=>["Please Choose"],  collection: [ "General Customer Service", "Prayer Request"]%> 
+    <%= f.input :subject, :label=>'Subject:' %>
 
-		</div>
-		<div class="span5">
-	<%= f.input :body, :label=>'Message:', as: :text, :input_html => { :class => "input-xlarge span5", :rows => 10} %>
-
-  </div>
- <br>
+Please describe the Error you are having issues with:
+ 
+	<%= f.input :body, :label=>'Message:', as: :text, :input_html => { :class => "enroll_input span4", :rows => 6} %>
 
  </th>
 </tr>

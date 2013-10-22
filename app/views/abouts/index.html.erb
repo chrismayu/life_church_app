@@ -38,7 +38,7 @@
 	<div class="span8">
      
 	
-	<iframe width="100%" height="650" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?q=547+athlone+ave+woodstock+on&amp;ie=UTF8&amp;hq=&amp;hnear=547+Athlone+Ave,+Woodstock,+Ontario+N4S+7V8&amp;gl=ca&amp;ll=43.106388,-80.745452&amp;spn=0.015604,0.034547&amp;t=h&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 	
 	
 	
@@ -57,34 +57,4 @@
 		</address>
 	</div>
 </div>
-</section>
-<section id="contact">
-<h3>Contact Us</h3>
-<form class="well span8">
-  <div class="row">
-		<div class="span3">
-<%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_event_path do |f| %>
- 
-    <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span3"}  %>
-   
-	  <%= f.input_field :email,  :label =>"Email Address", :placeholder=>"Your Email Address", :input_html => { :class => "enroll_input span3"}  %> 
- 
-	<%= f.input :subject,  :label=>'Subject:' , :selected=>["Please Choose"],  collection: [ "General Customer Service", "Prayer Request"]%> 
-	
-		</div>
-		<div class="span5">
-	<%= f.input :body, :label=>'Message:', as: :text, :input_html => { :class => "input-xlarge span5", :rows => 10} %>
- 
-  </div>
- <br>
-	    <%= f.button :submit, 'Send Message', :class => 'btn-primary pull-right btn btn-flat' %>
- 
- 		</div>
-	</form>
-<% end %>
-
-
- </section>
-
-
- 
+</section> 
