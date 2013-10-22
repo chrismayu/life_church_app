@@ -15,8 +15,8 @@ class ContactStaffController < ApplicationController
            @message.staff_email = @church_staff.contact_email
           @message.staff_name = @church_staff.full_name
          else
-         @message.staff_email = "life@lifeinyou.com"
-        
+         @message.staff_email = "chrismayu@gmail.com"  #"life@lifeinyou.com"
+         @message.staff_name = "Chris"
         end
          
         if @message.valid?

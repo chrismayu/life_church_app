@@ -39,20 +39,18 @@ LifeChurchApp::Application.configure do
  
    # ActionMailer Config
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-   config.action_mailer.delivery_method = :letter_opener   #:smtp
+   config.action_mailer.delivery_method = :smtp
    # change to true to allow email to be sent during development
    config.action_mailer.perform_deliveries = true
    config.action_mailer.raise_delivery_errors = true
    config.action_mailer.default :charset => "utf-8"
 
    config.action_mailer.smtp_settings = {
-     address: "smtp.gmail.com",
-     port: 587,
-     domain: "example.com",
-     authentication: "plain",
-     enable_starttls_auto: true,
-     user_name: ENV["SITE_EMAIL_USERNAME"],
-     password: ENV["SITE_EMAIL_PASSWORD"]
+     :address   => "smtp.mandrillapp.com",
+     :port      => 587,
+     :user_name => ENV["MANDRILL_USERNAME"],
+     :password  => ENV["MANDRILL_API_KEY"]
    }
+
 
 end

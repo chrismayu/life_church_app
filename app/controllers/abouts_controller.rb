@@ -13,7 +13,7 @@ class AboutsController < ApplicationController
   
   
   
-      def contact
+      def create
         @message = Message.new(params[:message])
  
         if @message.valid?

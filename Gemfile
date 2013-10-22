@@ -66,8 +66,8 @@ gem "nifty-generators", :group => :development
 gem 'validates_formatting_of'
 gem 'exception_notification' 
 gem 'gmaps4rails'
- 
- gem 'fog'
+gem 'mandrill-api'
+gem 'fog'
  
 
 group :development, :test do
