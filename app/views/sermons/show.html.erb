@@ -1,0 +1,39 @@
+<%- model_class = Sermon -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:date_of_sermon) %>:</strong></dt>
+  <dd><%= @sermon.date_of_sermon %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @sermon.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @sermon.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
+  <dd><%= @sermon.category %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:audio_url) %>:</strong></dt>
+  <dd><%= @sermon.audio_url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:video_url) %>:</strong></dt>
+  <dd><%= @sermon.video_url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:display_until) %>:</strong></dt>
+  <dd><%= @sermon.display_until %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:speaker_id) %>:</strong></dt>
+  <dd><%= @sermon.speaker_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:members_only) %>:</strong></dt>
+  <dd><%= @sermon.members_only %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @sermon.url %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              sermons_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_sermon_path(@sermon), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              sermon_path(@sermon),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

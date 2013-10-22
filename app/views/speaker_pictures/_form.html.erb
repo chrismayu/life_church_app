@@ -1,0 +1,10 @@
+<%= simple_form_for @speaker_picture, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :speaker_image %>
+  <%= f.input :speaker_id %>
+  <%= f.input :image_processed %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                speaker_pictures_path, :class => 'btn' %>
+  </div>
+<% end %>

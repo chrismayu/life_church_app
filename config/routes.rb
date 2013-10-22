@@ -2,6 +2,15 @@ LifeChurchApp::Application.routes.draw do
  
 
 
+  resources :speaker_pictures
+
+
+  resources :speakers
+
+
+  resources :sermons
+
+
   get "event_pictures/step_1"
   get "event_pictures/step_2"
   resources :event_pictures

@@ -1,0 +1,17 @@
+<%= simple_form_for @sermon, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :date_of_sermon %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :audio_url %>
+  <%= f.input :video_url %>
+  <%= f.input :display_until %>
+  <%= f.input :speaker_id %>
+  <%= f.input :members_only %>
+  <%= f.input :url %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                sermons_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131021140516) do
+ActiveRecord::Schema.define(:version => 20131022204155) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -115,6 +115,21 @@ ActiveRecord::Schema.define(:version => 20131021140516) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sermons", :force => true do |t|
+    t.date     "date_of_sermon"
+    t.string   "title"
+    t.text     "description"
+    t.string   "category"
+    t.string   "audio_url"
+    t.string   "video_url"
+    t.date     "display_until"
+    t.integer  "speaker_id"
+    t.boolean  "members_only"
+    t.string   "url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "service_times", :force => true do |t|
     t.string   "day"
     t.time     "start_time"
@@ -127,6 +142,26 @@ ActiveRecord::Schema.define(:version => 20131021140516) do
   create_table "site_setups", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "speaker_pictures", :force => true do |t|
+    t.string   "speaker_image"
+    t.integer  "speaker_id"
+    t.boolean  "image_processed"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "speakers", :force => true do |t|
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "from_church"
+    t.text     "description"
+    t.integer  "church_staff_id"
+    t.string   "from_church_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "staff_ranks", :force => true do |t|
