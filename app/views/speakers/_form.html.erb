@@ -1,14 +1,20 @@
 <%= simple_form_for @speaker, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :from_church %>
-  <%= f.input :description %>
+
+  <%= f.input :first_name, :label=>"First:", :placeholder=>' Speakers First Name', :input_html => { :class => "enroll_input span4"}   %>
+  <%= f.input :last_name, :label=>"Last Name:", :placeholder=>'Speakers Last Name', :input_html => { :class => "enroll_input span4"}   %>
+
+ <%= f.input :title, :label=>"Speakers Title:", :placeholder=>'Speakers Title', :input_html => { :class => "enroll_input span4"}  %>
+
+  <%= f.input :from_church , :label=>"Home Church:", :placeholder=>'Speakers Church', :input_html => { :class => "enroll_input span4"} %>
+ 
+<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the Speaker" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+
   <%= f.input :church_staff_id %>
   <%= f.input :from_church_url %>
+
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                speakers_path, :class => 'btn' %>
+                speakers_path, :class => 'btn btn-flat' %>
   </div>
 <% end %>

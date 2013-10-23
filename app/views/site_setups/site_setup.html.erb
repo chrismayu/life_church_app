@@ -68,7 +68,33 @@
 </tr>
  <tr>     
 <th>
+	<div class="row">
 
+	<div class="span4">  <h3>Resources Setup</h3>  
+		<p>	Setup Sermons
+			<%= link_to t('.Sermons', :default => t("helpers.links.Sermons setup")),
+			                      sermons_path , :class => 'btn btn-info btn-flat' %>
+		</p>
+
+	 </div>
+ 
+
+	<div class="span4">  <h3>   </h3>  
+		<p>About
+			<%= link_to t('.show', :default => t("helpers.links.Speakers")),
+			                      speakers_path, :class => 'btn btn-info btn-flat' %>
+		</p>
+
+	  </div>
+	<br>
+	</th>
+	</tr>
+	 <tr>     
+	<th>
+	</th>
+	</tr>
+	 <tr>     
+	<th>
 <div class="row">
 
 <div class="span4">  <h3>Events</h3>  
@@ -80,11 +106,8 @@
  </div>
 
 
-<div class="span4">  <h3>   </h3>  
-	<p>About
-		<%= link_to t('.show', :default => t("helpers.links.About")),
-		                      abouts_path, :class => 'btn btn-info btn-flat' %>
-	</p>
+<div class="span4">   
+	 
 
   </div>
 

@@ -1,7 +1,8 @@
 LifeChurchApp::Application.routes.draw do
  
 
-
+  get "speaker_pictures/step_1"
+  get "speaker_pictures/step_2"
   resources :speaker_pictures
 
 

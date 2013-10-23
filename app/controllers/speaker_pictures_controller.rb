@@ -1,6 +1,43 @@
 class SpeakerPicturesController < ApplicationController
   # GET /speaker_pictures
   # GET /speaker_pictures.json
+  
+  
+  def step_1
+        @uploader = SpeakerPicture.new.speaker_image
+         @uploader.success_action_redirect = speaker_pictures_step_2_url(:speaker_id => params[:speaker_id])
+     # PdfDocument.create!(key: params[:key], :thumb => "thumb", :pdf_form => "Passport", :pdf_passport => true, applicant_id: params[:applicant_id])
+
+     # @uploader.key = @pdf_document.applicant_id
+     # @uploader.success_action_redirect = new_pdf_document_url(:speaker_id => params[:speaker_id])
+
+
+
+   end
+
+
+    def step_2
+
+       @speaker_picture = SpeakerPicture.new(key: params[:key], speaker_id: params[:speaker_id])
+
+      respond_to do |format|
+        if @speaker_picture.save
+         #  format.html { redirect_to @speaker_picture, notice: 'Speaker picture was successfully created.' }
+           #format.html { redirect_to @speaker_picture, notice: 'Speaker picture was successfully created.' }
+
+         format.html { redirect_to speaker_path(@speaker_picture.speaker_id), notice: 'This Speaker picture was successfully created.' }
+          # format.html { redirect_to speakers_path, notice: 'This Speaker picture was successfully created.' }
+
+          else
+            format.html { render action: "step_1" }
+            format.json { render json: @speaker_picture.errors, status: :unprocessable_entity }
+          end
+      end
+
+    end
+  
+  
+  
   def index
     @speaker_pictures = SpeakerPicture.all
 
@@ -24,7 +61,7 @@ class SpeakerPicturesController < ApplicationController
   # GET /speaker_pictures/new
   # GET /speaker_pictures/new.json
   def new
-    @speaker_picture = SpeakerPicture.new
+    @speaker_picture = SpeakerPicture.new(key: params[:key])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -72,12 +109,14 @@ class SpeakerPicturesController < ApplicationController
   # DELETE /speaker_pictures/1
   # DELETE /speaker_pictures/1.json
   def destroy
-    @speaker_picture = SpeakerPicture.find(params[:id])
-    @speaker_picture.destroy
+ 
+      @speaker_picture = SpeakerPicture.find(params[:id])
+      redirect_id = @speaker_picture.speaker_id
+      @speaker_picture.destroy
 
-    respond_to do |format|
-      format.html { redirect_to speaker_pictures_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to speaker_path(redirect_id), notice: 'Speaker picture has been removed.'  }
+        format.json { head :no_content }
     end
   end
 end

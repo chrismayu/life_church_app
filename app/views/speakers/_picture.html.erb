@@ -1,0 +1,44 @@
+ 
+ 
+
+<% if @speaker.speaker_pictures.present? %>
+<% for speaker_picture in @speaker.speaker_pictures %>
+<% if speaker_picture.image_processed? %>
+    <%= image_tag(speaker_picture.speaker_image_url(:thumb), :class =>"img-rounded" ) %>
+  <% else %>
+    <em>Processing...</em>
+  <% end %>
+
+	 <%= link_to t('.destroy', :default => t("helpers.links.Remove Picture")),
+              speaker_picture_path(speaker_picture),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger btn-flat' %>
+<% end %>
+
+<% else %>
+
+<table>
+<tr style="border-top: 0px solid #eee; padding-top: 5px; margin-top: 5px width: 500px height: 100px;" class="fancy-weekday">
+  <td class="fancy-weekend ">
+	<div class="fancy-weekday">
+ 
+	 
+			 <%= @speaker.first_name %>  	 <%= @speaker.last_name %> 
+			<br>
+			
+			<%= @speaker.from_church %>  
+	 
+	 </div>	
+
+	 </td>
+
+	</tr>
+ 
+</table>
+
+ <%= link_to t('.picture', :default => t("helpers.links.Add a Picture")),
+               speaker_pictures_step_1_path(:speaker_id => @speaker), :class => 'btn btn-flat btn-success'  %>
+
+<% end %>
+ 

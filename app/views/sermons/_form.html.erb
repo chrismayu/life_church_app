@@ -1,17 +1,32 @@
 <%= simple_form_for @sermon, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :date_of_sermon %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :audio_url %>
-  <%= f.input :video_url %>
-  <%= f.input :display_until %>
-  <%= f.input :speaker_id %>
+
+ 
+
+ 
+  <%= f.input :title, :label=>"Title:", :placeholder=>' God is Good', :input_html => { :class => "enroll_input span4"}   %>
+  
+ 
+
+	<%= f.input :date_of_sermon, :label=>"Date of Sermon:",  :hint => "The date of the Sermon:", :wrapper => :append do %>
+	  <%= f.input_field :date_of_sermon, :id=> 'sermon_date',   :as => :string, :placeholder=>"Date of Sermon" %><span class="add-on"><i class="icon-calendar"></i></span>
+	<% end %>
+
+
+	<%= f.input :display_until, :label=>"Date to disable from site:",  :hint => "The date the Sermon will automatically removed from the site", :wrapper => :append do %>
+	  <%= f.input_field :display_until, :id=> 'remove_sermon_date',   :as => :string, :placeholder=>"Date to disable event" %><span class="add-on"><i class="icon-calendar"></i></span>
+	<% end %>
+	
+ 
+<%= f.input :speaker_id, collection: Speaker.all, label_method: :full_name, value_method: :id,label: "Select Speaker:", include_blank: false %>
+
   <%= f.input :members_only %>
   <%= f.input :url %>
+
+<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the Sermon" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                sermons_path, :class => 'btn' %>
+                sermons_path, :class => 'btn btn-flat' %>
   </div>
 <% end %>
