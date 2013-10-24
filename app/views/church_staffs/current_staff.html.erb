@@ -18,11 +18,13 @@
 	<% for church_staff_picture in church_staff.church_staff_pictures %>
   <% if church_staff_picture.image_processed? %>
     <%= image_tag(church_staff_picture.staff_image_url(:main), :class =>"img-rounded" ) %>
- 
-  <% else %>
+ <% else %>
      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
   <% end %>  
-   <% end%>
+
+  <% end%>
+
+
   <% else %>
      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
   <% end%>
