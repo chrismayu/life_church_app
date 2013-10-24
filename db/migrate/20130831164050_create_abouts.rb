@@ -16,6 +16,12 @@ class CreateAbouts < ActiveRecord::Migration
       t.float :latitude
       t.float :longitude
       t.boolean :gmaps
+      t.string :youtube
+      t.string :facebook
+      t.string :video_stream
+      t.string :twitter
+      t.string :country
+      t.string :province
 
       t.timestamps
     end

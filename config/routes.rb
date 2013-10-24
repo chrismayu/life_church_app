@@ -44,12 +44,13 @@ LifeChurchApp::Application.routes.draw do
  
   resources :church_staffs
 
- match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
+# match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
 
   post 'abouts/contact' 
   get "abouts/home"
   root :to => 'abouts#home'
-  
+  get "abouts/mission_method"
+  get "abouts/what_we_believe"
   resources :abouts
 
 

@@ -17,7 +17,7 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.add_role :admin
 puts 'DEFAULT CHURCH ADDRESS'
-About.create!(:address => "547 Athlone Avenue", :postal_code => "N4S 7V8", :phone_number => "(519) 537-7700", :toll_free_phone_number => "1-888-857-LIFE", :city => "Woodstock", :city => "Ontario", :city => "Canada") #5 ada N4S 7V8 Phone 1-888-857-LIFE 
+About.create!(:address => "547 Athlone Avenue", :postal_code => "N4S 7V8", :facebook =>"https://www.facebook.com/LifeInYou", :twitter =>"https://twitter.com/ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :phone_number => "(519) 537-7700", :toll_free_phone_number => "1-888-857-LIFE", :city => "Woodstock", :province => "Ontario", :country => "Canada") #5 ada N4S 7V8 Phone 1-888-857-LIFE 
 puts 'DEFAULT Staff Rank'
 StaffRank.create!(:category => "Pastor", :ranking => 1)
 StaffRank.create!(:category => "Associate Pastor", :ranking => 2)
@@ -26,8 +26,28 @@ StaffRank.create!(:category => "Assistant", :ranking => 4)
 StaffRank.create!(:category => "Departmental Staff", :ranking => 5)
 StaffRank.create!(:category => "Volunteer", :ranking => 6)
 puts 'DEFAULT Service Times'
-StaffRank.create!(:day => "Tuesday", :service_name => "Tuesday Morning Prayer", :start_time => "09/24/2013 07:30")
-StaffRank.create!(:day => "Sunday", :service_name => "Sunday Morning Service", :start_time => "09/24/2013 10:00")
-StaffRank.create!(:day => "Wednesday", :service_name => "Wednesday Night Service", :start_time => "09/24/2013 19:30")
+ServiceTime.create!(:day => "Tuesday", :service_name => "Tuesday Morning Prayer", :start_time => "09/24/2013 07:30")
+ServiceTime.create!(:day => "Sunday", :service_name => "Sunday Morning Service", :start_time => "09/24/2013 10:00")
+ServiceTime.create!(:day => "Wednesday", :service_name => "Wednesday Night Service", :start_time => "09/24/2013 19:30")
+puts 'DEFAULT Staff'
+ChurchStaff.create!(:first_name => "Thomas", :last_name => "Zimmerman", :birthday => "09/24/2013 19:30", :title =>"Pastor", :started_service => "09/24/2013 19:30")
+ChurchStaff.create!(:first_name => "Jason", :last_name => "Tucker", :birthday => "09/24/2013 19:30", :title =>"Youth Pastor", :started_service => "09/24/2013 19:30")
+puts 'DEFAULT Events'
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Christmas Dinner", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Easter Service", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Guest Speaker", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Chris' B-Day", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Summer Picnic", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_start_time => "09/24/2013 19:30",  :event_date => "09/24/2013 19:30", :event_name => "Chuch Cleanning Bee", :location =>"LifeChuch", :remove_event_date => "09/24/2015 19:30")
+puts 'DEFAULT Guest Speakers'
+Speaker.create!(:first_name => "Thomas", :last_name => "Zimmerman", :from_church=>"LifeChurch", :description=>"Shortest Description Ever!!", :title =>"Pastor" )
+Speaker.create!(:first_name => "Jason", :last_name => "Tucker", :from_church=>"LifeChurch", :description=>"Shortest Description Ever!!", :title =>"Youth Pastor" )
+Speaker.create!(:first_name => "Colin", :last_name => "Nanton", :from_church=>"LifeChurch", :description=>"Shortest Description Ever!!", :title =>"User" )
+Speaker.create!(:first_name => "David", :last_name => "McGrew", :from_church=>"BC", :description=>"Shortest Description Ever!!", :title =>"Pastor" )
+
+
+
+
+ 
  
  
