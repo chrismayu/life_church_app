@@ -55,9 +55,7 @@ class ChurchStaffsController < ApplicationController
   # POST /church_staffs.json
   def create
     @church_staff = ChurchStaff.new(params[:church_staff])
-    
-    full_name = "#{@church_staff.first_name} #{@church_staff.last_name}"
-    @church_staff.update_attribute(:full_name, full_name)
+   
 
     respond_to do |format|
       if @church_staff.save

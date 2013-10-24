@@ -1,25 +1,34 @@
-  <h3> Life Church Staff </h3> 
-<div class="span8"  id="main">
+ 
+
+ <h3> Life Church Staff </h3> 
+<div class="span10"  id="main">
 <table class="table table-striped">
  
   <tbody> 
 
 <% @church_staffs.each.with_index do |church_staff, index| %>
  <tr>
-      <td>
- 
-<% for church_staff_picture in church_staff.church_staff_pictures %>
+      <td> 
+
 <div class="row-fluid offsetHalf1"  id="main">
  
  <% if index.even? %> 
-<div class="span2"  >
+<div class="span4"  >
+	 <%  if church_staff.church_staff_pictures !=nil %>
+	<% for church_staff_picture in church_staff.church_staff_pictures %>
   <% if church_staff_picture.image_processed? %>
     <%= image_tag(church_staff_picture.staff_image_url(:main), :class =>"img-rounded" ) %>
  
   <% else %>
      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
   <% end %>  
- 
+   <% end%>
+  <% else %>
+     <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+  <% end%>
+
+
+
 </div>
 <% end%>
 
@@ -58,11 +67,21 @@
 
  <% if index.odd? %>
 <div class="span2"  >
-	<% if church_staff_picture.image_processed? %>
-	    <%= image_tag(church_staff_picture.staff_image, :class =>"img-rounded" )%>
-	  <% else %>
-	    <em>Processing...</em>
-	  <% end %>  
+	
+	 <%  if church_staff.church_staff_pictures.present? %>
+	<% for church_staff_picture in church_staff.church_staff_pictures %>
+  <% if church_staff_picture.image_processed? %>
+    <%= image_tag(church_staff_picture.staff_image_url(:main), :class =>"img-rounded" ) %>
+  <% else %>
+     <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+  <% end %>  
+
+  <% end%>
+
+
+  <% else %>
+     <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+  <% end%>
 
 </div>
 <% end%>
@@ -79,7 +98,7 @@
   
 </td>
 </tr>
-<% end%>
+ 
 
 <% end %>
 
