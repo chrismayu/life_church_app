@@ -7,7 +7,7 @@ module EventsHelper
       if event_pictures.event_pictures.present?  
       for event_picture in @event.event_pictures  
         if event_picture.image_processed?  
-          return image_tag event_picture.event_image_url(:main), :class =>"img-rounded"   
+          return image_tag event_picture.event_image_url(:main), :class =>"img-rounded pull-center"   
        
         
         end  

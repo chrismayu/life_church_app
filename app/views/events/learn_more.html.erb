@@ -1,40 +1,34 @@
 <%- model_class = Event -%>
 <div class="page-header">
  
-  <h1><%= @event.event_name %></h1>
+  <h1><%= @event.event_name %>	<%= @event.event_date.strftime("%b %d") %> <%= @event.event_start_time.strftime("%l:%M %p") %></h1>
+	<hr class="line_break">
+	
+	<div class="row" style="text-align:center">
+
+	<%= display_event_picture(@event) %>
+	</div> 
+		<hr class="line_break">
 </div>
 <div class="form-actions">
 <dl class="dl-horizontal">
- 
-  <dt><strong><%= model_class.human_attribute_name(:event_name) %>:</strong></dt>
-  <dd><%= @event.event_name %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
   <dd><%= @event.event_date.strftime("%b %d") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
   <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-  <dd><%= @event.contact_email %></dd>
+ 
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @event.location %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
   <dd><%= @event.contact_person %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:remove_event_date) %>:</strong></dt>
-  <dd><%= @event.remove_event_date.strftime("%b %d") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:display_main_page) %>:</strong></dt>
-  <dd><%= @event.display_main_page %></dd>
-             <%= link_to t('.new', :default => t("helpers.links.Contact")),
+ 
+<br>
+             <%= link_to t('.new', :default => t("helpers.links.Contact Us about this Event")),
 		                      contact_event_path(:event => @event.id), :class => 'btn   btn-success btn-mini-flat' %>
 
 </dl>
 
 </div>
-<div class="form-actions">
- 
-<%= display_event_picture(@event) %>
- 
- 
-
-
-</div> 

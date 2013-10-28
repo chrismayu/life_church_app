@@ -4,8 +4,40 @@ body { padding-top: 90px; }
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
  
+.line_break {
+    //width:1000px;
+    //height: 5px;
+    //float: left;
+    //color: black;
+    //padding-top: 3px;
+    //background-color: rgba(255,255,255,.5);
+    border: none;  // remove default style
+    border-bottom: 3px solid black;  //apply style
+}
+.top_line {
+    width:300px;
+    //height: 5px;
+    //float: left;
+    //color: black;
+    //padding-top: 3px;
+    //background-color: rgba(255,255,255,.5);
+    border: none;  // remove default style
+    border-bottom: 10px solid red;  //apply style
+}
+ 
 
-.content-carousel .container .carousel .carousel-inner .item { padding:0 5% }
+html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+.fill{width:100%;height:100%;background-position:center;background-size:cover;}
+
+/* faster sliding speed */
+.carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}
 
 .image_no_padding{
 	
