@@ -25,6 +25,10 @@ facebook.png: facebook-d32050b48acbee5da8ee5e2718f5a2bb.png
 facebook/index.png: facebook-d32050b48acbee5da8ee5e2718f5a2bb.png
 facebook_hover.png: facebook_hover-96ba4f3cb598d6dc0e5ec54f876d7372.png
 facebook_hover/index.png: facebook_hover-96ba4f3cb598d6dc0e5ec54f876d7372.png
+favicon.ico: favicon-b1b2bf55542e8f30c3d2e5a98a27bebe.ico
+favicon/index.ico: favicon-b1b2bf55542e8f30c3d2e5a98a27bebe.ico
+favicon_iphone.png: favicon_iphone-2379fc0dc507b832b9aafa6cacfbc340.png
+favicon_iphone/index.png: favicon_iphone-2379fc0dc507b832b9aafa6cacfbc340.png
 join_us.png: join_us-171aa43d83c56f56c45eef8668d20d37.png
 join_us/index.png: join_us-171aa43d83c56f56c45eef8668d20d37.png
 live.png: live-0466ed8248e1933dd4f781f8ba7e448b.png
@@ -49,8 +53,8 @@ twitter_hover.png: twitter_hover-87dbedd2459c33f3997ff8b01bf66b81.png
 twitter_hover/index.png: twitter_hover-87dbedd2459c33f3997ff8b01bf66b81.png
 application.js: application-12104cc545067fd4c8d3988ee3947f97.js
 application/index.js: application-12104cc545067fd4c8d3988ee3947f97.js
-application.css: application-c09366c15ee436a164449efc3217cf5b.css
-application/index.css: application-c09366c15ee436a164449efc3217cf5b.css
+application.css: application-6cce8d9b2e95c11676204afe70d82b43.css
+application/index.css: application-6cce8d9b2e95c11676204afe70d82b43.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot
