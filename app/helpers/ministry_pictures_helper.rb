@@ -1,0 +1,2 @@
+module MinistryPicturesHelper
+end
