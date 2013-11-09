@@ -1,6 +1,4 @@
 ---
-Empty_Staff.png: Empty_Staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
-Empty_Staff/index.png: Empty_Staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
 IMG_1538.jpg: IMG_1538-dff205494530e3db2224df6a7ee243e1.jpg
 IMG_1538/index.jpg: IMG_1538-dff205494530e3db2224df6a7ee243e1.jpg
 IMG_1540.jpg: IMG_1540-3fe699f747f8ab08eb1151191085cddc.jpg
@@ -23,6 +21,8 @@ detailed_WhatWeBelieve.png: detailed_WhatWeBelieve-7ca9f7660d3063fef037118f211b4
 detailed_WhatWeBelieve/index.png: detailed_WhatWeBelieve-7ca9f7660d3063fef037118f211b4153.png
 disciples.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
 disciples/index.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
+empty_staff.png: empty_staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+empty_staff/index.png: empty_staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
 facebook.png: facebook-d32050b48acbee5da8ee5e2718f5a2bb.png
 facebook/index.png: facebook-d32050b48acbee5da8ee5e2718f5a2bb.png
 facebook_hover.png: facebook_hover-96ba4f3cb598d6dc0e5ec54f876d7372.png
@@ -59,8 +59,8 @@ you_are_welcome-02.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome-02/index.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
 application.js: application-49298625902ac1a06e9ede556df0803b.js
 application/index.js: application-49298625902ac1a06e9ede556df0803b.js
-application.css: application-7b23fa1b53d7a28e67154e54f276f4db.css
-application/index.css: application-7b23fa1b53d7a28e67154e54f276f4db.css
+application.css: application-24b78776129334cd2232f991933c9674.css
+application/index.css: application-24b78776129334cd2232f991933c9674.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot

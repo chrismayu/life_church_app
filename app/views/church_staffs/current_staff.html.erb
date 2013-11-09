@@ -1,15 +1,12 @@
- 
-
- <h3>Church Staff </h3> 
- 
- <div class="divider">
- Church Staff <hr class="round_line_hoz" />
- </div>
+ <table width="100%">
+	 <td style="width:5px; padding: 0 10px; white-space: nowrap;"><h3>Church Staff &nbsp;&nbsp;</h3> </td>
+   <td><hr class="round_line_hoz" /></td>
+ </table>
  
  <br>
  <hr class="line_break">
 <div class="span10"  id="main">
-<table class="table table-striped">
+<table class="table table striped">
  
   <tbody> 
 
@@ -17,7 +14,7 @@
  <tr>
       <td> 
 
-<div class="row-fluid offsetHalf1"  id="main">
+<div class="row fluid offsetHalf1"  id="main">
  
  <% if index.even? %> 
 <div class="span4"  >
@@ -35,7 +32,62 @@
           <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
            <br>  <em> <%= church_staff.title %> </em><br>
    </p>
-  <%= staff_details(church_staff) %>
+ 
+ 
+      <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
+  
+    <p>
+      <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact")),
+                        contact_staff_path(:staff => church_staff.email_id), :class => 'btn   btn-success btn-mini-flat' %>
+						<br>
+						
+	  <% unless church_staff.url.blank? %>				
+      <i class="icon-globe"></i> <%= church_staff.url %>  
+	  <br>
+    <%end%> 
+	  	
+      <i class="icon-gift"></i>  <%= church_staff.birthday %>  
+	  <br>
+   
+  		<% unless church_staff.spouse_first_name.blank? %>	
+          <i class="icon-smile"></i><p> <%= church_staff.spouse_first_name %> </p>
+		  <br>
+  	    <%end%>  
+  	  
+       <% unless church_staff.facebook.blank? %>	
+  	    <i class="icon-facebook"></i> <p><%= church_staff.facebook %> </p>
+	  <br>
+	    <%end%> 
+		
+		
+   <% unless church_staff.linked_in.blank? %>	
+  	   <i class="icon-linkedin"></i> <p> <%= church_staff.linked_in %> </p> 
+	  <br>
+    <%end%> 
+   <% unless church_staff.google_plus.blank? %>	
+  	   <i class="icon-google-plus"></i> <p> <%= church_staff.google_plus %></p> 
+	  <br>
+    <%end%> 
+   
+       
+   <% unless church_staff.twitter.blank? %>	
+  	   <i class="icon-twitter"></i> <p> <%= church_staff.twitter %> </p>
+	  <br>
+    <%end%> 
+  	
+	<% unless church_staff.description.blank? %>	
+          <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> </p>
+		  <br>
+  	    <%end%> 
+  
+     	
+          <% if church_staff.started_service? %>
+          <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
+         <% end %>  
+  </p>
+
+
+  
   
    
 </div>
@@ -47,7 +99,9 @@
 	<br>
 	 <%= display_sidebar_staff(church_staff) %>
 	 
+	 
 </div>
+
 <% end%>
 	 	<br>
 	<br>
@@ -70,4 +124,6 @@
 
   </tbody>
 </table>
-	</div>	
+	</div>
+	
+	<%= debug @church_staffs if Rails.env.development? %>	

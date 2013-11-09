@@ -46,28 +46,32 @@ html,body{height:100%;}
 	padding-right:0px;	
 }
 
+.staff_descrip{
+	
+	background-color: #828F4D;	
+	color: white;
+	padding:10px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
 .round_line_hoz {
     height: .1px;
-    width: 100%;
+    width: 90%;
     border-style: solid;
-    border-color: black;
+    border-color: #E6E6E6;
     border-width: 5px 5px 5px 5px;
     border-radius: 20px;
 	float:right;
 }
 
-.divider {
-    width:500px;
-    text-align:left;
+.top_line {
+	width:5px; 
+	padding: 0 10px; 
+	white-space: nowrap;
+	border-color: #FFF;
 }
-
-.divider hr {
-    margin-left:auto;
-    margin-right:auto;
-    width:80%;
-
-}
-
+ 
  
 
 
@@ -75,7 +79,7 @@ html,body{height:100%;}
     height: 100px;
     width: 100px;
     border-style: solid;
-    border-color: black;
+    border-color: #E6E6E6;
     border-width: 5px 5px 5px 5px;
     border-radius: 20px;
 }
@@ -115,9 +119,7 @@ html,body{height:100%;}
 	
 	width: 925px;
 }
-.staff_bg{
-	background: solid #DFD	
-}
+ 
 .twitter-button{
 	
 	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
