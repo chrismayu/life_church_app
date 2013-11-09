@@ -1,4 +1,6 @@
 ---
+Empty_Staff.png: Empty_Staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+Empty_Staff/index.png: Empty_Staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
 IMG_1538.jpg: IMG_1538-dff205494530e3db2224df6a7ee243e1.jpg
 IMG_1538/index.jpg: IMG_1538-dff205494530e3db2224df6a7ee243e1.jpg
 IMG_1540.jpg: IMG_1540-3fe699f747f8ab08eb1151191085cddc.jpg
@@ -31,6 +33,8 @@ favicon_iphone.png: favicon_iphone-2379fc0dc507b832b9aafa6cacfbc340.png
 favicon_iphone/index.png: favicon_iphone-2379fc0dc507b832b9aafa6cacfbc340.png
 join_us.png: join_us-171aa43d83c56f56c45eef8668d20d37.png
 join_us/index.png: join_us-171aa43d83c56f56c45eef8668d20d37.png
+life_building-01.png: life_building-01-9fb9bc5d4d3894c2db9a1b35ffa9f530.png
+life_building-01/index.png: life_building-01-9fb9bc5d4d3894c2db9a1b35ffa9f530.png
 live.png: live-0466ed8248e1933dd4f781f8ba7e448b.png
 live/index.png: live-0466ed8248e1933dd4f781f8ba7e448b.png
 live_hover.png: live_hover-bcb8865d7edf4b92609b452bb6ef10e8.png
@@ -51,10 +55,12 @@ twitter.png: twitter-a21a1a591afcf028c5aef7e3d998bd3a.png
 twitter/index.png: twitter-a21a1a591afcf028c5aef7e3d998bd3a.png
 twitter_hover.png: twitter_hover-87dbedd2459c33f3997ff8b01bf66b81.png
 twitter_hover/index.png: twitter_hover-87dbedd2459c33f3997ff8b01bf66b81.png
-application.js: application-12104cc545067fd4c8d3988ee3947f97.js
-application/index.js: application-12104cc545067fd4c8d3988ee3947f97.js
-application.css: application-6cce8d9b2e95c11676204afe70d82b43.css
-application/index.css: application-6cce8d9b2e95c11676204afe70d82b43.css
+you_are_welcome-02.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
+you_are_welcome-02/index.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
+application.js: application-49298625902ac1a06e9ede556df0803b.js
+application/index.js: application-49298625902ac1a06e9ede556df0803b.js
+application.css: application-7b23fa1b53d7a28e67154e54f276f4db.css
+application/index.css: application-7b23fa1b53d7a28e67154e54f276f4db.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot

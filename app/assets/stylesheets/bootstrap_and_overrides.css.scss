@@ -46,6 +46,41 @@ html,body{height:100%;}
 	padding-right:0px;	
 }
 
+.round_line_hoz {
+    height: .1px;
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px 5px 5px 5px;
+    border-radius: 20px;
+	float:right;
+}
+
+.divider {
+    width:500px;
+    text-align:left;
+}
+
+.divider hr {
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+
+}
+
+ 
+
+
+.round_line_wid {
+    height: 100px;
+    width: 100px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px 5px 5px 5px;
+    border-radius: 20px;
+}
+
+
 #site-column
 {
     top: 0;
@@ -80,7 +115,9 @@ html,body{height:100%;}
 	
 	width: 925px;
 }
-
+.staff_bg{
+	background: solid #DFD	
+}
 .twitter-button{
 	
 	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
