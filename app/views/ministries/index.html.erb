@@ -7,18 +7,10 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:contact_person) %></th>
-      <th><%= model_class.human_attribute_name(:contact) %></th>
-      <th><%= model_class.human_attribute_name(:_email) %></th>
+      <th><%= model_class.human_attribute_name(:contact_person) %></th> 
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:display_rank) %></th>
-      <th><%= model_class.human_attribute_name(:ta1) %></th>
-      <th><%= model_class.human_attribute_name(:ta2) %></th>
-      <th><%= model_class.human_attribute_name(:ta3) %></th>
-      <th><%= model_class.human_attribute_name(:ta4) %></th>
-      <th><%= model_class.human_attribute_name(:ta5) %></th>
-      <th><%= model_class.human_attribute_name(:advert_main_page) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:display_rank) %></th> 
+      <th><%= model_class.human_attribute_name(:advert_main_page) %></th> 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -28,17 +20,9 @@
         <td><%= link_to ministry.id, ministry_path(ministry) %></td>
         <td><%= ministry.name %></td>
         <td><%= ministry.contact_person %></td>
-        <td><%= ministry.contact %></td>
-        <td><%= ministry._email %></td>
         <td><%= ministry.description %></td>
         <td><%= ministry.display_rank %></td>
-        <td><%= ministry.ta1 %></td>
-        <td><%= ministry.ta2 %></td>
-        <td><%= ministry.ta3 %></td>
-        <td><%= ministry.ta4 %></td>
-        <td><%= ministry.ta5 %></td>
         <td><%= ministry.advert_main_page %></td>
-        <td><%=l ministry.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_ministry_path(ministry), :class => 'btn btn-mini' %>

@@ -1,5 +1,14 @@
 LifeChurchApp::Application.routes.draw do
  
+ 
+  get "ministry_picture_children/step_1"
+  get "ministry_picture_children/step_2"
+  resources :ministry_picture_children
+
+
+  resources :ministry_children
+
+
   get "ministry_pictures/step_1"
   get "ministry_pictures/step_2"
   resources :ministry_pictures

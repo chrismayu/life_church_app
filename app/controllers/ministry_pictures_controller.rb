@@ -23,7 +23,7 @@ class MinistryPicturesController < ApplicationController
 
 
   def step_1
-        @uploader = MinistryPicture.new.event_image
+        @uploader = MinistryPicture.new.ministry_image
          @uploader.success_action_redirect = ministry_pictures_step_2_url(:ministry_id => params[:ministry_id])
 
    end
@@ -101,7 +101,7 @@ class MinistryPicturesController < ApplicationController
   # DELETE /ministry_pictures/1.json
   def destroy
     @ministry_picture = MinistryPicture.find(params[:id])
-     redirect_id = @ministry_picture.event_id
+     redirect_id = @ministry_picture.ministry_id
     @ministry_picture.destroy
   
     

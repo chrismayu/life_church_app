@@ -1,5 +1,5 @@
 class MinistryPicture < ActiveRecord::Base
-  attr_accessible :image_processed, :ministries_id, :ministry_image
+  attr_accessible :image_processed, :ministries_id, :ministry_image, :ministry_id
   mount_uploader :ministry_image, MinistryImageUploader
   belongs_to :ministry, :inverse_of => :ministry_pictures
 

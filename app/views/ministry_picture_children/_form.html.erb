@@ -1,0 +1,10 @@
+<%= simple_form_for @ministry_picture_child, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :ministrychild_image %>
+  <%= f.input :image_processed %>
+  <%= f.input :ministrychild_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ministry_picture_children_path, :class => 'btn' %>
+  </div>
+<% end %>

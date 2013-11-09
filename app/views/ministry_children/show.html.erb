@@ -1,36 +1,34 @@
-<%- model_class = Ministry -%>
+<%- model_class = MinistryChild -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @ministry.name %></dd>
+  <dd><%= @ministry_child.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
-  <dd><%= @ministry.contact_person %></dd>
+  <dd><%= @ministry_child.contact_person %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-  <dd><%= @ministry.contact_email %></dd>
+  <dd><%= @ministry_child.contact_email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @ministry.description %></dd>
+  <dd><%= @ministry_child.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:display_rank) %>:</strong></dt>
-  <dd><%= @ministry.display_rank %></dd>
+  <dd><%= @ministry_child.display_rank %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ta1) %>:</strong></dt>
-  <dd><%= @ministry.ta1 %></dd>
+  <dd><%= @ministry_child.ta1 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ta2) %>:</strong></dt>
-  <dd><%= @ministry.ta2 %></dd>
+  <dd><%= @ministry_child.ta2 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ta3) %>:</strong></dt>
-  <dd><%= @ministry.ta3 %></dd>
+  <dd><%= @ministry_child.ta3 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ta4) %>:</strong></dt>
-  <dd><%= @ministry.ta4 %></dd>
+  <dd><%= @ministry_child.ta4 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ta5) %>:</strong></dt>
-  <dd><%= @ministry.ta5 %></dd>
+  <dd><%= @ministry_child.ta5 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:advert_main_page) %>:</strong></dt>
-  <dd><%= @ministry.advert_main_page %></dd>
-         <%= link_to t('.new', :default => t("helpers.links.Contact")),
-	                      contact_event_path(:ministry => @ministry.id), :class => 'btn   btn-success btn-mini-flat' %>
-
+  <dd><%= @ministry_child.advert_main_page %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ministry_id) %>:</strong></dt>
+  <dd><%= @ministry_child.ministry_id %></dd>
 </dl>
-
 </div>
 <div class="form-actions">
 <p><h5>Picture:</h5></p>
@@ -38,21 +36,14 @@
 
 
 </div>
-
-<div class="form-actions">
-<p><h5>Children:</h5></p>
-<%= render :partial => 'ministry_children' %>
-
-
-</div>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              ministries_path, :class => 'btn'  %>
+              ministry_children_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_ministry_path(@ministry), :class => 'btn' %>
+              edit_ministry_child_path(@ministry_child), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              ministry_path(@ministry),
+              ministry_child_path(@ministry_child),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger ' %>
+              :class => 'btn btn-danger' %>
 </div>

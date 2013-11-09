@@ -1,7 +1,7 @@
 <%- model_class = Event -%>
 <div class="page-header">
  
-  <h1><%= @event.event_name %>	<%= @event.event_date.strftime("%b %d") %> <%= @event.event_start_time.strftime("%l:%M %p") %></h1>
+  <h1><%= @event.event_name %>	</h1>
 	<hr class="line_break">
 	
 	<div class="row" style="text-align:center">
@@ -10,25 +10,23 @@
 	</div> 
 		<hr class="line_break">
 </div>
+<%= @event.event_date.strftime("%b %d %Y") %> at <%= @event.event_start_time.strftime("%l:%M %p") %>  or in <%= time_ago_in_words(@event.event_date) %> from now
 <div class="form-actions">
-<dl class="dl-horizontal">
-
-  <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
-  <dd><%= @event.event_date.strftime("%b %d") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
-  <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
+	
+<div class="pull-center">	
+	<%= @event.description %>
+	
+	<br>
+	<br>
+	
+    <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp
+					 <%= link_to t('.new', :default => t("helpers.links.Print Details")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+					 &nbsp&nbsp&nbsp&nbsp&nbsp
+					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
+                     contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+</div>	
  
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @event.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
-  <dd><%= @event.contact_person %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @event.description %></dd>
- 
-<br>
-             <%= link_to t('.new', :default => t("helpers.links.Contact Us about this Event")),
-		                      contact_event_path(:event => @event.id), :class => 'btn   btn-success btn-mini-flat' %>
-
-</dl>
 
 </div>

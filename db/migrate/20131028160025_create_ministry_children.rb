@@ -1,6 +1,6 @@
-class CreateMinistries < ActiveRecord::Migration
+class CreateMinistryChildren < ActiveRecord::Migration
   def change
-    create_table :ministries do |t|
+    create_table :ministry_children do |t|
       t.string :name
       t.string :contact_person
       t.string :contact_email

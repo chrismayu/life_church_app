@@ -12,7 +12,11 @@ module EventsHelper
         
         end  
       end  
-      end  
+    else
+
+    
+        return link_to(image_tag(placeholder_image_url "486x276", :text => "Oops-No Picture", :bg => "000", :fg => "667"), learn_more_path(event_pictures)) 
+   end 
    end  
   
   
@@ -23,14 +27,15 @@ module EventsHelper
           if event_picture.image_processed?  
             return link_to(image_tag(event_picture.event_image_url(:side)), learn_more_path(event_pictures)) 
             
+                 
               
           end  
          end 
        
         else
 
-          return image_tag (placeholder_image_url "216x151", :text => "Oops-No Picture", :bg => "000", :fg => "667") 
-          
+        
+            return link_to(image_tag(placeholder_image_url "216x151", :text => "Oops-No Picture", :bg => "000", :fg => "667"), learn_more_path(event_pictures)) 
        end
        
        # return image_tag (placeholder_image_url "216x151")   

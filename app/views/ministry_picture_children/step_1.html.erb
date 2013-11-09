@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h2>Upload an Ministry ChildPicture</h2> <h4>Step 1</h4> 
+</div>
+ 
+ 
+<div class="page-header">
+	
+	
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :ministrychild_image %></p>
+  <p><%= f.submit "Upload Picture", :class => "btn btn-success btn-flat" %></p>
+<% end %>
+
+
+</div>

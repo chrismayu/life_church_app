@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028145553) do
+ActiveRecord::Schema.define(:version => 20131029152223) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -107,8 +107,7 @@ ActiveRecord::Schema.define(:version => 20131028145553) do
   create_table "ministries", :force => true do |t|
     t.string   "name"
     t.string   "contact_person"
-    t.string   "contact"
-    t.string   "_email"
+    t.string   "contact_email"
     t.text     "description"
     t.integer  "display_rank"
     t.text     "ta1"
@@ -119,6 +118,32 @@ ActiveRecord::Schema.define(:version => 20131028145553) do
     t.boolean  "advert_main_page"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "ministry_children", :force => true do |t|
+    t.string   "name"
+    t.string   "contact_person"
+    t.string   "contact_email"
+    t.text     "description"
+    t.integer  "display_rank"
+    t.text     "ta1"
+    t.text     "ta2"
+    t.text     "ta3"
+    t.text     "ta4"
+    t.text     "ta5"
+    t.boolean  "advert_main_page"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "ministry_id"
+  end
+
+  create_table "ministry_picture_children", :force => true do |t|
+    t.string   "ministrychild_image"
+    t.boolean  "image_processed"
+    t.integer  "ministrychild_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "ministry_id"
   end
 
   create_table "ministry_pictures", :force => true do |t|
