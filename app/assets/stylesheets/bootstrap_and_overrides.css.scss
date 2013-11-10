@@ -5,7 +5,8 @@ body { padding-top: 90px; }
 
  
 .line_break {
-    //width:1000px;
+    width: 80%;
+	align: center;
     //height: 5px;
     //float: left;
     //color: black;
@@ -54,16 +55,49 @@ html,body{height:100%;}
 	padding-left:10px;
 	padding-right:10px;
 }
+.main_text{
+	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+  	color:#5A5A59;
+    font-size:22pt;
+    text-align:center;
+	font-weight:900;
+}
 
 .round_line_hoz {
     height: .1px;
-    width: 90%;
+    width: 88%;
     border-style: solid;
     border-color: #E6E6E6;
-    border-width: 5px 5px 5px 5px;
-    border-radius: 20px;
-	float:right;
+    border-width: 7px 7px 7px 7px;
+    border-radius: 10px;
+	float:left;
 }
+
+.round_line_hoz2 {
+    height: .1px;
+    width: 91%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px 2px 2px 2px;
+    border-radius: 10px;
+	float:center;
+	margin: 0px;
+	margin-left: 5%
+	 
+	 
+}
+
+.table_zero {
+	
+	margin: 0px;
+	
+	
+}
+
+.mission_bg {
+   background-color: #FFF;	
+}
+ 
 
 .top_line {
 	width:5px; 
