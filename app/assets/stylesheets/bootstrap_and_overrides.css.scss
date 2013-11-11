@@ -3,6 +3,18 @@ body { padding-top: 90px; }
 @import "bootstrap-responsive";
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
+
+.icon-arrow-right {
+	background-image:none;
+    color: #007DC3;
+    font-size: 2.5em;
+}
+
+.text_offset_bottom{
+	
+	padding-top:23px;
+	
+}
  
 .line_break {
     width: 80%;
@@ -45,6 +57,16 @@ html,body{height:100%;}
 	padding:0px;
 	padding-left:0px;
 	padding-right:0px;	
+}
+
+.italic_text{
+	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+  	color:#000;
+    font-size:9pt;
+    text-align:center;
+	font-weight:700;
+	font-style: italic;
+	text-align:center;
 }
 
 .staff_descrip{
@@ -213,6 +235,22 @@ html,body{height:100%;}
 .nav {
     padding-top: 17px;
 }
+
+
+.btn-mini-flat-rounded {
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:10px;
+  	border-width:20;
+  	background-image:none;
+  	padding:5px;
+  	margin:0 auto;
+  	margin-top:8px;
+	margin-right:8px;
+  	width:12%;
+    font-size:12pt;
+     
+}
+
 
 .btn-mini-flat {
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
