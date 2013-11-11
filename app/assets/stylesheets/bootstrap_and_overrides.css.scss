@@ -265,6 +265,11 @@ html,body{height:100%;}
      
 }
 
+
+h40 { 
+	  @extend h3;
+}
+
 .btn-blue{
 	
 	
@@ -272,15 +277,26 @@ html,body{height:100%;}
 	
 }
 
-
+.btn-about {
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:0px;
+  	border-width:0;
+  	background-image:none;
+  	padding:2px;
+  	margin:0 auto;
+  	margin-top:1px;
+  	width:170%;
+    font-size:9pt;
+     
+}
 .btn-flat {
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 	border-radius:0px;
   	border-width:0;
   	background-image:none;
-  	padding:8px;
+  	padding:5px;
   	margin:0 auto;
-  	margin-top:15px;
+  	margin-top:10px;
   	//width:15%;
     font-size:13pt;
      

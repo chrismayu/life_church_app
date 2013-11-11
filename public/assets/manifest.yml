@@ -13,6 +13,8 @@ Mainlogo-01.png: Mainlogo-01-e923ffff2120b9066d41a9c8a4c9e9ce.png
 Mainlogo-01/index.png: Mainlogo-01-e923ffff2120b9066d41a9c8a4c9e9ce.png
 Mission&Methods.png: Mission&Methods-f2eba858faf6840667b7bee58e8cc3fa.png
 Mission&Methods/index.png: Mission&Methods-f2eba858faf6840667b7bee58e8cc3fa.png
+about_lc_building.png: about_lc_building-398c26a41a369e7ad35d0fbac7fced9d.png
+about_lc_building/index.png: about_lc_building-398c26a41a369e7ad35d0fbac7fced9d.png
 clear.png: clear-a886da67c7dd9b544546c5e222f9d7c5.png
 clear/index.png: clear-a886da67c7dd9b544546c5e222f9d7c5.png
 contact.png: contact-0e57a4a2684597d8d5c1bb7f2f77af89.png
@@ -59,8 +61,8 @@ you_are_welcome-02.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome-02/index.png: you_are_welcome-02-ef24716c8773e61f858f9c130eb40ba4.png
 application.js: application-49298625902ac1a06e9ede556df0803b.js
 application/index.js: application-49298625902ac1a06e9ede556df0803b.js
-application.css: application-24b78776129334cd2232f991933c9674.css
-application/index.css: application-24b78776129334cd2232f991933c9674.css
+application.css: application-6686d7e8b7e972366d8ee7f42dadb959.css
+application/index.css: application-6686d7e8b7e972366d8ee7f42dadb959.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot
