@@ -19,8 +19,12 @@ clear.png: clear-a886da67c7dd9b544546c5e222f9d7c5.png
 clear/index.png: clear-a886da67c7dd9b544546c5e222f9d7c5.png
 contact.png: contact-0e57a4a2684597d8d5c1bb7f2f77af89.png
 contact/index.png: contact-0e57a4a2684597d8d5c1bb7f2f77af89.png
+contact_us.png: contact_us-6ed3631431f8b5ba7317d2ccc75aef81.png
+contact_us/index.png: contact_us-6ed3631431f8b5ba7317d2ccc75aef81.png
 detailed_WhatWeBelieve.png: detailed_WhatWeBelieve-7ca9f7660d3063fef037118f211b4153.png
 detailed_WhatWeBelieve/index.png: detailed_WhatWeBelieve-7ca9f7660d3063fef037118f211b4153.png
+directions.png: directions-b68d3a30d611295d0cc236553df8ad0f.png
+directions/index.png: directions-b68d3a30d611295d0cc236553df8ad0f.png
 disciples.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
 disciples/index.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
 empty_staff.png: empty_staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
@@ -45,6 +49,8 @@ new_here.png: new_here-426e9e27f3f1f1838ed35ae115571ece.png
 new_here/index.png: new_here-426e9e27f3f1f1838ed35ae115571ece.png
 or_WhatWeBelieve.png: or_WhatWeBelieve-9e19aefb3fceded174954420de90efc0.png
 or_WhatWeBelieve/index.png: or_WhatWeBelieve-9e19aefb3fceded174954420de90efc0.png
+service_time-02.png: service_time-02-ab5d925d1abbab88288f842ef8c51609.png
+service_time-02/index.png: service_time-02-ab5d925d1abbab88288f842ef8c51609.png
 service_time.png: service_time-28a93f9a49217b384f78814e76816ba0.png
 service_time/index.png: service_time-28a93f9a49217b384f78814e76816ba0.png
 side_button_WhatWeBelieve.png: side_button_WhatWeBelieve-54d4f3dfce91f4c6bbe5f0944f2be60f.png
@@ -61,8 +67,8 @@ you_are_welcome.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome/index.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 application.js: application-49298625902ac1a06e9ede556df0803b.js
 application/index.js: application-49298625902ac1a06e9ede556df0803b.js
-application.css: application-03882fce56efae50b2b69c793316a452.css
-application/index.css: application-03882fce56efae50b2b69c793316a452.css
+application.css: application-3d0c7b61e81f1f6d2ca7fe245998a229.css
+application/index.css: application-3d0c7b61e81f1f6d2ca7fe245998a229.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot

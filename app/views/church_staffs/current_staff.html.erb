@@ -1,5 +1,9 @@
-<div class="mission_bg img-rounded ">
+<div class="Row">
+	<div class="span10">
 
+
+<div class="mission_bg img-rounded ">
+	<br>
 <table width="100%" class="table_zero"> 
  <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Church Staff</span> </td>
   <td><hr class="round_line_hoz" /></td>
@@ -111,6 +115,9 @@
 <br><br>
 <br>
 <br>
+
+
+
 	
 		 
 </div>
@@ -127,5 +134,12 @@
 </table>
 	</div>
 		</div>
-	
-	<%= debug @church_staffs if Rails.env.development? %>	
+		
+	</div> <!-- Span-->
+
+	<div class="span1">
+	 <%= render :partial => 'abouts/side_buttons'%>
+      
+	</div>
+	</div> <!-- Row-->
+		

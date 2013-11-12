@@ -11,8 +11,19 @@ class AboutsController < ApplicationController
   end
   
   def mission_method  
+  
   end  
+  
   def what_we_believe 
+  
+  end
+  
+  def facility
+    
+  end
+  
+  def membership
+    
   end
   
   
