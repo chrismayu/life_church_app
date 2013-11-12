@@ -2,7 +2,7 @@ class AboutsController < ApplicationController
   # GET /abouts
   # GET /abouts.json
   
-  before_filter :authenticate_user!, :except => [:index, :home, :what_we_believe, :mission_method ]
+  before_filter :authenticate_user!, :except => [:index, :home, :what_we_believe, :mission_method, :facility, :membership ]
   
   def home
      @events = Event.where(id: Event.pluck(:id).sample(10))
