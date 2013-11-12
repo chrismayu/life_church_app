@@ -302,6 +302,13 @@ h40 {
      
 }
 
+.dropdown-menu:before, 
+.dropdown-menu:after {
+     border: none !important;
+     content: none !important;
+}   // used to hide up arrow
+
+
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;    
 }
@@ -334,7 +341,7 @@ font-size:13pt;
  
  .nav {
  
-  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+  	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
 }
 
 .center {
