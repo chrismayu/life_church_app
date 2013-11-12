@@ -10,6 +10,13 @@ body { padding-top: 90px; }
     font-size: 2.5em;
 }
 
+.icon-time, .icon-map-marker, .icon-phone {
+	background-image:none;
+    color: #007DC3;   
+}
+
+
+
 .text_offset_bottom{
 	
 	padding-top:23px;
@@ -119,6 +126,12 @@ html,body{height:100%;}
 .mission_bg {
    background-color: #FFF;	
 }
+.contact_bg {
+   background-color: #FFF;	
+}
+ 
+ 
+ .table-striped2 tbody>tr:nth-child(odd)>td,.table-striped tbody>tr:nth-child(odd)>th{background-color:#FFF}
  
 
 .top_line {
