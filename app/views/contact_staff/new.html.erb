@@ -12,20 +12,25 @@
 	  <th>
 		<br>
 		<% if @church_staff != nil%>
-		This message will be sent to:  <%= @church_staff.full_name %>
+	
+    	 <% if @church_staff.title? %>
+		
+		This message will be sent to: <%= @church_staff.title %> <%= @church_staff.full_name %>
+		 <% else %>
+		 This message will be sent to:  <%= @church_staff.full_name %>
+        <% end%>
+		
+	 
 		
 		<%= f.input :staff, :as => :hidden %>
+		
 			<br>
 				<br>
 			
 	    <% else %>		
 	<%= f.input :staff, collection: ChurchStaff.all, label_method: :full_name , value_method: :email_id ,label: "Select Staff:", include_blank: false %>	
 			 
-			 
-				
-			
-				
-				
+ 		
 		<% end %>
 		
     <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span5"}  %>
@@ -35,12 +40,7 @@
 	<%= f.input :email,  :label=>"Email Address:",  :input_html => { :class => "enroll_input span4"}, :wrapper => :append do %>
 	  <%= f.input_field :email,   :placeholder=>"Your Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
 	<% end %>
-
-    
-
-
-
-
+ 
     <%= f.input :subject, :label=>'Subject:' %>
 
  

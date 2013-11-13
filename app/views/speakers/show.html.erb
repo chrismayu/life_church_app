@@ -23,20 +23,28 @@
 
 <p><h5>Information:</h5></p>
 <dl class="dl-horizontal form-actions">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+ 
+  <% unless @speaker.title.blank? %>
+  <dt><strong>Speakers Title:</strong></dt>
   <dd><%= @speaker.title %></dd>
+  <%end%>  
   <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
   <dd><%= @speaker.first_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
   <dd><%= @speaker.last_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:from_church) %>:</strong></dt>
+ 
+  <% unless @speaker.from_church.blank? %>
+  <dt><strong>Speakers Church:</strong></dt>
   <dd><%= @speaker.from_church %></dd>
+  <%end%>  
+  
+  <% unless @speaker.from_church_url.blank? %>
+  <dt><strong>Speakers Church URL:</strong></dt>
+  <dd><%= @speaker.from_church_url%></dd>
+  <%end%>  
+  
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @speaker.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:church_staff_id) %>:</strong></dt>
-  <dd><%= @speaker.church_staff_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:from_church_url) %>:</strong></dt>
-  <dd><%= @speaker.from_church_url %></dd>
 </dl>
  
 

@@ -7,10 +7,10 @@
 
   <%= f.input :from_church , :label=>"Home Church:", :placeholder=>'Speakers Church', :input_html => { :class => "enroll_input span4"} %>
  
-<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the Speaker" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the Speaker" , :hint=> "140 Characters max", :input_html => { :class => "enroll_input span4", :rows => 3} %> 
 
-  <%= f.input :church_staff_id %>
-  <%= f.input :from_church_url %>
+
+   <%= f.input :from_church_url , :label=>"Speakers Church URL:", :placeholder=>'Speakers Church URL', :input_html => { :class => "enroll_input span4"} %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
