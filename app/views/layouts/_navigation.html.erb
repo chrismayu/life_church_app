@@ -20,8 +20,9 @@
  
 	    <ul class="dropdown-menu span4">
 	        <li class="column-menu span2 firstcolumn">
-			<p>&nbsp; Who We Are</p>
+			<p>&nbsp; About Life Church</p>
 	            <ul>
+					<li><%= link_to 'Who We Are', abouts_path %></li>
 					<li><%= link_to 'Mission & Methods', abouts_mission_method_path %></li>
 	                <li><%= link_to 'What We Believe', abouts_what_we_believe_path %></li>
 					<li><%= link_to 'Our Staff', church_staffs_current_staff_path %></li>
@@ -43,8 +44,8 @@
 	
 	<li class="dropdown">
 	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONNECT</a>
-	    <ul class="dropdown-menu span2">
-	        <li class="column-menu span2 ">
+	    <ul class="dropdown-menu span4">
+	        <li class="column-menu span2 firstcolumn">
 	 
 	            <ul>
 					<p>&nbsp; Ministries</p>
@@ -54,7 +55,14 @@
 	              
 	            </ul>
 	        </li>
-	         
+			<li class="column-menu span2">
+				            <ul>
+				                <li><a href="#">Volunteer </a></li>
+				                <li><a href="#">Item</a></li>
+				                <li><a href="#">Item</a></li>
+				                <li><a href="#">Item</a></li>
+				            </ul>
+				        </li>
 	    </ul>
 	</li>
 	<li class="dropdown">
@@ -63,11 +71,15 @@
 	        <li class="column-menu span2 firstcolumn">
 	 
 	            <ul>
-					<p>&nbsp; Resources</p> 
+					<p>&nbsp; Categories </p> 
+					<li><%= link_to ' Become A Believer',  abouts_become_a_believer_path %></li>
+					<li><a href="#">Leader's Blogs'</a></li>
+					
 	                <li><%= link_to 'Sermons', sermons_path %></li>
-	                <li><%= link_to 'Speakers', speakers_path %></li>
-	                <li><a href="#">Item</a></li>
-	                <li><a href="#">Item</a></li>
+	                
+	                <li><a href="#">Video</a></li>
+	                <li><a href="#">Articles</a></li>
+					<li><a href="#">Store</a></li>
 	            </ul>
 	        </li>
 	        <li class="column-menu span2">
@@ -80,10 +92,10 @@
 	        </li>
 	    </ul>
 	</li>
-	
  
 	<li>
-    	<%= link_to 'GIVE', "http://life-church-e-giving.herokuapp.com/" %>
+		
+    	<%= link_to 'GIVE',  abouts_giving_path %>
     </li>
  
 	

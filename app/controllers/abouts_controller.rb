@@ -26,6 +26,10 @@ class AboutsController < ApplicationController
     
   end
   
+  def giving
+    
+  end
+  
   
       def create
         @message = Message.new(params[:message])

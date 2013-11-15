@@ -69,6 +69,8 @@ LifeChurchApp::Application.routes.draw do
   get "abouts/what_we_believe"
   get "abouts/facility"
   get "abouts/membership"
+  get "abouts/giving"
+  get "abouts/become_a_believer"
   resources :abouts
 
 
