@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_ministries, :setup_about_info
   def set_ministries
-    @ministries = Ministry.all
+    @ministries_menu = Ministry.all
   end
   
   def setup_about_info
