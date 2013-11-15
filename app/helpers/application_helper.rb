@@ -1,5 +1,18 @@
 module ApplicationHelper
 
+
+ 
+  def ministries_menu(ministries)
+    
+       html = link_to "#{ministries.name}", ministry_path(ministries)
+      # content_tag(:li, link_to "#{ministries.name}", ministry_path(ministries))  
+       
+  #  html.html_safe
+      
+  end
+
+
+
   def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
