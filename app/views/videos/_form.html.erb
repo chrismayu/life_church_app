@@ -1,0 +1,21 @@
+<%= simple_form_for @video, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :contact_person %>
+  <%= f.input :contact %>
+  <%= f.input :_email %>
+  <%= f.input :description %>
+  <%= f.input :display_rank %>
+  <%= f.input :ta1 %>
+  <%= f.input :ta2 %>
+  <%= f.input :ta3 %>
+  <%= f.input :ta4 %>
+  <%= f.input :ta5 %>
+  <%= f.input :advert_main_page %>
+  <%= f.input :title %>
+  <%= f.input :url %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                videos_path, :class => 'btn' %>
+  </div>
+<% end %>

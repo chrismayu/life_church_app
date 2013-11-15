@@ -1,6 +1,9 @@
 LifeChurchApp::Application.routes.draw do
  
  
+  resources :videos
+
+
   resources :articles
 
 
