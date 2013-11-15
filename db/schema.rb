@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029152223) do
+ActiveRecord::Schema.define(:version => 20131115223252) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -37,6 +37,24 @@ ActiveRecord::Schema.define(:version => 20131029152223) do
     t.string   "twitter"
     t.string   "country"
     t.string   "province"
+  end
+
+  create_table "articles", :force => true do |t|
+    t.string   "name"
+    t.string   "contact_person"
+    t.string   "contact"
+    t.string   "_email"
+    t.text     "description"
+    t.integer  "display_rank"
+    t.text     "ta1"
+    t.text     "ta2"
+    t.text     "ta3"
+    t.text     "ta4"
+    t.text     "ta5"
+    t.boolean  "advert_main_page"
+    t.string   "title"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "church_staff_pictures", :force => true do |t|
