@@ -57,6 +57,7 @@
 	        </li>
 			<li class="column-menu span2">
 				            <ul>
+								<p>&nbsp;   </p> 
 				                <li><a href="#">Volunteer </a></li>
 				                <li><a href="#">Item</a></li>
 				                <li><a href="#">Item</a></li>
@@ -73,17 +74,29 @@
 	            <ul>
 					<p>&nbsp; Categories </p> 
 					<li><%= link_to ' Become A Believer',  abouts_become_a_believer_path %></li>
-					<li><a href="#">Leader's Blogs'</a></li>
-					
+				    <% if @about_menu.leaders_blog? %>
+				    <li><a href="#">Leader's Blogs</a></li>
+				    <% end %>
 	                <li><%= link_to 'Sermons', sermons_path %></li>
-	                
-	                <li><a href="#">Video</a></li>
-	                <li><a href="#">Articles</a></li>
-					<li><a href="#">Store</a></li>
+				  
+				    <% if @about_menu.video? %>
+				    <li><%= link_to 'Video', videos_path %></li>
+				    <% end %>
+				    <% if @about_menu.articles? %>
+				    <li><%= link_to 'Articles', articles_path %></li>
+				    <% end %>
+				    <% if @about_menu.store? %>
+				    <li><a href="#">Store</a></li>
+				    <% end %>
+				 
 	            </ul>
 	        </li>
 	        <li class="column-menu span2">
 	            <ul>
+					<p>&nbsp;   </p> 
+				    <% if @about_menu.life_pulse? %>
+				    <li><a href="#">Life Pulse</a></li>
+				    <% end %>
 	                <li><a href="#">Item</a></li>
 	                <li><a href="#">Item</a></li>
 	                <li><a href="#">Item</a></li>

@@ -7,11 +7,14 @@ class ApplicationController < ActionController::Base
   
   
   
-  before_filter :set_ministries
+  before_filter :set_ministries, :setup_about_info
   def set_ministries
     @ministries = Ministry.all
   end
   
+  def setup_about_info
+    @about_menu = About.last
+  end
   
   
 

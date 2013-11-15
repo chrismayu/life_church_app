@@ -17,7 +17,8 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.add_role :admin
 puts 'DEFAULT CHURCH ADDRESS'
-About.create!(:address => "547 Athlone Avenue", :postal_code => "N4S 7V8", :facebook =>"https://www.facebook.com/LifeInYou", :twitter =>"https://twitter.com/ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :phone_number => "(519) 537-7700", :toll_free_phone_number => "1-888-857-LIFE", :city => "Woodstock", :province => "Ontario", :country => "Canada") #5 ada N4S 7V8 Phone 1-888-857-LIFE 
+About.create!(:address => "547 Athlone Avenue", :postal_code => "N4S 7V8", :facebook =>"https://www.facebook.com/LifeInYou", :twitter =>"https://twitter.com/ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :phone_number => "(519) 537-7700", :toll_free_phone_number => "1-888-857-LIFE", :city => "Woodstock", :province => "Ontario", :country => "Canada"), :life_pulse => true, :leaders_blog => true, :store => true, :video => true, :articles => true #5 ada N4S 7V8 Phone 1-888-857-LIFE 
+
 puts 'DEFAULT Staff Rank'
 StaffRank.create!(:category => "Pastor", :ranking => 1)
 StaffRank.create!(:category => "Associate Pastor", :ranking => 2)
