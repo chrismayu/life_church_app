@@ -30,6 +30,10 @@ class AboutsController < ApplicationController
     
   end
   
+  def become_a_believer
+    
+  end
+  
   
       def create
         @message = Message.new(params[:message])

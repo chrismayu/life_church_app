@@ -5,10 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:contact_person) %></th> 
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th> 
       <th><%= model_class.human_attribute_name(:display_rank) %></th> 
       <th><%= model_class.human_attribute_name(:advert_main_page) %></th> 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -17,26 +14,25 @@
   <tbody>
     <% @ministries.each do |ministry| %>
       <tr>
-        <td><%= link_to ministry.id, ministry_path(ministry) %></td>
-        <td><%= ministry.name %></td>
-        <td><%= ministry.contact_person %></td>
-        <td><%= ministry.description %></td>
+        <td><%= ministry.name %></td> 
         <td><%= ministry.display_rank %></td>
         <td><%= ministry.advert_main_page %></td>
         <td>
+  	      <%= link_to t('.show', :default => t("helpers.links.view")),
+                        ministry_path(ministry), :class => 'btn   btn-success btn-mini-flat' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_ministry_path(ministry), :class => 'btn btn-mini' %>
+                      edit_ministry_path(ministry), :class => 'btn btn-mini btn-mini-flat' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       ministry_path(ministry),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger btn-mini-flat' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to t('.new', :default => t("helpers.links.setup new ministry")),
             new_ministry_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary  btn-flat' %>
