@@ -1,5 +1,5 @@
 class About < ActiveRecord::Base
-  attr_accessible :address, :city, :fax_number, 	:youtube, :facebook,   :video_stream,   :twitter,  :country,  :province,  :gmaps, :latitude, :longitude, :phone_number, :postal_code, :service_day_1, :service_day_2, :service_day_3, :service_time_1, :service_time_2, :service_time_3, :toll_free_phone_number
+  attr_accessible :address, :city, :fax_number, 	:youtube, :facebook,   :video_stream,   :twitter,  :country,  :province,  :gmaps, :latitude, :longitude, :phone_number, :postal_code, :service_day_1, :service_day_2, :service_day_3, :service_time_1, :service_time_2, :service_time_3, :toll_free_phone_number, :life_pulse, :leaders_blog, :store, :video, :articles
   acts_as_gmappable
   
   
