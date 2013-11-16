@@ -14,6 +14,7 @@ class MinistryChildrenController < ApplicationController
   # GET /ministry_children/1.json
   def show
     @ministry_child = MinistryChild.find(params[:id])
+    @ministry = Ministry.find(@ministry_child.ministry.id)
 
     respond_to do |format|
       format.html # show.html.erb

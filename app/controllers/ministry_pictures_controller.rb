@@ -23,6 +23,7 @@ class MinistryPicturesController < ApplicationController
 
 
   def step_1
+        @ministry = Ministry.find(params[:ministry_id])
         @uploader = MinistryPicture.new.ministry_image
          @uploader.success_action_redirect = ministry_pictures_step_2_url(:ministry_id => params[:ministry_id])
 

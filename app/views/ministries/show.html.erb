@@ -1,6 +1,6 @@
 <%- model_class = Ministry -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @ministry.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -38,9 +38,8 @@
   <dd><%= @ministry.ta5  %></dd>
   <%end%> 
   <dt><strong><%= model_class.human_attribute_name(:advert_main_page) %>:</strong></dt>
-  <dd><%= @ministry.advert_main_page %></dd>
-         <%= link_to t('.new', :default => t("helpers.links.Contact")),
-	                      contact_event_path(:ministry => @ministry.id), :class => 'btn   btn-success btn-mini-flat' %>
+  <dd><%= status_advert_main_page(@ministry) %></dd>
+
 
 
  
@@ -57,7 +56,7 @@
 </div>
 
 <div class="form-actions">
-<p><h5>Children:</h5></p>
+<p><h5><%= @ministry.name %> Ministries:</h5></p>
 <%= render :partial => 'ministry_children' %>
 
 

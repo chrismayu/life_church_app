@@ -11,7 +11,13 @@ module MinistriesHelper
       
   end
  
- 
+  def status_advert_main_page(ministries)
+    if ministries.advert_main_page?
+      content_tag(:div, content_tag(:span, "Yes"), class: "label label-success")
+    else
+      content_tag(:div, content_tag(:span, "No"), class: "label label-warning")   
+    end   
+  end
  
 
   def display_ministry_child_picture(ministry_children)

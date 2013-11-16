@@ -1,10 +1,12 @@
 <div class="form-actions">
-  <h2>Upload an Ministry Picture</h2> <h4>Step 1</h4> 
+  <h2>Upload an Picture for</h2><h3> <%= @ministry.name %> Ministry</h3>
+  <br>
+   <h4>Step 1</h4> 
  
-	
+  <br>
 <%= direct_upload_form_for @uploader do |f| %>
   <p><%= f.file_field :ministry_image %></p>
-  <p><%= f.submit "Upload Picture", :class => "btn btn-success btn-flat" %></p>
+  <p><%= f.submit "Upload Picture", :class => "btn btn-success btn-mini-flat" %></p>
 <% end %>
 
 

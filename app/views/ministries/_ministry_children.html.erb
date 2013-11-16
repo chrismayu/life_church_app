@@ -1,10 +1,7 @@
-
-<div class="row">
  
-   
-
-<% unless @ministry.ministry_children.empty? %>
- Hi
+<div class="row">
+	<% unless @ministry.ministry_children.empty? %>
+ 
  <% @ministry.ministry_children.each do | ministry_child | %>
  <div class="span4">
 
@@ -12,21 +9,18 @@
 	<p><h5><%= ministry_child.name %></h5></p>
 		<%= display_ministry_child_picture(ministry_child) %>
  
-    
-
 </div>
 
 
  </div>
 
 <% end %>
-<% else %>
- <%= link_to t('.picture', :default => t("helpers.links.Add a Child")),
-               new_ministry_child_path(:ministry_id => @ministry), :class => 'btn btn-flat btn-success'  %>
+ 
 
 <% end %>
 </div>
  
-
+<%= link_to t('.picture', :default => t("helpers.links.Add a New Ministry for #{@ministry.name}")),
+              new_ministry_child_path(:ministry_id => @ministry), :class => 'btn btn-mini-flat btn-success'  %>
 
  

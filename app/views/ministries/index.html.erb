@@ -16,7 +16,7 @@
       <tr>
         <td><%= ministry.name %></td> 
         <td><%= ministry.display_rank %></td>
-        <td><%= ministry.advert_main_page %></td>
+        <td><%= status_advert_main_page(ministry)%></td>
         <td>
   	      <%= link_to t('.show', :default => t("helpers.links.view")),
                         ministry_path(ministry), :class => 'btn   btn-success btn-mini-flat' %>
