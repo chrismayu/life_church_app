@@ -1,9 +1,6 @@
 LifeChurchApp::Application.routes.draw do
  
-  get "bulletins/step_1"
-  resources :bulletins
-
-
+ 
   resources :videos
 
 
