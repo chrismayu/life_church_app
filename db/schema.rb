@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115223813) do
+ActiveRecord::Schema.define(:version => 20131119162537) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(:version => 20131115223813) do
     t.string   "title"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "bulletins", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "display_till"
+    t.date     "display_start"
+    t.boolean  "advert_main_page"
+    t.string   "bulletin_image"
+    t.string   "url"
+    t.boolean  "members_only"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.boolean  "image_processed"
   end
 
   create_table "church_staff_pictures", :force => true do |t|
