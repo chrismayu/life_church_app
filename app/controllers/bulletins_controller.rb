@@ -52,6 +52,8 @@ class BulletinsController < ApplicationController
   # POST /bulletins.json
   def create
     @bulletin = Bulletin.new(params[:bulletin])
+    
+     @bulletin.display_till =  @bulletin.set_display_till_date(@bulletin)
 
     respond_to do |format|
       if @bulletin.save
@@ -68,7 +70,7 @@ class BulletinsController < ApplicationController
   # PUT /bulletins/1.json
   def update
     @bulletin = Bulletin.find(params[:id])
-
+   
     respond_to do |format|
       if @bulletin.update_attributes(params[:bulletin])
         format.html { redirect_to @bulletin, notice: 'Bulletin was successfully updated.' }

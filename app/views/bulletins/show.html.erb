@@ -38,8 +38,7 @@
   
 
    <%= link_to image_tag(@bulletin.bulletin_image_url(:main), :class =>"img-rounded" ), @bulletin.bulletin_image.to_s, :target => '_blank' %> 
-   <p><%= link_to t('.sign_up', :default => t("helpers.links.Download")),
-                      @bulletin.bulletin_image.to_s, :target => '_blank', :class => 'btn btn-info' %></p> 
+   <p></p> 
 
    <% else %>
      <em>Processing...</em>
@@ -58,7 +57,8 @@
 	
    <%= link_to t('.back', :default => t("helpers.links.back")),
                bulletins_path, :class => 'btn btn-flat btn-primary'  %>
-			  
+			   <%= link_to t('.sign_up', :default => t("helpers.links.Download")),
+			                         @bulletin.bulletin_image.to_s, :target => '_blank', :class => 'btn btn-info btn-flat' %>
  			<% if user_signed_in? %>  
    <%= link_to t('.edit', :default => t("helpers.links.edit")),
                edit_bulletin_path(@bulletin), :class => 'btn btn-flat' %>

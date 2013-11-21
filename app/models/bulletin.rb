@@ -3,9 +3,22 @@ class Bulletin < ActiveRecord::Base
   mount_uploader :bulletin_image, BulletinImageUploader
   
    
-  validates :display_start, :display_till, presence: true
+  validates :display_start, presence: true
   
-  after_create :enqueue_image
+  after_create :enqueue_image  
+  
+  
+  default_scope order: 'bulletins.display_start DESC' 
+ 
+  
+  public
+  def set_display_till_date(bulletin)
+    start_date = bulletin.display_start
+    bulletin.display_till = bulletin.display_start + 6.days
+    bulletin.display_till
+  end
+
+  private
 
   def image_name
     File.basename(bulletin_image.path || bulletin_image.filename) if bulletin_image
@@ -14,6 +27,9 @@ class Bulletin < ActiveRecord::Base
   def enqueue_image
      perform(id, key) if key.present?
   end
+
+
+
 
 
 
