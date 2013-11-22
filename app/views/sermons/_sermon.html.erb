@@ -1,0 +1,32 @@
+ 
+<li class="span2">  
+		         <div class="thumbnail center"> 
+					 
+					  <%= display_sermon(sermon) %>
+					 
+					 	 
+		           <div class="caption">  
+		             	<h5><%= sermon.title %> </h5> 
+						<h5><%= sermon.date_of_sermon.strftime("%b %d, %Y") %> </h5> 
+						<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
+					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>
+														 
+											<% if user_signed_in? %>				 
+				     <%= link_to t('.show', :default => t("helpers.links.view")),
+			                       sermon_path(sermon) , :class => 'btn   btn-success btn-mini-flat ' %> 
+			            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+			                        edit_sermon_path(sermon), :class => 'btn btn-mini-flat' %>
+			            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+			                        sermon_path(sermon),
+			                        :method => :delete,
+			                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+			                        :class => 'btn btn-mini-flat btn-danger' %>
+									
+										<% end %>
+	  		 
+				   </div>  
+		         </div>  
+</li>
+
+ 
+ 

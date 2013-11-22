@@ -1,62 +1,156 @@
-<%- model_class = ChurchStaff -%>
-<div class="page-header">
-  <h1>Church Staff</h1>
+<div class="Row">
+	<div class="span10">
+
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Church Staff</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ 
+  
+<div class="span10"  id="main">
+	<% if user_signed_in? %>
+	<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
+	            new_church_staff_path,
+	            :class => 'btn btn-primary btn-flat' %>
+				
+				<% end%>
+<table class="table table striped">
+ 
+  <tbody> 
+
+<% @church_staffs.each.with_index do |church_staff, index| %>
+ <tr>
+      <td> 
+
+<div class="row fluid offsetHalf1"  id="main">
+ 
+ <% if index.even? %> 
+<div class="span4"  >
+	<br>
+ 
+	 <%= display_sidebar_staff(church_staff) %>
+	 <br>
 </div>
-<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
-            new_church_staff_path,
-            :class => 'btn btn-primary btn-flat' %>
+<% end%>
 
-		 
-<table class="table table-striped">
-  <thead>
-    <tr>
+
+<div class="span4">
+  
+  
+          <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
+           <br>  <em> <%= church_staff.title %> </em><br>
+   </p>
+ 
+ 
+      <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
+  
+    <p>
+      <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact")),
+                        contact_staff_path(:staff => church_staff.email_id), :class => 'btn   btn-success btn-mini-flat' %>
+						<br>
+						
+	  <% unless church_staff.url.blank? %>				
+      <i class="icon-globe"></i> <%= church_staff.url %>  
+	  <br>
+    <%end%> 
+	  	
+      <i class="icon-gift"></i>  <%= church_staff.birthday %>  
+	  <br>
    
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
- 
-      <th><%= model_class.human_attribute_name(:title) %></th>
- 
-      <th>Category:</th>
-      <th>Picture:</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @church_staffs.each do |church_staff| %>
-      <tr>
-        <td><%= church_staff.first_name %></td>
-        <td><%= church_staff.last_name %></td>
-      
-        <td><%= church_staff.title %></td>
- 		 <td><% for staff_ranks in church_staff.staff_ranks %>
-	      <%=  staff_ranks.category %> 
-	     <% end%></td>
-		   <td>
-			<% for church_staff_picture in church_staff.church_staff_pictures %>
-	          <% if church_staff_picture.image_processed? %>
-			    <%= image_tag(church_staff_picture.staff_image_url(:stamp), :class =>"img-rounded" ) %>
+  		<% unless church_staff.spouse_first_name.blank? %>	
+          <i class="icon-smile"></i><p> <%= church_staff.spouse_first_name %> </p>
+		  <br>
+  	    <%end%>  
+  	  
+       <% unless church_staff.facebook.blank? %>	
+  	    <i class="icon-facebook"></i> <p><%= church_staff.facebook %> </p>
+	  <br>
+	    <%end%> 
+		
+		
+   <% unless church_staff.linked_in.blank? %>	
+  	   <i class="icon-linkedin"></i> <p> <%= church_staff.linked_in %> </p> 
+	  <br>
+    <%end%> 
+   <% unless church_staff.google_plus.blank? %>	
+  	   <i class="icon-google-plus"></i> <p> <%= church_staff.google_plus %></p> 
+	  <br>
+    <%end%> 
+   
+       
+   <% unless church_staff.twitter.blank? %>	
+  	   <i class="icon-twitter"></i> <p> <%= church_staff.twitter %> </p>
+	  <br>
+    <%end%> 
+  	
+	<% unless church_staff.description.blank? %>	
+          <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> </p>
+		  <br>
+  	    <%end%> 
+  
+     	
+          <% if church_staff.started_service? %>
+          <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
+         <% end %>  
+  </p>
 
-			  <% else %>
-			    <em>Processing...</em>
-			  <% end %>
-			<% end %>
-	         </td>
-        <td>
-	      <%= link_to t('.show', :default => t("helpers.links.view")),
-                      church_staff_path(church_staff), :class => 'btn   btn-success btn-flat ' %>
+<br>
+ <% if user_signed_in? %>
+<%= link_to t('.show', :default => t("helpers.links.view/edit")),
+            church_staff_path(church_staff), :class => 'btn   btn-success btn-mini-flat ' %>
+ <% end%>  
+</div>
+
+
+ <% if index.odd? %>
+<div class="span4"  >
+	<br>
+	<br>
+	 <%= display_sidebar_staff(church_staff) %>
+	 
+	 
+</div>
+
  
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_church_staff_path(church_staff), :class => 'btn btn-mini btn-flat' %>
+
+</div>
+
+<% end%>
+	 	<br>
+	<br>
+	<br><br>
+<br>
+<br><br>
+<br>
+<br>
+
+
+
+	
+		 
+</div>
+  
+</td>
+</tr>
  
-          <%= link_to t('.destroy', :default => t("helpers.links.remove")),
-                      church_staff_path(church_staff),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger btn-flat' %>
-        </td>
-      </tr>
-    <% end %>
+
+<% end %>
+
+
+
   </tbody>
 </table>
+	</div>
+		</div>
+		
+	</div> <!-- Span-->
 
-
+	<div class="span1">
+	 <%= render :partial => 'abouts/side_buttons'%>
+      
+	</div>
+	</div> <!-- Row-->
+		

@@ -20,7 +20,7 @@
 <%= f.input :speaker_id, collection: Speaker.all, label_method: :full_name, value_method: :id,label: "Select Speaker:", include_blank: false %>
 
   <%= f.input :members_only %>
-  <%= f.input :url %>
+  <%= f.input :audio_url %>
 
 <%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the Sermon" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
 

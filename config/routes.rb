@@ -1,5 +1,10 @@
 LifeChurchApp::Application.routes.draw do
  
+  get "sermon_pictures/step_1"
+  get "sermon_pictures/step_2"
+  resources :sermon_pictures
+
+
   get "bulletins/step_1"
   resources :bulletins
 
@@ -64,9 +69,6 @@ LifeChurchApp::Application.routes.draw do
 
   resources :site_setups
 
- get "church_staffs/current_staff"
- #match 'current_staff' => 'church_staffs#current_staff', :as => 'church_staff', :via => :get 
- 
   resources :church_staffs
 
 # match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
