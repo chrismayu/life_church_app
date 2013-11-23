@@ -1,30 +1,76 @@
-<h3>Users</h3>
-<div class="span8">
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Registered</th>
-      <th>Role</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to user.name, user %></td>
-      <td><%= user.email %></td>
-      <td><%= user.created_at.to_date %></td>
-      <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
-      <td>
-        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
-        <%= render user %>
-      </td>
-      <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
-    </tr>
-  <% end %>
-  </tbody>
+<div class="Row">
+	<div class="span11">
+
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Life Church Members</span> </td>
+  <td><hr class="round_line_hoz" /></td>
 </table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <br>
+ 
+
+
+<div class="row pull-center">
+        <div class="span10">
+            
+				<h4>Sort Member list</h4>
+				<br>
+                <ul>
+				 
+                        <li><%= link_to "All Members", {:action => "index"}, {:class=> "btn btn-success btn-mini"} %></li><br>
+                        <li><%= link_to "Unapproved Members", {:action => "index", :approved => "false"}, {:class=> "btn btn-success btn-mini"} %></li>
+                </ul>
+				<br>
+ 
+			
+	   
+        <% if @user_count == 0 %>
+         <h3>List Pending Life Church Members</h3>
+		<div class="panel">
+                All Pending Members have been Approved 
+        </div>
+        <% else %>
+	   <h3>List of Life Church Members</h3>
+		<table class="table table-condensed">
+                        <tr>
+                                <th>Email</th>
+                                <th>Status</th>
+								 
+								<th>Signed Up</th>
+								<th>Role</th>
+                                <th>Action</th>
+                        </tr>
+                        <% @users.each do |user| %>
+                        <tr>
+                                <td><%= user.email %></td>
+								 <td>
+								 <% unless user.approved? %>
+                                <%= link_to "Approve", {:action => "approve", :id => user.id}, :class => "btn btn-success btn-mini" %>
+								<% else %> 
+								<span class="label label-success"> Approved</span>
+								<% end %>
+							    </td> 
+						        <td><%= user.created_at.to_date.strftime("%b %d, %Y") %></td>
+						        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+						        <td>
+						          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
+						          <%= render user %>
+						        </td>
+						        <td><%= link_to("Delete Member", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
+                                </tr>
+                        <% end %>
+                </table>
+                <% end %>
+        </div>
 </div>
+
+
+
+ 
+      
+</div>
+</div> <!-- Row-->

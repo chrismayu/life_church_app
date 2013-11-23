@@ -3,8 +3,27 @@ class UsersController < ApplicationController
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
+    
+     
+                 if params[:approved] == "false"
+                         @users = User.find_all_by_approved(false)
+                         @user_count = User.find_all_by_approved(false).count
+                         @approved = true
+                 else
+                         @users = User.all
+                         @user_count = User.count
+                         @approved = false
+                 end
+         end
+        
+  def approve
+      authorize! :approve, @user, :message => 'Not authorized as an administrator.'
+                 user = User.find(params[:id])
+                 user.update_attributes(:approved => true)
+                 MemberMailer.your_approved(user).deliver
+                 redirect_to :action => "index", :approved => "false"
   end
+  
 
   def show
     @user = User.find(params[:id])

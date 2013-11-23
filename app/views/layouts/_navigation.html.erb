@@ -143,7 +143,10 @@
 						
 						  <% if current_user.has_role? :admin %>
 						      <li>
-						      <%= link_to 'ADMIN', users_path %>
+						      <%= link_to 'Admin Page', users_path %>
+						      </li>
+						      <li>
+						      <%= link_to 'Pending Approvals', users_path(:approved => "false") %>
 						      </li>
 						 <% end %>
 						

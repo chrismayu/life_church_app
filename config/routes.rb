@@ -89,7 +89,11 @@ LifeChurchApp::Application.routes.draw do
      root :to => 'abouts#home'  #root :to => 'home#index'
   end
   
+  get "users/index"
+  match "users/approve" => 'users#approve'
   devise_for :users
+
+  
   resources :users
   
   match 'contact_event' => 'contact_event#new', :as => 'contact_event', :via => :get
