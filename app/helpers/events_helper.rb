@@ -35,7 +35,7 @@ module EventsHelper
         else
 
         
-            return link_to(image_tag(placeholder_image_url "216x151", :text => "Oops-No Picture", :bg => "E8117F", :fg => "667"), learn_more_path(event_pictures)) 
+            return link_to(image_tag(placeholder_image_url "216x151", :text => "Oops-No Picture", :bg => "E8117F", :fg => "667",:padding =>"33px"), learn_more_path(event_pictures)) 
        end
        
        # return image_tag (placeholder_image_url "216x151")   
@@ -54,7 +54,7 @@ module EventsHelper
        end  
         else
 
-         return image_tag (placeholder_image_url "652x455")
+         return image_tag (placeholder_image_url "652x485")
        end  
        
         #return image_tag (placeholder_image_url "652x452")
