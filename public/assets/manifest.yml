@@ -29,8 +29,10 @@ disciples.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
 disciples/index.png: disciples-00ac2b2a198d99b5f3fcd98d2ddb96c1.png
 e_life.png: e_life-13dc0fdb775b056ec2962a6e4fcb400e.png
 e_life/index.png: e_life-13dc0fdb775b056ec2962a6e4fcb400e.png
-empty_staff.png: empty_staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
-empty_staff/index.png: empty_staff-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+empty_staff_1.png: empty_staff_1-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+empty_staff_1/index.png: empty_staff_1-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+empty_staff_old.png: empty_staff_old-fc751ef04fd31c5ad4b61d8ef42a5bff.png
+empty_staff_old/index.png: empty_staff_old-fc751ef04fd31c5ad4b61d8ef42a5bff.png
 f_life.png: f_life-4b4ec08bbd84320485317f16c7b8d42c.png
 f_life/index.png: f_life-4b4ec08bbd84320485317f16c7b8d42c.png
 facebook.png: facebook-d32050b48acbee5da8ee5e2718f5a2bb.png
