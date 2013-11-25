@@ -3,8 +3,6 @@ class UsersController < ApplicationController
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    
-     
                  if params[:approved] == "false"
                          @users = User.find_all_by_approved(false)
                          @user_count = User.find_all_by_approved(false).count

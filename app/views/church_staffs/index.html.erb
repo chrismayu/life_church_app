@@ -31,8 +31,10 @@
 <div class="span4"  >
 	<br>
  
-	 <%= display_sidebar_staff(church_staff) %>
+	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
+	 
 	 <br>
+	 
 </div>
 <% end%>
 
@@ -43,23 +45,29 @@
           <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
            <br>  <em> <%= church_staff.title %> </em><br>
    </p>
- 
- 
+   
+ 	
+       <% unless church_staff.description.blank? %>	
+         <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> </p>
+	  <br>
+ 	    <%end%> 
+   <p>
+  <% unless church_staff.birth_location.blank? %>	
       <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
-  
-    <p>
-      <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact")),
-                        contact_staff_path(:staff => church_staff.email_id), :class => 'btn   btn-success btn-mini-flat' %>
-						<br>
+    <%end%> 
+     
+    <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact #{church_staff.first_name}")),
+                      contact_staff_path(:staff => church_staff.email_id) %>
+					<br>
 						
 	  <% unless church_staff.url.blank? %>				
       <i class="icon-globe"></i> <%= church_staff.url %>  
 	  <br>
     <%end%> 
-	  	
+	  	 <% unless church_staff.birthday.blank? %>
       <i class="icon-gift"></i>  <%= church_staff.birthday %>  
 	  <br>
-   
+     <%end%> 
   		<% unless church_staff.spouse_first_name.blank? %>	
           <i class="icon-smile"></i><p> <%= church_staff.spouse_first_name %> </p>
 		  <br>
@@ -85,16 +93,13 @@
   	   <i class="icon-twitter"></i> <p> <%= church_staff.twitter %> </p>
 	  <br>
     <%end%> 
-  	
-	<% unless church_staff.description.blank? %>	
-          <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> </p>
-		  <br>
-  	    <%end%> 
+ 
   
-     	
+     	<% unless church_staff.started_service.blank? %>	
           <% if church_staff.started_service? %>
-          <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
+          Length of Service: <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
          <% end %>  
+		  <% end %>  
   </p>
 
 <br>
@@ -109,7 +114,7 @@
 <div class="span4"  >
 	<br>
 	<br>
-	 <%= display_sidebar_staff(church_staff) %>
+	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
 	 
 	 
 </div>
