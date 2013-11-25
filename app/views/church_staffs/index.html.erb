@@ -11,12 +11,16 @@
  
   
 <div class="span10"  id="main">
+ 
 	<% if user_signed_in? %>
-	<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
 	            new_church_staff_path,
-	            :class => 'btn btn-primary btn-flat' %>
+	            :class => 'btn btn-primary btn-mini-flat' %>
 				
 				<% end%>
+				<br>
+				<br>
+ 
 <table class="table table striped">
  
   <tbody> 
