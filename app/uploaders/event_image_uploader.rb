@@ -11,11 +11,11 @@ class EventImageUploader < CarrierWave::Uploader::Base
   process :set_content_type
 
   version :main do
-    process resize_to_fill: [652, 455]
+    process resize_to_fill: [652, 484]
   end
   
   version :side do
-    process resize_to_fill: [216, 151]  
+    process resize_to_fill: [216, 150]  
   end
 
   version :thumb do
