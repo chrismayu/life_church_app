@@ -13,7 +13,7 @@ YAML.load(ENV['ROLES']).each do |role|
   puts 'role: ' << role
 end
 puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :approved => true, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :approved => true, 2:email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.add_role :admin
 puts 'DEFAULT CHURCH ADDRESS'
@@ -31,8 +31,8 @@ ServiceTime.create!(:day => "Tuesday", :service_name => "Tuesday Morning Prayer"
 ServiceTime.create!(:day => "Sunday", :service_name => "Sunday Morning Service", :start_time => "09/24/2013 10:00")
 ServiceTime.create!(:day => "Wednesday", :service_name => "Wednesday Night Service", :start_time => "09/24/2013 19:30")
 puts 'DEFAULT Staff'
-ChurchStaff.create!(:first_name => "Thomas", :last_name => "Zimmerman", :birthday => DateTime.new(2013,9,1,17), :title =>"Pastor", :started_service => DateTime.new(2013,9,1,17))
-ChurchStaff.create!(:first_name => "Jason", :last_name => "Tucker", :birthday => DateTime.new(2013,9,1,17), :title =>"Youth Pastor", :started_service => DateTime.new(2013,9,1,17))
+ChurchStaff.create!(:first_name => "Thomas", :contact_email=>"chrismayu@gmail.com", :description=>"Shortest Description Ever!!", :last_name => "Zimmerman", :birthday => DateTime.new(2013,9,1,17), :title =>"Pastor", :started_service => DateTime.new(2013,9,1,17))
+ChurchStaff.create!(:first_name => "Jason", :contact_email=>"chrismayu@gmail.com", :description=>"Shortest Description Ever!!", :last_name => "Tucker", :birthday => DateTime.new(2013,9,1,17), :title =>"Youth Pastor", :started_service => DateTime.new(2013,9,1,17))
 puts 'DEFAULT Events'
 Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_time => "19:30", :event_start_time => DateTime.new(2013,9,1,17),  :event_date => DateTime.new(2013,9,1,17), :event_name => "Christmas Dinner", :location =>"LifeChuch", :remove_event_date => DateTime.new(2015,9,1,17))
 Event.create!(:contact_email=>"chrismayu@gmail.com", :contact_person =>"Chris Mayu", :description=>"Shortest Description Ever!!", :event_time => "19:30", :event_start_time => DateTime.new(2013,9,1,17),  :event_date => DateTime.new(2013,9,1,17), :event_name => "Easter Service", :location =>"LifeChuch", :remove_event_date => DateTime.new(2015,9,1,17))
