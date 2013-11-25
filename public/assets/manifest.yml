@@ -81,8 +81,8 @@ you_are_welcome.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome/index.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 application.js: application-210ac872bb3ddaff265574bc38d6dab1.js
 application/index.js: application-210ac872bb3ddaff265574bc38d6dab1.js
-application.css: application-37652d6904a2476c35f01cd8002469eb.css
-application/index.css: application-37652d6904a2476c35f01cd8002469eb.css
+application.css: application-065d67322a8fdf9982c42c7f5957cfa6.css
+application/index.css: application-065d67322a8fdf9982c42c7f5957cfa6.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot
