@@ -1,8 +1,7 @@
 class AboutsController < ApplicationController
-  # GET /abouts
-  # GET /abouts.json
-  
+  load_and_authorize_resource :except => [:index, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
   before_filter :authenticate_user!, :except => [:index, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+ 
   
   def home
      @events = Event.where(id: Event.pluck(:id).sample(5)).shuffle
@@ -64,6 +63,7 @@ class AboutsController < ApplicationController
   # GET /abouts/1
   # GET /abouts/1.json
   def show
+     authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
     @about = About.last
     abouts = About.last
      @jsons = About.last.to_gmaps4rails
@@ -77,6 +77,8 @@ class AboutsController < ApplicationController
  
   # GET /abouts/1/edit
   def edit
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+   @about = About.last
     @about = About.find(params[:id])
   end
 
@@ -85,6 +87,8 @@ class AboutsController < ApplicationController
   # PUT /abouts/1
   # PUT /abouts/1.json
   def update
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+   @about = About.last
     @about = About.find(params[:id])
 
     respond_to do |format|
