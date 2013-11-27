@@ -1,0 +1,21 @@
+<li class="span2">  
+		         <div class="thumbnail center"> 
+					  
+		           	<%= display_bulletin_picture(each_bulletin)%>
+					 
+	 
+		           <div class="caption">  
+		             	<h5><%= bulletin_name(bulletin) %></h5>  
+					 <% if can? :edit, :bulletins %>
+				 
+			            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+			                        edit_bulletin_path(bulletin), :class => 'btn btn-mini-flat' %>
+			            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+			                        bulletin_path(bulletin),
+			                        :method => :delete,
+			                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+			                        :class => 'btn btn-mini-flat btn-danger' %>
+	  		 <% end %> 
+				   </div>  
+		         </div>  
+</li>

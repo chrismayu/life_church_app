@@ -1,7 +1,7 @@
 class Bulletin < ActiveRecord::Base
   attr_accessible :advert_main_page, :bulletin_image, :description, :display_start, :display_till, :members_only, :name, :url, :crop_x, :crop_y, :crop_w, :crop_h, :original_width, :original_height
   mount_uploader :bulletin_image, BulletinImageUploader
-  
+    resourcify
    
   validates :display_start, presence: true
   
@@ -10,7 +10,6 @@ class Bulletin < ActiveRecord::Base
   
   default_scope order: 'bulletins.display_start DESC' 
  
-  
   public
   def set_display_till_date(bulletin)
     start_date = bulletin.display_start

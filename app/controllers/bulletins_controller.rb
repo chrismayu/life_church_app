@@ -1,6 +1,7 @@
 class BulletinsController < ApplicationController
   # GET /bulletins
   # GET /bulletins.json
+  load_and_authorize_resource :except => [:index, :show ]
   
   before_filter :authenticate_user!, :except => [:index, :show ]
   
@@ -14,7 +15,9 @@ class BulletinsController < ApplicationController
   
   def index
     @bulletins = Bulletin.all
-
+    
+ 
+     
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bulletins }
