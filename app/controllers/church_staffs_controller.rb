@@ -2,17 +2,10 @@ class ChurchStaffsController < ApplicationController
   # GET /church_staffs
   # GET /church_staffs.json
   
-  def current_staff
-    
-    @church_staffs = ChurchStaff.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @church_staffs }
-    end
-    
-  end
+   load_and_authorize_resource #:except => [:index, :show ]
+   before_filter :authenticate_user!, :except => [:index ]
   
+ 
   
   
   def index
@@ -27,6 +20,7 @@ class ChurchStaffsController < ApplicationController
   # GET /church_staffs/1
   # GET /church_staffs/1.json
   def show
+    authorize! :approve, @user, :message => 'Not authorized as an administrator.'
     @church_staff = ChurchStaff.find(params[:id])
 
     respond_to do |format|
@@ -38,6 +32,7 @@ class ChurchStaffsController < ApplicationController
   # GET /church_staffs/new
   # GET /church_staffs/new.json
   def new
+   authorize! :approve, @user, :message => 'Not authorized as an administrator.'
     @church_staff = ChurchStaff.new
 
     respond_to do |format|
@@ -48,6 +43,7 @@ class ChurchStaffsController < ApplicationController
 
   # GET /church_staffs/1/edit
   def edit
+     authorize! :approve, @user, :message => 'Not authorized as an administrator.'
     @church_staff = ChurchStaff.find(params[:id])
   end
 
@@ -89,6 +85,7 @@ class ChurchStaffsController < ApplicationController
   # DELETE /church_staffs/1
   # DELETE /church_staffs/1.json
   def destroy
+  authorize! :approve, @user, :message => 'Not authorized as an administrator.'
     @church_staff = ChurchStaff.find(params[:id])
     @church_staff.destroy
 
