@@ -60,44 +60,46 @@
    <p>
   <% unless church_staff.birth_location.blank? %>	
       <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
-    <%end%> 
-     
+    <%end%> <br>
+	</p>
+	
+     <p>  
     <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact #{church_staff.first_name}")),
                       contact_staff_path(:staff => church_staff.email_id) %>
-					<br>
+				 </p>
 						
 	  <% unless church_staff.url.blank? %>				
-      <i class="icon-globe"></i> <%= church_staff.url %>  
-	  <br>
+    <p>  <i class="icon-globe"></i> <%= church_staff.url %>   </p>
+	 
     <%end%> 
 	  	 <% unless church_staff.birthday.blank? %>
-      <i class="icon-gift"></i>  <%= church_staff.birthday %>  
-	  <br>
+     <p> <i class="icon-gift"></i>  <%= church_staff.birthday %>   </p>
+	 
      <%end%> 
   		<% unless church_staff.spouse_first_name.blank? %>	
-          <i class="icon-smile"></i><p> <%= church_staff.spouse_first_name %> </p>
-		  <br>
+       <p>   <i class="icon-smile"></i> <%= church_staff.spouse_first_name %> </p>
+		  
   	    <%end%>  
   	  
        <% unless church_staff.facebook.blank? %>	
-  	    <i class="icon-facebook"></i> <p><%= church_staff.facebook %> </p>
-	  <br>
+  	 <p>   <i class="icon-facebook"></i> <%= church_staff.facebook %> </p>
+	 
 	    <%end%> 
 		
 		
    <% unless church_staff.linked_in.blank? %>	
-  	   <i class="icon-linkedin"></i> <p> <%= church_staff.linked_in %> </p> 
-	  <br>
+  	 <p>  <i class="icon-linkedin"></i>   <%= church_staff.linked_in %> </p> 
+	 
     <%end%> 
    <% unless church_staff.google_plus.blank? %>	
-  	   <i class="icon-google-plus"></i> <p> <%= church_staff.google_plus %></p> 
-	  <br>
+  	<p>   <i class="icon-google-plus"></i> <%= church_staff.google_plus %></p> 
+	 
     <%end%> 
    
        
    <% unless church_staff.twitter.blank? %>	
-  	   <i class="icon-twitter"></i> <p> <%= church_staff.twitter %> </p>
-	  <br>
+  	 <p>  <i class="icon-twitter"></i> <%= church_staff.twitter %> </p>
+	  
     <%end%> 
  
   
