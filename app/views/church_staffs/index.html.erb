@@ -36,11 +36,11 @@
 <div class="row center  " id="main">
  <br>
  <% if index.even? %> 
-<div class="span5"  >
+<div class="span5" >
 	<br>
  
-	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
-	 
+	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff)%>
+ 
 	 <br>
 	 
 </div>
@@ -48,7 +48,7 @@
 
 
 <div class="span4">
-  
+   
   
           <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
            <br>  <em> <%= church_staff.title %> </em><br>
@@ -118,6 +118,7 @@
 <%= link_to t('.show', :default => t("helpers.links.view/edit")),
             church_staff_path(church_staff), :class => 'btn   btn-success btn-mini-flat ' %>
  <% end%>  
+ 
   <% end%>  
 </div>
 
@@ -126,8 +127,9 @@
 <div class="span5"  >
 	<br>
 	<br>
+ 
 	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
-	 
+ 
 	 
 </div>
 
