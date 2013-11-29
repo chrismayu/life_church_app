@@ -10,7 +10,7 @@
 </table>
  
   
-<div class="span10  "  id="main" style="margin:0 auto" >
+<div class="span10"  id="main"  >
  
 	<% if user_signed_in? %>
 	<% if can? :edit, :church_staffs %>
@@ -22,8 +22,8 @@
 				<% end%>
 				<br>
 				<br>
-				<div  style="margin:0 auto" >
-<table class="table table striped  center" >
+				 
+<table class="table table striped " >
  
   <tbody> 
 
@@ -34,7 +34,7 @@
 <div class="row fluid center " id="main">
  
  <% if index.even? %> 
-<div class="span4"  >
+<div class="span5"  >
 	<br>
  
 	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
@@ -121,7 +121,7 @@
 
 
  <% if index.odd? %>
-<div class="span4"  >
+<div class="span5"  >
 	<br>
 	<br>
 	 &nbsp;&nbsp;&nbsp;<%= display_sidebar_staff(church_staff) %>
@@ -158,7 +158,7 @@
 
   </tbody>
 </table>
-</div>
+ 
 	</div>
 		</div>
 		
