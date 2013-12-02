@@ -1,6 +1,10 @@
 class SermonsController < ApplicationController
   # GET /sermons
   # GET /sermons.json
+  load_and_authorize_resource :except => [:index, :show ]
+  
+  before_filter :authenticate_user!, :except => [:index, :show ]
+  
   def index
     @sermons = Sermon.all
 

@@ -1,66 +1,66 @@
-<%- model_class = Ministry -%>
-<div class="page-header">
-  <h1><%= @ministry.name %></h1>
-</div>
+<div class="Row ">
+	<div class="span10">
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @ministry.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
-  <dd><%= @ministry.contact_person %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
-  <dd><%= @ministry.contact_email %></dd>
-  <% unless @ministry.description.blank? %>
- <dt><strong>Description:</strong></dt>
-  <dd><%= @ministry.description  %></dd>
-  <%end%>
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= @ministry.name %></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ <br>
+<div class="Row ">
+ <div class="span10">  
+
+
+<%- model_class = Ministry -%>
  
-  <dt><strong><%= model_class.human_attribute_name(:display_rank) %>:</strong></dt>
-  <dd><%= @ministry.display_rank %></dd>
+ 
   <% unless @ministry.ta1.blank? %>
- <dt><strong>TextArea #1:</strong></dt>
-  <dd><%= @ministry.ta1  %></dd>
+ 
+   <%= @ministry.ta1  %> 
   <%end%>
   <% unless @ministry.ta2.blank? %>
- <dt><strong>TextArea #2:</strong></dt>
-  <dd><%= @ministry.ta2 %></dd>
+ 
+ <%= @ministry.ta2 %> 
   <%end%> 
   <% unless @ministry.ta3.blank? %>
- <dt><strong>TextArea #3:</strong></dt>
-  <dd><%= @ministry.ta3  %></dd>
+ 
+ <%= @ministry.ta3  %> 
   <%end%> 
   <% unless @ministry.ta4.blank? %>
- <dt><strong>TextArea #4:</strong></dt>
-  <dd><%= @ministry.ta4  %></dd>
+ 
+ <%= @ministry.ta4  %> 
   <%end%> 
   <% unless @ministry.ta5.blank? %>
- <dt><strong>TextArea #5:</strong></dt>
-  <dd><%= @ministry.ta5  %></dd>
+ 
+ <%= @ministry.ta5  %> 
   <%end%> 
-  <dt><strong><%= model_class.human_attribute_name(:advert_main_page) %>:</strong></dt>
-  <dd><%= status_advert_main_page(@ministry) %></dd>
+ 
+ <%= status_advert_main_page(@ministry) %> 
 
 
 
  
 
 
-</dl>
+ 
 
-</div>
-<div class="form-actions">
+ 
+ 
 <p><h5>Picture:</h5></p>
 <%= render :partial => 'picture' %>
 
 
-</div>
+ 
 
-<div class="form-actions">
+ 
 <p><h5><%= @ministry.name %> Ministries:</h5></p>
 <%= render :partial => 'ministry_children' %>
 
 
-</div>
+ 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               ministries_path, :class => 'btn btn-flat btn-info'  %>
@@ -72,3 +72,15 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger  btn-flat' %>
 </div>
+
+
+
+
+</div>
+</div> <!-- Span-->
+
+<div class="span1">
+ <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div> <!-- Row-->

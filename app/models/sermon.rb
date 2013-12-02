@@ -5,6 +5,6 @@ belongs_to :speaker
 has_many :sermon_pictures, :foreign_key => :sermons_id, :primary_key =>  :id, :inverse_of => :sermon, :dependent => :destroy
 
 
-default_scope order: 'sermons.date_of_sermon ASC'
+default_scope order: 'sermons.date_of_sermon DESC'
  
 end

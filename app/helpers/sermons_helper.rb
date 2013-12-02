@@ -22,4 +22,25 @@ module SermonsHelper
    
    
    
+ 
+   
+  def getspeaker(sermon)
+
+  
+  
+  			 speaker = sermon.speaker 
+  				
+  				 @code =  content_tag(:span, "#{speaker.title} #{speaker.full_name}")           
+ 
+  			 	 
+ 
+       
+       
+       return @code
+       
+       
+  end
+  
+   
+   
 end

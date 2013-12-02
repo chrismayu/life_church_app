@@ -2,7 +2,8 @@ class Speaker < ActiveRecord::Base
   attr_accessible :church_staff_id, :description, :full_name, :first_name, :from_church, :from_church_url, :last_name, :title
 
   has_many :speaker_pictures, :foreign_key => :speaker_id, :primary_key =>  :id, :inverse_of => :speaker, :dependent => :destroy
-  has_many :sermons
+  has_many :sermons, :foreign_key => :speaker_id, :primary_key =>  :id, :inverse_of => :speaker 
+  
   
   validates  :first_name,  :presence => {:message => 'Must enter a first name'}
   validates  :last_name,  :presence => {:message => 'Must enter a last name'}
