@@ -37,15 +37,21 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem "parallel_tests"
+  gem "zeus-parallel_tests"
+  gem "faker"
 end
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'zeus'
+  gem 'growl'
+  
 end
-
+gem 'validates_timeliness'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem "heroku"

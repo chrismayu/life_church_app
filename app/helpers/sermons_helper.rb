@@ -26,20 +26,57 @@ module SermonsHelper
    
   def getspeaker(sermon)
 
-  
-  
   			 speaker = sermon.speaker 
   				
   				 @code =  content_tag(:span, "#{speaker.title} #{speaker.full_name}")           
  
-  			 	 
- 
-       
-       
        return @code
        
        
   end
+  
+  
+  def show_sermon(sermon, member_only)
+     string = ""
+     if sermon.members_only == false
+      string = sort_by_date(sermon)
+    else
+      
+      if member_only == true
+      string = sort_by_date(sermon)
+      end
+      
+     end
+     
+     string
+  end
+  
+  
+  def sort_by_date(sermon)
+        string = ""
+ 
+           if sermon.display_until >= DateTime.now 
+         
+               if sermon.date_of_sermon <= DateTime.now
+                string = string + (render partial: "sermon",  :locals => {:sermon => sermon}).to_s.html_safe  
+               end
+          
+           end   
+          
+        string
+      
+      end
+  
+  
+      def member_only_label(sermon)
+        if sermon.members_only?
+            content_tag(:div, content_tag(:span, "Member's Only"), class: "label").html_safe  
+        else
+          
+        end   
+      end
+  
+      
   
    
    

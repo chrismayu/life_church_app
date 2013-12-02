@@ -7,7 +7,7 @@ FactoryGirl.define do
     last_name "MyString"
     from_church "MyString"
     description "MyText"
-    church_staff_id 1
+    church_staff_id nil
     from_church_url ""
   end
 end

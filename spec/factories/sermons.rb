@@ -2,13 +2,13 @@
 
 FactoryGirl.define do
   factory :sermon do
-    date_of_sermon "2013-10-22"
+    date_of_sermon DateTime.now - 3.days
     title "MyString"
     description "MyText"
     category "MyString"
     audio_url "MyString"
     video_url "MyString"
-    display_until "2013-10-22"
+    display_until  DateTime.now + 3.days
     speaker_id 1
     members_only false
     url "MyString"

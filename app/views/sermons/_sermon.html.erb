@@ -1,24 +1,17 @@
- 
-
- 
-<% if user_signed_in? %>
-
-  <% if can? :edit, :sermons %>
- 
   <li class="span10 sermon_text">  
 				 	 
   	 <span class="sermon_text_small"><%= sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") %> </span>   <br>
-     <span class=" site_blue"> <%= sermon.title %> </span> <br>
+     <span class=" site_blue"> <%= sermon.title %> <%= member_only_label(sermon) %></span> <br>
  					 
-    <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> Pastor Tom <%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> keywords </span>     <br>
+    <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> <%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> </span>     <br>
   	
 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
   					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>
 							 
   			 
-					<% if user_signed_in? %>				 
-<%= link_to t('.show', :default => t("helpers.links.view")),
-              sermon_path(sermon) , :class => 'btn   btn-success btn-mini-flat ' %> 
+					<% if user_signed_in? %>
+					 <% if can? :edit, :sermons %>				 
+ 
    <%= link_to t('.edit', :default => t("helpers.links.edit")),
                edit_sermon_path(sermon), :class => 'btn btn-mini-flat' %>
    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -26,40 +19,11 @@
                :method => :delete,
                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                :class => 'btn btn-mini-flat btn-danger' %>
-			
 				<% end %>
+				<% end %>
+				
+				
   </li>
 				 
- <% else %> 
+  
  
- <% if sermon.display_until >= DateTime.now.to_date %>
- 
- <li class="span10 sermon_text">  
-			 	 
- 	 <span class="sermon_text_small"><%= sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") %> </span>   <br>
-    <span class=" site_blue"> <%= sermon.title %> </span> <br>
-					 
-   <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> Pastor Tom<%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> keywords </span>     <br>
- 	
-<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
- 					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>
- </li>
-    <% end %>  
-
- <% end %>  
-
-  <% else %> 
-
- <% if sermon.display_until >= DateTime.now.to_date %>
- <li class="span10 sermon_text">  
-			 	 
- 	 <span class="sermon_text_small"><%= sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") %> </span>   <br>
-    <span class=" site_blue"> <%= sermon.title %> </span> <br>
-					 
-   <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> Pastor Tom<%= getspeaker(sermon) %>  </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> keywords </span>     <br>
- 	
-<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
- 					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>
- </li>
-    <% end %>   
-    <% end %> 

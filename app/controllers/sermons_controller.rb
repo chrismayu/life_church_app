@@ -48,7 +48,7 @@ class SermonsController < ApplicationController
 
     respond_to do |format|
       if @sermon.save
-        format.html { redirect_to @sermon, notice: 'Sermon was successfully created.' }
+        format.html { redirect_to sermons_path, notice: 'Sermon was successfully created.' }
         format.json { render json: @sermon, status: :created, location: @sermon }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class SermonsController < ApplicationController
 
     respond_to do |format|
       if @sermon.update_attributes(params[:sermon])
-        format.html { redirect_to @sermon, notice: 'Sermon was successfully updated.' }
+        format.html { redirect_to sermons_path, notice: 'Sermon was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

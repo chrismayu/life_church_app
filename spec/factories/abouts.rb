@@ -2,20 +2,28 @@
 
 FactoryGirl.define do
   factory :about do
-    service_day_1 "MyString"
-    service_time_1 "MyString"
-    service_day_2 "MyString"
-    service_time_2 "MyString"
-    service_day_3 "MyString"
-    service_time_3 "MyString"
-    address "MyString"
-    city "MyString"
-    postal_code "MyString"
-    phone_number "MyString"
-    toll_free_phone_number "MyString"
-    fax_number "MyString"
+ 
+    address "547 Althone"
+    city "Woodstock"
+    postal_code "N0R1A0"
+    phone_number "519-555-1234"
+    toll_free_phone_number "1-800-555-1234"
+    fax_number "519-555-1234"
     latitude 1.5
     longitude 1.5
     gmaps false
+   	youtube "url" 
+    facebook "url" 
+    video_stream "url"  
+    twitter"url"  
+    country "My String" 
+    province "My String"
+    life_pulse false
+    leaders_blog false
+    store true
+    video false
+    articles false
   end
 end
+
+ 
