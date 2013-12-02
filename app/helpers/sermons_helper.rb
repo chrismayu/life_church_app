@@ -68,13 +68,29 @@ module SermonsHelper
       end
   
   
-      def member_only_label(sermon)
+      def member_only_label(sermon, member = false)
         if sermon.members_only?
-            content_tag(:div, content_tag(:span, "Member's Only"), class: "label").html_safe  
+  
+            html = <<-HTML
+            <span class="label label-success"> <i class="icon-unlock"></i>Member's Only</span>
+            HTML
+            
+ 
         else
-          
+           if member == true
+          html = <<-HTML
+          <span class="label"> <i class="icon-lock"></i>Member's Only</span>
+          HTML
+        else
+          html = ""
+        end
         end   
+        
+        html.html_safe
       end
+      
+      
+      
   
       
   

@@ -14,6 +14,16 @@ validates_date :date_of_sermon
 validates_date :display_until, :after => :date_of_sermon, :after_message => 'must be before "Date of Sermon"'
 
 
-default_scope order: 'sermons.date_of_sermon DESC'
+#default_scope order: 'sermons.date_of_sermon DESC'
+ 
+ 
+def self.search(search)
+  if search
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+ 
  
 end

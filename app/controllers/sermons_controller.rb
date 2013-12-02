@@ -1,4 +1,5 @@
 class SermonsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /sermons
   # GET /sermons.json
   load_and_authorize_resource :except => [:index, :show ]
@@ -6,7 +7,8 @@ class SermonsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show ]
   
   def index
-    @sermons = Sermon.all
+    @sermons = Sermon.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+   # @products = Product.order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,5 +85,16 @@ class SermonsController < ApplicationController
       format.html { redirect_to sermons_url }
       format.json { head :no_content }
     end
+  end
+  
+  
+  private
+  
+  def sort_column
+    Sermon.column_names.include?(params[:sort]) ? params[:sort] : "date_of_sermon"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

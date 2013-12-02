@@ -14,9 +14,9 @@
  
 	<% if user_signed_in? %>
 	<% if can? :edit, :bulletins %>
-	&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.new")),
+	&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.Setup new Sermon")),
 	            new_sermon_path,
-	            :class => 'btn btn-primary btn-flat' %>
+	            :class => 'btn btn-primary btn-mini-flat' %>
 			<% end%>
 			<% end%>
 			<br>
@@ -24,7 +24,12 @@
 				
 <div class="span9 ">
 	<ul class="thumbnails">
-		
+		<div class=" mission_bg pull-left">
+		&nbsp;&nbsp;  Filter by: &nbsp;&nbsp;<%= sortable "date_of_sermon", "Date"  %> &nbsp;&nbsp;&nbsp;<%= sortable "category", "Topic"   %>  &nbsp;&nbsp;&nbsp;<%= sortable "speaker_id", "Speaker"  %> 
+		<br>
+		<br>
+	</div>
+ 
 		 <% @sermons.each do |sermon| %>
  
 		 <% if user_signed_in? %>
@@ -48,6 +53,8 @@
 		   <% end %> 
  
 	     <% end%>
+		 
+		 <%= will_paginate @sermons %>
 	</ul>
 
 </div>

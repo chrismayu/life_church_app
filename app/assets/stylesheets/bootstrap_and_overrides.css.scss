@@ -9,13 +9,17 @@ body { padding-top: 90px; }
     color: #007DC3;
     font-size: 2.5em;
 }
+ 
 
 .icon-time, .icon-map-marker, .icon-phone {
 	background-image:none;
     color: #007DC3;   
 }
 
- 
+.icon-lock, icon-unlock{
+	background-image:none;
+   
+}
 
 .table_event td, .table_event th
 {

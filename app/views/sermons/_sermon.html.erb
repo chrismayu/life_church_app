@@ -1,8 +1,14 @@
   <li class="span10 sermon_text">  
 				 	 
   	 <span class="sermon_text_small"><%= sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") %> </span>   <br>
-     <span class=" site_blue"> <%= sermon.title %> <%= member_only_label(sermon) %></span> <br>
- 					 
+	 
+	 <% if user_signed_in? %>
+     <span class=" site_blue"> <%= sermon.title %> <%= member_only_label(sermon, member = true) %></span> <br>
+ 		
+		<% else %>
+		 <span class=" site_blue"> <%= sermon.title %> <%= member_only_label(sermon) %></span> <br>
+		<% end %>
+					 
     <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> <%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> </span>     <br>
   	
 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
