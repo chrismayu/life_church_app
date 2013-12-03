@@ -14,7 +14,7 @@ class BulletinsController < ApplicationController
   
   
   def index
-    @bulletins = Bulletin.all
+    @bulletins = Bulletin.last(3).reverse
     
  
      

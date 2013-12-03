@@ -5,8 +5,8 @@ module BulletinsHelper
 
   def bulletin_name(bulletin)
     
-       content_tag(:span, "#{bulletin.display_start.strftime("%B %d")} - #{bulletin.display_till.strftime("%d, %Y")}") 
-  end  
+       content_tag(:span, "Week of  #{bulletin.display_start.strftime("%B #{bulletin.display_start.day.ordinalize}, %Y")}") 
+  end   
 
   def bulletin_advert_main_page(bulletin)
     if bulletin.advert_main_page?
