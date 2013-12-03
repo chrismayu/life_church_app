@@ -1,0 +1,33 @@
+Use Markdown for formatting. See examples.
+<table class="table span4">
+	<tr>
+		<td>
+			[Link](http://example.com/)
+		</td>
+		<td>
+			  <%=  BlueCloth.new('[Link](http://example.com/)'  ).to_html.html_safe %>
+		</td>
+
+
+	</tr>
+	<tr>
+		<td>
+			*Italic*
+		</td>
+		<td>
+			  <%=  BlueCloth.new('*Italic*').to_html.html_safe %>
+		</td>
+ 
+		
+	</tr>
+	<tr>
+		<td>
+			**Bold**
+		</td>
+ 
+		<td>
+			  <%=  BlueCloth.new('**Bold**' ).to_html.html_safe %>
+		</td>
+		
+	</tr>
+</table>

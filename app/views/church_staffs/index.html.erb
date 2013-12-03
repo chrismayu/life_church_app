@@ -56,7 +56,7 @@
    
  	
        <% unless church_staff.description.blank? %>	
-         <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> </p>
+         <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> <%= markdown(church_staff.description) %></p>
 	  <br>
  	    <%end%> 
    <p>

@@ -29,7 +29,7 @@
  <br>
  
  <% unless @ministry.ta1.blank? %>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  markdown(@ministry.ta1)  %> </span> 
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta1).to_html.html_safe %>  </span> 
  <%end%> 
   <% unless @ministry.ta2.blank? %>
  &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta2).to_html.html_safe %> </span> 
@@ -39,7 +39,7 @@
   <%end%> 
   <% unless @ministry.ta4.blank? %>
  
- &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%= markdown(@ministry.ta4)  %> </span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta1).to_html.html_safe %> > </span> 
   <%end%> 
   <% unless @ministry.ta5.blank? %>
  

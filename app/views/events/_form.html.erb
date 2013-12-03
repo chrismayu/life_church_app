@@ -12,15 +12,18 @@
   <%= f.input :contact_email,  :label=>"Contact Email:",  :hint => "Will not be display on the site - Linked to only",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
   <%= f.input :location %>
   <%= f.input :contact_person,  :label=>"Contact Person:", :placeholder=>"Contact Person" ,  :input_html => { :class => "enroll_input span3"}  %>
-  	<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the event" , :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+  
 
 	<%= f.input :remove_event_date, :label=>"Date to disable from site:",  :hint => "The date the Event will automatically stop being viewed on the site", :wrapper => :append do %>
 	  <%= f.input_field :remove_event_date, :id=> 'remove_event_date',   :as => :string, :placeholder=>"Date to disable event" %><span class="add-on"><i class="icon-calendar"></i></span>
 	<% end %>
 
   <%= f.input :display_main_page %>
+  
 
-
+ <%= render :partial => 'abouts/markdown'%>
+ 
+	<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the event" , :input_html => { :class => "enroll_input span5", :rows => 5} %> 
 
  
 
@@ -33,6 +36,6 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                events_path, :class => 'btn btn-flat' %>
+                event_path(@event), :class => 'btn btn-flat' %>
   </div>
 <% end %>

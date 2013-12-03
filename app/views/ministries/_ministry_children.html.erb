@@ -9,7 +9,7 @@
 	<p><h5><%= ministry_child.name %></h5></p>
 		<%= display_ministry_child_picture(ministry_child) %>
 		 
- <p class=" ministry_text pull-center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= ministry_child.description %> </p>
+ <p class=" ministry_text pull-center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <%= markdown(ministry_child.description )%> </p>
  
 <% if user_signed_in? %>
 <% if can? :edit, :ministries %>
