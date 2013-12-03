@@ -15,7 +15,7 @@
 	
 <div class="pull-center">	
 	<%= @event.description %>
-	
+	  <%=  BlueCloth.new(@event.description).to_html.html_safe %>
 	<br>
 	<br>
 	

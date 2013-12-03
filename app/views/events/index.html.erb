@@ -1,10 +1,40 @@
 <%- model_class = Event -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Calendar & Events</h1>
 </div>
+<% if user_signed_in? %>
+<% if can? :edit, :events %>
 <%= link_to t('.new', :default => t("helpers.links.Create Event")),
             new_event_path,
             :class => 'btn btn-primary btn-flat' %>
+			<% end %>
+			<% end %>
+			
+			<div id="events">
+			  <h2 id="month">
+			    <%= link_to "<", date: @date.prev_month %>
+			    <%= @date.strftime("%B %Y") %>
+			    <%= link_to ">", date: @date.next_month %>
+			  </h2>
+			  <%= calendar @date do |date| %>
+			    <%= date.day %>
+			    <% if @events_by_date[date] %>
+			      <ul>
+			        <% @events_by_date[date].each do |event| %>
+			          <li><%= link_to event.event_name, event %></li>
+			        <% end %>
+			      </ul>
+			    <% end %>
+			  <% end %>
+			</div>
+			
+			<br>
+			<br>
+			
+			<% if user_signed_in? %>
+			<% if can? :edit, :events %>
+			
+			
 <table class="table table-striped">
   <thead>
     <tr>
@@ -57,4 +87,5 @@
   </tbody>
 </table>
 
-
+<% end %>
+<% end %>

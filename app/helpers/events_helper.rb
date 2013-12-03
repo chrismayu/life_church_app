@@ -15,7 +15,9 @@ module EventsHelper
     else
 
     
-        return link_to(image_tag(placeholder_image_url "486x276", :text => "Oops-No Picture", :bg => "000", :fg => "667"), learn_more_path(event_pictures)) 
+       # return link_to(image_tag(placeholder_image_url "486x276", :text => "#{event_pictures.event_name} - Picture soon", :bg => "000", :fg => "667"), event_path(event_pictures)) 
+        return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+   
    end 
    end  
   
@@ -25,7 +27,7 @@ module EventsHelper
        if event_pictures.event_pictures.present?  
          for event_picture in event_pictures.event_pictures  
           if event_picture.image_processed?  
-            return link_to(image_tag(event_picture.event_image_url(:side)), learn_more_path(event_pictures)) 
+            return link_to(image_tag(event_picture.event_image_url(:side)), event_path(event_pictures)) 
             
                  
               
@@ -35,7 +37,7 @@ module EventsHelper
         else
 
         
-            return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), learn_more_path(event_pictures)) 
+            return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
        end
        
        # return image_tag (placeholder_image_url "216x150")   
@@ -47,14 +49,16 @@ module EventsHelper
        if event_pictures.event_pictures.present?  
        for event_picture in event_pictures.event_pictures  
        if event_picture.image_processed?  
-            return image_tag event_picture.event_image_url(:main) 
+            return link_to(image_tag(event_picture.event_image_url(:main)), event_path(event_pictures)) 
           
          
          end  
        end  
         else
 
-         return image_tag (placeholder_image_url "652x484",:text => "#{event_pictures.event_name}")
+        # return image_tag (placeholder_image_url "652x484",:text => "#{event_pictures.event_name}")
+         return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+         
        end  
        
         #return image_tag (placeholder_image_url "652x452")
@@ -78,6 +82,29 @@ module EventsHelper
       parts.join ""
     end
  
+ 
+  
+  
+  def status_display_main_page(ministries)
+    if ministries.display_main_page?
+      content_tag(:div, content_tag(:span, "Yes"), class: "label label-success")
+    else
+      content_tag(:div, content_tag(:span, "No"), class: "label label-warning")   
+    end   
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

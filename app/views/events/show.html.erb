@@ -1,17 +1,77 @@
 <%- model_class = Event -%>
-<div class="page-header">
-	<h4>Event Details for:</h4>
-  <h1><%= @event.event_name %></h1>
-</div>
-<div class="form-actions">
-	
+<div class="Row "> 
+	<div class="span10  mission_bg img-rounded">
 
-<dl class="dl-horizontal">
+
+ 
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= @event.event_name %></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <div class="Row ">
+	 
+  <div class="span10">   <br>
+	
+ <%= render :partial => 'picture' %> 
+ <br>
+
+</div>
+</div>
+  <hr class="round_line_hoz2 " /> 
+<div class="Row ">
+	 
+ <div class="span10 pull-center">  
+	<p>Starts at <%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %> at <%= @event.event_start_time.strftime("%l:%M %p") %>
+ </p> 
+	 <p class="event_text">
+ 
+ 
+ <br>
+ Old: <br>
+<%= @event.description %>
+<br>
+<br>
+New:	<br>
+
+  <%=  BlueCloth.new(@event.description).to_html.html_safe %>
+ 
+  	<br>
+  	<br>
+	
+      <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
+                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp
+  					 <%= link_to t('.new', :default => t("helpers.links.Print Details")),
+                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+  					 &nbsp&nbsp&nbsp&nbsp&nbsp
+  					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
+                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+ 
+ 
+ </p>
+  </div>
+    </div>
+
+ 
+<br>
+ 
+<div class="Row ">
+	 
+ <div class="span10"> 
+	
+<% if user_signed_in? %>
+<% if can? :edit, :events %>
+ 
+ 
+ <br><br><br>
+<dl class="dl-horizontal"><h4>Options:</h4> 
  
   <dt><strong><%= model_class.human_attribute_name(:event_name) %>:</strong></dt>
   <dd><%= @event.event_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
-  <dd><%= @event.event_date.strftime("%b %d") %></dd>
+  <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
   <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
@@ -23,33 +83,47 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:remove_event_date) %>:</strong></dt>
-  <dd><%= @event.remove_event_date.strftime("%b %d") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:display_main_page) %>:</strong></dt>
-  <dd><%= @event.display_main_page %></dd>
-         <%= link_to t('.new', :default => t("helpers.links.Contact")),
-	                      contact_event_path(:event => @event.id), :class => 'btn   btn-success btn-mini-flat' %>
-
+  <dd><%= @event.remove_event_date.strftime("%B #{@event.remove_event_date.day.ordinalize}, %Y")%></dd>
+  <dt><strong>Display on Main Page: </strong></dt>
+  <dd><%= status_display_main_page(@event) %> <br></dd>
+     
 </dl>
-
+<%end%> 
+<%end%> 
+ 
+ <br>
+ <br>
+ 
+<div class=" span10">
+    <%= link_to t('.back', :default => t("helpers.links.View all Events")),
+                events_path, :class => 'btn btn-flat btn-info'  %>
+				<% if user_signed_in? %>
+				<% if can? :edit, :events %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_event_path(@event), :class => 'btn btn-flat btn-primary ' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                event_path(@event),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger btn-flat ' %>
+			    <%end%> 
+			    <%end%> 
 </div>
-<div class="form-actions">
-<p><h5>Picture:</h5></p>
-<%= render :partial => 'picture' %>
-
-
+<br>  <br>
+ 
+ 
+  <br>
+  
 </div>
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.View all Events")),
-              events_path, :class => 'btn btn-flat btn-info'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_event_path(@event), :class => 'btn btn-flat btn-primary ' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              event_path(@event),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger btn-flat ' %>
-	 
+</div>
+</div> <!-- Span-->
+
+<div class="span1">
+ <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div> <!-- Row-->
 
  
-
-</div>
+ 
+  
