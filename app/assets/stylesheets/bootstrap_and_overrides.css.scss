@@ -21,6 +21,8 @@ body { padding-top: 90px; }
    
 }
 
+
+
 .table_event td, .table_event th
 {
     padding: 0; /* 'cellpadding' equivalent */
@@ -49,6 +51,14 @@ li {list-style-type: none;}
     //background-color: rgba(255,255,255,.5);
     border: none;  // remove default style
     border-bottom: 3px solid black;  //apply style
+}
+.text_center_v_align {
+  vertical-align:-4px;
+	font-family: 'Open Sans Bold',Arial,Helvetica,Sans-Serif;
+	color:#5A5A59;
+    font-size:11pt;
+    text-align:left;
+	font-weight:700;
 }
 .top_line {
     width:300px;
