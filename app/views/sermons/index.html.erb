@@ -26,6 +26,14 @@
 	<ul class="thumbnails">
 		<div class=" mission_bg pull-left">
 		&nbsp;&nbsp; &nbsp;&nbsp;<span class=" text_center_v_align "> Filter By:</span> &nbsp;&nbsp;<%= sortable "date_of_sermon", "Date"  %> &nbsp;&nbsp;&nbsp;<%= sortable "category", "Topic"   %>  &nbsp;&nbsp;&nbsp;<%= sortable "speaker_id", "Speaker"  %> 
+		
+		<%= form_tag sermons_path, :method => 'get' do %>
+		  <p>
+		    <%= text_field_tag :search, params[:search] %>
+		    <%= submit_tag "Search", :description => nil %>
+		  </p>
+		<% end %>
+		
 		<br>
 		<br>
 	</div>
@@ -40,13 +48,13 @@
 			 
 			  <% else %> 
  
-			    <%= show_sermon(sermon, member_only = true).html_safe %>
+			    <%= sort_by_date(sermon).html_safe %>
 	 
 			   <% end %>  
  
 		   <% else %> 
 
-		    <%= show_sermon(sermon, member_only = false).html_safe %>
+		    <%= sort_by_date(sermon).html_safe %>
 			  
 		   <% end %> 
  

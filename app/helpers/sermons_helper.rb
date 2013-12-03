@@ -54,38 +54,52 @@ module SermonsHelper
   
   def sort_by_date(sermon)
         string = ""
- 
-           if sermon.display_until >= DateTime.now 
-         
                if sermon.date_of_sermon <= DateTime.now
                 string = string + (render partial: "sermon",  :locals => {:sermon => sermon}).to_s.html_safe  
-               end
-          
-           end   
-          
+               end   
         string
       
       end
   
   
       def member_only_label(sermon, member = false)
+        
+        
+         if member == false
+         
+         
         if sermon.members_only?
+  
+          html = <<-HTML
+          <span class="label"> <i class="icon-lock"></i>Member's Only</span>
+          HTML
+        else 
+          
+           html = ""
+         
+         end
+  
+          #  html = <<-HTML
+          #  <span class="label label-success"> <i class="icon-unlock"></i>Member's Only</span>
+           # HTML
+            
+ 
+        else
+          if sermon.members_only?
   
             html = <<-HTML
             <span class="label label-success"> <i class="icon-unlock"></i>Member's Only</span>
             HTML
-            
- 
-        else
-           if member == true
-          html = <<-HTML
-          <span class="label"> <i class="icon-lock"></i>Member's Only</span>
-          HTML
-        else
-          html = ""
-        end
-        end   
+          else 
+          
+             html = ""
+           end  
+       
         
+       
+   
+        end   
+ 
         html.html_safe
       end
       

@@ -8,22 +8,29 @@ has_many :sermon_pictures, :foreign_key => :sermons_id, :primary_key =>  :id, :i
 validates  :title, :presence => true
 validates  :date_of_sermon, :presence => true
 validates  :category, :presence => true
-validates  :display_until, :presence => true
  
-validates_date :date_of_sermon
-validates_date :display_until, :after => :date_of_sermon, :after_message => 'must be before "Date of Sermon"'
 
+after_save :create_description
 
 #default_scope order: 'sermons.date_of_sermon DESC'
  
  
 def self.search(search)
   if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
   else
     find(:all)
   end
 end
+
+private
+
+   def create_description
+       sermon= Sermon.find(id)
+       speaker = sermon.speaker 
+       sermon.update_column(:description, "#{speaker.title} #{speaker.full_name} #{sermon.date_of_sermon.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{sermon.category}  #{sermon.title} #{sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") } yup")
+   end
  
+  
  
 end

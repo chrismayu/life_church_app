@@ -11,9 +11,16 @@
 					 
     <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> <%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> </span>     <br>
   	
-	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
-  					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>
-							 
+ 
+							 <% if user_signed_in?  %>
+													 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")), sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+							  <% else %>
+							   <% if sermon.members_only == false %>
+						 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
+						   					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+  <% end %>
+    <% end %>
+							  
   			 
 					<% if user_signed_in? %>
 					 <% if can? :edit, :sermons %>				 

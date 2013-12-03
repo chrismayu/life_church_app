@@ -2,12 +2,12 @@ class SermonsController < ApplicationController
   helper_method :sort_column, :sort_direction
   # GET /sermons
   # GET /sermons.json
-  load_and_authorize_resource :except => [:index, :show ]
+  load_and_authorize_resource :except => [:index]
   
-  before_filter :authenticate_user!, :except => [:index, :show ]
+  before_filter :authenticate_user!, :except => [:index  ]
   
   def index
-    @sermons = Sermon.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @sermons = Sermon.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
    # @products = Product.order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|

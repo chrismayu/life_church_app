@@ -11,10 +11,7 @@
 	  <%= f.input_field :date_of_sermon, :id=> 'sermon_date',   :as => :string, :placeholder=>"Date of Sermon" %><span class="add-on"><i class="icon-calendar"></i></span>
 	<% end %>
 
-
-	<%= f.input :display_until, :label=>"Date to disable from site:",  :hint => "The Date when the Sermon will be automatically removed from the site", :wrapper => :append do %>
-	  <%= f.input_field :display_until, :id=> 'remove_sermon_date',   :as => :string, :placeholder=>"Date to disable event" %><span class="add-on"><i class="icon-calendar"></i></span>
-	<% end %>
+ 
 	
  
 <%= f.input :speaker_id, collection: Speaker.all, label_method: :full_name, value_method: :id,label: "Select Speaker:", include_blank: false %>
@@ -23,6 +20,11 @@
   <%= f.input :audio_url, :label=>"Link to Audio File:" %>
 
 <%= f.input :category , :label=>'Keywords :',  :placeholder=>"Add as many keywords as you like" , :input_html => { :class => "enroll_input span4", :rows => 3} %> 
+
+<% if @sermon.persisted? %>
+  <%= f.input :description, :label=>"description:" %>
+ 	<% end %>
+
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
