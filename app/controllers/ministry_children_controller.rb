@@ -50,7 +50,7 @@ class MinistryChildrenController < ApplicationController
 
     respond_to do |format|
       if @ministry_child.save
-        format.html { redirect_to @ministry_child, notice: 'Ministry child was successfully created.' }
+        format.html { redirect_to ministry_path(@ministry_child.ministry.id), notice: 'Ministry child was successfully created.' }
         format.json { render json: @ministry_child, status: :created, location: @ministry_child }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class MinistryChildrenController < ApplicationController
 
     respond_to do |format|
       if @ministry_child.update_attributes(params[:ministry_child])
-        format.html { redirect_to @ministry_child, notice: 'Ministry child was successfully updated.' }
+        format.html { redirect_to ministry_path(@ministry_child.ministry.id), notice: 'Ministry child was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,10 +79,12 @@ class MinistryChildrenController < ApplicationController
   # DELETE /ministry_children/1.json
   def destroy
     @ministry_child = MinistryChild.find(params[:id])
+ 
+    redirect_id = @ministry_child.ministry_id
     @ministry_child.destroy
-
+ 
     respond_to do |format|
-      format.html { redirect_to ministry_children_url }
+      format.html { redirect_to ministry_path(redirect_id) }
       format.json { head :no_content }
     end
   end

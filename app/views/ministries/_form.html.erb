@@ -10,8 +10,8 @@
   <%= f.input :ta4,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #4 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
   <%= f.input :ta5,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #5 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
   
-  <%= f.input :advert_main_page %>
-    <%= f.input :display_rank %>
+  <%= f.input :advert_main_page, :label =>"Display on Main Page: " %>
+    <%= f.input :display_rank, :label =>"Display Ranking ",:hint => "used to sort all Ministries when displayed" %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
