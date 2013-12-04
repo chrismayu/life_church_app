@@ -1,0 +1,29 @@
+<%= simple_form_for @event_form, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :event_setup_form_id %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :receive_emails %>
+  <%= f.input :email %>
+  <%= f.input :phone_number %>
+  <%= f.input :notes %>
+  <%= f.input :c_f_1_s %>
+  <%= f.input :c_f_2_s %>
+  <%= f.input :c_f_3_s %>
+  <%= f.input :c_f_4_s %>
+  <%= f.input :c_f_5_b %>
+  <%= f.input :c_f_6_b %>
+  <%= f.input :c_f_7_b %>
+  <%= f.input :c_f_8_b %>
+  <%= f.input :c_f_9_t %>
+  <%= f.input :c_f_10_t %>
+  <%= f.input :c_f_11_t %>
+  <%= f.input :c_f_12_t %>
+  <%= f.input :age %>
+  <%= f.input :bday %>
+  <%= f.input :sex %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                event_forms_path, :class => 'btn' %>
+  </div>
+<% end %>

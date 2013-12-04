@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123155015) do
+ActiveRecord::Schema.define(:version => 20131204182307) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -114,6 +114,33 @@ ActiveRecord::Schema.define(:version => 20131123155015) do
     t.string   "email_id"
   end
 
+  create_table "event_forms", :force => true do |t|
+    t.integer  "event_setup_form_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "receive_emails"
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "notes"
+    t.string   "c_f_1_s"
+    t.string   "c_f_2_s"
+    t.string   "c_f_3_s"
+    t.string   "c_f_4_s"
+    t.boolean  "c_f_5_b"
+    t.boolean  "c_f_6_b"
+    t.boolean  "c_f_7_b"
+    t.boolean  "c_f_8_b"
+    t.text     "c_f_9_t"
+    t.text     "c_f_10_t"
+    t.text     "c_f_11_t"
+    t.text     "c_f_12_t"
+    t.integer  "age"
+    t.date     "bday"
+    t.string   "sex"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "event_pictures", :force => true do |t|
     t.string   "title"
     t.string   "event_image"
@@ -124,6 +151,46 @@ ActiveRecord::Schema.define(:version => 20131123155015) do
     t.integer  "event_id"
     t.string   "eventimage"
     t.boolean  "image_processed"
+  end
+
+  create_table "event_setup_forms", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "email_for_forms"
+    t.string   "c_f_1"
+    t.string   "c_f_2"
+    t.string   "c_f_3"
+    t.string   "c_f_4"
+    t.string   "c_f_5"
+    t.string   "c_f_6"
+    t.string   "c_f_7"
+    t.string   "c_f_8"
+    t.string   "c_f_9"
+    t.string   "c_f_10"
+    t.string   "c_f_11"
+    t.string   "c_f_12"
+    t.boolean  "age"
+    t.string   "c_f_1_h"
+    t.string   "c_f_2_h"
+    t.string   "c_f_3_h"
+    t.string   "c_f_4_h"
+    t.string   "c_f_5_h"
+    t.string   "c_f_6_h"
+    t.string   "c_f_7_h"
+    t.string   "c_f_8_h"
+    t.string   "c_f_9_h"
+    t.string   "c_f_10_h"
+    t.string   "c_f_11_h"
+    t.string   "c_f_12_h"
+    t.boolean  "phone"
+    t.boolean  "note"
+    t.boolean  "bday"
+    t.boolean  "sex"
+    t.boolean  "use_form"
+    t.string   "down_link"
+    t.boolean  "ok_to_contact"
+    t.string   "form_title"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -139,6 +206,40 @@ ActiveRecord::Schema.define(:version => 20131123155015) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.time     "event_start_time"
+    t.string   "email_for_forms"
+    t.string   "c_f_1"
+    t.string   "c_f_2"
+    t.string   "c_f_3"
+    t.string   "c_f_4"
+    t.string   "c_f_5"
+    t.string   "c_f_6"
+    t.string   "c_f_7"
+    t.string   "c_f_8"
+    t.string   "c_f_9"
+    t.string   "c_f_10"
+    t.string   "c_f_11"
+    t.string   "c_f_12"
+    t.boolean  "age"
+    t.string   "c_f_1_h"
+    t.string   "c_f_2_h"
+    t.string   "c_f_3_h"
+    t.string   "c_f_4_h"
+    t.string   "c_f_5_h"
+    t.string   "c_f_6_h"
+    t.string   "c_f_7_h"
+    t.string   "c_f_8_h"
+    t.string   "c_f_9_h"
+    t.string   "c_f_10_h"
+    t.string   "c_f_11_h"
+    t.string   "c_f_12_h"
+    t.boolean  "phone"
+    t.boolean  "note"
+    t.boolean  "bday"
+    t.boolean  "sex"
+    t.boolean  "use_form"
+    t.string   "down_link"
+    t.boolean  "ok_to_contact"
+    t.string   "form_title"
   end
 
   create_table "ministries", :force => true do |t|

@@ -1,0 +1,42 @@
+<%= simple_form_for @event_setup_form, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :event_id %>
+  <%= f.input :email_for_forms %>
+  <%= f.input :c_f_1 %>
+  <%= f.input :c_f_2 %>
+  <%= f.input :c_f_3 %>
+  <%= f.input :c_f_4 %>
+  <%= f.input :c_f_5 %>
+  <%= f.input :c_f_6 %>
+  <%= f.input :c_f_7 %>
+  <%= f.input :c_f_8 %>
+  <%= f.input :c_f_9 %>
+  <%= f.input :c_f_10 %>
+  <%= f.input :c_f_11 %>
+  <%= f.input :c_f_12 %>
+  <%= f.input :age %>
+  <%= f.input :c_f_1_h %>
+  <%= f.input :c_f_2_h %>
+  <%= f.input :c_f_3_h %>
+  <%= f.input :c_f_4_h %>
+  <%= f.input :c_f_5_h %>
+  <%= f.input :c_f_6_h %>
+  <%= f.input :c_f_7_h %>
+  <%= f.input :c_f_8_h %>
+  <%= f.input :c_f_9_h %>
+  <%= f.input :c_f_10_h %>
+  <%= f.input :c_f_11_h %>
+  <%= f.input :c_f_12_h %>
+  <%= f.input :phone %>
+  <%= f.input :note %>
+  <%= f.input :bday %>
+  <%= f.input :sex %>
+  <%= f.input :use_form %>
+  <%= f.input :down_link %>
+  <%= f.input :ok_to_contact %>
+  <%= f.input :form_title %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                event_setup_forms_path, :class => 'btn' %>
+  </div>
+<% end %>

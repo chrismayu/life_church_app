@@ -1,5 +1,11 @@
 LifeChurchApp::Application.routes.draw do
  
+  resources :event_forms
+
+
+  resources :event_setup_forms
+
+
   get "sermon_pictures/step_1"
   get "sermon_pictures/step_2"
   resources :sermon_pictures
