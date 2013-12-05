@@ -2,6 +2,7 @@ class ContactStaffController < ApplicationController
   
   
    def new 
+      @user = current_user
         @message = Message.new(:staff => params[:staff])
         @church_staff = ChurchStaff.where(:email_id=> @message.staff).last
       end

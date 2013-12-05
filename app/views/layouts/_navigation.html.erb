@@ -122,18 +122,23 @@
 	
                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,  <%= current_user.name %> <b class="caret"></b></a>
                        <ul class="dropdown-menu">
-                           <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>   
+                           <li>
+						 
+						    <%= link_to contact_path  do %>
+						  <i class="icon-envelope"></i> Contact Us		 <% end %>
+						   
+						   </li>   
 						    <li>
 						    <%= link_to edit_user_registration_path do %>
 						  <i class="icon-cog"></i> Preferences 		 <% end %>
 						    </li>
  					 
-
+<% if current_user.has_role? :admin %>
 							  <li>
 							    <%= link_to site_setups_site_setup_path do %>
 							  <i class="icon-globe"></i> Site Setup		 <% end %>
 							    </li>
-
+ <% end %>
  
 
                            <li class="divider"></li>

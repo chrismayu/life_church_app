@@ -1,5 +1,6 @@
 class ContactEventController < ApplicationController
   def new 
+     @user = current_user
        @message = Message.new(:staff => params[:event]) 
         @events = Event.where(:id=> @message.staff).last
      end
