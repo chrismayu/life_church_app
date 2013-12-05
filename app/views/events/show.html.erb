@@ -26,17 +26,11 @@
  <div class="span10 pull-center">  
 	<p>Starts at <%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %> at <%= @event.event_start_time.strftime("%l:%M %p") %>
  </p> 
-	 <p class="event_text">
+	 <div class="event_text">
  
  
- <br>
- Old: <br>
-<%= @event.description %>
-<br>
-<br>
-New:	<br>
 
-  <%=  BlueCloth.new(@event.description).to_html.html_safe %>
+  <%=  markdown(@event.description)%>
  
   	<br>
   	<br>
@@ -55,7 +49,7 @@ New:	<br>
                        contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %><%end%> 
  
  
- </p>
+ </div>
   </div>
     </div>
 

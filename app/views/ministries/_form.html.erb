@@ -5,14 +5,16 @@
   
    <%= render :partial => 'abouts/markdown'%>
  
-  <%= f.input :ta1,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #1 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}   %>
-  <%= f.input :ta2,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #2 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
-  <%= f.input :ta3,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #3 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
-  <%= f.input :ta4,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #4 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
-  <%= f.input :ta5,  :label=>"TeatArea #1:", :placeholder=>"Text to be displayed in Textarea #5 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}    %>
-  
-  <%= f.input :advert_main_page, :label =>"Display on Main Page: " %>
-    <%= f.input :display_rank, :label =>"Display Ranking ",:hint => "used to sort all Ministries when displayed" %>
+  <%= f.input :ta1,  :label=>"Paragraph #1:", :placeholder=>"Besure to use Markdown tags where needed " ,  :input_html => { :class => "enroll_input span7", :rows => 8}   %>
+  <%= f.input :ta2,  :label=>"Paragraph #2:", :placeholder=>"Besure to use Markdown tags where needed " ,  :input_html => { :class => "enroll_input span7", :rows => 8}    %>
+  <%= f.input :ta3,  :label=>"Paragraph #3:", :placeholder=>"Besure to use Markdown tags where needed " ,  :input_html => { :class => "enroll_input span7", :rows => 8}    %>
+  <%= f.input :ta4,  :label=>"Paragraph #4:", :placeholder=>"Besure to use Markdown tags where needed  " ,  :input_html => { :class => "enroll_input span7", :rows => 8}    %>
+  <%= f.input :ta5,  :label=>"Paragraph #5:", :placeholder=>"Besure to use Markdown tags where needed  " ,  :input_html => { :class => "enroll_input span7", :rows => 8}    %>
+ 
+    
+	
+	 <%= f.input :display_rank,  collection: 1..19,  :label =>"Display Ranking ",:hint => "Used to sort all Ministries when displayed" %>
+	
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

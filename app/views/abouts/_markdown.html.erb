@@ -1,11 +1,21 @@
-Use Markdown for formatting. See examples.
-<table class="table span4">
+
+
+	<div class="span10">
+	<div class="offset1 span6">
+		<div class="pull-center">
+			<br>
+<%=  markdown('**Use Markdown for formatting.**'  )  %> <%= link_to_function "See Example", "$('.foo2').toggle()" %>
+<br>
+<br>
+ <div class="foo2" id="foo2">
+<table class="table span4  " >
+	<caption><h5>  Markdown Examples</h5></caption>
 	<tr>
 		<td>
 			[Link](http://example.com/)
 		</td>
 		<td>
-			  <%=  BlueCloth.new('[Link](http://example.com/)'  ).to_html.html_safe %>
+			  <%=  markdown('[Link](http://example.com/)'  )  %>
 		</td>
 
 
@@ -15,7 +25,7 @@ Use Markdown for formatting. See examples.
 			*Italic*
 		</td>
 		<td>
-			  <%=  BlueCloth.new('*Italic*').to_html.html_safe %>
+			  <%=  markdown('*Italic*') %>
 		</td>
  
 		
@@ -26,8 +36,51 @@ Use Markdown for formatting. See examples.
 		</td>
  
 		<td>
-			  <%=  BlueCloth.new('**Bold**' ).to_html.html_safe %>
+			  <%=  markdown('**Bold**')  %>
 		</td>
 		
 	</tr>
-</table>
+	 
+	 
+	<tr>
+		<td>
+			>
+		</td>
+ 
+		<td>
+			   <%=  markdown('> Indent Whole Paragraph')  %>  
+		</td>
+		
+	</tr>
+	<tr>
+		<td>
+			#
+		</td>
+ 
+		<td>
+			 <%=  markdown('# Header1')  %> 
+		</td>
+		
+	</tr>
+	<tr>
+		<td>
+			##
+		</td>
+ 
+		<td>
+			 <%=  markdown('## Header2')  %> 
+		</td>
+		
+	</tr>
+	<tr>
+		<td>
+			### 
+		</td>
+ 
+		<td>
+			 <%=  markdown('### Header3')  %> 
+		</td>
+		
+	</tr>
+</table><br>
+<br></div></div></div></div><br>

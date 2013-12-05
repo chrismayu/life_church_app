@@ -4,11 +4,12 @@
   <%= f.input :contact_email,  :label=>"Contact Email:",  :hint => "Will not be display on the site - Linked to only",   :placeholder=>"Email Address" ,  :input_html => { :class => "enroll_input span3"} %>
    
    <%= render :partial => 'abouts/markdown'%>
-   
-  <%= f.input :description,  :label=>"Description:", :placeholder=>"Text  1 " ,  :input_html => { :class => "enroll_input span4", :rows => 4}   %>  
+ 
   
+<%= f.input :description , :label=>'Description:',  :placeholder=>"Add a Short Description about This Ministry" , :hint=> "140 Characters max", :input_html => { :class => "enroll_input span6", :rows => 4} %> 
+
   
-  <%= f.input :advert_main_page, :label =>"Display on Main Page: " %>
+    
     <%= f.input :display_rank,  collection: 1..19,  :label =>"Display Ranking ",:hint => "Used to sort all Ministries when displayed" %>
 	
  <%= f.input :ministry_id, as: :hidden %>

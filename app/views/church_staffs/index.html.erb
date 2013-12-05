@@ -56,7 +56,7 @@
    
  	
        <% unless church_staff.description.blank? %>	
-         <p class="pull-left staff_descrip img-rounded"> <%= church_staff.description %> <%= markdown(church_staff.description) %></p>
+         <div class="pull-left staff_descrip img-rounded">  <%= markdown(church_staff.description) %></div>
 	  <br>
  	    <%end%> 
    <p>
@@ -75,7 +75,7 @@
 	 
     <%end%> 
 	  	 <% unless church_staff.birthday.blank? %>
-     <p> <i class="icon-gift"></i>  <%= church_staff.birthday %>   </p>
+     <p> <i class="icon-gift"></i>  <%= church_staff.birthday.strftime("%B #{church_staff.birthday.day.ordinalize}") %>   </p>
 	 
      <%end%> 
   		<% unless church_staff.spouse_first_name.blank? %>	

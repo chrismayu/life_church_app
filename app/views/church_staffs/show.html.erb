@@ -78,7 +78,7 @@
 	    <% end%>
 		 <% if @church_staff.birthday? %>
 		<dt><strong>Birthday:</strong></dt>
-	    <dd><%= @church_staff.birthday %></dd>
+	    <dd><%= @church_staff.birthday.strftime("%B #{@church_staff.birthday.day.ordinalize}") %></dd>
 	    <% end%>
 	
 	

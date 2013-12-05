@@ -29,21 +29,21 @@
  <br>
  
  <% unless @ministry.ta1.blank? %>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta1).to_html.html_safe %>  </span> 
+&nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta1)  %>  </div>
  <%end%> 
   <% unless @ministry.ta2.blank? %>
- &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta2).to_html.html_safe %> </span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta2)  %></div>
   <%end%> 
   <% unless @ministry.ta3.blank? %>
- &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta3 ).to_html.html_safe %>  </span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta3 )  %>  </div> 
   <%end%> 
   <% unless @ministry.ta4.blank? %>
  
- &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta1).to_html.html_safe %> > </span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta4)  %> </div>
   <%end%> 
   <% unless @ministry.ta5.blank? %>
  
- &nbsp;&nbsp;&nbsp;&nbsp;<span class="ministry_text"><%=  BlueCloth.new(@ministry.ta5 ).to_html.html_safe %>  </span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta5 )  %>  </div>
   <%end%> 
  
  
