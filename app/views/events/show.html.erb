@@ -50,8 +50,9 @@ New:	<br>
   					 
 					   <%= link_to t('.sign_up', :default => t("helpers.links.Print Details")), @event.download_link, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
   					 &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+					 <% if @event.use_contact? %>
   					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
-                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
+                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %><%end%> 
  
  
  </p>
@@ -102,7 +103,8 @@ New:	<br>
  
   <dt><strong>Display on Main Page: </strong></dt>
   <dd><%= status_display_main_page(@event) %> <br></dd>
- 
+  <dt><strong>Display on "Contact Us": </strong></dt>
+  <dd><%= event_form_bool(@event.use_contact) %> <br></dd>
  
   <dt><strong>Show "Print Details" </strong></dt>
   <dd><%= event_form_bool(@event.share_download) %></dd>

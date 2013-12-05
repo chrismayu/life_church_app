@@ -47,7 +47,9 @@ class EventFormsController < ApplicationController
     @event_setup_form = EventSetupForm.where(:id => event_form.event_setup_form_id).last 
     @event = Event.where(:id => @event_setup_form.event_id).last 
     
-
+    EventFormMailer.thank_you_we_have_received(@event,@event_form, @event_setup_form ).deliver
+    EventFormMailer.new_form_submitted(@event,@event_form, @event_setup_form ).deliver
+    
     respond_to do |format|
       if @event_form.save
         format.html { redirect_to event_path(@event.id), notice: 'Your Submission has been successfully - Thank You' }

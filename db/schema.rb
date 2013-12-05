@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205013553) do
+ActiveRecord::Schema.define(:version => 20131205045218) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(:version => 20131205013553) do
     t.integer  "which_form"
     t.string   "download_link"
     t.boolean  "share_download"
+    t.boolean  "use_contact"
   end
 
   create_table "ministries", :force => true do |t|
