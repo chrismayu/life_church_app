@@ -4,8 +4,12 @@ class AboutsController < ApplicationController
  
   
   def home
-     @events = Event.where(id: Event.pluck(:id).sample(5), :display_main_page => true).shuffle
-     @events_side = Event.where(id: Event.pluck(:id).sample(3), :display_main_page => true).shuffle
+    @today = DateTime.now.strftime("%Y-%m-%d")
+    
+     @events = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).sample(5).shuffle 
+  
+   
+     @events_side = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).sample(3).shuffle.reverse 
      @abouts = About.last
     
   end
