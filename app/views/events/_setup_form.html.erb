@@ -1,0 +1,35 @@
+   <%- model_class = EventSetupForm -%>
+   
+    <%  @event_setup_forms = @event.event_setup_forms %>
+	<div class="span9">
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Title</th> 
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @event_setup_forms.each do |event_setup_form| %>
+      <tr>
+		    <td><%= event_setup_form.form_title %></td> 
+        <td><%= event_setup_form.created_at.strftime("%B #{event_setup_form.created_at.day.ordinalize}, %Y") %></td>
+        <td> 
+	 			     <%= link_to t('.show', :default => t("helpers.links.view")),
+	 		                      event_setup_form_path(event_setup_form), :class => 'btn   btn-success btn-mini-flat ' %>
+	           
+	          
+        </td>
+      </tr>
+    <% end %>
+ 
+  </tbody>
+</table>
+<p>	* Contact the Admin - if you would like a form removed(Deleted) </p>
+<br>
+<br>
+</div>
+
+
+

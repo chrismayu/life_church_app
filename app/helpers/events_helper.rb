@@ -97,6 +97,25 @@ module EventsHelper
   
   
   
+  def event_form_bool(item)
+    if item == true
+      content_tag(:div, content_tag(:span, "Enabled"), class: "label label-success")
+    else
+      content_tag(:div, content_tag(:span, "Not Used"), class: "label label-warning")   
+    end   
+  end
+  
+  def eventsetupform(event)
+
+    @eventsetup = EventSetupForm.where(:event_id => event.id).all
+
+    if @eventsetup.count >= 1
+      return true
+    else
+      return false
+    end    
+
+  end
   
   
   

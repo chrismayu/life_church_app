@@ -18,8 +18,18 @@
 	  <%= f.input_field :remove_event_date, :id=> 'remove_event_date',   :as => :string, :placeholder=>"Date to disable event" %><span class="add-on"><i class="icon-calendar"></i></span>
 	<% end %>
 
-  <%= f.input :display_main_page %>
-  
+  <%= f.input :display_main_page, :label=>'Display Event on Main Page:'  %>
+ 
+   <% if @event.persisted? %>
+    <% if eventsetupform(@event) %>
+   <%= f.input :use_form_button, :label=>'Turns on "Sign Up" button :'  %> 
+   <%= f.input :which_form, collection: EventSetupForm.where(:event_id => @event.id).all, label_method: :form_title, value_method: :id, label: "Select Form:", include_blank: false %>
+   <% end %>
+    <% end %>
+     <%= f.input :share_download, :label=>'Turns on "Print Details" button :'  %>
+   <%= f.input :download_link, :label=>'Link to File:' %> 
+   <br>
+   <br>
 
  <%= render :partial => 'abouts/markdown'%>
  
@@ -36,6 +46,6 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                event_path(@event), :class => 'btn btn-flat' %>
+                events_path, :class => 'btn btn-flat' %>
   </div>
 <% end %>

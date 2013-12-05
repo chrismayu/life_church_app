@@ -1,42 +1,191 @@
 <%= simple_form_for @event_setup_form, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :event_id %>
-  <%= f.input :email_for_forms %>
-  <%= f.input :c_f_1 %>
-  <%= f.input :c_f_2 %>
-  <%= f.input :c_f_3 %>
-  <%= f.input :c_f_4 %>
-  <%= f.input :c_f_5 %>
-  <%= f.input :c_f_6 %>
-  <%= f.input :c_f_7 %>
-  <%= f.input :c_f_8 %>
-  <%= f.input :c_f_9 %>
-  <%= f.input :c_f_10 %>
-  <%= f.input :c_f_11 %>
-  <%= f.input :c_f_12 %>
-  <%= f.input :age %>
-  <%= f.input :c_f_1_h %>
-  <%= f.input :c_f_2_h %>
-  <%= f.input :c_f_3_h %>
-  <%= f.input :c_f_4_h %>
-  <%= f.input :c_f_5_h %>
-  <%= f.input :c_f_6_h %>
-  <%= f.input :c_f_7_h %>
-  <%= f.input :c_f_8_h %>
-  <%= f.input :c_f_9_h %>
-  <%= f.input :c_f_10_h %>
-  <%= f.input :c_f_11_h %>
-  <%= f.input :c_f_12_h %>
-  <%= f.input :phone %>
-  <%= f.input :note %>
-  <%= f.input :bday %>
-  <%= f.input :sex %>
-  <%= f.input :use_form %>
-  <%= f.input :down_link %>
-  <%= f.input :ok_to_contact %>
-  <%= f.input :form_title %>
+ 
+  <%= f.input :event_id, as: :hidden  %>
+  <table class="table table-striped">
+
+    <tbody>
+    <tr>	     
+    <th>
+  	<p>Form Information:</p>
+	
+   <%= f.input :form_title,  :label=>"Form Title:", :placeholder=>"Sign up for #{@event.event_name}", :input_html => { :class => "enroll_input span4"}  %>
+  <%= f.input :email_for_forms,  :label=>"Email:", :placeholder=>"Where all Form Entries will be sent",:input_html => { :class => "enroll_input span5"}  %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Standard Question Included:</p>
+<ul>
+ 
+<br>
+<li>First Name</li>
+<li>Last Name</li>
+<li>Email</li>
+
+</ul>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Optional Questions:</p>
+  <%= f.input :age,  :label=>"'Enter you Age':", :input_html => { :class => "enroll_input span4"} %>
+  <%= f.input :phone,  :label=>"'Phone Number':", :input_html => { :class => "enroll_input span4"} %>
+
+  <%= f.input :bday,  :label=>"'Enter your Birthday' :", :input_html => { :class => "enroll_input span4"} %>
+  <%= f.input :sex,  :label=>"'Male/Female':", :input_html => { :class => "enroll_input span4"} %> 
+  
+  <%= f.input :ok_to_contact,  :label=>"'Okay to Email Me':", :input_html => { :class => "enroll_input span4"} %>
+    <%= f.input :note,  :label=>"'Misc Notes':", :input_html => { :class => "enroll_input span4"} %> 
+  
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<h4>Custom Question #1:</h4>   	
+  <%= f.input :c_f_1,  :placeholder=>"Such as Personal Information etc", :label=>"Short Answer #1:", :input_html => { :class => "enroll_input span4"}  %>
+   <%= f.input :c_f_1_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Short Answer #1:", :input_html => { :class => "enroll_input span4"} %>
+   
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #2:</p>
+    <%= f.input :c_f_2,  :placeholder=>"Such as Personal Information etc", :label=>"Short Answer #2:", :input_html => { :class => "enroll_input span4"}  %>
+     <%= f.input :c_f_2_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Short Answer #2:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #3:</p>
+<%= f.input :c_f_3,  :placeholder=>"Such as Personal Information etc", :label=>"Short Answer #3:", :input_html => { :class => "enroll_input span4"}  %>
+ <%= f.input :c_f_3_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Short Answer #3:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #4:</p>
+<%= f.input :c_f_4,  :placeholder=>"Such as Personal Information etc", :label=>"Short Answer #4:", :input_html => { :class => "enroll_input span4"}  %>
+ <%= f.input :c_f_4_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Short Answer #4:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #5:</p>
+ 
+  <%= f.input :c_f_5,  :placeholder=>"Such as 'What do you like better? - Coke or Pepsi", :label=>"Yes/No Type #5:", :input_html => { :class => "enroll_input span5"}  %>
+   <%= f.input :c_f_5_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Yes/No Type  #5:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #6:</p>
+<%= f.input :c_f_6,  :placeholder=>"Such as 'What do you like better? - Coke or Pepsi", :label=>"Yes/No Type #6:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_6_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Yes/No Type  #6:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #7:</p>
+<%= f.input :c_f_7,  :placeholder=>"Such as 'What do you like better? - Coke or Pepsi", :label=>"Yes/No Type #7:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_7_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Yes/No Type  #7:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #8:</p>
+<%= f.input :c_f_8,  :placeholder=>"Such as 'What do you like better? - Coke or Pepsi", :label=>"Yes/No Type #8:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_8_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Yes/No Type  #8:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #9:</p>
+<%= f.input :c_f_9,  :placeholder=>"Any Question that requires a long winded answer", :label=>"Essay Answer #9:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_9_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Essay  #9:", :input_html => { :class => "enroll_input span4"} %>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #10:</p>
+<%= f.input :c_f_10,  :placeholder=>"Any Question that requires a long winded answer", :label=>"Essay Answer #10:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_10_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Essay  #10:", :input_html => { :class => "enroll_input span4"} %>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #11:</p>
+<%= f.input :c_f_11,  :placeholder=>"Any Question that requires a long winded answer", :label=>"Essay Answer #11:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_11_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Essay  #11:", :input_html => { :class => "enroll_input span4"} %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p>Custom Question #12:</p>
+<%= f.input :c_f_12,  :placeholder=>"Any Question that requires a long winded answer", :label=>"Essay Answer #12:", :input_html => { :class => "enroll_input span5"}  %>
+ <%= f.input :c_f_12_h,  :placeholder=>"Hint for Question" , :label=>"Hint for Essay  #12:", :input_html => { :class => "enroll_input span4"} %>
+ 
+</th>
+</tr>
+</tbody>
+</table>
+ 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                event_setup_forms_path, :class => 'btn' %>
+      <%= f.button :submit, "Submit", :class => 'btn-primary btn-flat' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  event_path(@event.id), :class => 'btn btn-flat' %>
   </div>
 <% end %>

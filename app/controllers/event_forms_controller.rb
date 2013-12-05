@@ -24,7 +24,9 @@ class EventFormsController < ApplicationController
   # GET /event_forms/new
   # GET /event_forms/new.json
   def new
-    @event_form = EventForm.new
+    @event_setup_form = EventSetupForm.where(:id => params[:event_setup_form_id]).last 
+    @event = Event.where(:id => @event_setup_form.event_id).last 
+    @event_form = EventForm.new(:event_setup_form_id => params[:event_setup_form_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +43,14 @@ class EventFormsController < ApplicationController
   # POST /event_forms.json
   def create
     @event_form = EventForm.new(params[:event_form])
+     event_form = EventForm.new(params[:event_form])
+    @event_setup_form = EventSetupForm.where(:id => event_form.event_setup_form_id).last 
+    @event = Event.where(:id => @event_setup_form.event_id).last 
+    
 
     respond_to do |format|
       if @event_form.save
-        format.html { redirect_to @event_form, notice: 'Event form was successfully created.' }
+        format.html { redirect_to event_path(@event.id), notice: 'Your Submission has been successfully - Thank You' }
         format.json { render json: @event_form, status: :created, location: @event_form }
       else
         format.html { render action: "new" }

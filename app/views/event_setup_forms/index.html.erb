@@ -5,87 +5,21 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:event_id) %></th>
-      <th><%= model_class.human_attribute_name(:email_for_forms) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_1) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_2) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_3) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_4) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_5) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_6) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_7) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_8) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_9) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_10) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_11) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_12) %></th>
-      <th><%= model_class.human_attribute_name(:age) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_1_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_2_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_3_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_4_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_5_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_6_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_7_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_8_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_9_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_10_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_11_h) %></th>
-      <th><%= model_class.human_attribute_name(:c_f_12_h) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:note) %></th>
-      <th><%= model_class.human_attribute_name(:bday) %></th>
-      <th><%= model_class.human_attribute_name(:sex) %></th>
-      <th><%= model_class.human_attribute_name(:use_form) %></th>
-      <th><%= model_class.human_attribute_name(:down_link) %></th>
-      <th><%= model_class.human_attribute_name(:ok_to_contact) %></th>
-      <th><%= model_class.human_attribute_name(:form_title) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  	  <th>Title</th>
+        <th>Email</th>
+        <th>Use Form</th>
+        <th>Created</th>
+        <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @event_setup_forms.each do |event_setup_form| %>
       <tr>
-        <td><%= link_to event_setup_form.id, event_setup_form_path(event_setup_form) %></td>
-        <td><%= event_setup_form.event_id %></td>
-        <td><%= event_setup_form.email_for_forms %></td>
-        <td><%= event_setup_form.c_f_1 %></td>
-        <td><%= event_setup_form.c_f_2 %></td>
-        <td><%= event_setup_form.c_f_3 %></td>
-        <td><%= event_setup_form.c_f_4 %></td>
-        <td><%= event_setup_form.c_f_5 %></td>
-        <td><%= event_setup_form.c_f_6 %></td>
-        <td><%= event_setup_form.c_f_7 %></td>
-        <td><%= event_setup_form.c_f_8 %></td>
-        <td><%= event_setup_form.c_f_9 %></td>
-        <td><%= event_setup_form.c_f_10 %></td>
-        <td><%= event_setup_form.c_f_11 %></td>
-        <td><%= event_setup_form.c_f_12 %></td>
-        <td><%= event_setup_form.age %></td>
-        <td><%= event_setup_form.c_f_1_h %></td>
-        <td><%= event_setup_form.c_f_2_h %></td>
-        <td><%= event_setup_form.c_f_3_h %></td>
-        <td><%= event_setup_form.c_f_4_h %></td>
-        <td><%= event_setup_form.c_f_5_h %></td>
-        <td><%= event_setup_form.c_f_6_h %></td>
-        <td><%= event_setup_form.c_f_7_h %></td>
-        <td><%= event_setup_form.c_f_8_h %></td>
-        <td><%= event_setup_form.c_f_9_h %></td>
-        <td><%= event_setup_form.c_f_10_h %></td>
-        <td><%= event_setup_form.c_f_11_h %></td>
-        <td><%= event_setup_form.c_f_12_h %></td>
-        <td><%= event_setup_form.phone %></td>
-        <td><%= event_setup_form.note %></td>
-        <td><%= event_setup_form.bday %></td>
-        <td><%= event_setup_form.sex %></td>
-        <td><%= event_setup_form.use_form %></td>
-        <td><%= event_setup_form.down_link %></td>
-        <td><%= event_setup_form.ok_to_contact %></td>
-        <td><%= event_setup_form.form_title %></td>
-        <td><%=l event_setup_form.created_at %></td>
-        <td>
+	    <td><%= event_setup_form.form_title %></td>
+      <td><%= event_setup_form.email_for_forms %></td>
+      <td><%= event_setup_form.use_form %></td>
+      <td><%= event_setup_form.created_at.strftime("%B #{event_setup_form.created_at.day.ordinalize}, %Y") %></td>
+      <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_setup_form_path(event_setup_form), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -98,7 +32,4 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_event_setup_form_path,
-            :class => 'btn btn-primary' %>
+ 

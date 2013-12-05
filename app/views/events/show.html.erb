@@ -40,12 +40,16 @@ New:	<br>
  
   	<br>
   	<br>
-	
+ 
+	 
+	<% if @event.use_form_button? %>
       <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
-                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp
-  					 <%= link_to t('.new', :default => t("helpers.links.Print Details")),
-                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
-  					 &nbsp&nbsp&nbsp&nbsp&nbsp
+                       new_event_form_path(:event_setup_form_id => @event.which_form), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+				 
+					   <% if @event.share_download? %>
+  					 
+					   <%= link_to t('.sign_up', :default => t("helpers.links.Print Details")), @event.download_link, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+  					 &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
   					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
                        contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %>
  
@@ -74,18 +78,52 @@ New:	<br>
   <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
   <dd><%= @event.event_start_time.strftime("%l:%M %p") %></dd>
+  
   <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
   <dd><%= @event.contact_email %></dd>
+ 
+  
+   <% unless @event.location.blank? %>
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @event.location %></dd>
+   <%end%> 
+   <% unless @event.contact_person.blank? %>
   <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
   <dd><%= @event.contact_person %></dd>
+  <%end%> 
+ <% unless @event.description.blank? %>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
+  <%end%> 
+  <% unless @event.remove_event_date.blank? %>
   <dt><strong><%= model_class.human_attribute_name(:remove_event_date) %>:</strong></dt>
   <dd><%= @event.remove_event_date.strftime("%B #{@event.remove_event_date.day.ordinalize}, %Y")%></dd>
+  <%end%> 
+ 
   <dt><strong>Display on Main Page: </strong></dt>
   <dd><%= status_display_main_page(@event) %> <br></dd>
+ 
+ 
+  <dt><strong>Show "Print Details" </strong></dt>
+  <dd><%= event_form_bool(@event.share_download) %></dd>
+ 
+   <% unless @event.download_link.blank? %>
+  <dt><strong>Linked Location </strong></dt>
+  <dd><%= @event.download_link %></dd>
+  <%end%> 
+  
+ <% unless @event.use_form_button.blank? %>
+ <dt><strong>Turn On Form </strong></dt>
+ <dd><%= event_form_bool(@event.use_form_button) %></dd>
+   <%end%> 
+   <% unless @event.which_form.blank? %>
+  <dt><strong>Use Which Form </strong></dt>
+  <dd><%= @event.which_form %></dd>
+  <%end%> 
+
+   
+  
+
      
 </dl>
 <%end%> 
@@ -108,11 +146,23 @@ New:	<br>
                 :class => 'btn btn-danger btn-flat ' %>
 			    <%end%> 
 			    <%end%> 
+		 
 </div>
 <br>  <br>
+<br>
+<br>
  
- 
+<% if user_signed_in? %>
+<% if can? :edit, :events %>
+<h4>List of Available Forms </h4>
+<%= link_to t('.new', :default => t("helpers.links.Create a New Form for #{@event.event_name}")),
+              new_event_setup_form_path(:event_id => @event), :class => 'btn btn-mini-flat btn-success'  %>
   <br>
+  <br>
+  
+   <%= render :partial => 'setup_form', :event => @event %> 
+   <%end%> 
+   <%end%>  
   
 </div>
 </div>
@@ -120,7 +170,7 @@ New:	<br>
 
 <div class="span1">
  <%= render :partial => 'abouts/side_buttons'%>
-      
+ 
 </div>
 </div> <!-- Row-->
 

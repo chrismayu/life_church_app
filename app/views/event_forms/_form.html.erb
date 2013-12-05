@@ -1,29 +1,115 @@
 <%= simple_form_for @event_form, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :event_setup_form_id %>
+  <%= f.input :event_setup_form_id, as: :hidden  %>
+  
+  
+  <table class="table table-striped">
+
+    <tbody>
+    <tr>	     
+    <th>
+  	<p>Contact Information:</p>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= f.input :receive_emails %>
-  <%= f.input :email %>
-  <%= f.input :phone_number %>
-  <%= f.input :notes %>
-  <%= f.input :c_f_1_s %>
-  <%= f.input :c_f_2_s %>
-  <%= f.input :c_f_3_s %>
-  <%= f.input :c_f_4_s %>
-  <%= f.input :c_f_5_b %>
-  <%= f.input :c_f_6_b %>
-  <%= f.input :c_f_7_b %>
-  <%= f.input :c_f_8_b %>
-  <%= f.input :c_f_9_t %>
-  <%= f.input :c_f_10_t %>
-  <%= f.input :c_f_11_t %>
-  <%= f.input :c_f_12_t %>
-  <%= f.input :age %>
-  <%= f.input :bday %>
-  <%= f.input :sex %>
+    <%= f.input :email %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+	<% unless @event_setup_form.ok_to_contact.blank? %>
+	  <%= f.input :receive_emails %>
+	<% end %>
+  
+	<% unless @event_setup_form.phone.blank? %>
+	    <%= f.input :phone_number %>
+	<% end %>
+	
+	<% unless @event_setup_form.age.blank? %>
+	   <%= f.input :age %>
+	<% end %>
+	
+	<% unless @event_setup_form.bday.blank? %>
+	    <%= f.input :bday %>
+	<% end %>
+	
+	<% unless @event_setup_form.sex.blank? %>
+	     <%= f.input :sex %>
+	<% end %>
+	
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+ 
+	
+	
+	<% unless @event_setup_form.c_f_1.blank? %>
+	   <%= f.input :c_f_1_s, :label=>"#{@event_setup_form.c_f_1}:",  :placeholder=>"#{@event_setup_form.c_f_1_h}" %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_2.blank? %>
+	   <%= f.input :c_f_2_s, :label=>"#{@event_setup_form.c_f_2}:",  :placeholder=>"#{@event_setup_form.c_f_2_h}" %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_3.blank? %>
+	   <%= f.input :c_f_3_s, :label=>"#{@event_setup_form.c_f_3}:",  :placeholder=>"#{@event_setup_form.c_f_3_h}" %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_4.blank? %>
+	   <%= f.input :c_f_4_s, :label=>"#{@event_setup_form.c_f_4}:",  :placeholder=>"#{@event_setup_form.c_f_4_h}" %>
+	<% end %>
+  
+	<% unless @event_setup_form.c_f_5.blank? %>
+	   <%= f.input :c_f_5_b, :label=>"#{@event_setup_form.c_f_5}:",  :hint=>"#{@event_setup_form.c_f_5_h}"  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_6.blank? %>
+	   <%= f.input :c_f_6_b, :label=>"#{@event_setup_form.c_f_6}:",  :hint=>"#{@event_setup_form.c_f_6_h}"  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_7.blank? %>
+	   <%= f.input :c_f_7_b, :label=>"#{@event_setup_form.c_f_7}:",  :hint=>"#{@event_setup_form.c_f_7_h}"  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_8.blank? %>
+	   <%= f.input :c_f_8_b, :label=>"#{@event_setup_form.c_f_8}:",  :hint=>"#{@event_setup_form.c_f_8_h}"  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_9.blank? %>
+	   <%= f.input :c_f_9_t, :label=>"#{@event_setup_form.c_f_9}:",  :placeholder=>"#{@event_setup_form.c_f_9_h}",:input_html => { :class => "enroll_input span5", :rows => 5}  %>
+	<% end %>
+  
+	<% unless @event_setup_form.c_f_10.blank? %>
+	   <%= f.input :c_f_10_t, :label=>"#{@event_setup_form.c_f_10}:",  :placeholder=>"#{@event_setup_form.c_f_10_h}",:input_html => { :class => "enroll_input span5", :rows => 5}  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_11.blank? %>
+	   <%= f.input :c_f_11_t, :label=>"#{@event_setup_form.c_f_11}:",  :placeholder=>"#{@event_setup_form.c_f_11_h}",:input_html => { :class => "enroll_input span5", :rows => 5}  %>
+	<% end %>
+	
+	<% unless @event_setup_form.c_f_12.blank? %>
+	   <%= f.input :c_f_12_t, :label=>"#{@event_setup_form.c_f_12}:",  :placeholder=>"#{@event_setup_form.c_f_12_h}",:input_html => { :class => "enroll_input span5", :rows => 5}  %>
+	<% end %>
+	
+	<% unless @event_setup_form.note.blank? %>
+	   <%= f.input :notes, :label=>"Notes:",  :placeholder=>"Enter any notes not covered in the form",:input_html => { :class => "enroll_input span5", :rows => 5}  %>
+	<% end %>
+  
+</th>
+</tr>
+</tbody>
+</table>
+ 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                event_forms_path, :class => 'btn' %>
+      <%= f.button :submit, "Submit", :class => 'btn-primary btn-flat' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  event_path(@event.id), :class => 'btn btn-flat' %>
   </div>
 <% end %>

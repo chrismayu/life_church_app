@@ -15,6 +15,7 @@ class EventSetupFormsController < ApplicationController
   def show
     @event_setup_form = EventSetupForm.find(params[:id])
 
+    @event = Event.where(:id =>  @event_setup_form.event_id).last 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event_setup_form }
@@ -24,8 +25,11 @@ class EventSetupFormsController < ApplicationController
   # GET /event_setup_forms/new
   # GET /event_setup_forms/new.json
   def new
-    @event_setup_form = EventSetupForm.new
-
+    @event = Event.where(:id => params[:event_id]).last 
+ 
+ 
+    @event_setup_form = EventSetupForm.new(:event_id => params[:event_id])
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event_setup_form }
@@ -35,6 +39,8 @@ class EventSetupFormsController < ApplicationController
   # GET /event_setup_forms/1/edit
   def edit
     @event_setup_form = EventSetupForm.find(params[:id])
+    
+    @event = Event.where(:id =>  @event_setup_form.event_id).last 
   end
 
   # POST /event_setup_forms
@@ -44,7 +50,7 @@ class EventSetupFormsController < ApplicationController
 
     respond_to do |format|
       if @event_setup_form.save
-        format.html { redirect_to @event_setup_form, notice: 'Event setup form was successfully created.' }
+        format.html { redirect_to @event_setup_form, notice: 'A New Form was successfully created.' }
         format.json { render json: @event_setup_form, status: :created, location: @event_setup_form }
       else
         format.html { render action: "new" }
