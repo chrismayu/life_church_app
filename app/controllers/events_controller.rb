@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  load_and_authorize_resource :except => [:index, :show ]
+  
+  before_filter :authenticate_user!, :except => [:index, :show ]
+  
   def index
     @events = Event.all
     @events_by_date = @events.group_by(&:event_date)

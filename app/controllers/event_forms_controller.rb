@@ -1,6 +1,9 @@
 class EventFormsController < ApplicationController
   # GET /event_forms
   # GET /event_forms.json
+  load_and_authorize_resource :except => [:new, :create ]
+  
+  before_filter :authenticate_user!, :except => [:new, :create]
   def index
     @event_forms = EventForm.all
 

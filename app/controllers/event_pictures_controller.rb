@@ -1,6 +1,9 @@
 class EventPicturesController < ApplicationController
   # GET /event_pictures
   # GET /event_pictures.json
+  load_and_authorize_resource  
+  
+  before_filter :authenticate_user! 
   def index
     @event_pictures = EventPicture.all
 

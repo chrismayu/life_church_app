@@ -1,6 +1,9 @@
 class EventSetupFormsController < ApplicationController
   # GET /event_setup_forms
   # GET /event_setup_forms.json
+  load_and_authorize_resource 
+  
+  before_filter :authenticate_user! 
   def index
     @event_setup_forms = EventSetupForm.all
 
