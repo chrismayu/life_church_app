@@ -27,7 +27,7 @@
 		<div class=" mission_bg pull-center">
 		&nbsp;&nbsp; <span class=" text_center_v_align "> Sort By:</span> &nbsp;&nbsp;<%= form_for sermons_path, :method => 'get', :html => { :class => 'form-horizontal' }  do %>
  
-		    <%= text_field_tag :search, params[:search]  %>
+		    <%= text_field_tag :search, params[:search], :placeholder =>"e.g. Speaker, Date, Topic"  %>
 			
 		    <%= submit_tag "Search", :class => 'btn-primary btn-flat', :descripion => nil %>
  
