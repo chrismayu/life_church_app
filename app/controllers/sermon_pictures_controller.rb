@@ -1,6 +1,9 @@
 class SermonPicturesController < ApplicationController
   # GET /sermon_pictures
   # GET /sermon_pictures.json
+  load_and_authorize_resource 
+  
+  before_filter :authenticate_user! 
   def index
     @sermon_pictures = SermonPicture.all
 

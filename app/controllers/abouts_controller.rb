@@ -4,8 +4,8 @@ class AboutsController < ApplicationController
  
   
   def home
-     @events = Event.where(id: Event.pluck(:id).sample(5)).shuffle
-     @events_side = Event.where(id: Event.pluck(:id).sample(3)).shuffle
+     @events = Event.where(id: Event.pluck(:id).sample(5), :display_main_page => true).shuffle
+     @events_side = Event.where(id: Event.pluck(:id).sample(3), :display_main_page => true).shuffle
      @abouts = About.last
     
   end

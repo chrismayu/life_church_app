@@ -94,7 +94,12 @@ module EventsHelper
   end
   
   
-  
+  def which_form_used(form)
+    
+    @from = EventSetupForm.where(:id => form.which_form).last
+    return @from.form_title
+    
+  end
   
   
   def event_form_bool(item)

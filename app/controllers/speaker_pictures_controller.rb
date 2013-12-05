@@ -1,6 +1,9 @@
 class SpeakerPicturesController < ApplicationController
   # GET /speaker_pictures
   # GET /speaker_pictures.json
+  load_and_authorize_resource  
+  
+  before_filter :authenticate_user! 
   
   
   def step_1

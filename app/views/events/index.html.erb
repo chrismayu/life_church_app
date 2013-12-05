@@ -41,7 +41,7 @@
  
       <th>Name:</th>
       <th>Date:</th>
-      <th>Start Time:</th>
+      <th>Show on Main Page</th>
  
       <th>Remove On:</th>
     <th>Image</th>
@@ -54,7 +54,7 @@
        
         <td><%= event.event_name %></td>
         <td><%= event.event_date %></td>
-        <td><%= event.event_start_time.strftime("%l:%M %p") %></td>
+        <td><%= status_display_main_page(event) %></td>
  
         <td><%= event.remove_event_date %></td>
         <td>

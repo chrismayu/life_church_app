@@ -1,6 +1,9 @@
 class SpeakersController < ApplicationController
   # GET /speakers
   # GET /speakers.json
+  load_and_authorize_resource 
+  
+  before_filter :authenticate_user! 
   def index
     @speakers = Speaker.all
 

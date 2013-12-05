@@ -1,6 +1,10 @@
 class MinistryChildrenController < ApplicationController
   # GET /ministry_children
   # GET /ministry_children.json
+  load_and_authorize_resource  
+  
+  before_filter :authenticate_user! 
+  
   def index
     @ministry_children = MinistryChild.all
 

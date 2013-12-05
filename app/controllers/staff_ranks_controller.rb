@@ -1,6 +1,11 @@
 class StaffRanksController < ApplicationController
   # GET /staff_ranks
   # GET /staff_ranks.json
+  load_and_authorize_resource 
+  
+  before_filter :authenticate_user! 
+    
+    
   def index
     @staff_ranks = StaffRank.all
 

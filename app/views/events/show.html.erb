@@ -97,7 +97,7 @@
  
   <dt><strong>Display on Main Page: </strong></dt>
   <dd><%= status_display_main_page(@event) %> <br></dd>
-  <dt><strong>Display on "Contact Us": </strong></dt>
+  <dt><strong>Display "Contact Us": </strong></dt>
   <dd><%= event_form_bool(@event.use_contact) %> <br></dd>
  
   <dt><strong>Show "Print Details" </strong></dt>
@@ -113,8 +113,8 @@
  <dd><%= event_form_bool(@event.use_form_button) %></dd>
    <%end%> 
    <% unless @event.which_form.blank? %>
-  <dt><strong>Use Which Form </strong></dt>
-  <dd><%= @event.which_form %></dd>
+  <dt><strong>Using Form: </strong></dt>
+  <dd><%= which_form_used(@event) %></dd>
   <%end%> 
 
    

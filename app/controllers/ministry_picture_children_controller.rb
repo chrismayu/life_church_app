@@ -1,6 +1,10 @@
 class MinistryPictureChildrenController < ApplicationController
   # GET /ministry_picture_children
   # GET /ministry_picture_children.json
+  load_and_authorize_resource 
+  
+  before_filter :authenticate_user! 
+  
   def index
     @ministry_picture_children = MinistryPictureChild.all
 

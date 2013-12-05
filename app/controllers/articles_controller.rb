@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+    
+  load_and_authorize_resource  
+  
+  before_filter :authenticate_user! 
+  
   def index
     @articles = Article.all
 
