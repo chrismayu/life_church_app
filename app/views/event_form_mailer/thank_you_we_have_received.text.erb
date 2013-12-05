@@ -1,3 +1,10 @@
-EventForm#thank_you_we_have_received
+Hi <%= @form.first_name %> <%= @form.last_name %>,
 
-<%= @greeting %>, find me in app/views/app/views/event_form/thank_you_we_have_received.text.erb
+Thank you for your signing up for <%= @event.event_name %>.
+
+I will be in contact soon
+
+Thanks,
+
+<%= @event.contact_person %>
+LifeChurch Web Site

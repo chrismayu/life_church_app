@@ -1,3 +1,10 @@
-EventForm#new_form_submitted
+Hi <%= @event.contact_person %>,
 
-<%= @greeting %>, find me in app/views/app/views/event_form/new_form_submitted.text.erb
+<%= @form.first_name %> <%= @form.last_name %> has sent in a submission to your event -  <%= @event.event_name %>
+
+
+You can email them at <%= @form.email %>
+
+
+Thanks,
+LifeChurch Web Site

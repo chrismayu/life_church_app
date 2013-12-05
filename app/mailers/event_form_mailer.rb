@@ -25,7 +25,7 @@ class EventFormMailer < ActionMailer::Base
     @form = form
     @setup = setup
     
-   mail to: form.email,  subject: "We have received your submission - Thank You"
+   mail to: form.email,  subject: "#{@form.first_name} #{ @form.last_name} just signed up for - #{@event.event_name}"
     
   end
 end
