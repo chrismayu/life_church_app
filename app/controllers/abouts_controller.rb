@@ -19,6 +19,8 @@ class AboutsController < ApplicationController
   end  
   
   def what_we_believe 
+    
+     @what_we_believes = WhatWeBelieve.all
   
   end
   
