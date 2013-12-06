@@ -1,5 +1,8 @@
 LifeChurchApp::Application.routes.draw do
  
+  resources :summaries
+
+
   resources :event_forms
 
 

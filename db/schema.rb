@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205045218) do
+ActiveRecord::Schema.define(:version => 20131206002729) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -374,6 +374,12 @@ ActiveRecord::Schema.define(:version => 20131205045218) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "summaries", :force => true do |t|
+    t.text     "what_we_believe"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
@@ -424,6 +430,12 @@ ActiveRecord::Schema.define(:version => 20131205045218) do
     t.string   "url"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "what_we_believes", :force => true do |t|
+    t.text     "what_we_believe"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

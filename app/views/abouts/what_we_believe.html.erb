@@ -31,12 +31,21 @@
 						 
 					 </p>
 					 
-<section id="Simple">				 
-	<%= render @what_we_believes %>	
-	
+<section id="Simple">
+	<div class="row">	
+		<div class="span9">			 
+	<%= render @summaries %>	
+	</div>
+</div>
 	<% if can? :edit, :abouts %>
-	
-	<%= link_to 'New - What we believe', new_what_we_beliefe_path %>
+	<br>
+	<div class="pull-left">
+		<div class="row">
+			<div class="span9">	
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+	            new_summary_path,
+	            :class => 'btn btn-primary' %>
+			</div></div></div>
 	 <% end %> 
 	
 	<br>			  

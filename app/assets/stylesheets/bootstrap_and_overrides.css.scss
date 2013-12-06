@@ -3,7 +3,14 @@ body { padding-top: 85px; }
 @import "bootstrap-responsive";
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
- 
+.vertical-line {
+    height: 100%;
+    width: 5px;
+    border-style: solid;
+    border-color: #7F8F54;
+    border-width: 5px 5px 5px 5px;
+    border-radius: 1px;
+}
 
 .icon-arrow-right {
 	background-image:none;

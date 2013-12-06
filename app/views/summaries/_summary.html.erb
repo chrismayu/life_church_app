@@ -1,0 +1,38 @@
+ 
+
+<li class="span4">  
+		         <div class="ministry_text"> 
+					 
+					 <table class="thumbnails" border="0">
+						 <tr>
+							 <td class="vertical-line">
+						 
+								 
+						 </td>
+					 
+						 <td>
+							 <%= summary.what_we_believe %>
+	 
+							 
+					 </td>
+				 </tr>
+				 </table>
+		 
+		           <div class="caption">  
+		           
+					 <% if can? :edit, :summaries %>
+				 
+		             <%= link_to t('.edit', :default => t("helpers.links.edit")),
+		                         edit_summary_path(summary), :class => 'btn btn-mini' %>
+		             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+		                         summary_path(summary),
+		                         :method => :delete,
+		                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+		                         :class => 'btn btn-mini btn-danger' %>
+									
+									
+							 
+	  		 <% end %> 
+				   </div>  
+		         </div>  
+</li>	  

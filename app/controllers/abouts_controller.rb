@@ -20,7 +20,7 @@ class AboutsController < ApplicationController
   
   def what_we_believe 
     
-     @what_we_believes = WhatWeBelieve.all
+     @summaries = Summary.all
   
   end
   
