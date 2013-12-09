@@ -1,7 +1,7 @@
 class MinistriesController < ApplicationController
-  load_and_authorize_resource :except => [:index, :show ]
+  load_and_authorize_resource :except => [:show ]
   
-  before_filter :authenticate_user!, :except => [:index, :show ]
+  before_filter :authenticate_user!, :except => [:show ]
   
   # GET /ministries
   # GET /ministries.json

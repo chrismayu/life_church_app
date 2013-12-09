@@ -2,6 +2,9 @@ class ChurchStaffPicturesController < ApplicationController
   # GET /church_staff_pictures
   # GET /church_staff_pictures.json
   
+  load_and_authorize_resource  
+  before_filter :authenticate_user! 
+  
   
   def step_1
        @uploader = ChurchStaffPicture.new.staff_image

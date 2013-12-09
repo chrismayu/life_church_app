@@ -52,7 +52,15 @@
 					 <% @ministries_menu.each do |ministries| %>
 				    <li> <%= ministries_menu(ministries).html_safe %> </li>
 				     <% end %>
-	              
+
+				 	<% if user_signed_in? %>
+					<% if current_user.has_role? :admin %>
+				  <li>  <%= link_to 'Create New Ministry',  new_ministry_path %></li>
+			     <% end %> 
+			     <% end %>
+					        
+				 
+				  
 	            </ul>
 	        </li>
 			<li class="column-menu span3">
