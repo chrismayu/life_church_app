@@ -1,7 +1,16 @@
 @import "bootstrap";
 body { padding-top: 85px; }
-@import "bootstrap-responsive";
+//@import "bootstrap-responsive";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/responsive-utilities";
+@import "bootstrap/responsive-768px-979px";
+@import "bootstrap/responsive-767px-max";
+@import "bootstrap/responsive-navbar";
+
+
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+ 
 
 .vertical-line {
     height: 100%;
@@ -586,6 +595,4 @@ margin: 0 auto;
   text-align: center;
   margin-bottom: -10px;
 }
-
- 
  

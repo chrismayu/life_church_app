@@ -1,13 +1,18 @@
  <div class="navbar navbar-static-bottom   ">
-	 <div class="pull-center">
+	 <div class="span12">
    <div class="nav nav-pills muted credit pull-center">
-      <li><%= link_to "Please click here for Technical Support", contact_tech_path %></li>
  
-       <li><%= link_to "#{DateTime.now.strftime("%Y")} LifeChurch International", contact_tech_path %></li>
+	   <li ><%= link_to "#{DateTime.now.strftime("%Y")} LifeChurch International", root_path %></li>
+  
+       <li><%= link_to "Privacy", contact_tech_path %></li>
+	   <li><%= link_to "Terms", contact_tech_path %></li>
  
+ 
+       <li><%= link_to "Technical Support", contact_tech_path %></li>
+ 
+        <li class="pull-right"><a href="#">Back to top</a></li>
+		
     </div>
 </div>
 </div>
-
-
  
