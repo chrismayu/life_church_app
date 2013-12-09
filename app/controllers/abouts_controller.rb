@@ -40,6 +40,14 @@ class AboutsController < ApplicationController
     
   end
   
+  def privacy
+    
+  end 
+  
+  def terms
+    
+  end
+  
   
       def create
         @message = Message.new(params[:message])
