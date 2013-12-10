@@ -16,7 +16,7 @@ module EventsHelper
 
     
        # return link_to(image_tag(placeholder_image_url "486x276", :text => "#{event_pictures.event_name} - Picture soon", :bg => "000", :fg => "667"), event_path(event_pictures)) 
-        return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+        return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
    
    end 
    end  
@@ -42,9 +42,9 @@ module EventsHelper
         else
 
         if event_pictures.recurring_on?
-            return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px") 
+            return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
           else
-            return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+            return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
         
           end
        
@@ -71,12 +71,12 @@ module EventsHelper
        end  
         else
 
-        # return image_tag (placeholder_image_url "652x484",:text => "#{event_pictures.event_name}")
+ 
          
          if event_pictures.recurring_on?
-         return  image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px") 
+         return  image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
        else
-         return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+         return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
   
        end
          
@@ -111,7 +111,7 @@ module EventsHelper
       time = event.event_start_time.strftime("%l:%M %p")
       
        if event.recurring_on?
-         "Every at #{weekday} at #{time}"  
+         "Every #{weekday} at #{time}"  
       else
         
         "Starts #{date} at #{time}" 
