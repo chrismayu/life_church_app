@@ -1,6 +1,6 @@
 class AboutsController < ApplicationController
-  load_and_authorize_resource :except => [:index, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
-  before_filter :authenticate_user!, :except => [:index, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+  load_and_authorize_resource :except => [:index, :home, :privacy, :terms, :what_to_expect, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+  before_filter :authenticate_user!, :except => [:index, :privacy, :terms, :what_to_expect, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
  
   
   def home
