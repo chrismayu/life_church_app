@@ -27,8 +27,13 @@ module EventsHelper
        if event_pictures.event_pictures.present?  
          for event_picture in event_pictures.event_pictures  
           if event_picture.image_processed?  
-            return link_to(image_tag(event_picture.event_image_url(:side)), event_path(event_pictures)) 
             
+            if event_pictures.recurring_on?
+            return  image_tag(event_picture.event_image_url(:side)) 
+          else
+            return link_to(image_tag(event_picture.event_image_url(:side)), event_path(event_pictures)) 
+       
+          end
                  
               
           end  
@@ -36,8 +41,15 @@ module EventsHelper
        
         else
 
-        
+        if event_pictures.recurring_on?
+            return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px") 
+          else
             return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+        
+          end
+       
+       
+       
        end
        
        # return image_tag (placeholder_image_url "216x150")   
@@ -49,15 +61,25 @@ module EventsHelper
        if event_pictures.event_pictures.present?  
        for event_picture in event_pictures.event_pictures  
        if event_picture.image_processed?  
+           if event_pictures.recurring_on?
+            return  image_tag(event_picture.event_image_url(:main))  
+          else
             return link_to(image_tag(event_picture.event_image_url(:main)), event_path(event_pictures)) 
-          
+          end
          
          end  
        end  
         else
 
         # return image_tag (placeholder_image_url "652x484",:text => "#{event_pictures.event_name}")
+         
+         if event_pictures.recurring_on?
+         return  image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px") 
+       else
          return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name}", :bg => "E8117F", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
+  
+       end
+         
          
        end  
        
@@ -82,7 +104,19 @@ module EventsHelper
       parts.join ""
     end
  
- 
+    def event_happen_when(event)
+      
+      date = event.event_date.strftime("%B #{event.event_date.day.ordinalize}, %Y")
+      weekday = event.recurring_day
+      time = event.event_start_time.strftime("%l:%M %p")
+      
+       if event.recurring_on?
+         "Every at #{weekday} at #{time}"  
+      else
+        
+        "Starts #{date} at #{time}" 
+      end   
+    end
   
   
   def status_display_main_page(ministries)

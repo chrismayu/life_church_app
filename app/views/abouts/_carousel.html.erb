@@ -26,8 +26,14 @@
 		 	 
 		<div class="carousel-caption">
 		<h4><%= event.event_name %></h4>
-		<p><%= event.event_date.strftime("%B #{event.event_date.day.ordinalize}, %Y") %> at <%= event.event_start_time.strftime("%l:%M %p") %>
-	 <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%></p> 
+	 <p><%= event_happen_when(event)%>
+			
+			<% unless event.recurring_on?  %>  
+			
+	 <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%>
+     <% end %> 
+ 
+ </p>
 					 </div> 
 				</div>
 		  

@@ -24,8 +24,10 @@
 <div class="Row ">
 	 
  <div class="span10 pull-center">  
-	<p>Starts at <%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %> at <%= @event.event_start_time.strftime("%l:%M %p") %>
- </p> 
+ 
+	 <p>
+      <%= event_happen_when(@event)%>
+  </p>
 	 <div class="event_text">
  
  
@@ -69,6 +71,13 @@
  
   <dt><strong><%= model_class.human_attribute_name(:event_name) %>:</strong></dt>
   <dd><%= @event.event_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:recurring_on) %>:</strong></dt>
+   
+  <dd><%= event_form_bool(@event.recurring_on) %></dd>
+  <% unless @event.recurring_day.blank? %>
+  <dt><strong><%= model_class.human_attribute_name(:recurring_day) %>:</strong></dt>
+  <dd><%= @event.recurring_day %></dd>
+    <%end%> 
   <dt><strong><%= model_class.human_attribute_name(:event_date) %>:</strong></dt>
   <dd><%= @event.event_date.strftime("%B #{@event.event_date.day.ordinalize}, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:event_time) %>:</strong></dt>
