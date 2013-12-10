@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(:version => 20131210162522) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
     t.string   "youtube"
     t.string   "facebook"
     t.string   "video_stream"
     t.string   "twitter"
     t.string   "country"
     t.string   "province"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.boolean  "life_pulse"
     t.boolean  "leaders_blog"
     t.boolean  "store"
@@ -98,20 +98,20 @@ ActiveRecord::Schema.define(:version => 20131210162522) do
     t.string   "image"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.string   "birth_location"
-    t.string   "category"
-    t.integer  "rank"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.string   "google_plus"
-    t.string   "linked_in"
-    t.string   "full_name"
     t.date     "birthday"
     t.string   "blog"
     t.string   "url"
     t.integer  "phone_ext"
     t.string   "phone_number"
+    t.string   "full_name"
     t.string   "email_id"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "google_plus"
+    t.string   "linked_in"
+    t.string   "birth_location"
+    t.string   "category"
+    t.integer  "rank"
   end
 
   create_table "event_forms", :force => true do |t|
@@ -206,40 +206,6 @@ ActiveRecord::Schema.define(:version => 20131210162522) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.time     "event_start_time"
-    t.string   "email_for_forms"
-    t.string   "c_f_1"
-    t.string   "c_f_2"
-    t.string   "c_f_3"
-    t.string   "c_f_4"
-    t.string   "c_f_5"
-    t.string   "c_f_6"
-    t.string   "c_f_7"
-    t.string   "c_f_8"
-    t.string   "c_f_9"
-    t.string   "c_f_10"
-    t.string   "c_f_11"
-    t.string   "c_f_12"
-    t.boolean  "age"
-    t.string   "c_f_1_h"
-    t.string   "c_f_2_h"
-    t.string   "c_f_3_h"
-    t.string   "c_f_4_h"
-    t.string   "c_f_5_h"
-    t.string   "c_f_6_h"
-    t.string   "c_f_7_h"
-    t.string   "c_f_8_h"
-    t.string   "c_f_9_h"
-    t.string   "c_f_10_h"
-    t.string   "c_f_11_h"
-    t.string   "c_f_12_h"
-    t.boolean  "phone"
-    t.boolean  "note"
-    t.boolean  "bday"
-    t.boolean  "sex"
-    t.boolean  "use_form"
-    t.string   "down_link"
-    t.boolean  "ok_to_contact"
-    t.string   "form_title"
     t.boolean  "use_form_button"
     t.integer  "which_form"
     t.string   "download_link"
@@ -396,15 +362,10 @@ ActiveRecord::Schema.define(:version => 20131210162522) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "name"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.boolean  "approved",               :default => false, :null => false
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
@@ -432,12 +393,6 @@ ActiveRecord::Schema.define(:version => 20131210162522) do
     t.string   "url"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
-
-  create_table "what_we_believes", :force => true do |t|
-    t.text     "what_we_believe"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
 end
