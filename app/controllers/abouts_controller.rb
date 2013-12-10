@@ -48,6 +48,10 @@ class AboutsController < ApplicationController
     
   end
   
+  def what_to_expect
+    
+  end
+  
   
       def create
         @message = Message.new(params[:message])

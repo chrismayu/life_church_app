@@ -93,6 +93,7 @@ LifeChurchApp::Application.routes.draw do
   get "abouts/become_a_believer"
   get "abouts/terms"
   get "abouts/privacy"
+  get "abouts/what_to_expect"
   resources :abouts
 
 
