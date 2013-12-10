@@ -5,7 +5,7 @@ class MinistryChild < ActiveRecord::Base
   
   has_many :ministry_picture_children, :foreign_key => :ministry_id, :primary_key =>  :id, :inverse_of => :ministry_child, :dependent => :destroy
    
-  validates :description, presence: true, length: { maximum: 140 }
+  #validates :description, presence: true, length: { maximum: 140 }
 
  validates :display_rank, presence: true
  
