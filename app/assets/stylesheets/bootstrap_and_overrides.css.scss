@@ -489,12 +489,7 @@ h40 {
      
 }
 
-.dropdown-menu:before, 
-.dropdown-menu:after {
-     border: none !important;
-     content: none !important;
-}   // used to hide up arrow
-
+ 
 
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;    
