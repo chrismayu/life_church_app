@@ -41,7 +41,10 @@
 	        </li>
             <ul class="span4">   
               
-				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon-question"></i>  <%= link_to 'New Here, What to Expect?', abouts_what_to_expect_path %></li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <%= image_tag("new_here_menu.png", size: "22x22")%> <%= link_to 'New Here, What to Expect?', abouts_what_to_expect_path %></li>
+				
+				 
+				
             </ul>
 		 
 			
@@ -74,10 +77,12 @@
 				            <ul>
 								<p>Serving Together</p> 
 				                <li><a href="#">Volunteer </a></li>
-				                <br>
-				                <li><i class="icon-calendar"></i> <%= link_to 'Calendar & Events', events_path %></li>
-				            
-							 
+				              
+				                <li class="menu_spacing"> <%= image_tag("event_menu.png", size: "20x20")%> <%= link_to 'Calendar & Events', events_path %></li>
+				            <li class="menu_spacing"><%= image_tag("live_menu.png", size: "22x22")%> <%= link_to 'Live Broadcast', @about_menu.youtube %></li>
+							<li class="menu_spacing"> <%= image_tag("facebook_menu.png", size: "22x22")%> <%= link_to 'Facebook', @about_menu.facebook %></li>
+							<li class="menu_spacing"> <%= image_tag("twitter_menu.png", size: "22x22")%> <%= link_to 'Twitter', @about_menu.twitter %></li>
+						 
 							 
 				            </ul>
 				        </li>
