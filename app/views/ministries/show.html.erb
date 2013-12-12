@@ -1,4 +1,4 @@
- <% provide(:title, @ministry.name  ) %>
+ <% content_for :title,  @ministry.name.html_safe  %>
 
 <div class="Row "> 
 	<div class="span10  mission_bg img-rounded">

@@ -1,4 +1,4 @@
- <% provide(:title, @event.event_name ) %>
+ <% provide(:title, @event.event_name.html_safe ) %>
 
 <%- model_class = Event -%>
 <div class="Row "> 
