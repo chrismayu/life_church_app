@@ -1,5 +1,12 @@
 LifeChurchApp::Application.routes.draw do
- 
+  
+  
+  get "egivings/completed"
+    resources :egivings
+   get "notifications/setting"
+     resources :notifications
+
+
   resources :summaries
 
 

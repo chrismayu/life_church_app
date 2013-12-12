@@ -77,7 +77,8 @@ gem 'exception_notification'
 gem 'gmaps4rails'
 gem 'mandrill-api'
 gem 'fog'
- 
+gem 'prawn'
+gem 'money-rails'
 
 group :development, :test do
 

@@ -1,0 +1,48 @@
+<%- model_class = Egiving -%>
+<div class="page-header">
+	
+ 
+	
+ <% if user_signed_in? %>
+  <h1>List of Givers</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      
+      <th>Amount of Gift:</th>
+ 
+      <th>Name of Giver:</th>
+ 
+      <th>Submitted:</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @egivings.each do |egiving| %>
+      <tr>
+ 
+        <td> <%= number_to_currency(egiving.finalamount) %></td>
+        <td> 	
+			<%= egiving.first_name %> <%= egiving.last_name %> 
+	 
+	</td>
+ 
+        
+ 
+       
+  <td> <%= time_ago_in_words(egiving.created_at) %> ago </td>
+        <td>
+    		  <%= link_to t('.show', :default => t("helpers.links.View")),
+	                     egiving_path(egiving), :class => 'btn btn-mini btn-inverse' %>
+       
+						<%= link_to t('.show', :default => t("helpers.links.PDF")),
+				                     egiving_path(egiving, format: "pdf"), :class => 'btn btn-mini btn-info' %>
+								    
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+ <% end %>

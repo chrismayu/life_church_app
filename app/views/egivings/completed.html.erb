@@ -1,0 +1,15 @@
+Thank you <%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
+<br>
+<br>
+
+we have received your donation of <%= number_to_currency(@egiving.finalamount) %> amount  
+<br>
+
+<br>
+ 
+
+ <%= link_to t('.sign_up', :default => t("helpers.links.Click Here")),
+			                      "http://www.lifeinyou.com/", :class => 'btn btn-info  ' %> to go back to the Life Church Website
+			
+			
+			<%= debug @egiving if Rails.env.development? %>

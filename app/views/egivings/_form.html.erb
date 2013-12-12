@@ -1,0 +1,146 @@
+<%= simple_form_for @egiving, :html => { :class => 'form-horizontal' }, :validate => true do |f| %>
+    <%= f.input :giving_year, :as => :hidden, :input_html => { :value => tax_reciept_year  } %>
+ <table class="table table-striped">
+
+  <tbody>
+  <tr>	     
+  <th>
+	<p>Your Contact Information:</p>
+ 
+ <%= f.input :first_name, :label=>"First Name:", :placeholder=>"First name", :input_html => { :class => "enroll_input span4"}, :validate => { :presence => true, :uniqueness => false }  %>
+ <%= f.input :last_name, :label=>"Last Name:", :placeholder=>"Last name", :input_html => { :class => "enroll_input span4 "}  %>
+
+
+  <%= f.input :address, :label=>'Address:', :placeholder=>"Address"  %>
+  <%= f.input :city, :label=>'City:', :placeholder=>"City"  %>
+  <%= f.input :province, :as => :state,  :label=>'Province/State:', :placeholder=>"Province/State"  %>
+
+ 
+  
+<%= f.input :country, label: "Country:", :input_html => {:id => 'email_giver', :class=>"switch"},:selected=>["Canada"],  collection: [ "Canada" ,"United States", "Other" ]%> 
+ 
+	
+ 
+ 
+
+  <%= f.input :postal_code, :label=>'Postal Code:', :placeholder=>"Postal Code" %> 
+  <%= f.input :phone_number, :label=>'Home Phone:', :placeholder=>"Home Phone" %>
+
+
+
+
+
+
+
+ 
+ <%= f.input :email_of_giver,  :label=>"Email:",  :input_html => { :class => "enroll_input span4"} %> 
+ 
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p> Donation:</p>
+<%= f.input :finalamount, :label=>'Donation Amount (CDN):', :placeholder=>"Ex 100.00", :input_html => { :class => "enroll_input span2 "}    %>
+ 
+  <%= f.input :propose_of_donation, :label=>"Propose of Donation:",  :placeholder=>'Tithe, Offering, etc',  :input_html => { :class => "enroll_input span3"}  %>
+</th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+<p> Payment Information:</p>
+
+
+<% if @egiving.name_on_card.blank? %>
+   <%= f.input :name_on_card , :label=>"Name on Card:", :as => :string, :placeholder=>'ex. John E. Doe',  :input_html => { :class => "enroll_input span4"}  %>
+
+<%else%>
+
+   <%= f.input :name_on_card , :label=>"Name on Card:", :as => :string,  :input_html => { :class => "enroll_input span4"},  :value => @egiving.name_on_card.decrypt(ENV["SECRET_STRONGBOX"]).to_s   %>
+ 
+<%end%>
+ 
+  <%= f.input :card_type , :label=>"Card Type:",  :selected=>["VISA"],  collection: [ "VISA" ,"MasterCard", "American Express", "Other" ]  %>
+
+ 
+<% if @egiving.card_number.blank? %>
+ <%= f.input :card_number , :label=>"Card Number:", :as => :string, :placeholder=>'1234 4567 8901 2345',  :input_html => { :class => "enroll_input span4"}  %>
+ 
+
+<%else%>
+
+
+<%= f.input :card_number , :label=>"Card Number:", :as => :string,   :input_html => { :class => "enroll_input span4"},  :value => @egiving.card_number.decrypt(ENV["SECRET_STRONGBOX"]).to_s   %>
+ 
+<%end%>
+
+ 
+<% if @egiving.date_month.blank? %>
+  
+  <%= f.input :date_month, :label=>"Expiry Date Month:",  :selected=>[01],  collection: 01..12  %>
+
+<%else%>
+
+<%= f.input :date_month ,  :label=>"Expiry Date Month:",   collection: 01..12,  :selected => @egiving.date_month.decrypt(ENV["SECRET_STRONGBOX"]).to_i   %>
+
+
+<%end%>
+
+
+
+<% if @egiving.date_year.blank? %>
+  
+  <%= f.input :date_year , :label=>"Expiry Date Year:",  :selected=>[13],  collection: 2013..2023  %>
+
+<%else%>
+
+<%= f.input :date_year , :label=>"Expiry Date Year:",   collection: 2013..2023,  :selected => @egiving.date_year.decrypt(ENV["SECRET_STRONGBOX"]).to_i   %>
+
+
+<%end%>
+
+ 
+ </th>
+</tr>
+ <tr>     
+<th>
+</th>
+</tr>
+ <tr>     
+<th>
+ 
+ 
+	<ol>
+	  <li>This is an Internet-based service that allows you to make donations to Life Church International. In activating this service you authorize Life Church to debit or charge your account the specified amount allowing your gift to be forwarded to Life Church International.</li>
+	  <li>Be sure to confirm the amount that you entered for the donation is correct.  If you mistakenly entered the wrong amount please contact <a href="mailto:lifesource@lifeinyou.com">lifesource@lifeinyou.com</a> within 3 business days of submission of your gift to have it corrected.</li>
+	  <li>When making a donation online, please allow 1 to 5 business days for your payment to process and be posted to your statement.</li>
+	</ol>
+
+ 
+
+ 
+ 
+ 
+  <div class="form-actions">
+  
+
+  <%= f.button :submit, "Submit your E Gift", :class => 'btn btn-success' %>
+
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                new_egiving_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+
+</th>
+</tr>
+</tbody>
+</table>
+<%= debug @egiving if Rails.env.development? %>

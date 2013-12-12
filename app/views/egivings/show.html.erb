@@ -1,0 +1,125 @@
+<%- model_class = Egiving -%>
+<div class="page-header">
+  <h1> 
+		<%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
+</h1>
+<h3>
+<strong>   EGiving Tax Receipt:</strong> #<%= @egiving.id %>
+</h3>
+
+
+</div>
+
+<dl class="dl-horizontal">
+	
+	  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+	  <dd><%= @egiving.first_name.capitalize %></dd>
+ 
+	  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+	  <dd><%= @egiving.last_name.capitalize %></dd>
+	  
+	  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+	  <dd><%= @egiving.address %></dd>
+ 
+	  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+	  <dd><%= @egiving.city.capitalize %></dd>
+	  
+	  <dt><strong>Province:</strong></dt>
+	  <dd><%= @egiving.province.capitalize %></dd>
+ 
+	  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+	  <dd><%= @egiving.country.capitalize %></dd>
+ 
+	  <dt><strong>Postal Code:</strong></dt>
+	  <dd><%= @egiving.postal_code %></dd>
+	  
+	  <dt><strong>Phone Number:</strong></dt>
+	  <dd><%= @egiving.phone_number %></dd>
+	  
+  <dt><strong>Amount:</strong></dt>
+  <dd><%= number_to_currency(@egiving.finalamount) %></dd>
+
+ 
+  <dt><strong>Sent Email to Giver:</strong></dt>
+  <dd><%= @egiving.email_of_giver %></dd>
+ 
+<% unless @egiving.propose_of_donation.blank? %>
+  <dt><strong>Purpose of Donation:</strong></dt>
+  <dd><%= @egiving.propose_of_donation.capitalize %></dd>
+<%end%>
+
+<% unless @egiving.send_email_giver.nil? %>
+  <dt><strong>Send Tax Receipt:</strong></dt>
+  <dd><%= send_receipt(@egiving) %></dd>
+<%end%>
+ 
+ 
+ <%= email_of_giver(@egiving) %>
+ 
+
+
+ <dt><strong>Donation of Date:</strong></dt>
+ <dd><%= @egiving.created_at.strftime("%l:%M %p on %B %e, %Y ") %></dd>
+ 
+<dt><strong>Name on Card:</strong></dt>
+  <dd>
+     <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
+    <%= @egiving.name_on_card.decrypt(ENV["SECRET_STRONGBOX"])%>
+	<%else%>	
+	<%= @egiving.name_on_card %>
+	<%end%>
+	</dd>
+ 
+
+	<dt><strong>Type of Card:</strong></dt>
+	  <dd>
+ 	
+		<%= @egiving.card_type %>
+ 
+		</dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:card_number) %>:</strong></dt>
+  <dd>	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
+			    <%= @egiving.card_number.decrypt(ENV["SECRET_STRONGBOX"])%>
+				<%else%>	
+				<%= @egiving.card_number %>
+				<%end%></dd>
+   
+   
+	 
+ 
+  <dt><strong><%= model_class.human_attribute_name(:date_month) %>:</strong></dt>
+  <dd>	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
+	    <%= @egiving.date_month .decrypt(ENV["SECRET_STRONGBOX"])%>
+		<%else%>	
+		<%= @egiving.date_month  %>
+		<%end%></dd>
+ 
+  <dt><strong><%= model_class.human_attribute_name(:date_year) %>:</strong></dt>
+  <dd> 
+ 
+	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
+		    <%= @egiving.date_year .decrypt(ENV["SECRET_STRONGBOX"])%>
+			<%else%>	
+			<%= @egiving.date_year  %>
+			<%end%></dd>
+
+ 
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.view all donations")),
+              egivings_path, :class => 'btn'  %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy information")),
+              egiving_path(@egiving),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger pull-right' %>
+
+			  <%= link_to t('.show', :default => t("helpers.links.View Printable Receipt (PDF)")),
+			              egiving_path(@egiving, format: "pdf"), :class => 'btn btn-info'  %>
+
+
+ 	 
+
+</div>
