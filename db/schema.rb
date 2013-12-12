@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212145146) do
+ActiveRecord::Schema.define(:version => 20131212155955) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20131212145146) do
     t.float    "finalamount"
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
+    t.integer  "giving_year"
   end
 
   create_table "event_forms", :force => true do |t|
