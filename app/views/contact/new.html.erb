@@ -9,6 +9,8 @@
  <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Contact Us</span> </td>
   <td><hr class="round_line_hoz" /></td>
 </table>
+
+<div class="span9">
  
 <%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_path do |f| %>
 <table class="table table-striped">
@@ -67,9 +69,33 @@
  
 <% end %>
 
+	
+</div>
+<br><br>
+<div class="span10 pull-center">
+	<p>
+	 
+	
+	<h4>Or you can send your mail to:</h4>
+	<address>
+		<strong>Life Church International</strong><br>
+		<%=@about_menu.address %><br>
+		<%=@about_menu.city %><br>
+		<%=@about_menu.province %><br>
+		<%=@about_menu.postal_code %><br>
+		 <i class="icon-phone"></i>  <%=@about_menu.phone_number %><br>
+		<i class="icon-phone"></i>   <%=@about_menu.toll_free_phone_number %><br>
+	</address>	
+	</p>
+</div>
+	
+	
+	
 </div>
 </div>  
 
+	
+	
 <div class="span1">
   <%= render :partial => 'abouts/side_buttons'%>
       
