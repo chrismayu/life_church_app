@@ -1,5 +1,6 @@
 class EgivingsController < ApplicationController
   
+    load_and_authorize_resource :except => [:new, :create, :completed]
      before_filter :authenticate_user!, :except => [:new, :create, :completed]
  
  

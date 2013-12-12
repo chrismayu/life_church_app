@@ -2,8 +2,11 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   
-  
+
+  load_and_authorize_resource  
   before_filter :authenticate_user! 
+  
+  
 
   def setting
      @notification = Notification.last

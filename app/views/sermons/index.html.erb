@@ -18,7 +18,8 @@
 	<% if can? :edit, :bulletins %>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.Setup new Sermon")),
 	            new_sermon_path,
-	            :class => 'btn btn-primary btn-mini-flat' %>
+	            :class => 'btn btn-primary btn-mini-flat' %> <%= link_to t('.show', :default => t("helpers.links.Setup Speakers")),
+			                      speakers_path, :class => 'btn btn-primary btn-mini-flat' %>
 			<% end%>
 			<% end%>
 			<br>

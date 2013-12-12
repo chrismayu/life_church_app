@@ -19,7 +19,8 @@
 	<% if can? :edit, :church_staffs %>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
 	            new_church_staff_path,
-	            :class => 'btn btn-primary btn-mini-flat' %>
+	            :class => 'btn btn-primary btn-mini-flat' %>  <%= link_to t('.trip_setup', :default => t("helpers.links.Setup Staff Ranking")),
+		                      staff_ranks_path, :class => 'btn btn-primary btn-mini-flat' %>
 				
 				<% end%>
 				<% end%>
