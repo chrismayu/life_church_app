@@ -1,15 +1,46 @@
-Thank you <%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
-<br>
-<br>
 
-we have received your donation of <%= number_to_currency(@egiving.finalamount) %> amount  
-<br>
+ <% provide(:title, "Thank You") %>
+<div class="Row">
+	<div class="span10">
 
-<br>
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Thank You</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <br>
+ 
+ 
+ <p>
+	 
+	 Thank you <%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
+	 <br>
+	 <br>
+
+	 we have received your donation of <%= number_to_currency(@egiving.finalamount) %> amount  
+	 <br>
+
+	 <br>
  
 
- <%= link_to t('.sign_up', :default => t("helpers.links.Click Here")),
-			                      "http://www.lifeinyou.com/", :class => 'btn btn-info  ' %> to go back to the Life Church Website
+	  <%= link_to t('.sign_up', :default => t("helpers.links.Click Here")),
+	 			                      root_path, :class => 'btn btn-info  ' %> to go back to the Life Church Website 
+	 
+ </p>
+</div>
+</div> <!-- Span-->
+
+<div class="span1">
+ <%= render :partial => 'side_buttons'%>
+      
+</div>
+</div> <!-- Row-->
+
+
+
 			
-			
-			<%= debug @egiving if Rails.env.development? %>
+		 
