@@ -99,8 +99,8 @@ volunteer_hand.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 volunteer_hand/index.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 you_are_welcome.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome/index.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
-application.js: application-a6cb1d51dffd5466a1b198fca77e0723.js
-application/index.js: application-a6cb1d51dffd5466a1b198fca77e0723.js
+application.js: application-60d19524979b4fedf772848c082f421e.js
+application/index.js: application-60d19524979b4fedf772848c082f421e.js
 application.css: application-659ecf3b2a3e4a3c3bac461a37a8d891.css
 application/index.css: application-659ecf3b2a3e4a3c3bac461a37a8d891.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
