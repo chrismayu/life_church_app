@@ -1,5 +1,5 @@
 <%- model_class = EventForm -%>
 <div class="page-header">
-  <h1><%= @event.event_name %> - Form</h1>
+  <h1><%= @event.event_name.html_safe %> - Form</h1>
 </div>
 <%= render :partial => 'form' %>
