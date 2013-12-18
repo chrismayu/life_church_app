@@ -26,16 +26,22 @@
  <div class="span10 text-center ">
  
  <br>
- 
- <p class="italic_text"><addr class="text_offset_bottom"> Which Statement of Beliefs would you like to see?&nbsp;&nbsp; </addr><i class="icon-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Simple',abouts_what_we_believe_path + "#Simple", :class => 'btn  img-rounded btn-primary btn-mini-flat-rounded'%>  or &nbsp;
+ <section  class="bookmark" id="Simple">
+ <p ><span class="text_offset_bottom drop_text"> Which Statement of Beliefs would you like to see?&nbsp;&nbsp; </span><i class="icon-arrow-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Simple',abouts_what_we_believe_path + "#Simple", :class => 'btn  img-rounded btn-primary btn-mini-flat-rounded'%>  <span class="text_offset_bottom drop_text"> or</span> &nbsp;
 						 <%= link_to 'Detailed',abouts_what_we_believe_path + "#detailed", :class => 'btn  img-rounded btn-primary btn-mini-flat-rounded'%>
 						 
-					 </p>
-					 
-<section id="Simple">
+					 </p><br>
+	<hr class="round_line_hoz2 " /> 
+	<br>				 
+
 	<div class="row">	
 		<div class="span9">	
 			 	 
+			<p class="pull-left" >
+			<strong>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simple Statement of Beliefs</strong>
+			</p>	 
+			<br>
+			<br>
 	<%= render @summaries %>	
  
 	</div>
@@ -52,7 +58,7 @@
 	 <% end %> 
 	
 	<br>			  
-<%= image_tag("simple_WhatWeBelieve.png"  ) %>
+ 
 </section>
 </div>
 </div>
@@ -60,7 +66,7 @@
 <div class="row">
 <div class="span10  ">
 	
-<section id="detailed">				 
+<section  id="detailed">				 
 <br>	
 <br>
 
