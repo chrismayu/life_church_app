@@ -1,6 +1,6 @@
  <% content_for :title,  @ministry.name.html_safe  %>
 
-<div class="Row "> 
+<div class="row "> 
 	<div class="span10  mission_bg img-rounded">
 
 
@@ -12,7 +12,7 @@
 </table>
  <hr class="round_line_hoz2 " /> 
  
- <div class="Row ">
+ <div class="row ">
 	 
   <div class="span10">   <br>
  <%= render :partial => 'picture' %> 
@@ -21,12 +21,12 @@
 </div>
 </div>
   <hr class="round_line_hoz2 " /> 
-<div class="Row ">
+<div class="row ">
 	 
- <div class="span9">  
+ <div class="offset1 span9">  
 
-	 <p class="ministry_text">
-<%- model_class = Ministry -%>
+	 <p class="ministry_text pull-center">
+     <%- model_class = Ministry -%>
  
  <br>
  
@@ -80,7 +80,7 @@ Display Ranking: <%= @ministry.display_rank %>
  
   <br>
  <% if @ministry.ministry_children.count >= 1 %>
-<p><h4><%= @ministry.name %> Ministries:</h4></p>  
+<p><h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= @ministry.name %> Ministries:</h4></p>  
 <% if user_signed_in? %>
 <% if can? :edit, :ministries %>
 <%= link_to t('.picture', :default => t("helpers.links.Add a New Ministry for #{@ministry.name}")),
