@@ -1,5 +1,8 @@
 class AnnouncementsController < ApplicationController
   
+  load_and_authorize_resource :except => [:hide ]
+  
+  before_filter :authenticate_user!, :except => [:hide]
   
   def hide
      ids = [params[:id], *cookies.signed[:hidden_announcement_ids]]
