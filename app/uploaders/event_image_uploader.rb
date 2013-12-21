@@ -11,18 +11,20 @@ class EventImageUploader < CarrierWave::Uploader::Base
   process :set_content_type
 
   version :main do
-    process resize_to_fill: [652, 484]
+    #process resize_to_fill: [652, 484, gravity = 'Center']
+    process resize_and_pad: [652, 484, background = :transparent, gravity = 'Center']
   end
   
   version :side do
-    process resize_to_fill: [216, 150]  
+    #process resize_to_fill: [216, 150, gravity = 'Center']
+     process resize_and_pad: [216, 150, background = :transparent, gravity = 'Center']  
   end
 
   version :thumb do
-    process resize_to_fill: [200, 200]
+    process resize_to_fill: [200, 200, gravity = 'Center']
   end
   
   version :stamp do
-    process resize_to_fill: [100, 70]
+    process resize_to_fill: [100, 70, gravity = 'Center']
   end
 end
