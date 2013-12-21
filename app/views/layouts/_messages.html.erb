@@ -12,7 +12,7 @@
  
   <div class="alert alert-<%= announcement.colours %>">
   <%= div_for announcement do %>
-    <%= announcement.message %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "hide announcement", hide_announcement_path(announcement), :class=>"close"%>
+    <%= announcement.message %> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "x", hide_announcement_path(announcement), :class=>"close"%>
   <% end %>
    </div>
 <% end %>
