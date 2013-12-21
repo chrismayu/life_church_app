@@ -1,6 +1,9 @@
 LifeChurchApp::Application.routes.draw do
   
-  
+  match 'announcements/:id/hide', to: 'announcements#hide', as: 'hide_announcement'
+  resources :announcements
+
+
   get "egivings/completed"
     resources :egivings
    get "notifications/setting"
