@@ -29,7 +29,10 @@
 
   <%= f.input :display_main_page, :label=>'Display Event on Main Page:'  %>
   <%= f.input :use_contact, :label=>'Display "Contact Us" Button:'  %>
- 
+  
+   <%= f.input :advertisement, :label=>'Event to be used as Advertisment:'  %>
+   <%= f.input :no_expiry, :label=>'Display Event forever:'  %>
+  
  
    <% if @event.persisted? %>
     <% if eventsetupform(@event) %>

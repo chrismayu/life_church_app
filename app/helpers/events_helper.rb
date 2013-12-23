@@ -28,7 +28,7 @@ module EventsHelper
          for event_picture in event_pictures.event_pictures  
           if event_picture.image_processed?  
             
-            if event_pictures.recurring_on?
+            if event_pictures.recurring_on? || event_pictures.advertisement? 
             return  image_tag(event_picture.event_image_url(:side)) 
           else
             return link_to(image_tag(event_picture.event_image_url(:side)), event_path(event_pictures)) 
@@ -41,7 +41,7 @@ module EventsHelper
        
         else
 
-        if event_pictures.recurring_on?
+        if event_pictures.recurring_on? || event_pictures.advertisement? 
             return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
           else
             return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 
@@ -54,14 +54,13 @@ module EventsHelper
        
        # return image_tag (placeholder_image_url "216x150")   
     end
-  
-  
+   
    def display_carousel_event_picture(event_pictures)
 
        if event_pictures.event_pictures.present?  
        for event_picture in event_pictures.event_pictures  
        if event_picture.image_processed?  
-           if event_pictures.recurring_on?
+           if event_pictures.recurring_on? || event_pictures.advertisement? 
             return  image_tag(event_picture.event_image_url(:main))  
           else
             return link_to(image_tag(event_picture.event_image_url(:main)), event_path(event_pictures)) 
@@ -73,7 +72,7 @@ module EventsHelper
 
  
          
-         if event_pictures.recurring_on?
+         if event_pictures.recurring_on? || event_pictures.advertisement? 
          return  image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
        else
          return link_to(image_tag(placeholder_image_url "652x484", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), event_path(event_pictures)) 

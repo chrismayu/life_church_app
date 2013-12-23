@@ -24,6 +24,7 @@
 			  <% end %> 
 		 	<%= display_carousel_event_picture(event) %>
 		 	 
+			  <% unless event.advertisement? %>
 		<div class="carousel-caption">
 		<h4><%= event.event_name.html_safe %></h4>
 	 <p><%= event_happen_when(event)%>
@@ -35,6 +36,8 @@
  
  </p>
 					 </div> 
+					 
+					  <% end %> 
 				</div>
 		  
 			    <% end %>
