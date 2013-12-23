@@ -65,6 +65,7 @@ gem 'carrierwave_direct'
 gem "bootstrap-switch-rails"
 gem 'country_select'
 gem 'jquery-ui-rails'
+gem 'jquery-timepicker-addon-rails'
 gem "font-awesome-rails"
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'

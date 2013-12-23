@@ -5,6 +5,10 @@ class Announcement < ActiveRecord::Base
   
   validates :message, presence: true, length: { maximum: 200 }
   
+  validates_datetime :starts_at
+  validates_datetime :ends_at, :after => :starts_at, :after_message => 'must be before "Start Time"'
+  
+  
   
   def self.current(hidden_ids = nil)
     result = where("starts_at <= :now and ends_at >= :now", now: Time.zone.now)

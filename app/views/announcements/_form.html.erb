@@ -1,31 +1,64 @@
 <%= simple_form_for @announcement, :html => { :class => 'form-horizontal' } do |f| %>
    
 <%= f.input :message , :label=>'Message:',  :placeholder=>"Add a Short Message" , :hint=> "200 Characters max", :input_html => { :class => "enroll_input span4", :rows => 2} %> 
-<%= f.input :starts_at %>
-<%= f.input :ends_at %>
-     <%= f.input :colours, label: "Colour of the Alert:",  :selected=>["success"],  collection: [ ["Green" ,"success"] ,["Red","error"], ["Yellow","warning"], ["Blue","info"] ]%> 
-	 
- <div class="offset1 span8">
-	 <div class="alert alert-success">
-	 Green - A Happy good nows type message.
-	 </div>
-	 
-	 <div class="alert alert-error">
-	  Red -  Immediate attention regarded type message should as a cancellation.
-	 </div>
-	 
-	 <div class="alert alert-warning">
-	  Yellow -  A Warning type message.
-	 </div>
-	 
-	 <div class="alert alert-info">
-	  Blue - This alert needs your attention, but it's not super important.
-	 </div>
-   
- </div>
-  
+ 
 
  
+
+<% unless @announcement.persisted? %>
+
+<%= f.input :starts_at, :as => :datetimepicker, :input_html => {:value => DateTime.now.strftime("%Y-%m-%d %l:%M %p")} %>
+  
+<%= f.input :ends_at, :as => :datetimepicker, :input_html => {:value =>  1.day.from_now.strftime("%Y-%m-%d %l:%M %p")} %>
+
+<%else%>
+
+
+<dl class="dl-horizontal">
+
+  <dt><strong>Starts at:</strong></dt>
+  <dd><%= @announcement.starts_at.strftime("%Y-%m-%d %l:%M %p")%></dd>
+  <dt><strong>End at:</strong></dt>
+  <dd><%= @announcement.ends_at.strftime("%Y-%m-%d %l:%M %p")%></dd>
+</dl>
+ 
+
+
+<%end%>
+
+ 
+ 
+     <%= f.input :colours, label: "Colour of the Alert:",  :selected=>["success"],  collection: [ ["Green" ,"success"] ,["Red","error"], ["Yellow","warning"], ["Blue","info"] ]%> 
+	 
+	 
+	 <dl class="dl-horizontal">
+   
+	   <dt><strong>Green:</strong></dt>
+	   <dd><div class="alert alert-success">
+	 A Happy good nows type message.
+	 </div></dd>
+	 
+	 
+	   <dt><strong>Red:</strong></dt>
+	   <dd> <div class="alert alert-error">
+	  Immediate attention regarded type message should as a cancellation.
+	 </div></dd>
+	 
+   <dt><strong>Yellow:</strong></dt>
+   <dd><div class="alert alert-warning">
+	  A Warning type message.
+	 </div></dd>
+ 
+ 
+   <dt><strong>Blue:</strong></dt>
+   <dd>  <div class="alert alert-info">
+	  This alert needs your attention, but it's not super important.
+	 </div></dd>
+	 
+	 </dl>
+ 
+	 
+	 
 
 
   <div class="form-actions">

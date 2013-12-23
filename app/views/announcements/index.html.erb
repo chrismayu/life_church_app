@@ -1,45 +1,89 @@
 <%- model_class = Announcement -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-    
-      <th>Message</th>
-	  <th>Alert Colour</th>
-     <th>Status</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @announcements.each do |announcement| %>
-      <tr>
-        
-        <td><%= announcement.message %></td>
-		<td><%= alert_colour(announcement) %></td>
-		<td><%= display_status_of_announcement(announcement) %></td>
+
+
+
+
+
+
+
+ <% provide(:title, "Announcements" ) %>
+<div class="Row">
+	<div class="span10 mission_bg img-rounded ">
+
+
+<div class="mission_bg img-rounded ">
+
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Announcements</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+
+<div class="span9">
  
-        <td>
-  	      <%= link_to t('.show', :default => t("helpers.links.view")),
-                         announcement_path(announcement), :class => 'btn   btn-success btn-mini-flat' %>
+ 
+
+
+ 
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+    
+	      <th>Message</th>
+		  <th>Alert Colour</th>
+	     <th>Status</th>
+	      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @announcements.each do |announcement| %>
+	      <tr>
+        
+	        <td><%= announcement.message %></td>
+			<td><%= alert_colour(announcement) %></td>
+			<td><%= display_status_of_announcement(announcement) %></td>
+ 
+	        <td>
+	  	      <%= link_to t('.show', :default => t("helpers.links.view")),
+	                         announcement_path(announcement), :class => 'btn   btn-success btn-mini-flat' %>
        
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_announcement_path(announcement), :class => 'btn btn-mini-flat' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      announcement_path(announcement),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger btn-mini-flat' %>
+	          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                      edit_announcement_path(announcement), :class => 'btn btn-mini-flat' %>
+	          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                      announcement_path(announcement),
+	                      :method => :delete,
+	                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+	                      :class => 'btn btn-mini btn-danger btn-mini-flat' %>
 					  
 					   
 					  
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_announcement_path,
-            :class => 'btn btn-primary' %>
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+	            new_announcement_path,
+	            :class => 'btn btn-primary btn-flat' %>
+				<br>
+					<br>
+						<br>
+	
+	</div>
+	
+	
+	
+	
+</div>
+</div>  
+
+	
+	
+<div class="span1">
+  <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div>  
+
+
+ 
