@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131221214911) do
+ActiveRecord::Schema.define(:version => 20131223165348) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -261,6 +261,10 @@ ActiveRecord::Schema.define(:version => 20131221214911) do
     t.boolean  "use_contact"
     t.string   "recurring_day"
     t.boolean  "recurring_on"
+    t.boolean  "advertisement"
+    t.string   "internal_link_url"
+    t.boolean  "internal_link"
+    t.boolean  "no_expiry"
   end
 
   create_table "ministries", :force => true do |t|
