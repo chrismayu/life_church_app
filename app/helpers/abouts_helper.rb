@@ -1,6 +1,32 @@
 module AboutsHelper
   
   
+  def twitter_link(twitter)
+    
+    link = "www.twitter.com/#{twitter}"
+    link
+  end
+  
+  def facebook_link(about)
+ 
+    
+    link = "www.facebook.com/#{about}"
+    link
+  end
+  
+  def youtube_link(about)
+    
+  end
+  
+  def video_link(about)
+    
+    
+  end
+  
+  
+  
+  
+  
   def status_video(about)
     if about.video?
       content_tag(:div, content_tag(:span, "Visible"), class: "label label-success")

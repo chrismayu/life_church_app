@@ -30,7 +30,30 @@
 	 <p>
       <%= event_happen_when(@event)%>
   </p>
-	 <div class="event_text">
+  
+ 
+  <div id="request-invite"   style="display: 'block';">
+	    
+    <div   style="margin-bottom: 120px; overflow: visible">
+      <p>Share with your friends!</p>
+      <div id="tweet" style="display:inline-block;">
+        <a class="twitter-share-button" data-count="horizontal" data-text="Check out this event" data-url="<%= event_path(@event)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @event.event_name.html_safe %>" href="https://twitter.com/share"></a>
+      </div>
+	   <div id="facebook" style="display:inline-block;">
+      <span style="display:inline-block; ">
+        <div class="fb-like" data-href="<%= event_path(@event) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+        </div> </span>
+		        </div>
+     
+		 	 
+	  <span style="display:inline-block; ">
+      <div class="g-plusone" data-annotation="inline" data-href="<%= event_path(@event)%>" data-size="medium" data-width="120">
+      </div>
+	        </span>
+    </div>
+  </div>
+  
+  <div class="event_text">
  
  
 
