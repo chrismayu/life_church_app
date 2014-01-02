@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131223165348) do
+ActiveRecord::Schema.define(:version => 20140102165038) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -42,7 +42,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.boolean  "store"
     t.boolean  "video"
     t.boolean  "articles"
+    t.string   "slug"
   end
+
+  add_index "abouts", ["slug"], :name => "index_abouts_on_slug"
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -70,7 +73,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.string   "title"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "slug"
   end
+
+  add_index "articles", ["slug"], :name => "index_articles_on_slug"
 
   create_table "bulletins", :force => true do |t|
     t.string   "name"
@@ -84,7 +90,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.boolean  "image_processed"
+    t.string   "slug"
   end
+
+  add_index "bulletins", ["slug"], :name => "index_bulletins_on_slug"
 
   create_table "church_staff_pictures", :force => true do |t|
     t.string   "first_name"
@@ -265,7 +274,21 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.string   "internal_link_url"
     t.boolean  "internal_link"
     t.boolean  "no_expiry"
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], :name => "index_events_on_slug"
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "ministries", :force => true do |t|
     t.string   "name"
@@ -281,7 +304,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.boolean  "advert_main_page"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "slug"
   end
+
+  add_index "ministries", ["slug"], :name => "index_ministries_on_slug"
 
   create_table "ministry_children", :force => true do |t|
     t.string   "name"
@@ -298,7 +324,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "ministry_id"
+    t.string   "slug"
   end
+
+  add_index "ministry_children", ["slug"], :name => "index_ministry_children_on_slug"
 
   create_table "ministry_picture_children", :force => true do |t|
     t.string   "ministrychild_image"
@@ -359,7 +388,10 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.string   "url"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "slug"
   end
+
+  add_index "sermons", ["slug"], :name => "index_sermons_on_slug"
 
   create_table "service_times", :force => true do |t|
     t.string   "day"
@@ -454,6 +486,9 @@ ActiveRecord::Schema.define(:version => 20131223165348) do
     t.string   "url"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "slug"
   end
+
+  add_index "videos", ["slug"], :name => "index_videos_on_slug"
 
 end

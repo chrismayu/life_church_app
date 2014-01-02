@@ -80,6 +80,7 @@ gem 'mandrill-api'
 gem 'fog'
 gem 'prawn'
 gem 'money-rails'
+gem "friendly_id", "~> 4.0.10"
 
 group :development, :test do
 
