@@ -1,4 +1,6 @@
 class Sermon < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :history
   attr_accessible :audio_url, :category, :date_of_sermon, :description, :display_until, :members_only, :speaker_id, :title, :url, :video_url
 resourcify
 belongs_to :speaker
@@ -13,7 +15,14 @@ validates  :category, :presence => true
 after_save :create_description
 
 #default_scope order: 'sermons.date_of_sermon DESC'
- 
+
+
+after_validation :move_friendly_id_error_to_name
+
+  def move_friendly_id_error_to_name
+    errors.add :title, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+  end
+   
  
 def self.search(search)
   if search

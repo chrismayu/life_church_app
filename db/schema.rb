@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102165038) do
+ActiveRecord::Schema.define(:version => 20140102171558) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20140102165038) do
     t.boolean  "video"
     t.boolean  "articles"
     t.string   "slug"
+    t.string   "name"
   end
 
   add_index "abouts", ["slug"], :name => "index_abouts_on_slug"

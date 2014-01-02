@@ -28,6 +28,9 @@ class BulletinsController < ApplicationController
   # GET /bulletins/1.json
   def show
     @bulletin = Bulletin.find(params[:id])
+    if request.path != bulletin_path(@bulletin)
+        redirect_to @bulletin, status: :moved_permanently
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -13,7 +13,7 @@
   <% if can? :edit, :ministries %>
   
 	 <%= link_to t('.destroy', :default => t("helpers.links.Remove Picture")),
-              ministry_picture_path(ministry_picture),
+              ministry_picture_path(ministry_picture.id),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger btn-flat' %>
@@ -26,7 +26,7 @@
 <% if user_signed_in? %>
 <% if can? :edit, :ministries %>
  <%= link_to t('.picture', :default => t("helpers.links.Add a Picture")),
-               ministry_pictures_step_1_path(:ministry_id => @ministry), :class => 'btn btn-flat btn-success'  %>
+               ministry_pictures_step_1_path(:ministry_id => @ministry.id), :class => 'btn btn-flat btn-success'  %>
 <% end %>
 <% end %>
 <% end %>

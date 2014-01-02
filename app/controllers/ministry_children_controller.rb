@@ -19,6 +19,9 @@ class MinistryChildrenController < ApplicationController
   def show
     @ministry_child = MinistryChild.find(params[:id])
     @ministry = Ministry.find(@ministry_child.ministry.id)
+    if request.path != ministry_children_path(@ministry_child)
+        redirect_to @ministry_child, status: :moved_permanently
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -18,6 +18,9 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
     @video = Video.find(params[:id])
+    if request.path != video_path(@video)
+        redirect_to @video, status: :moved_permanently
+    end
 
     respond_to do |format|
       format.html # show.html.erb

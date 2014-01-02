@@ -20,6 +20,9 @@ class SermonsController < ApplicationController
   # GET /sermons/1.json
   def show
     @sermon = Sermon.find(params[:id])
+    if request.path != sermon_path(@sermon)
+        redirect_to @sermon, status: :moved_permanently
+    end
 
     respond_to do |format|
       format.html # show.html.erb

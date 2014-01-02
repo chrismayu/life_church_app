@@ -18,6 +18,7 @@ class MinistriesController < ApplicationController
   # GET /ministries/1.json
   def show
     @ministry = Ministry.find(params[:id])
+   
 
     respond_to do |format|
       format.html # show.html.erb

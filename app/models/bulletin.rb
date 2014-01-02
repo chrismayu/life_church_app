@@ -1,4 +1,7 @@
 class Bulletin < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :history
+  
   attr_accessible :advert_main_page, :bulletin_image, :description, :display_start, :display_till, :members_only, :name, :url, :crop_x, :crop_y, :crop_w, :crop_h, :original_width, :original_height
   mount_uploader :bulletin_image, BulletinImageUploader
     resourcify
@@ -9,6 +12,15 @@ class Bulletin < ActiveRecord::Base
   
   
   default_scope order: 'bulletins.display_start DESC' 
+  
+  
+  after_validation :move_friendly_id_error_to_name
+
+    def move_friendly_id_error_to_name
+      errors.add :name, *errors.delete(:friendly_id) if errors[:friendly_id].present?
+    end
+   
+   
  
   public
   def set_display_till_date(bulletin)
