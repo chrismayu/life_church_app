@@ -60,6 +60,9 @@ class BulletinsController < ApplicationController
     @bulletin = Bulletin.new(params[:bulletin])
     
      @bulletin.display_till =  @bulletin.set_display_till_date(@bulletin)
+     
+     @bulletin.name  = @bulletin.create_name(@bulletin)
+     
 
     respond_to do |format|
       if @bulletin.save

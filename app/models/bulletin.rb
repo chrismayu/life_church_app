@@ -13,14 +13,15 @@ class Bulletin < ActiveRecord::Base
   
   default_scope order: 'bulletins.display_start DESC' 
   
-  
+ 
+   
   after_validation :move_friendly_id_error_to_name
 
     def move_friendly_id_error_to_name
       errors.add :name, *errors.delete(:friendly_id) if errors[:friendly_id].present?
     end
    
-   
+  
  
   public
   def set_display_till_date(bulletin)
@@ -28,6 +29,11 @@ class Bulletin < ActiveRecord::Base
     bulletin.display_till = bulletin.display_start + 6.days
     bulletin.display_till
   end
+  
+  def create_name(bulletin)
+   bulletin.name = "Week of  #{bulletin.display_start.strftime("%B #{bulletin.display_start.day.ordinalize}, %Y")}" 
+   bulletin.name
+   end
 
   private
 
