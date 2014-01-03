@@ -74,7 +74,7 @@ gem "letter_opener", :group => :development
 gem "strongbox"
 gem "nifty-generators", :group => :development
 gem 'validates_formatting_of'
-gem 'exception_notification' 
+gem 'exception_notification' , '3.0.1'
 gem 'gmaps4rails'
 gem 'mandrill-api'
 gem 'fog'
