@@ -87,7 +87,11 @@
 							
 							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@about_menu.twitter)}" %> <%= link_to 'Twitter',  "http://#{twitter_link(@about_menu.twitter)}"%></li>
 						 
-							 
+						    <% if @about_menu.life_pulse? %>
+						   
+							
+							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@about_menu.life_pulse)}" %> <%= link_to 'Life Pulse',  "http://#{twitter_link(@about_menu.life_pulse)}"%></li>
+						    <% end %>
 							 
 							 
 				            </ul>

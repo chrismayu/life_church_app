@@ -50,6 +50,13 @@
 							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@abouts.twitter)}", :target => '_blank' %>
 										<br>
 										<br>
+										   <% if @about_menu.life_pulse? %>
+			   							&nbsp;<%= link_to (image_tag( "twitter.png", size: "40x50",
+			   							            alt: "http://#{twitter_link(@abouts.twitter)}", 
+			   							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@abouts.twitter)}", :target => '_blank' %>
+													
+													<% end %>
+										
 										<br>
 										<br>
 										<br>
