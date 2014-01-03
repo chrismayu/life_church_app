@@ -1,5 +1,8 @@
 LifeChurchApp::Application.routes.draw do
   
+  match ':status', to: 'errors#show', constraints: {status: /\d{3}/ }
+  
+  
   match 'announcements/:id/hide', to: 'announcements#hide', as: 'hide_announcement'
   resources :announcements
 

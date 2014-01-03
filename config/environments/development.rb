@@ -34,9 +34,17 @@ LifeChurchApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
-  
  
+ 
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Whatever] ",
+      :sender_address => ENV["SITE_EMAIL"],
+      :exception_recipients => ENV["SITE_ERROR_EMAIL"]
+    }
+ 
+ 
+  
    # ActionMailer Config
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
    config.action_mailer.delivery_method = :letter_opener #:smtp

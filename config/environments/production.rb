@@ -54,7 +54,12 @@ LifeChurchApp::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
 
- 
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Whatever] ",
+      :sender_address => ENV["SITE_EMAIL"],
+      :exception_recipients => ENV["ADMIN_EMAIL"]
+    }
  
  
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

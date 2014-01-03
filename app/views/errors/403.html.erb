@@ -1,0 +1,14 @@
+<div class="pull-center sermon_text">
+
+<h2>Oops ;)  a 403 Error</h2>
+<h4> The Site Administrator has been notified via email. </h4>
+<br>
+
+<% if @exception %>
+  <p>Error: <%= @exception.message %></p>
+<% else %>
+  <p>You are not authorized to perform that action.</p>
+<% end %>
+
+
+</div>

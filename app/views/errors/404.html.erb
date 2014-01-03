@@ -1,0 +1,15 @@
+  <% provide(:title, "The page you were looking for does not exist.  404 Error") %>
+<div class="pull-center sermon_text">
+
+<h2>The page you were looking for doesn't exist. </h2>
+<h4> You may have mistyped the address or the page may have moved. </h4>
+<br>
+
+<% if @exception %>
+  <p>Error: <%= @exception.message %></p>
+<% else %>
+  <p>You are not authorized to perform that action.</p>
+<% end %>
+
+
+</div>
