@@ -23,7 +23,7 @@ describe SiteSetupsController do
   # This should return the minimal set of attributes required to create a valid
   # SiteSetup. As you add validations to SiteSetup, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { { "youtube" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe SiteSetupsController do
       it "assigns a newly created but unsaved site_setup as @site_setup" do
         # Trigger the behavior that occurs when invalid params are submitted
         SiteSetup.any_instance.stub(:save).and_return(false)
-        post :create, {:site_setup => {  }}, valid_session
+        post :create, {:site_setup => { "youtube" => "invalid value" }}, valid_session
         assigns(:site_setup).should be_a_new(SiteSetup)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         SiteSetup.any_instance.stub(:save).and_return(false)
-        post :create, {:site_setup => {  }}, valid_session
+        post :create, {:site_setup => { "youtube" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe SiteSetupsController do
         # specifies that the SiteSetup created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        SiteSetup.any_instance.should_receive(:update_attributes).with({ "these" => "params" })
-        put :update, {:id => site_setup.to_param, :site_setup => { "these" => "params" }}, valid_session
+        SiteSetup.any_instance.should_receive(:update_attributes).with({ "youtube" => "MyString" })
+        put :update, {:id => site_setup.to_param, :site_setup => { "youtube" => "MyString" }}, valid_session
       end
 
       it "assigns the requested site_setup as @site_setup" do
@@ -128,7 +128,7 @@ describe SiteSetupsController do
         site_setup = SiteSetup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         SiteSetup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => site_setup.to_param, :site_setup => {  }}, valid_session
+        put :update, {:id => site_setup.to_param, :site_setup => { "youtube" => "invalid value" }}, valid_session
         assigns(:site_setup).should eq(site_setup)
       end
 
@@ -136,7 +136,7 @@ describe SiteSetupsController do
         site_setup = SiteSetup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         SiteSetup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => site_setup.to_param, :site_setup => {  }}, valid_session
+        put :update, {:id => site_setup.to_param, :site_setup => { "youtube" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

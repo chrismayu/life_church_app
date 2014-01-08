@@ -1,16 +1,6 @@
 class SiteSetupsController < ApplicationController
   # GET /site_setups
   # GET /site_setups.json
-  load_and_authorize_resource 
-  
-  before_filter :authenticate_user! 
-  
-  def site_setup
-    
-    
-    
-  end
-  
   def index
     @site_setups = SiteSetup.all
 

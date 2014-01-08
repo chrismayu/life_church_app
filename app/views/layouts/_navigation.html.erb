@@ -79,18 +79,18 @@
 								<%= link_to 'Calendar & Events', events_path %></li>
 								
 								
-				            <li class="menu_spacing"> <%= link_to image_tag("live_menu.png", size: "22x22"), @about_menu.youtube %> <%= link_to 'Live Broadcast', @about_menu.youtube %></li>
+				            <li class="menu_spacing"> <%= link_to image_tag("live_menu.png", size: "22x22"), @site_setup_menu.youtube %> <%= link_to 'Live Broadcast', @site_setup_menu.youtube %></li>
 							
 							
-							<li class="menu_spacing">  <%= link_to image_tag("facebook_menu.png", size: "22x22"), "http://#{facebook_link(@about_menu.facebook)}" %> <%= link_to 'Facebook', "http://#{facebook_link(@about_menu.facebook)}" %></li>
+							<li class="menu_spacing">  <%= link_to image_tag("facebook_menu.png", size: "22x22"), "http://#{facebook_link(@site_setup_menu.facebook)}" %> <%= link_to 'Facebook', "http://#{facebook_link(@site_setup_menu.facebook)}" %></li>
 							
 							
-							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@about_menu.twitter)}" %> <%= link_to 'Twitter',  "http://#{twitter_link(@about_menu.twitter)}"%></li>
+							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@site_setup_menu.twitter)}" %> <%= link_to 'Twitter',  "http://#{twitter_link(@site_setup_menu.twitter)}"%></li>
 						 
-						    <% if @about_menu.life_pulse? %>
+						    <% if @site_setup_menu.life_pulse? %>
 						   
 							
-							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@about_menu.life_pulse)}" %> <%= link_to 'Life Pulse',  "http://#{twitter_link(@about_menu.life_pulse)}"%></li>
+							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@site_setup_menu.life_pulse)}" %> <%= link_to 'Life Pulse',  "http://#{twitter_link(@site_setup_menu.life_pulse)}"%></li>
 						    <% end %>
 							 
 							 
@@ -106,18 +106,18 @@
 	            <ul>
 					<p>&nbsp; Categories </p> 
 					<li><%= link_to ' Become A Believer',  abouts_become_a_believer_path %></li>
-				    <% if @about_menu.leaders_blog? %>
+				    <% if @site_setup_menu.leaders_blog? %>
 				    <li><a href="#">Leader's Blogs</a></li>
 				    <% end %>
 	                <li><%= link_to 'Sermons', sermons_path %></li>
 				  
-				    <% if @about_menu.video? %>
+				    <% if @site_setup_menu.video? %>
 				    <li><%= link_to 'Video', videos_path %></li>
 				    <% end %>
-				    <% if @about_menu.articles? %>
+				    <% if @site_setup_menu.articles? %>
 				    <li><%= link_to 'Articles', articles_path %></li>
 				    <% end %>
-				    <% if @about_menu.store? %>
+				    <% if @site_setup_menu.store? %>
 				    <li><a href="#">Store</a></li>
 				    <% end %>
 				 
@@ -126,7 +126,7 @@
 	        <li class="column-menu span2">
 	            <ul>
 					<p>&nbsp;   </p> 
-				    <% if @about_menu.life_pulse? %>
+				    <% if @site_setup_menu.life_pulse? %>
 				    <li><a href="#">Life Pulse</a></li>
 				    <% end %>
 	                 <li><%= link_to 'Bulletin', bulletins_path %></li>
@@ -166,6 +166,11 @@
   					      <li> 
     						    <%= link_to announcements_path  do %>
     						  <i class="icon-bullhorn"></i>  Announcements		 <% end %>
+					  
+  					      </li> 
+  					      <li> 
+    						    <%= link_to site_setup_path(1)  do %>
+    						  <i class="icon-bullhorn"></i>  Site Setup		 <% end %>
 					  
   					      </li>
 						  

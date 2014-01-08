@@ -6,6 +6,15 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:youtube) %></th>
+      <th><%= model_class.human_attribute_name(:facebook) %></th>
+      <th><%= model_class.human_attribute_name(:video_stream) %></th>
+      <th><%= model_class.human_attribute_name(:twitter) %></th>
+      <th><%= model_class.human_attribute_name(:life_pulse) %></th>
+      <th><%= model_class.human_attribute_name(:leaders_blog) %></th>
+      <th><%= model_class.human_attribute_name(:store) %></th>
+      <th><%= model_class.human_attribute_name(:video) %></th>
+      <th><%= model_class.human_attribute_name(:articles) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -14,6 +23,15 @@
     <% @site_setups.each do |site_setup| %>
       <tr>
         <td><%= link_to site_setup.id, site_setup_path(site_setup) %></td>
+        <td><%= site_setup.youtube %></td>
+        <td><%= site_setup.facebook %></td>
+        <td><%= site_setup.video_stream %></td>
+        <td><%= site_setup.twitter %></td>
+        <td><%= site_setup.life_pulse %></td>
+        <td><%= site_setup.leaders_blog %></td>
+        <td><%= site_setup.store %></td>
+        <td><%= site_setup.video %></td>
+        <td><%= site_setup.articles %></td>
         <td><%=l site_setup.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

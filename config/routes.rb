@@ -1,5 +1,8 @@
 LifeChurchApp::Application.routes.draw do
   
+  resources :site_setups
+
+
   match ':status', to: 'errors#show', constraints: {status: /\d{3}/ }
   
   
@@ -87,9 +90,6 @@ LifeChurchApp::Application.routes.draw do
     get "site_setups/site_setup"
     
   resources :staff_ranks
-
-
-  resources :site_setups
 
   resources :church_staffs
 

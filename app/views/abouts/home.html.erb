@@ -32,28 +32,28 @@
 
 
 	&nbsp;<%= link_to (image_tag( "live.png", size: "40x50",
-	            alt: @abouts.youtube, 
-	            mouseover: "live_hover.png")).html_safe,  @abouts.youtube, :target => '_blank'  %>
+	            alt: @site_setup_menu.youtube, 
+	            mouseover: "live_hover.png")).html_safe,  @site_setup_menu.youtube, :target => '_blank'  %>
 
 	<br>
 	<br>
 
 				&nbsp;<%= link_to (image_tag( "facebook.png", size: "40x50",
-				            alt: "http://#{facebook_link(@abouts.facebook)}", 
-				            mouseover: "facebook_hover.png")).html_safe,  "http://#{facebook_link(@abouts.facebook)}", :target => '_blank'  %>
+				            alt: "http://#{facebook_link(@site_setup_menu.facebook)}", 
+				            mouseover: "facebook_hover.png")).html_safe,  "http://#{facebook_link(@site_setup_menu.facebook)}", :target => '_blank'  %>
 							<br>
 							<br>
 
 
 							&nbsp;<%= link_to (image_tag( "twitter.png", size: "40x50",
-							            alt: "http://#{twitter_link(@abouts.twitter)}", 
-							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@abouts.twitter)}", :target => '_blank' %>
+							            alt: "http://#{twitter_link(@site_setup_menu.twitter)}", 
+							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@site_setup_menu.twitter)}", :target => '_blank' %>
 										<br>
 										<br>
-										   <% if @about_menu.life_pulse? %>
+										   <% if @site_setup_menu.life_pulse? %>
 			   							&nbsp;<%= link_to (image_tag( "twitter.png", size: "40x50",
-			   							            alt: "http://#{twitter_link(@abouts.twitter)}", 
-			   							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@abouts.twitter)}", :target => '_blank' %>
+			   							            alt: "http://#{twitter_link(@site_setup_menu.twitter)}", 
+			   							            mouseover: "twitter_hover.png")).html_safe,  "http://#{twitter_link(@site_setup_menu.twitter)}", :target => '_blank' %>
 													
 													<% end %>
 										

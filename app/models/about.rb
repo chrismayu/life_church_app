@@ -1,7 +1,7 @@
 class About < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :history
-  attr_accessible :address, :city, :fax_number, :name,	:youtube, :facebook,   :video_stream,   :twitter,  :country,  :province,  :gmaps, :latitude, :longitude, :phone_number, :postal_code, :service_day_1, :service_day_2, :service_day_3, :service_time_1, :service_time_2, :service_time_3, :toll_free_phone_number, :life_pulse, :leaders_blog, :store, :video, :articles
+  attr_accessible :address, :city, :fax_number, :name,	  :country,  :province,  :gmaps, :latitude, :longitude, :phone_number, :postal_code, :service_day_1, :service_day_2, :service_day_3, :service_time_1, :service_time_2, :service_time_3, :toll_free_phone_number
   acts_as_gmappable
   resourcify
   
