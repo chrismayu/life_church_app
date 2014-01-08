@@ -90,7 +90,7 @@
 						    <% if @site_setup_menu.life_pulse? %>
 						   
 							
-							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@site_setup_menu.life_pulse)}" %> <%= link_to 'Life Pulse',  "http://#{twitter_link(@site_setup_menu.life_pulse)}"%></li>
+							<li class="menu_spacing">  <%= link_to image_tag("twitter_menu.png", size: "22x22"), "http://#{twitter_link(@site_setup_menu.life_pulse)}" %> <%= link_to 'Life Pulse', life_pulses_path %></li>
 						    <% end %>
 							 
 							 
@@ -127,7 +127,7 @@
 	            <ul>
 					<p>&nbsp;   </p> 
 				    <% if @site_setup_menu.life_pulse? %>
-				    <li><a href="#">Life Pulse</a></li>
+				    <li><%= link_to 'Life Pulse', life_pulses_path %></li>
 				    <% end %>
 	                 <li><%= link_to 'Bulletin', bulletins_path %></li>
 	             
