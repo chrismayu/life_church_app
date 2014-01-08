@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Life pulse:</b>
+  <%= @life_pulse_picture.life_pulse_id %>
+</p>
+
+<p>
+  <b>Life pulse image:</b>
+  <%= @life_pulse_picture.life_pulse_image %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @life_pulse_picture.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @life_pulse_picture.summary %>
+</p>
+
+<p>
+  <b>Image processed:</b>
+  <%= @life_pulse_picture.image_processed %>
+</p>
+
+<p>
+  <b>Main page:</b>
+  <%= @life_pulse_picture.main_page %>
+</p>
+
+
+<%= link_to 'Edit', edit_life_pulse_picture_path(@life_pulse_picture) %> |
+<%= link_to 'Back', life_pulse_pictures_path %>

@@ -1,0 +1,2 @@
+module LifePulsePicturesHelper
+end

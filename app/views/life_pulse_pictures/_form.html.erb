@@ -1,0 +1,16 @@
+<%= simple_form_for(@life_pulse_picture) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :life_pulse_id %>
+    <%= f.input :life_pulse_image %>
+    <%= f.input :title %>
+    <%= f.input :summary %>
+    <%= f.input :image_processed %>
+    <%= f.input :main_page %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

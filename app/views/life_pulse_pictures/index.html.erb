@@ -1,0 +1,33 @@
+<h1>Listing life_pulse_pictures</h1>
+
+<table>
+  <tr>
+    <th>Life pulse</th>
+    <th>Life pulse image</th>
+    <th>Title</th>
+    <th>Summary</th>
+    <th>Image processed</th>
+    <th>Main page</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @life_pulse_pictures.each do |life_pulse_picture| %>
+  <tr>
+    <td><%= life_pulse_picture.life_pulse_id %></td>
+    <td><%= life_pulse_picture.life_pulse_image %></td>
+    <td><%= life_pulse_picture.title %></td>
+    <td><%= life_pulse_picture.summary %></td>
+    <td><%= life_pulse_picture.image_processed %></td>
+    <td><%= life_pulse_picture.main_page %></td>
+    <td><%= link_to 'Show', life_pulse_picture %></td>
+    <td><%= link_to 'Edit', edit_life_pulse_picture_path(life_pulse_picture) %></td>
+    <td><%= link_to 'Destroy', life_pulse_picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Life pulse picture', new_life_pulse_picture_path %>

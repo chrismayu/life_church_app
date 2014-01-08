@@ -1,0 +1,14 @@
+<%= simple_form_for @life_pulse, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :keywords %>
+  <%= f.input :from_pastor_desk %>
+  <%= f.input :template_selected %>
+  <%= f.input :content %>
+  <%= f.input :title %>
+  <%= f.input :summary %>
+  <%= f.input :flickr_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                life_pulses_path, :class => 'btn' %>
+  </div>
+<% end %>

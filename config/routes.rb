@@ -1,5 +1,11 @@
 LifeChurchApp::Application.routes.draw do
   
+  resources :life_pulse_pictures
+
+
+  resources :life_pulses
+
+
   resources :site_setups
 
 

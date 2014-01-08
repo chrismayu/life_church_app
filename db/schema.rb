@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108014054) do
+ActiveRecord::Schema.define(:version => 20140108025117) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -290,6 +290,29 @@ ActiveRecord::Schema.define(:version => 20140108014054) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "life_pulse_pictures", :force => true do |t|
+    t.integer  "life_pulse_id"
+    t.string   "life_pulse_image"
+    t.string   "title"
+    t.string   "summary"
+    t.boolean  "image_processed"
+    t.boolean  "main_page"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "life_pulses", :force => true do |t|
+    t.string   "keywords"
+    t.boolean  "from_pastor_desk"
+    t.integer  "template_selected"
+    t.text     "content"
+    t.string   "title"
+    t.string   "summary"
+    t.string   "flickr_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "ministries", :force => true do |t|
     t.string   "name"
