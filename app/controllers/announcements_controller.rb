@@ -13,6 +13,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcements = Announcement.all
 
     respond_to do |format|
@@ -24,6 +26,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1
   # GET /announcements/1.json
   def show
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.find(params[:id])
 
     respond_to do |format|
@@ -35,6 +39,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   # GET /announcements/new.json
   def new
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.new
 
     respond_to do |format|
@@ -45,12 +51,16 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/1/edit
   def edit
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.find(params[:id])
   end
 
   # POST /announcements
   # POST /announcements.json
   def create
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.new(params[:announcement])
 
     respond_to do |format|
@@ -67,6 +77,8 @@ class AnnouncementsController < ApplicationController
   # PUT /announcements/1
   # PUT /announcements/1.json
   def update
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.find(params[:id])
 
     respond_to do |format|
@@ -83,6 +95,8 @@ class AnnouncementsController < ApplicationController
   # DELETE /announcements/1
   # DELETE /announcements/1.json
   def destroy
+    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+  
     @announcement = Announcement.find(params[:id])
     @announcement.destroy
 
