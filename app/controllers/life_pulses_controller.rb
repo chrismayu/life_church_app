@@ -1,6 +1,21 @@
 class LifePulsesController < ApplicationController
-  # GET /life_pulses
-  # GET /life_pulses.json
+  
+  load_and_authorize_resource :except => [:show, :index ]
+  
+  before_filter :authenticate_user!, :except => [:show, :index ]
+ 
+  
+  
+  before_filter :find_life_pulse, :only => [:show]
+  
+  def find_life_pulse
+    @life_pulse = LifePulse.find(params[:id])
+    if request.path != life_pulse_path(@life_pulse)
+      redirect_to @life_pulse, status: :moved_permanently
+     end
+    
+  end
+  
   def index
     @life_pulses = LifePulse.all
 
@@ -14,9 +29,17 @@ class LifePulsesController < ApplicationController
   # GET /life_pulses/1.json
   def show
     @life_pulse = LifePulse.find(params[:id])
+  
+    if @life_pulse.template_selected == 1 
+       template = "template1"
+    elsif @life_pulse.template_selected == 2
+       template = "template2"
+    else
+      template = "show"
+    end
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {render template }
       format.json { render json: @life_pulse }
     end
   end

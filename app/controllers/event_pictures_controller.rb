@@ -4,6 +4,8 @@ class EventPicturesController < ApplicationController
   load_and_authorize_resource  
   
   before_filter :authenticate_user! 
+  
+  
   def index
     @event_pictures = EventPicture.all
 
@@ -27,10 +29,7 @@ class EventPicturesController < ApplicationController
  def step_1
       @uploader = EventPicture.new.event_image
        @uploader.success_action_redirect = event_pictures_step_2_url(:event_id => params[:event_id])
-   # PdfDocument.create!(key: params[:key], :thumb => "thumb", :pdf_form => "Passport", :pdf_passport => true, applicant_id: params[:applicant_id])
-     
-   # @uploader.key = @pdf_document.applicant_id
-   # @uploader.success_action_redirect = new_pdf_document_url(:event_id => params[:event_id])
+  
    
    
    

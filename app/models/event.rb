@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :event_name, use: :history
   
-  attr_accessible :contact_email, :recurring_day, :no_expiry, :advertisement, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
+  attr_accessible :contact_email, :recurring_day,:template_selected, :no_expiry, :advertisement, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
 
 has_many :event_pictures, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event, :dependent => :destroy
 has_many :event_setup_forms, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event 

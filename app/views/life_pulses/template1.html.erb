@@ -2,14 +2,14 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
-
+template 1
  <div class="row ">
 	 
-  <div class="span10">   <br>
-	
- <%= render :partial => 'picture' %> 
- <br>
-
+  <div class="span10">    
+ 
+ <%= display_life_pulse_picture(@life_pulse) %>
+ 
+<%= @life_pulse.content %>
 </div>
 </div>
 

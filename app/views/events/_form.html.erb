@@ -43,7 +43,7 @@
      <%= f.input :share_download, :label=>'Turns on "Print Details" button :'  %>
    <%= f.input :download_link, :label=>'Link to File:' %> 
  
-  
+    <%= f.input :template_selected,  collection: 1..3,  :selected => 1, :label =>"Selected Template "  %>
 
  <%= render :partial => 'abouts/markdown'%>
  

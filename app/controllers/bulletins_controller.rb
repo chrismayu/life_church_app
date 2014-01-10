@@ -5,6 +5,20 @@ class BulletinsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:index, :show ]
   
+  before_filter :find_bulletin, :only => [:show]
+  
+  def find_bulletin
+    @bulletin = Bulletin.find(params[:id])
+    if request.path != bulletin_path(@bulletin)
+        redirect_to @bulletin, status: :moved_permanently
+    end
+  
+  end
+  
+  
+  
+  
+  
   def step_1
     @uploader = Bulletin.new.bulletin_image
     @uploader.success_action_redirect = new_bulletin_url
@@ -28,9 +42,7 @@ class BulletinsController < ApplicationController
   # GET /bulletins/1.json
   def show
     @bulletin = Bulletin.find(params[:id])
-    if request.path != bulletin_path(@bulletin)
-        redirect_to @bulletin, status: :moved_permanently
-    end
+  
 
     respond_to do |format|
       format.html # show.html.erb

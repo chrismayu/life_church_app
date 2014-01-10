@@ -1,11 +1,17 @@
 <%= simple_form_for @life_pulse, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :keywords %>
-  <%= f.input :from_pastor_desk %>
-  <%= f.input :template_selected %>
-  <%= f.input :content %>
-  <%= f.input :title %>
-  <%= f.input :summary %>
+
+ 
+  <%= f.input :title, :label=>"Title:", :placeholder=>' God is Good', :input_html => { :class => "enroll_input span4"}  %>
+  <%= f.input :summary,  :label=>"Summary:", :input_html => { :class => "enroll_input span3"} %>
+   <%= f.input :content %>
   <%= f.input :flickr_id %>
+  <%= f.input :keywords, :label=>'Keywords :',  :placeholder=>"Add as many keywords as you like" , :input_html => { :class => "enroll_input span4", :rows => 3} %>
+  <%= f.input :from_pastor_desk, :label=>"Pastor's Desk:" %>
+ 
+  
+   <%= f.input :template_selected,  collection: 1..3,  :selected => 1, :label =>"Selected Template "  %>
+  
+  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

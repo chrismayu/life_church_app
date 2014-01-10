@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108025117) do
+ActiveRecord::Schema.define(:version => 20140110001456) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -276,6 +276,7 @@ ActiveRecord::Schema.define(:version => 20140108025117) do
     t.boolean  "internal_link"
     t.boolean  "no_expiry"
     t.string   "slug"
+    t.integer  "template_selected"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
@@ -312,7 +313,10 @@ ActiveRecord::Schema.define(:version => 20140108025117) do
     t.string   "flickr_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "slug"
   end
+
+  add_index "life_pulses", ["slug"], :name => "index_life_pulses_on_slug", :unique => true
 
   create_table "ministries", :force => true do |t|
     t.string   "name"

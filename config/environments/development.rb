@@ -36,9 +36,7 @@ LifeChurchApp::Application.configure do
   config.assets.debug = true
  
  
-  config.middleware.use ExceptionNotifier,
-    sender_address: ENV["SITE_EMAIL"],
-    exception_recipients: ENV["SITE_ERROR_EMAIL"]
+ 
  
   
    # ActionMailer Config

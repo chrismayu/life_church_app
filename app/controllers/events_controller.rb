@@ -5,6 +5,17 @@ class EventsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:index, :show ]
   
+  before_filter :find_event, :only => [:show]
+  
+  def find_event
+    @event = Event.find(params[:id])
+    if request.path != event_path(@event)
+       redirect_to @event, status: :moved_permanently
+    end
+  
+  end
+  
+  
   def index
     @events = Event.all
     @events_by_date = @events.group_by(&:event_date)
@@ -35,12 +46,17 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-   # if request.path != event_path(@event)
-    #    redirect_to @event, status: :moved_permanently
-    #  end
+    
+    if @event.template_selected == 1 
+       template = "template1"
+    elsif @event.template_selected == 2
+       template = "template2"
+    else
+      template = "show"
+    end
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {render template }
       format.json { render json: @event }
     end
   end

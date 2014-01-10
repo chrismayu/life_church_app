@@ -3,6 +3,17 @@ class MinistriesController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:show ]
   
+  before_filter :find_event, :only => [:show]
+  
+  def find_event
+    @ministry = Ministry.find(params[:id])
+    if request.path != ministry_path(@ministry)
+       redirect_to @ministry, status: :moved_permanently
+    end
+  
+  end
+  
+  
   # GET /ministries
   # GET /ministries.json
   def index
@@ -18,7 +29,6 @@ class MinistriesController < ApplicationController
   # GET /ministries/1.json
   def show
     @ministry = Ministry.find(params[:id])
-   
 
     respond_to do |format|
       format.html # show.html.erb
