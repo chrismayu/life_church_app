@@ -1,31 +1,30 @@
-<%- model_class = LifePulse -%>
+<%- model_class = LifePulseStockPicture -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <table class="table table-striped">
-  
+  <thead>
+    <tr>
+      
+      <th>Stock Image</th>
+      <th>Name</th>
+   
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
   <tbody>
-    <% @life_pulses.each do |life_pulse| %>
+    <% @life_pulse_stock_pictures.each do |life_pulse_stock_picture| %>
       <tr>
-        <td><%= link_to life_pulse.id, life_pulse_path(life_pulse) %></td>
- 
-        <td>
-		 
-			
-		  <%= stamp_life_pulse_picture(life_pulse) %>
-		
-	</td>
- 
- 
-        <td><%= life_pulse.title %></td>
-        <td><%= life_pulse.summary %></td>
+          <td> <%= display_life_pulse_stock_picture(life_pulse_stock_picture) %></td>
+       
+      
+        <td><%= life_pulse_stock_picture.title %></td>
         
-        <td><%=l life_pulse.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_life_pulse_path(life_pulse), :class => 'btn btn-mini' %>
+                      edit_life_pulse_stock_picture_path(life_pulse_stock_picture), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      life_pulse_path(life_pulse),
+                      life_pulse_stock_picture_path(life_pulse_stock_picture),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -35,9 +34,6 @@
   </tbody>
 </table>
 
-
- <%= will_paginate @life_pulses %>
- 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_life_pulse_path,
+            life_pulse_stock_pictures_step_1_path,
             :class => 'btn btn-primary' %>

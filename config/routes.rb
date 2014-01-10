@@ -1,6 +1,9 @@
 LifeChurchApp::Application.routes.draw do
   
-  
+  get "life_pulse_stock_pictures/step_1"
+  resources :life_pulse_stock_pictures
+
+
   get "life_pulse_pictures/step_1"
   get "life_pulse_pictures/step_2"
   resources :life_pulse_pictures

@@ -1,5 +1,59 @@
 module LifePulsesHelper
  
+ 
+ 
+  def stamp_stock_image_display(life_pulse)
+ 
+    unless life_pulse.flickr_id.blank?
+      
+     id = life_pulse.flickr_id
+     
+     life_pulse_stock_picture = LifePulseStockPicture.find(id)
+      
+    if life_pulse_stock_picture.image_processed?  
+      return image_tag life_pulse_stock_picture.life_pulse_stock_image_url(:stamp), :class =>"img-rounded pull-center" 
+    else
+     return  image_tag(placeholder_image_url "100x70",   :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+    end  
+    
+  else
+    
+   return  image_tag(placeholder_image_url "100x70", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+   
+  end
+     
+ 
+ 
+ 
+  end
+  def stock_image_display(life_pulse)
+ 
+    if life_pulse.flickr_id != nil
+      
+     id = life_pulse.flickr_id
+     
+     life_pulse_stock_picture = LifePulseStockPicture.find(id)
+      
+    if life_pulse_stock_picture.image_processed?  
+      return image_tag life_pulse_stock_picture.life_pulse_stock_image_url(:stamp), :class =>"img-rounded pull-center" 
+    else
+     return  image_tag(placeholder_image_url "652x484",   :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+    end  
+    
+  else
+    
+   return  image_tag(placeholder_image_url "652x484", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+   
+  end
+     
+ 
+ 
+ 
+  end
+  
+  
+ 
+ 
     def display_life_pulse_picture(life_pulse)
   
       if life_pulse.life_pulse_pictures.present?  
@@ -12,9 +66,21 @@ module LifePulsesHelper
         end  
       else
  
-          return link_to(image_tag(placeholder_image_url "652x484", :text => "#{life_pulse.title.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), life_pulse_path(life_pulse)) 
+        stock_image_display(life_pulse)
+ 
+         # return link_to(image_tag(placeholder_image_url "652x484", :text => "#{life_pulse.title.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), life_pulse_path(life_pulse)) 
    
      end 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
      end  
   
   
@@ -32,8 +98,10 @@ module LifePulsesHelper
             end  
          end  
        else
+      
+         stamp_stock_image_display(life_pulse)
  
-           return link_to(image_tag(placeholder_image_url "100x70", :text => "#{life_pulse.title.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), life_pulse_path(life_pulse)) 
+           #return link_to(image_tag(placeholder_image_url "100x70", :text => "#{life_pulse.title.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"), life_pulse_path(life_pulse)) 
    
       end 
       end  

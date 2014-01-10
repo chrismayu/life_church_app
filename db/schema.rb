@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140110001456) do
+ActiveRecord::Schema.define(:version => 20140110015057) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -301,6 +301,18 @@ ActiveRecord::Schema.define(:version => 20140110001456) do
     t.boolean  "main_page"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "life_pulse_stock_pictures", :force => true do |t|
+    t.integer  "life_pulse_id"
+    t.string   "life_pulse_image"
+    t.string   "title"
+    t.string   "summary"
+    t.boolean  "image_processed"
+    t.boolean  "main_page"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "life_pulse_stock_image"
   end
 
   create_table "life_pulses", :force => true do |t|

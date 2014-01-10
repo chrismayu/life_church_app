@@ -17,7 +17,7 @@ class LifePulsesController < ApplicationController
   end
   
   def index
-    @life_pulses = LifePulse.all
+    @life_pulses = LifePulse.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
