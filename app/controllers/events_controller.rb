@@ -64,7 +64,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
+    @event = Event.new(event_type: params[:event_type])
 
     respond_to do |format|
       format.html # new.html.erb

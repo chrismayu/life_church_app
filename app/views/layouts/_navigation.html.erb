@@ -180,7 +180,80 @@
 					  
   					      </li>
  						 <% end %>
-
+						 
+						 <li class="divider"></li>
+						 
+						 
+						 
+ 						  <% if current_user.has_role? :admin %>
+						  
+						  
+						  <li class="dropdown-submenu">
+						      <a tabindex="-1" href="#">Events</a>
+						      <ul class="dropdown-menu">
+						 
+							      <li>
+							      <%= link_to 'Create Ad', new_event_path(:event_type => 11) %>
+							      </li>
+							      <li>
+							      <%= link_to 'Create Event', new_event_path(:event_type => 12) %>
+							      </li>
+							      <li>
+							      <%= link_to 'Create Calender Only', new_event_path(:event_type => 13) %>
+							      </li>
+						      </ul>
+						    </li>
+			  
+						 <% end %> 
+						 
+						 <li class="divider"></li>
+						 
+						 
+						 
+ 						  <% if current_user.has_role? :admin %>
+						  
+						  
+						  <li class="dropdown-submenu">
+						      <a tabindex="-1" href="#">Life Pulse</a>
+						      <ul class="dropdown-menu">
+		 					      <li> 
+		   						    <%= link_to new_life_pulse_path  do %>
+		   						  <i class="icon-bolt"></i> Create New Post	 <% end %>
+				  
+		 					      </li> 
+		 					      <li> 
+		   						    <%= link_to life_pulse_stock_pictures_path  do %>
+		   						  <i class="icon-stackexchange"></i>  Organize Stock Images <% end %>
+				  
+		 					      </li>
+						      </ul>
+						    </li>
+						  
+ 					     
+					  
+ 					   
+						 <% end %>
+						 <li class="divider"></li>
+						 
+						 
+						 
+ 						  <% if current_user.has_role? :admin %>
+						  
+						  
+						  <li class="dropdown-submenu">
+						      <a tabindex="-1" href="#">E Giving</a>
+						      <ul class="dropdown-menu">
+						 
+							      <li>
+							      <%= link_to 'Donations', egivings_path %>
+							      </li>
+						      </ul>
+						    </li>
+			  
+						 <% end %> 
+						 
+						 
+						 
                            <li class="divider"></li>
 						    <li>
 						    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
@@ -193,9 +266,7 @@
 						      </li>
 						    
 							  
-						      <li>
-						      <%= link_to 'Donations', egivings_path %>
-						      </li>
+						    
 							  
 					  		 
 						 <% end %>
