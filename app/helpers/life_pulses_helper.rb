@@ -4,7 +4,7 @@ module LifePulsesHelper
  
   def stamp_stock_image_display(life_pulse)
  
-    unless life_pulse.flickr_id.present?
+    if life_pulse.flickr_id.present?
       
      id = life_pulse.flickr_id
      

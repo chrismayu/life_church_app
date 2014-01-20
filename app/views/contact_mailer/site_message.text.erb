@@ -1,3 +1,13 @@
-ContactMailer#site_message
+Hello <%= @message.staff_name%>,
 
-<%= @greeting %>, find me in app/views/app/views/contact_mailer/site_message.text.erb
+You have received a message from <%= @message.name %> regarding "<%= @message.event_name %>"
+
+<%= @message.name %> writes: 
+<%= @message.body %>
+
+
+*Please be sure to reply to: <%= @message.email %>
+
+Thank You,
+
+Life Church Website

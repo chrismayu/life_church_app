@@ -53,7 +53,7 @@ group :test do
 end
 gem 'validates_timeliness'
 gem 'redcarpet'
-gem 'bluecloth'
+#gem 'bluecloth'
  
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
