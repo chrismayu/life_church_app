@@ -1,5 +1,16 @@
+
+<%= f.input :event_name, :label=>"Name of Calendar Event:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input span4"}   %>
+<%= f.input :summary, :label=>"Summary:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input span4"}   %>
+
+
  <%= f.input :recurring_on, :label=>"Does this Event recurring every week?:"  %>
  
 
  <%= f.input :recurring_day,  :label=>'What Day ?', :collection=>[ ['Monday' ], ['Tuesday' ], ['Wednesday' ], ['Thursday'], ['Friday'], ['Saturday'], ['Sunday'] ], :selected=>['Sunday' ] %>
+
+
+ <%= f.input :event_date, :label=>"Event Start Date:",  :hint => "Select the first day of the Event - If a recurring date - just pick todays date", :wrapper => :append do %>
+   <%= f.input_field :event_date, :id=> 'event_date',   :as => :string, :placeholder=>"Start Date of Event" %><span class="add-on"><i class="icon-calendar"></i></span>
+ <% end %>
+
   

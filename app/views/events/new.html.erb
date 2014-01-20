@@ -8,7 +8,20 @@
 <div class="mission_bg img-rounded ">
 
 <table width="100%" class="table_zero"> 
- <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">New Event</span> </td>
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">
+	 
+   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
+  New Advertisement
+   <% end %>
+     <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
+  New Event
+      <% end %>
+     <% if params[:event_type] == '13'||  @event.event_type == 13 %>
+	 New Calendar Only
+      <% end %>
+	 
+	 
+	</span> </td>
   <td><hr class="round_line_hoz" /></td>
 </table>
 

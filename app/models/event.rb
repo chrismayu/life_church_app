@@ -2,23 +2,52 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :event_name, use: :history
   
-  attr_accessible :contact_email, :full_event,  :event_type,  :summary, :force_on_main_page,  :enable_disable_ad,  :recurring_day,:template_selected, :no_expiry, :advertisement, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
+  attr_accessible :contact_email, :event_type,  :summary, :force_on_main_page,  :enable_disable_ad,  :recurring_day,:template_selected, :no_expiry, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
 
 has_many :event_pictures, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event, :dependent => :destroy
 has_many :event_setup_forms, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event 
 
 
-validates  :event_name, :presence => true   #, :presence => true
+validates  :event_name, :presence => true  
+ 
 
 
-#validates  :event_date, :presence => {:if => :paid_with_card?} 
- 
-#validates  :remove_event_date, :presence => true
- 
-validates_format_of :contact_email, :with => /.+@.+\..+/i,  :presence => {:message => 'Must enter a email address'}, :if => :val_for_email? 
- 
+# Ad Events  = 11
+
+#validates   :no_expiry, :if => :for_event_one? 
+#validates   :internal_link_url, :if => :for_event_one?
+#validates   :internal_link, :if => :for_event_one?
+#validates   :recurring_on, :if => :for_event_one?
+
+# Full Events  = 12
+#validates :contact_person, :if => :for_event_two?
+#validates :use_contact, :if => :for_event_two?
+validates_format_of :contact_email, :with => /.+@.+\..+/i,  :presence => {:message => 'Must enter a email address'}, :if => :for_event_two? 
+#validates   :use_form_button, :if => :for_event_two?
+#validates   :which_form, :if => :for_event_two?
+#validates   :download_link, :if => :for_event_two?
+#validates   :share_download, :if => :for_event_two?
+#validates   :description, :if => :for_event_two?
+#validates  :template_selected, :if => :for_event_two?
+#validates   :event_start_time, :if => :for_event_two?
+#validates   :display_main_page, :if => :for_event_two?
+#validates   :event_time, :if => :for_event_two?
+#validates   :location, :if => :for_event_two?
 validates_datetime :event_date, :if => :val_for_date? 
 validates_datetime :remove_event_date, :after => :event_date, :after_message => 'must be before "Start Time"', :if => :val_for_date? 
+
+
+ 
+# Cal Only Events  = 13
+
+#validates    :event_type, :if => :for_event_three?
+#validates    :summary, :if => :for_event_three?
+#validates   :force_on_main_page, :if => :for_event_three?
+#validates    :enable_disable_ad, :if => :for_event_three?
+#validates    :recurring_day, :if => :for_event_three?
+ 
+ 
+
 
 
 

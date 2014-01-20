@@ -1,7 +1,8 @@
 module EventsHelper
   
-  
-  
+ 
+      
+ 	  
   def display_event_picture(event_pictures)
   
       if event_pictures.event_pictures.present?  
@@ -105,6 +106,9 @@ module EventsHelper
  
     def event_happen_when(event)
       
+      
+      if event.event_date !=nil
+      
       date = event.event_date.strftime("%B #{event.event_date.day.ordinalize}, %Y")
       weekday = event.recurring_day
       time = event.event_start_time.strftime("%l:%M %p")
@@ -114,7 +118,9 @@ module EventsHelper
       else
         
         "Starts #{date} at #{time}" 
-      end   
+      end  
+      
+    end 
     end
   
   

@@ -82,10 +82,19 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+
+  # @event.event_type == 11  - redirect to picture setup    event_pictures_step_1_path(:event_id => @event.id)
+
+ 
     respond_to do |format|
       if @event.save
+        if @event.event_type == 11
+        format.html { redirect_to event_pictures_step_1_path(:event_id => @event.id), notice: 'Event was successfully created.' }
+        else
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
+      end
+      
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }

@@ -1,4 +1,11 @@
-ad
+<%= f.input :event_name, :label=>"Name of Advertisment:", :placeholder=>' aka - "UpRoar 2014"', :input_html => { :class => "enroll_input span4"}   %>
 
-<%= f.input :advertisement, :label=>'Event to be used as Advertisment:'  %>
-<%= f.input :no_expiry, :label=>'Display Event forever:'  %>
+
+<%= f.input :force_on_main_page, :label=>"force_on_main_page?:"  %>
+<%= f.input :enable_disable_ad, :label=>"Enable Ad?:"  %>
+
+<%= f.input :internal_link, :label=>"link to?:",  :input_html => { :class =>"event_link_to"}  %>
+<div class="link_to_drop_down">
+<%= f.input :internal_link_url, :label=>"internal_link_url:"  %>
+</div>
+ 
