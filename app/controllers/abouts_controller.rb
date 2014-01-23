@@ -12,7 +12,7 @@ class AboutsController < ApplicationController
      events_side_forced = Event.where(:display_main_page => true).where(:force_on_main_page => true)
      
      if events_side_forced.count >= 3
-        @events_side = events_side_forced    :highlight
+        @events_side = events_side_forced   
      else
         @events_side = Event.where(:display_main_page => true).where("remove_event_date >= ?", @today).order("highlight DESC").order("event_type DESC").order("force_on_main_page DESC").limit(3).shuffle 
      end
