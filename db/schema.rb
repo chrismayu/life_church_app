@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140110213327) do
+ActiveRecord::Schema.define(:version => 20140123164911) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20140110213327) do
     t.string   "summary"
     t.boolean  "force_on_main_page"
     t.boolean  "enable_disable_ad"
+    t.boolean  "highlight"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
