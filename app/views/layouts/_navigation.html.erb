@@ -196,10 +196,22 @@
 							      <%= link_to 'Create Ad', new_event_path(:event_type => 11) %>
 							      </li>
 							      <li>
+							      <%= link_to 'View All Ads', events_advertisment_path   %>
+							      </li>
+								  <li class="divider"></li>
+							      <li>
 							      <%= link_to 'Create Event', new_event_path(:event_type => 12) %>
 							      </li>
 							      <li>
+							      <%= link_to 'View All Events', events_events_path  %>
+							      </li>
+							   
+								  <li class="divider"></li>
+							      <li>
 							      <%= link_to 'Create Calender Only', new_event_path(:event_type => 13) %>
+							      </li>
+							      <li>
+							      <%= link_to 'View All Calender Only', events_calendar_only_path  %>
 							      </li>
 						      </ul>
 						    </li>

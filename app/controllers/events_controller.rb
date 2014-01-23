@@ -15,9 +15,40 @@ class EventsController < ApplicationController
   
   end
   
+  def advertisment
+    @events = Event.where("event_type = ?", 11)
+    
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+  
+  def events
+    @events = Event.where("event_type = ?", 12)
+   
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @events }
+    end
+  end
+  
+  def calendar_only
+    
+    @events = Event.where("event_type = ?", 13)
+ 
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
   
   def index
-    @events = Event.all
+  
+    @events = Event.where(Event.arel_table[:event_type].not_eq(11)) 
     @events_by_date = @events.group_by(&:event_date)
        @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
@@ -27,38 +58,33 @@ class EventsController < ApplicationController
     end
   end
   
-  def learn_more
-    @event = Event.find(params[:id])
-    if request.path != event_path(@event)
-        redirect_to @event, status: :moved_permanently
-      end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-    end
-    
-  end
-  
+ 
   
 
   # GET /events/1
   # GET /events/1.json
   def show
+    
+    # add redirect for ads and calendars - to their index pages  advertisment
     @event = Event.find(params[:id])
     
-    if @event.template_selected == 1 
-       template = "template1"
-    elsif @event.template_selected == 2
-       template = "template2"
+    if @event.event_type == 11
+      redirect_to events_advertisment_path  
     else
-      template = "show"
-    end
+     
+      if @event.event_type == 13
+        redirect_to events_calendar_only_path  
+      else        
+    
+   
 
     respond_to do |format|
-      format.html {render template }
+      format.html  
       format.json { render json: @event }
     end
+   end # Calendar Only
+   end # Advertisment
+  
   end
 
   # GET /events/new

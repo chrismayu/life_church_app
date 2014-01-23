@@ -24,20 +24,21 @@
 			  <% end %> 
 		 	<%= display_carousel_event_picture(event) %>
 		 	 
-			  <% unless event.advertisement? %>
-		<div class="carousel-caption">
-		<h4><%= event.event_name.html_safe %></h4>
-	 <p><%= event_happen_when(event)%>
+	  	  
+	  	     <% if event.event_type == 12 %>
+			 		<div class="carousel-caption">
+			 		<h4><%= event.event_name.html_safe %></h4>
+			 	 <p><%= event_happen_when(event)%>
 			
-			<% unless event.recurring_on?  %>  
+			 		 
 			
-	 <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%>
-     <% end %> 
- 
- </p>
-					 </div> 
-					 
-					  <% end %> 
+			 	 <%= link_to 'Learn More', event_path(event), :class => "pull-right btn btn-mini-flat btn-primary"%>
+			     
+			  </p>
+			 					 </div> 
+						 
+	  	      <% end %>
+	  	 
 				</div>
 		  
 			    <% end %>

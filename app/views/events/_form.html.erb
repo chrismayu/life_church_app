@@ -1,13 +1,22 @@
 <%= debug params if Rails.env.developments? %>
  
-<%= debug @event if Rails.env.developments? %>
+<%= debug @event if Rails.env.development? %>
 <%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
 
 
  
+<% if @event.errors.any? %>  
+  <div id="errorExplanation">  
+    <h4><%= pluralize(@event.errors.count, "error") %> prohibited this Application from being created:</h4>  
+    <ul>  
+    <% @event.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+  <% end %>
 
-
-  <%= f.input :event_type, as: :hidden  %>
+  <%= f.input :event_type, as: :hidden, input_html: {value: f.object.event_type || 12}  %>
 
    <div class="form-actions">
 	  
@@ -29,7 +38,19 @@
 	
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary btn-flat' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                events_path, :class => 'btn btn-flat' %>
+   
+   <% if params[:event_type] == '11' ||  @event.event_type == 11 %>
+   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_advertisment_path, :class => 'btn btn-flat' %>
+   <% end %>
+     <% if params[:event_type] == '12' ||  @event.event_type == 12 %>
+     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                 events_events_path, :class => 'btn btn-flat' %>
+      <% end %>
+     <% if params[:event_type] == '13'||  @event.event_type == 13 %>
+     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                 events_calendar_only_path, :class => 'btn btn-flat' %>
+      <% end %>
+  
   </div>
 <% end %>

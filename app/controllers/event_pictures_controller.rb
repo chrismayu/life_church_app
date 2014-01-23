@@ -39,20 +39,16 @@ class EventPicturesController < ApplicationController
   def step_2
     
      @event_picture = EventPicture.new(key: params[:key], event_id: params[:event_id])
-    
-  
-     
+ 
  
     respond_to do |format|
       if @event_picture.save
        #  format.html { redirect_to @event_picture, notice: 'Event picture was successfully created.' }
          #format.html { redirect_to @event_picture, notice: 'Event picture was successfully created.' }
-        if  @event_picture.event.event_type == 11
-            format.html { redirect_to events_index_ads_path, notice: 'This Event picture was successfully created.' }
-         else
+       
             format.html { redirect_to event_path(@event_picture.event_id), notice: 'This Event picture was successfully created.' }
-        # format.html { redirect_to events_path, notice: 'This Event picture was successfully created.' }
-         end
+        
+      
         else
           format.html { render action: "step_1" }
           format.json { render json: @event_picture.errors, status: :unprocessable_entity }

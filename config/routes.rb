@@ -84,8 +84,9 @@ LifeChurchApp::Application.routes.draw do
   get "event_pictures/step_2"
   resources :event_pictures
   
- 
- get "events/index_ads"
+ get "events/events"
+ get "events/advertisment"
+ get "events/calendar_only"
  get 'learn_more/:id' => 'events#learn_more', :as => 'learn_more'
 
   resources :events

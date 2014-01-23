@@ -1,0 +1,77 @@
+ 
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= @event.event_name.html_safe %> Template #2</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <div class="row ">
+	 
+  <div class="span10">   <br>
+	
+ <%= render :partial => 'picture' %> 
+ <br>
+
+</div>
+</div>
+  <hr class="round_line_hoz2 " /> 
+<div class="row ">
+	 
+ <div class="span10 pull-center">  
+ 
+	 <p>
+      <%= event_happen_when(@event)%>
+  </p>
+  
+ 
+  <div id="request-invite"   style="display: 'block';">
+	    
+    <div   style="margin-bottom: 120px; overflow: visible">
+      <p>Share with your friends!</p>
+      <div id="tweet" style="display:inline-block;">
+        <a class="twitter-share-button" data-count="horizontal" data-text="Check out this event" data-url="<%= event_path(@event)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @event.event_name.html_safe %>" href="https://twitter.com/share"></a>
+      </div>
+	   <div id="facebook" style="display:inline-block;">
+      <span style="display:inline-block; ">
+        <div class="fb-like" data-href="<%= event_path(@event) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+        </div> </span>
+		        </div>
+     
+		 	 
+	  <span style="display:inline-block; ">
+      <div class="g-plusone" data-annotation="inline" data-href="<%= event_path(@event)%>" data-size="medium" data-width="120">
+      </div>
+	        </span>
+    </div>
+  </div>
+  
+  <div class="event_text">
+ 
+ 
+
+  <%=  markdown(@event.description)%>
+ 
+  	<br>
+  	<br>
+ 
+	 
+	<% if @event.use_form_button? %>
+      <%= link_to t('.new', :default => t("helpers.links.Sign Up")),
+                       new_event_form_path(:event_setup_form_id => @event.which_form), :class => 'btn   btn-primary btn-mini-flat' %> &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+				 
+					   <% if @event.share_download? %>
+  					 
+					   <%= link_to t('.sign_up', :default => t("helpers.links.Print Details")), @event.download_link, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+  					 &nbsp&nbsp&nbsp&nbsp&nbsp<%end%> 
+					 <% if @event.use_contact? %>
+  					 <%= link_to t('.new', :default => t("helpers.links.Contact Us")),
+                       contact_event_path(:event => @event.id), :class => 'btn   btn-primary btn-mini-flat' %><%end%> 
+ 
+ 
+ </div>
+  </div>
+    </div>
+
+ 
+<br>
+  
