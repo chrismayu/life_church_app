@@ -4,8 +4,7 @@ FactoryGirl.define do
   factory :ministry do
     name "MyString"
     contact_person "MyString"
-    contact "MyString"
-    _email "MyString"
+    contact_email "MyString"
     description "MyText"
     display_rank 1
     ta1 "MyText"

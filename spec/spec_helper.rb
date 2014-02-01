@@ -6,8 +6,8 @@ require 'capybara/rspec'
 require 'email_spec'
 #require 'rspec/autorun'
 require 'database_cleaner'
-
-
+require 'factory_girl_rails'
+ 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -15,10 +15,12 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
- 
+  #config.include Warden::Test::Helpers
   config.include Capybara::DSL 
- 
+  #config.include Devise::TestHelpers
   config.include FactoryGirl::Syntax::Methods
+ 
+ 
  
   # ## Mock Framework
   #
@@ -27,7 +29,7 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-
+  #config.extend ControllerMacros 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -45,6 +47,15 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
+  config.include(MailerMacros)
+  
+  
+  config.before(:each) do
+    @about_menu = FactoryGirl.create(:about)
+    @ministries_menu = FactoryGirl.create(:ministry)
+    @site_setup_menus = FactoryGirl.create(:site_setup)
+  end
+ 
   config.order = "random"
   
   config.before(:suite) do

@@ -9,7 +9,7 @@
       password "helloworld"
       password_confirmation "helloworld"
       # required if the Devise Confirmable module is used
-      confirmed_at Time.now
+     # confirmed_at Time.now
 
       factory :admin do
           after(:create) {|user| user.add_role(:admin)}
@@ -19,7 +19,9 @@
           after(:create) {|user| user.add_role(:member)}
       end
 
- 
+      factory :confirmed_user, :parent => :user do
+        after(:create) { |user| user.confirm! }
+      end
     end
   end
   

@@ -23,7 +23,10 @@ FactoryGirl.define do
     store true
     video false
     articles false
+    name "Name"
   end
 end
 
  
+
+  
