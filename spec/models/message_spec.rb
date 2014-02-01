@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Message   do
  
- 
+  
       it "is Factory is valid" do 
          FactoryGirl.build(:message).should be_valid
       end 

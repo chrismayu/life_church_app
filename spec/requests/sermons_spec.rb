@@ -150,32 +150,12 @@ describe "Sermons" do
   
   
    describe "User Signed in", :focus => true do
+    login_user
     
-     before :each do
-       FactoryGirl.create(:about)
-       #FactoryGirl.create(:member)
-       # FactoryGirl.create(:user)  
+     before :each do 
        FactoryGirl.create(:speaker,first_name: "Tom") 
- 
       end 
  
-      
-      describe "when visiting homepage with authentication" do
- 
-  
-          it "User signed in" do
-            user = FactoryGirl.create(:member)
-            visit user_session_path
-            fill_in('Email', :with => user.email)
-            fill_in('Password', :with => user.password)
-            click_button('Sign in')
-            
-             expect(page).to have_text("Signed in successfully.") 
-          end
- 
-        end
-       
-  
             context "Date of Sermon - User Signed in"  do
    
               before :each do

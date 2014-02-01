@@ -6,6 +6,18 @@ class SermonsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:index  ]
   
+  
+  before_filter :find_event, :only => [:show]
+  
+  def find_event
+    @sermon = Sermon.find(params[:id])
+    if request.path != sermon_path(@sermon)
+        redirect_to @sermon, status: :moved_permanently
+    end
+  
+  end
+  
+  
   def index
     @sermons = Sermon.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
    # @products = Product.order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
@@ -20,9 +32,7 @@ class SermonsController < ApplicationController
   # GET /sermons/1.json
   def show
     @sermon = Sermon.find(params[:id])
-    if request.path != sermon_path(@sermon)
-        redirect_to @sermon, status: :moved_permanently
-    end
+ 
 
     respond_to do |format|
       format.html # show.html.erb

@@ -3,8 +3,7 @@ require 'spec_helper'
  
 describe "ContactTech" do
    login_user
-               
-        
+   
        it "User can email admin" do
         visit contact_tech_path
         fill_in "Name", :with => @user.name
