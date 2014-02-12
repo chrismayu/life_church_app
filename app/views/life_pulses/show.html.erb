@@ -29,17 +29,23 @@
   <div   style="margin-bottom: 120px; overflow: visible">
     <p>Share with your friends!</p>
     <div id="tweet" style="display:inline-block;">
-      <a class="twitter-share-button" data-count="horizontal" data-text="Check out this life_pulse" data-url="<%= life_pulse_path(@life_pulse)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @life_pulse.title.html_safe %>" href="https://twitter.com/share"></a>
+      <a class="twitter-share-button" data-count="horizontal" data-text="Check out this life_pulse" data-url="<%= life_pulse_url(@life_pulse)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @life_pulse.title.html_safe %>" href="https://twitter.com/share"></a>
     </div>
+	
+	
+	
+  
+	  
+	
    <div id="facebook" style="display:inline-block;">
     <span style="display:inline-block; ">
-      <div class="fb-like" data-href="<%= life_pulse_path(@life_pulse) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+      <div class="fb-like" data-href="<%= life_pulse_url(@life_pulse) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
       </div> </span>
 	        </div>
 
 
   <span style="display:inline-block; ">
-    <div class="g-plusone" data-annotation="inline" data-href="<%= life_pulse_path(@life_pulse)%>" data-size="medium" data-width="120">
+    <div class="g-plusone" data-annotation="inline" data-href="<%= life_pulse_url(@life_pulse)%>" data-size="medium" data-width="120">
     </div>
         </span>
   </div>
