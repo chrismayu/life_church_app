@@ -29,6 +29,9 @@ About.create!(:address => "547 Athlone Avenue", :name =>"LifeChurch" ,:postal_co
 puts 'LIVE_YOUTUBE_ETC'
 SiteSetup.create!(:facebook =>"LifeInYou", :twitter =>"ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :life_pulse => true, :leaders_blog => true, :store => true, :video => true, :articles => true) 
 
+puts 'Setting up E-Giving'
+
+Notification.create!(:email_1 => "chrismayu@gmail.com", :email_2 => "chrismayu@gmail.com")
 
 puts 'DEFAULT Staff Rank'
 StaffRank.create!(:category => "Pastor", :ranking => 1)

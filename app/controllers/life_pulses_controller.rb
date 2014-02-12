@@ -30,16 +30,10 @@ class LifePulsesController < ApplicationController
   def show
     @life_pulse = LifePulse.find(params[:id])
   
-    if @life_pulse.template_selected == 1 
-       template = "template1"
-    elsif @life_pulse.template_selected == 2
-       template = "template2"
-    else
-      template = "show"
-    end
+ 
 
     respond_to do |format|
-      format.html {render template }
+      format.html  
       format.json { render json: @life_pulse }
     end
   end

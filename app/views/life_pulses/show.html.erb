@@ -6,6 +6,15 @@
  <div class="row ">
 	 
   <div class="span10">   <br>
+	  
+	  
+    <% if @life_pulse.template_selected == 1 %>
+       
+	      <%= render :partial => 'template1', :locals => {:life_pulse => @life_pulse}  %>
+   <%  elsif @life_pulse.template_selected == 2 %>
+         <%= render :partial => 'template2', :locals => {:life_pulse => @life_pulse}  %>
+	   <% else %>
+    
 	
  <%= render :partial => 'picture' %> 
  <br>
@@ -13,9 +22,32 @@
 
 <%= stock_image_display(@life_pulse) %>
 
+<% end %>
 
+<div id="request-invite"   style="display: 'block';">
+
+  <div   style="margin-bottom: 120px; overflow: visible">
+    <p>Share with your friends!</p>
+    <div id="tweet" style="display:inline-block;">
+      <a class="twitter-share-button" data-count="horizontal" data-text="Check out this life_pulse" data-url="<%= life_pulse_path(@life_pulse)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @life_pulse.title.html_safe %>" href="https://twitter.com/share"></a>
+    </div>
+   <div id="facebook" style="display:inline-block;">
+    <span style="display:inline-block; ">
+      <div class="fb-like" data-href="<%= life_pulse_path(@life_pulse) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+      </div> </span>
+	        </div>
+
+
+  <span style="display:inline-block; ">
+    <div class="g-plusone" data-annotation="inline" data-href="<%= life_pulse_path(@life_pulse)%>" data-size="medium" data-width="120">
+    </div>
+        </span>
+  </div>
 </div>
 </div>
+</div>
+
+
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
@@ -36,12 +68,12 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              life_pulses_path, :class => 'btn'  %>
+              life_pulses_path, :class => 'btn btn-flat'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_life_pulse_path(@life_pulse), :class => 'btn' %>
+              edit_life_pulse_path(@life_pulse), :class => 'btn btn-flat' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               life_pulse_path(@life_pulse),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger btn-flat' %>
 </div>
