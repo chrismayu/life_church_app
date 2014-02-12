@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :approved
   
-  after_create :send_admin_mail, :assign_default_role
+  #after_create :send_admin_mail, :assign_default_role
 
   
   

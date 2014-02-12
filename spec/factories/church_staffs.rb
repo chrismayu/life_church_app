@@ -8,7 +8,7 @@ FactoryGirl.define do
     title "MyString"
     started_service "2013-09-17"
     description "MyText"
-    contact_email "MyString"
+    contact_email "example@example.com"
     image "MyString"
   end
 end

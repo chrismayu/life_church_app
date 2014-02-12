@@ -23,8 +23,13 @@ describe EventsController do
   # This should return the minimal set of attributes required to create a valid
   # Event. As you add validations to Event, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "event_name" => "MyString" } }
-
+  let(:valid_attributes) { FactoryGirl.create(:event_full)  }
+  
+  #@event_full = FactoryGirl.build(:event_full)
+  
+  before :each do
+@event_full = FactoryGirl.build(:event_full) 
+   end 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # EventsController. Be sure to keep this updated too.
@@ -32,7 +37,7 @@ describe EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event_full)
       get :index, {}, valid_session
       assigns(:events).should eq([event])
     end
@@ -40,10 +45,10 @@ describe EventsController do
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event_full)
       get :show, {:id => event.to_param}, valid_session
       assigns(:event).should eq(event)
-    end
+    end 
   end
 
   describe "GET new" do
@@ -55,28 +60,31 @@ describe EventsController do
 
   describe "GET edit" do
     it "assigns the requested event as @event" do
-      event = Event.create! valid_attributes
+      event = FactoryGirl.create(:event_full)
       get :edit, {:id => event.to_param}, valid_session
       assigns(:event).should eq(event)
     end
   end
-
-  describe "POST create" do
+ describe "Full Event" do
+ 
+  describe "POST create", :focus=>true  do
+    controller_login_admin   
+    
     describe "with valid params" do
       it "creates a new Event" do
         expect {
-          post :create, {:event => valid_attributes}, valid_session
+          post :create, {:event => @event_full }, valid_session
         }.to change(Event, :count).by(1)
       end
 
       it "assigns a newly created event as @event" do
-        post :create, {:event => valid_attributes}, valid_session
+        post :create, {:event => @event_full}, valid_session
         assigns(:event).should be_a(Event)
         assigns(:event).should be_persisted
       end
 
       it "redirects to the created event" do
-        post :create, {:event => valid_attributes}, valid_session
+        post :create, {:event => @event_full}, valid_session
         response.should redirect_to(Event.last)
       end
     end
@@ -97,7 +105,7 @@ describe EventsController do
       end
     end
   end
-
+end
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested event" do

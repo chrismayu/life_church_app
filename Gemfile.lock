@@ -151,6 +151,9 @@ GEM
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
+    guard-zeus (1.0.0)
+      guard (~> 1.0)
+      zeus (~> 0)
     hashery (2.1.1)
     heroku (2.40.0)
       heroku-api (~> 0.3.7)
@@ -393,6 +396,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rails
   guard-rspec
+  guard-zeus
   heroku
   hub
   jquery-fileupload-rails

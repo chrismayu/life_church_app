@@ -28,6 +28,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-rails'
   gem 'guard-rspec'
+  gem 'guard-zeus'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rb-fchange', :require=>false
@@ -39,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "parallel_tests"
   gem "zeus-parallel_tests"
+ 
   gem "faker"
 end
 group :test do

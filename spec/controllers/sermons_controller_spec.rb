@@ -23,16 +23,25 @@ describe SermonsController do
   # This should return the minimal set of attributes required to create a valid
   # Sermon. As you add validations to Sermon, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date_of_sermon" => "2013-10-22" } }
+  #before :each do
+  let(:valid_attributes) {  FactoryGirl.create(:sermon)  }
+
+   # FactoryGirl.create(:sermon)
+  # end 
+   
+   before :each do
+     FactoryGirl.create(:about) 
+     FactoryGirl.create(:speaker,first_name: "Tom")  
+    end 
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SermonsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
+ 
   describe "GET index" do
     it "assigns all sermons as @sermons" do
-      sermon = Sermon.create! valid_attributes
+      sermon = FactoryGirl.create(:sermon)
       get :index, {}, valid_session
       assigns(:sermons).should eq([sermon])
     end
@@ -40,7 +49,7 @@ describe SermonsController do
 
   describe "GET show" do
     it "assigns the requested sermon as @sermon" do
-      sermon = Sermon.create! valid_attributes
+      sermon = FactoryGirl.create(:sermon)
       get :show, {:id => sermon.to_param}, valid_session
       assigns(:sermon).should eq(sermon)
     end
@@ -55,7 +64,7 @@ describe SermonsController do
 
   describe "GET edit" do
     it "assigns the requested sermon as @sermon" do
-      sermon = Sermon.create! valid_attributes
+      sermon = FactoryGirl.create(:sermon)
       get :edit, {:id => sermon.to_param}, valid_session
       assigns(:sermon).should eq(sermon)
     end
@@ -65,7 +74,7 @@ describe SermonsController do
     describe "with valid params" do
       it "creates a new Sermon" do
         expect {
-          post :create, {:sermon => valid_attributes}, valid_session
+          post :create, {:sermon => FactoryGirl.build(:sermon)}, valid_session
         }.to change(Sermon, :count).by(1)
       end
 
@@ -101,7 +110,7 @@ describe SermonsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested sermon" do
-        sermon = Sermon.create! valid_attributes
+        sermon = FactoryGirl.create(:sermon)
         # Assuming there are no other sermons in the database, this
         # specifies that the Sermon created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -111,21 +120,21 @@ describe SermonsController do
       end
 
       it "assigns the requested sermon as @sermon" do
-        sermon = Sermon.create! valid_attributes
-        put :update, {:id => sermon.to_param, :sermon => valid_attributes}, valid_session
+        sermon = FactoryGirl.create(:sermon)
+        put :update, {:id => sermon.to_param, :sermon => FactoryGirl.build(:sermon)}, valid_session
         assigns(:sermon).should eq(sermon)
       end
 
       it "redirects to the sermon" do
-        sermon = Sermon.create! valid_attributes
-        put :update, {:id => sermon.to_param, :sermon => valid_attributes}, valid_session
+        sermon = FactoryGirl.create(:sermon)
+        put :update, {:id => sermon.to_param, :sermon => FactoryGirl.build(:sermon)}, valid_session
         response.should redirect_to(sermon)
       end
     end
 
     describe "with invalid params" do
       it "assigns the sermon as @sermon" do
-        sermon = Sermon.create! valid_attributes
+        sermon = FactoryGirl.create(:sermon)
         # Trigger the behavior that occurs when invalid params are submitted
         Sermon.any_instance.stub(:save).and_return(false)
         put :update, {:id => sermon.to_param, :sermon => { "date_of_sermon" => "invalid value" }}, valid_session
@@ -133,7 +142,7 @@ describe SermonsController do
       end
 
       it "re-renders the 'edit' template" do
-        sermon = Sermon.create! valid_attributes
+        sermon = FactoryGirl.create(:sermon)
         # Trigger the behavior that occurs when invalid params are submitted
         Sermon.any_instance.stub(:save).and_return(false)
         put :update, {:id => sermon.to_param, :sermon => { "date_of_sermon" => "invalid value" }}, valid_session
@@ -144,14 +153,14 @@ describe SermonsController do
 
   describe "DELETE destroy" do
     it "destroys the requested sermon" do
-      sermon = Sermon.create! valid_attributes
+      sermon = FactoryGirl.create(:sermon)
       expect {
         delete :destroy, {:id => sermon.to_param}, valid_session
       }.to change(Sermon, :count).by(-1)
     end
 
     it "redirects to the sermons list" do
-      sermon = Sermon.create! valid_attributes
+      sermon = FactoryGirl.create(:sermon)
       delete :destroy, {:id => sermon.to_param}, valid_session
       response.should redirect_to(sermons_url)
     end

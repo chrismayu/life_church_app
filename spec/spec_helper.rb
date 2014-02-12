@@ -48,6 +48,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.include(MailerMacros)
+  config.include RequestSignInHelpers#, :type => :request
   
   
   config.before(:each) do

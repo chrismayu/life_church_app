@@ -155,7 +155,7 @@ describe "Sermons" do
      before :each do 
        FactoryGirl.create(:speaker,first_name: "Tom") 
       end 
- 
+  
             context "Date of Sermon - User Signed in"  do
    
               before :each do
