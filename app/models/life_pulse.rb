@@ -1,4 +1,5 @@
 class LifePulse < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
   extend FriendlyId
   friendly_id :title, use: :history
   attr_accessible :content, :flickr_id, :from_pastor_desk, :keywords, :summary, :template_selected, :title
@@ -8,12 +9,10 @@ class LifePulse < ActiveRecord::Base
   
   belongs_to :life_pulse_stock_pictures
    
-
- 
   validates  :title, :presence => true
   validates  :summary, presence: true, length: { maximum: 140 }
  
-   after_save :create_keyword
+  after_save :create_keyword
 
   after_validation :move_friendly_id_error_to_name
 
@@ -37,7 +36,9 @@ class LifePulse < ActiveRecord::Base
 
        def create_keyword
            life_pulse = LifePulse.find(id)
-           life_pulse.update_column(:keywords, "#{pastor_desk(life_pulse.from_pastor_desk)} #{life_pulse.created_at.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{life_pulse.summary} #{life_pulse.keywords}  #{life_pulse.title} #{life_pulse.created_at.strftime("%B #{life_pulse.created_at.day.ordinalize}, %Y") }")
+           keyword = "#{pastor_desk(life_pulse.from_pastor_desk)} #{life_pulse.created_at.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{life_pulse.summary} #{life_pulse.keywords}  #{life_pulse.title} #{life_pulse.created_at.strftime("%B #{life_pulse.created_at.day.ordinalize}, %Y") }"
+           truncated_keyword =  truncate(keyword, :length => 250)  
+           life_pulse.update_column(:keywords, truncated_keyword)
        end
        
        def pastor_desk(pastor)

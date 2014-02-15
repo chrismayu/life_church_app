@@ -1,4 +1,5 @@
 class Sermon < ActiveRecord::Base
+    include ActionView::Helpers::TextHelper
   extend FriendlyId
   friendly_id :title, use: :history
   attr_accessible :audio_url, :category, :date_of_sermon, :description, :display_until, :members_only, :speaker_id, :title, :url, :video_url
@@ -37,7 +38,9 @@ private
    def create_description
        sermon= Sermon.find(id)
        speaker = sermon.speaker 
-       sermon.update_column(:description, "#{speaker.title} #{speaker.full_name} #{sermon.date_of_sermon.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{sermon.category}  #{sermon.title} #{sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") } yup")
+       keyword = "#{speaker.title} #{speaker.full_name} #{sermon.date_of_sermon.strftime("%B, %b, %m, %A, %a, %d, %Y") } #{sermon.category}  #{sermon.title} #{sermon.date_of_sermon.strftime("%B #{sermon.date_of_sermon.day.ordinalize}, %Y") }")
+       truncated_keyword =  truncate(keyword, :length => 250)    
+       sermon.update_column(:description, truncated_keyword )
    end
  
   

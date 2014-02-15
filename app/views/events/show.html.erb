@@ -48,18 +48,17 @@
 					        <a class="twitter-share-button" data-count="horizontal" data-text="Check out this event" data-url="<%= event_path(@event)  %>" data-via="<%= @about_menu.twitter %>" data-related="<%= @event.event_name.html_safe %>" href="https://twitter.com/share"></a>
 					      </div>
 						  
-						  <span style="display:inline-block; vertical-align:text-bottom;">
-						        <div class="fb-like" data-href="http://railsapps.github.io/rails-prelaunch-signup/" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
-						        </div>
-						      </span>
+			 
 						  
-						  
-						   <div id="facebook" style="display:inline-block;">
-					      <span style="display:inline-block; ">
-					        <div class="fb-like" data-href="<%= event_url(@event) %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
-					        </div> </span>
-							        </div>
-     
+					 
+	 
+								    <div id="facebook" style="display:inline-block;">
+								     <span style="display:inline-block; ">
+								       <div class="fb-like" data-href="<%= event_path(@event)  %>" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90">
+								       </div> </span>
+								 	        </div>
+	 
+	 
 		 	 
 						  <span style="display:inline-block; ">
 					      <div class="g-plusone" data-annotation="inline" data-href="<%= event_url(@event)%>" data-size="medium" data-width="120">
@@ -201,7 +200,7 @@
 <% if can? :edit, :events %>
 <h4>List of Available Forms </h4>
 <%= link_to t('.new', :default => t("helpers.links.Create a New Form for #{@event.event_name}")),
-              new_event_setup_form_path(:event_id => @event), :class => 'btn btn-mini-flat btn-success'  %>
+              new_event_setup_form_path(:event_id => @event.id), :class => 'btn btn-mini-flat btn-success'  %>
   <br>
   <br>
   
