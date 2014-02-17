@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123164911) do
+ActiveRecord::Schema.define(:version => 20140217205049) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -412,6 +412,19 @@ ActiveRecord::Schema.define(:version => 20140123164911) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "schedules", :force => true do |t|
+    t.string   "name",            :limit => 250, :null => false
+    t.text     "description"
+    t.date     "end_month"
+    t.date     "start_month"
+    t.string   "schedule_image"
+    t.boolean  "image_processed"
+    t.string   "slug",            :limit => 250, :null => false
+    t.string   "url",             :limit => 250, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "sermon_pictures", :force => true do |t|
     t.string   "sermon_image"

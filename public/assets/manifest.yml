@@ -59,6 +59,8 @@ l_life.png: l_life-8a3fab75e84d82a9e93e930b8bfab2cd.png
 l_life/index.png: l_life-8a3fab75e84d82a9e93e930b8bfab2cd.png
 life_building-01.png: life_building-01-9fb9bc5d4d3894c2db9a1b35ffa9f530.png
 life_building-01/index.png: life_building-01-9fb9bc5d4d3894c2db9a1b35ffa9f530.png
+life_pulse_menu.png: life_pulse_menu-7523815d76bc250d75313fb025d11a13.png
+life_pulse_menu/index.png: life_pulse_menu-7523815d76bc250d75313fb025d11a13.png
 live.png: live-402e884e113b1c61204562a5f674e576.png
 live/index.png: live-402e884e113b1c61204562a5f674e576.png
 live_hover.png: live_hover-74baa1f2f79ef63af572dd2d22fec3aa.png
@@ -99,8 +101,8 @@ volunteer_hand.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 volunteer_hand/index.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 you_are_welcome.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome/index.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
-application.js: application-879c291ace7ce889e637bcb551b44a50.js
-application/index.js: application-879c291ace7ce889e637bcb551b44a50.js
+application.js: application-ed957b7284247f37c88ff4e8cff95c87.js
+application/index.js: application-ed957b7284247f37c88ff4e8cff95c87.js
 application.css: application-442d8229a09d6dfc784b345d8bf43436.css
 application/index.css: application-442d8229a09d6dfc784b345d8bf43436.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
