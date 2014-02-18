@@ -1,8 +1,7 @@
 class CreateSchedules < ActiveRecord::Migration
   def change
     
-    drop_table :schedules
-    
+ 
     
     create_table :schedules do |t|
       t.string :name 
