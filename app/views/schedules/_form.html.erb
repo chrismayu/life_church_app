@@ -1,18 +1,17 @@
-<%= simple_form_for(@schedule) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @schedule, :html => { :class => 'form-horizontal' } do |f| %>
+ 
+ <%= f.input :start_month, :label=>"Start to Display:",  :hint => "First Date to Display", :wrapper => :append do %>
+   <%= f.input_field :start_month, :id=> 'display_start',   :as => :string, :placeholder=>"First Date to Display" %><span class="add-on"><i class="icon-calendar"></i></span>
+ <% end %>
+ 
+ 
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :end_month %>
-    <%= f.input :start_month %>
-    <%= f.input :schedule_image %>
-    <%= f.input :image_processed %>
-    <%= f.input :slug %>
-    <%= f.input :url %>
-  </div>
-
+    <%= f.input :key, as: :hidden %>
+	
+	
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn-primary btn-flat' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                schedules_path, :class => 'btn  btn-flat' %>
   </div>
 <% end %>

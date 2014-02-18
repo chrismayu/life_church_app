@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140217205049) do
+ActiveRecord::Schema.define(:version => 20140217220151) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -414,14 +414,14 @@ ActiveRecord::Schema.define(:version => 20140217205049) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "schedules", :force => true do |t|
-    t.string   "name",            :limit => 250, :null => false
+    t.string   "name",            :limit => 250
     t.text     "description"
     t.date     "end_month"
     t.date     "start_month"
     t.string   "schedule_image"
     t.boolean  "image_processed"
-    t.string   "slug",            :limit => 250, :null => false
-    t.string   "url",             :limit => 250, :null => false
+    t.string   "slug",            :limit => 250
+    t.string   "url",             :limit => 250
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end

@@ -1,45 +1,82 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Schedule -%>
 
-<p>
-  <b>Name:</b>
-  <%= @schedule.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @schedule.description %>
-</p>
-
-<p>
-  <b>End month:</b>
-  <%= @schedule.end_month %>
-</p>
-
-<p>
-  <b>Start month:</b>
-  <%= @schedule.start_month %>
-</p>
-
-<p>
-  <b>Schedule image:</b>
-  <%= @schedule.schedule_image %>
-</p>
-
-<p>
-  <b>Image processed:</b>
-  <%= @schedule.image_processed %>
-</p>
-
-<p>
-  <b>Slug:</b>
-  <%= @schedule.slug %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @schedule.url %>
-</p>
+<div class="Row">
+	<div class="span12 mission_bg img-rounded ">
 
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= schedule_name(@schedule) %></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <br>
+ 
+	 
+	 
+	 <% if user_signed_in? %>  
+	   <% if can? :edit, :schedules %>
+	 
+ <dl class="dl-horizontal">
+  
+
+   <dt><strong><%= model_class.human_attribute_name(:display_start) %>:</strong></dt>
+   <dd><%= @schedule.start_month.strftime("%b %d %Y") %> </dd>
+ 
+ 
+ </dl>
+ <% end %>
+    <% end %>
+  
+ <% if @schedule.image_processed? %>
+  
+
+   <%= link_to image_tag(@schedule.schedule_image_url(:main), :class =>"img-rounded" ), @schedule.schedule_image.to_s, :target => '_blank' %> 
+   <p></p> 
+
+   <% else %>
+     <em>Processing...</em>
+   <% end %>
+  <% if user_signed_in? %>
+   <% if @schedule.image_processed? %>
+       <%= image_tag(@schedule.schedule_image_url(:main), :class =>"img-rounded" ) %>
+
+     <% else %>
+       <em>Processing...</em>
+     <% end %>
+ 
+     <% end %>
+  
+ <div class="form-actions">
+	
+   <%= link_to t('.back', :default => t("helpers.links.back")),
+               schedules_path, :class => 'btn btn-flat btn-primary'  %>
+			   <%= link_to t('.sign_up', :default => t("helpers.links.Download")),
+			                         @schedule.schedule_image.to_s, :target => '_blank', :class => 'btn btn-info btn-flat' %>
+ 			<% if user_signed_in? %> 
+			    <% if can? :edit, :schedules %>
+   <%= link_to t('.edit', :default => t("helpers.links.edit")),
+               edit_schedule_path(@schedule), :class => 'btn btn-flat' %>
+   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+               schedule_path(@schedule),
+               :method => 'delete',
+               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+               :class => 'btn btn-danger btn-flat' %>
+			  
+ 			      <% end %>
+				  <% end %>
+ </div>
+
+  
+	 
+	 
+
+</div>
+ 
+</div>  
+
+
+
+ 

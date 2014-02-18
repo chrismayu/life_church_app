@@ -1,0 +1,11 @@
+<div class="form-actions">
+  <h2>Schedule Setup</h2> <h4>Step 1</h4> 
+ 
+  ** PDF ONLY
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :schedule_image %></p>
+  <p><%= f.submit "Upload PDF", :class => "btn btn-success btn-flat" %></p>
+<% end %>
+
+
+</div>
