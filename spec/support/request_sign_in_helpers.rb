@@ -1,26 +1,31 @@
 module RequestSignInHelpers
+  include Warden::Test::Helpers
  
   def login_admin
     before(:each) do
-     # @request.env["devise.mapping"] = Devise.mappings[:admin]
-      user = FactoryGirl.create(:admin) # Using factory girl as an example
-       post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
+      user = FactoryGirl.create(:admin)  
+       post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password  
+      login_as user
     end
   end
 
-  def login_user
+  def login_volunteer
     before(:each) do
-     # @request.env["devise.mapping"] = Devise.mappings[:user]
-      @user = FactoryGirl.create(:user)
-      #user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the confirmable module
-      #sign_in user
-    
-      post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
-      
+      user = FactoryGirl.create(:volunteer)  
+       post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password  
+      login_as user
       
     end
   end
   
+  def login_member
+    before(:each) do
+      user = FactoryGirl.create(:member)  
+       post_via_redirect user_session_path, 'user[email]' => user.email, 'user[password]' => user.password  
+      login_as user
+      
+    end
+  end
  
   
   

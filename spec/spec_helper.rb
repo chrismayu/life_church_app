@@ -32,7 +32,7 @@ RSpec.configure do |config|
   #config.extend ControllerMacros 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
+ 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -48,7 +48,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.include(MailerMacros)
-  config.include RequestSignInHelpers#, :type => :request
+  config.extend RequestSignInHelpers, :type => :request
+#  config.extend RequestMacros, :type => :request
   
   
   config.before(:each) do
@@ -69,7 +70,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   
-  
+   
+   
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true

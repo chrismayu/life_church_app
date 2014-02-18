@@ -8,6 +8,7 @@
       email "your@mail.com"
       password "helloworld"
       password_confirmation "helloworld"
+      approved true
       # required if the Devise Confirmable module is used
      # confirmed_at Time.now
 
@@ -17,6 +18,10 @@
 
       factory :member do
           after(:create) {|user| user.add_role(:member)}
+      end
+      
+      factory :volunteer do
+          after(:create) {|user| user.add_role(:volunteer)}
       end
 
       factory :confirmed_user, :parent => :user do
