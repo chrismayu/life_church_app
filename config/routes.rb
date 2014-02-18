@@ -1,5 +1,7 @@
 LifeChurchApp::Application.routes.draw do
   
+  
+  get "schedules/let_us_know"
   get "schedules/step_1"
   resources :schedules
 

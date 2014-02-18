@@ -12,4 +12,13 @@ class AdminMailer < ActionMailer::Base
     @member = member
     mail(:subject => "#{member.name} - Approval Needed")
   end
+  
+  
+  def let_us_know(member)
+    @member = member
+    mail(:subject => "#{member.name} - Would like to be a volunteer")
+  end
+  
+  
+  
 end

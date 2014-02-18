@@ -77,7 +77,7 @@ class AnnouncementsController < ApplicationController
   # PUT /announcements/1
   # PUT /announcements/1.json
   def update
-    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+    authorize! :update, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
   
     @announcement = Announcement.find(params[:id])
 
@@ -95,7 +95,7 @@ class AnnouncementsController < ApplicationController
   # DELETE /announcements/1
   # DELETE /announcements/1.json
   def destroy
-    authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
+    authorize! :destroy, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
   
     @announcement = Announcement.find(params[:id])
     @announcement.destroy

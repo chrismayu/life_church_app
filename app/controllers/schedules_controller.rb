@@ -1,9 +1,16 @@
 class SchedulesController < ApplicationController
- 
+# include ActionView::Helpers::UrlHelper
   
   before_filter :authenticate_user! 
   
   before_filter :find_schedule, :only => [:show]
+  
+  
+  def let_us_know
+    AdminMailer.let_us_know(current_user).deliver
+    redirect_to( root_path, :notice => "Thanks - Your request was successfully sent. We will be in contact soon")
+  end
+  
   
   def find_schedule
     @schedule = Schedule.find(params[:id])
@@ -21,8 +28,8 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-   authorize! :index, Schedule, :message => 'Sorry - You need to be a Volunteer to view this - If you need access - contact the office.'
-   
+   authorize! :index, Schedule, :message => "Sorry - You need to be a Volunteer to view this - If you need access - #{view_context.link_to('Let us know', root_path)}".html_safe
+
     @schedules = Schedule.last(3).reverse
 
     respond_to do |format|
