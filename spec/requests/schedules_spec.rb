@@ -8,4 +8,54 @@ describe "Schedules" do
       response.status.should be(200)
     end
   end
+  
+  
+  
+  
+  describe "User Access" do
+   login_user
+    
+       it "User can not access schedule index" do
+        visit schedule_path
+        current_path.should eq(root_path)
+        page.should have_content("Not")
+end
+       it "User can not access schedule index" do
+        visit new_schedule_path
+        current_path.should eq(root_path)
+        page.should have_content("Not")
+end
+
+end
+
+describe "Member" do
+   login_member
+context "Should have access to" do
+
+       it " Index page " do
+        visit schedule_path
+        current_path.should eq(schedule_path)
+
+end
+
+       it " Show page " do
+        visit schedule_path
+        current_path.should eq(schedule_path)
+
+end
+
+context "Should NOT have access to" do
+
+       it " New page " do
+        visit schedule_path
+        current_path.should eq(schedule_path)
+
+end
+
+       it " Show page " do
+        visit schedule_path
+        current_path.should eq(schedule_path)
+
+end
+
 end
