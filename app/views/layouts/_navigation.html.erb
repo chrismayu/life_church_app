@@ -181,11 +181,12 @@
   					      </li>
  						 <% end %>
 						 
+						 	  <% if current_user.has_role? :admin %>
 						 <li class="divider"></li>
 						 
 						 
 						 
- 						  <% if current_user.has_role? :admin %>
+ 					
 						  
 						  
 						  <li class="dropdown-submenu">
@@ -218,11 +219,12 @@
 			  
 						 <% end %> 
 						 
+						  <% if current_user.has_role? :admin %>
 						 <li class="divider"></li>
 						 
 						 
 						 
- 						  <% if current_user.has_role? :admin %>
+ 						 
 						  
 						  
 						  <li class="dropdown-submenu">
@@ -245,11 +247,12 @@
 					  
  					   
 						 <% end %>
+						  <% if current_user.has_role? :admin %>
 						 <li class="divider"></li>
 						 
 						 
 						 
- 						  <% if current_user.has_role? :admin %>
+ 						 
 						  
 						  
 						  <li class="dropdown-submenu">
