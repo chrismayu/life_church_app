@@ -83,6 +83,7 @@ gem 'fog'
 gem 'prawn'
 gem 'money-rails'
 gem "friendly_id", "~> 4.0.10"
+gem "gibbon", "0.4.6"
 
 group :development, :test do
 

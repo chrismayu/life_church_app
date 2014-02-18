@@ -10,4 +10,10 @@ class MemberMailer < ActionMailer::Base
     @member = member
     mail(to: member.email, :subject => "Welcome to LifeChurch")
   end
+  
+  def welcome_email(member)
+    @member = member
+    mail(to: member.email, :subject => "Welcome to LifeChurch WebSite")
+  end
+  
 end
