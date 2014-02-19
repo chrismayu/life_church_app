@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :approved
   
-  after_create :send_admin_mail, :assign_default_role, :send_welcome_email, :add_user_to_mailchimp
+  after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
  
-  before_destroy :remove_user_from_mailchimp
+ # before_destroy :remove_user_from_mailchimp
  
   
   

@@ -5,7 +5,7 @@ module SchedulesHelper
 
   def schedule_name(schedule)
     
-       content_tag(:span, "Week of  #{schedule.start_month.strftime("%B #{schedule.start_month.day.ordinalize}, %Y")}") 
+       content_tag(:span, " #{schedule.start_month.strftime("%B #{schedule.start_month.day.ordinalize}, %Y")}") 
   end   
 
   def schedule_advert_main_page(schedule)

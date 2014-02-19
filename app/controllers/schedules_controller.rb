@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-   authorize! :index, Schedule, :message => "Sorry - You need to be a Volunteer to view this - If you need access - #{view_context.link_to('Let us know', root_path)}".html_safe
+   authorize! :index, Schedule, :message => "Sorry - You do not have permission to view this - If you need access - #{view_context.link_to('Let us know', root_path)}".html_safe
 
     @schedules = Schedule.last(3).reverse
 
@@ -41,7 +41,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
-   authorize! :show, Schedule, :message => 'Sorry - You need to be a Volunteer to view this - If you need access - contact the office.'
+   authorize! :show, Schedule, :message => "Sorry - You do not have permission to view this - If you need access - #{view_context.link_to('Let us know', root_path)}".html_safe
    
     @schedule = Schedule.find(params[:id])
 
