@@ -9,7 +9,7 @@ class StaffMailer < ActionMailer::Base
        # mail to: message.staff_email, :reply_to => message.email, subject: "Message from #{message.name}  - #{message.subject} "
 
         mandrill = Mandrill::API.new ENV["MANDRILL_API_KEY"]
-        template_name = "general"
+        template_name = "Staff_Contact"
         template_content = [{"name"=>"fullname", "content"=>"#{message.name}"}, {"name"=>"staffname", "content"=>"#{message.staff_name}"}]
         message = {"google_analytics_campaign"=>"message.from_email@example.com",
          "url_strip_qs"=>nil,
@@ -22,8 +22,8 @@ class StaffMailer < ActionMailer::Base
          "view_content_link"=>nil,
          "from_email"=>ENV["SITE_EMAIL"],
          "return_path_domain"=>nil,
-         "metadata"=>{"website"=>"www.example.com"},
-         "global_merge_vars"=>[{"content"=>"#{message.body}", "name"=>"body_data"},{"name"=>"fullname", "content"=>"#{message.name}"}, {"name"=>"staffname", "content"=>"#{message.staff_name}"}],
+         "metadata"=>{"website"=>"www.life-church.herokuapp.com"},
+         "global_merge_vars"=>[{"content"=>"#{message.body}", "name"=>"body_data"},{"content"=>"#{message.email}", "name"=>"sender_email"},{"name"=>"fullname", "content"=>"#{message.name}"}, {"name"=>"staffname", "content"=>"#{message.staff_name}"}],
          "headers"=>{"Reply-To"=>"#{message.email}"},
          "to"=>
             [{"type"=>"to",

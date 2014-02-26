@@ -22,7 +22,7 @@ class ContactStaffController < ApplicationController
          
         if @message.valid?
            StaffMailer.staff_message(@message).deliver
-          redirect_to(church_staffs_current_staff_path, :notice => "Your message was successfully sent.")
+          redirect_to(church_staffs_path, :notice => "Your message was successfully sent.")
         else
           flash.now.alert = "Please fill all fields."
           render :new
