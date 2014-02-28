@@ -4,9 +4,10 @@ class StaffMailer < ActionMailer::Base
   require 'mandrill'
 
     def staff_message(message)
+     
+      
         @message = message
-    
-       # mail to: message.staff_email, :reply_to => message.email, subject: "Message from #{message.name}  - #{message.subject} "
+
 
         mandrill = Mandrill::API.new ENV["MANDRILL_API_KEY"]
         template_name = "Staff_Contact"
@@ -19,12 +20,13 @@ class StaffMailer < ActionMailer::Base
             [{"rcpt"=>"#{message.staff_email}", "values"=>{"user_id"=>123456}}],
          "inline_css"=>nil,
          "merge"=>true,
+         "X-MC-AutoText"=>true,
          "view_content_link"=>nil,
          "from_email"=>ENV["SITE_EMAIL"],
          "return_path_domain"=>nil,
-         "metadata"=>{"website"=>"www.life-church.herokuapp.com"},
-         "global_merge_vars"=>[{"content"=>"#{message.body}", "name"=>"body_data"},{"content"=>"#{message.email}", "name"=>"sender_email"},{"name"=>"fullname", "content"=>"#{message.name}"}, {"name"=>"staffname", "content"=>"#{message.staff_name}"}],
-         "headers"=>{"Reply-To"=>"#{message.email}"},
+         "metadata"=>{"website"=>"#{ENV["DOMAIN"]}"},
+         "global_merge_vars"=>[{"content"=>"#{ENV["WEBSITE"]}", "name"=>"website_url"},{"content"=>"#{message.body}", "name"=>"body_data"},{"content"=>"#{message.email}", "name"=>"sender_email"},{"name"=>"fullname", "content"=>"#{message.name}"}, {"name"=>"staffname", "content"=>"#{message.staff_name}"}],
+         "headers"=>{"reply-to" => "#{message.email}"},
          "to"=>
             [{"type"=>"to",
                 "name"=>"#{message.staff_name}",

@@ -14,10 +14,10 @@ class ContactStaffController < ApplicationController
         @church_staff = ChurchStaff.where(:email_id=> @message.staff).last
         
            @message.staff_email = @church_staff.contact_email
-          @message.staff_name = @church_staff.full_name
+          @message.staff_name = "#{@church_staff.title } #{@church_staff.full_name}"
          else
-         @message.staff_email = "chrismayu@gmail.com"  #"life@lifeinyou.com"
-         @message.staff_name = "Chris"
+         @message.staff_email = "church@lifeinyou.com"
+         @message.staff_name = "Website"
         end
          
         if @message.valid?
