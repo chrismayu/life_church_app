@@ -32,8 +32,7 @@ Until then enjoy the rest of our site."
    
     
       @member = member
-
-
+ 
       mandrill = Mandrill::API.new ENV["MANDRILL_API_KEY"]
       template_name = "Member_Contact"
       template_content = [{"name"=>"fullname", "content"=>"#{member.name}"}]
