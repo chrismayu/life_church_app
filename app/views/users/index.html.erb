@@ -18,12 +18,13 @@
         <div class="span10">
             
 				<h4>Sort Member list</h4>
-				<br>
-                <ul>
-				 
-                        <li><%= link_to "All Members", {:action => "index"}, {:class=> "btn btn-success btn-mini"} %></li><br>
-                        <li><%= link_to "Unapproved Members", {:action => "index", :approved => "false"}, {:class=> "btn btn-success btn-mini"} %></li>
-                </ul>
+			 
+				   <div class="span3 offset3">
+                        <%= link_to "All Members", {:action => "index"}, {:class=> "btn btn-success btn-mini"} %> 
+                        <%= link_to "Unapproved Members", {:action => "index", :approved => "false"}, {:class=> "btn btn-success btn-mini"} %> 
+						
+						
+					</div>
 				<br>
  
 			
@@ -41,6 +42,7 @@
                                 <th>Status</th>
 								 
 								<th>Signed Up</th>
+								<th>Last Logged in</th>
 								<th>Role</th>
                                 <th>Action</th>
                         </tr>
@@ -55,6 +57,7 @@
 								<% end %>
 							    </td> 
 						        <td><%= user.created_at.to_date.strftime("%b %d, %Y") %></td>
+								<td>  <%= time_ago_in_words(user.last_sign_in_at) unless user.last_sign_in_at.nil? %> ago </td>
 						        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
 						        <td>
 						          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
