@@ -41,6 +41,12 @@
 
  <%= render :partial => 'abouts/markdown'%>
  
-	<%= f.input :description , :label=>'Description :',  :placeholder=>"Add a Short Description about the event" , :input_html => { :class => "enroll_input span5", :rows => 5} %> 
+	<%= f.input :description , :label=>'Description :', :hint=> "#{count_display_ev} #{remained_ev}", :placeholder=>"Add a Short Description about the event" , :input_html => { :class => "enroll_input span5", :rows => 5} %> 
+	
+   
+ 
+	
+	
+	
 
  

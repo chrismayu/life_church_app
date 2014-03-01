@@ -17,10 +17,9 @@
   <%= render :partial => 'abouts/markdown'%>
 
 
-	<%= f.input :description , :label=>'Description:',  :placeholder=>"Add a Short Description about Yourself" , :hint=> "240 Characters max", :input_html => { :class => "enroll_input span4", :rows => 4} %> 
+	<%= f.input :description , :label=>'Description:',  :placeholder=>"Shortest Description Ever!" , :hint=> "#{count_display} #{remained}", :input_html => { :class => "enroll_input span4", :rows => 4} %> 
 	
  
-
 	<%= f.input :phone_number,  :label=>"Phone Number:",   :placeholder=>"Phone Number" ,  :input_html => { :class => "enroll_input span3"}  %>
 		<%= f.input :phone_ext,  :label=>"Phone Ext:",   :placeholder=>"Phone Ext" ,  :input_html => { :class => "enroll_input span3"}  %>
 

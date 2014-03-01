@@ -3,3 +3,10 @@
 
 en:
   hello: "Hello world"
+  micropost_form:
+    characters_remaining: 
+      one: "&nbsp;character remaining."
+      other: "&nbsp;characters remaining."
+    characters_over: 
+      one: "&nbsp;character over."
+      other: "&nbsp;characters over."

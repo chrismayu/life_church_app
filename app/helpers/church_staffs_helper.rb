@@ -22,8 +22,14 @@ module ChurchStaffsHelper
    
     
     
-    
+   def count_display
+    content_tag(:div, "", class: "countdown")  
+   end
    
+   
+   def remained
+    content_tag(:div, t('.characters_remaining').html_safe, class: "remaining")        
+   end
    
    
 end

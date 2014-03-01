@@ -44,3 +44,38 @@ $("document").ready ->
 
   else
     $.getScript "https://apis.google.com/js/plusone.js"
+	
+	
+ 
+updateCountdownAttributes = (toRemove, toAdd = null) ->
+  for attr in toRemove
+    $(".remaining_ev, .countdown_ev").removeClass attr
+  if toAdd
+    $(".remaining_ev, .countdown_ev").addClass toAdd
+    if toAdd is "overlimit"
+      $("input.btn.btn-large.btn-primary").attr("disabled", "true")
+    else
+      $("input.btn.btn-large.btn-primary").removeAttr("disabled")
+
+updateCountdown = ->
+  remaining = 240 - $("#event_description").val().length
+  toRemove = ["nearlimit", "almostlimit", "overlimit"]
+  if remaining > 19
+    updateCountdownAttributes(toRemove)
+  if remaining < 20
+    toAdd = (toRemove.filter (attr) -> attr is "nearlimit").toString()
+    updateCountdownAttributes(toRemove, toAdd)
+  if remaining < 11
+    toAdd = (toRemove.filter (attr) -> attr is "almostlimit").toString()
+    updateCountdownAttributes(toRemove, toAdd)
+  if remaining < 0
+    toAdd = (toRemove.filter (attr) -> attr is "overlimit").toString()
+    updateCountdownAttributes(toRemove, toAdd)
+  $(".countdown_ev").text remaining
+
+$(document).ready ->
+  $(".countdown_ev").text 240
+  $("#event_description").change updateCountdown
+  $("#event_description").keyup updateCountdown
+  $("#event_description").keydown updateCountdown
+  $("#event_description").keypress updateCountdown

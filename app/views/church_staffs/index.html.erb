@@ -59,7 +59,7 @@
    
  	
 			       <% unless church_staff.description.blank? %>	
-			         <div class="pull-left staff_descrip img-rounded">  <%= markdown(church_staff.description) %></div>
+			         <div class="pull-left staff_descrip img-rounded"> <p class="pull-left"> <%= markdown(church_staff.description) %></p></div>
 				  <br>
 			 	    <%end%> 
 			   <p>

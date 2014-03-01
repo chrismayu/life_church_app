@@ -6,7 +6,9 @@
    <%= render :partial => 'abouts/markdown'%>
  
   
-<%= f.input :description , :label=>'Description:',  :placeholder=>"Add a Short Description about This Ministry" , :hint=> "140 Characters max", :input_html => { :class => "enroll_input span6", :rows => 4} %> 
+<%= f.input :description , :label=>'Description:',  :placeholder=>"Add a Short Description about This Ministry" ,  :hint=> "#{count_display_mc} #{remained_mc}", :input_html => { :class => "enroll_input span6", :rows => 4} %> 
+
+ 
 
   
     

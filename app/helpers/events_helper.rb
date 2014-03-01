@@ -1,6 +1,14 @@
 module EventsHelper
   
- 
+  def count_display_ev
+   content_tag(:div, "", class: "countdown_ev")  
+  end
+  
+  
+  def remained_ev
+   content_tag(:div, t('.characters_remaining').html_safe, class: "remaining_ev")        
+  end
+  
       
  	  
   def display_event_picture(event_pictures)

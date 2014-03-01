@@ -19,7 +19,39 @@ body { padding-top: 85px;
  
 
  
- 
+/* Micropost character countdown */
+
+
+
+
+.remaining, .countdown {
+  display: inline;
+  color: $grayLight;
+  float: center;
+}
+
+.remaining_mc, .countdown_mc {
+  display: inline;
+  color: $grayLight;
+  float: center;
+}
+.remaining_ev, .countdown_ev {
+  display: inline;
+  color: $grayLight;
+  float: center;
+}
+.overlimit {
+  color: $red;
+}
+
+.almostlimit {
+  color: hsl(360, 57%, 21%);
+}
+
+.nearlimit {
+  color: $gray;
+}
+// ...
  
  
 .verticalLine {

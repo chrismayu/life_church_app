@@ -1,7 +1,6 @@
 module MinistriesHelper
   
- 
- 
+  
   def ministries_menu(ministries)
     
        html = link_to "#{ministries.name}", ministry_path(ministries)
