@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   rolify
-  apply_simple_captcha
+  apply_simple_captcha :message => "The secret Image and code were different", :add_to_base => true
+  
  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -16,17 +17,10 @@ class User < ActiveRecord::Base
  
   after_save :check_for_email_preferrence
   
- # before_create :check_captcha
-  
- # before_destroy :remove_user_from_mailchimp
  
- def check_captcha
-   if valid_with_captcha?
-     return true
-   else
-     return false, :notice => 'error'
-   end
- end
+  before_destroy :remove_user_from_mailchimp
+ 
+ 
   
   
   def check_for_email_preferrence
