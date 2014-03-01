@@ -17,11 +17,21 @@ class User < ActiveRecord::Base
  
   after_save :check_for_email_preferrence
   
- 
+  #validate :check_captcha
+  
   before_destroy :remove_user_from_mailchimp
  
  
-  
+  def check_captcha
+    
+    if simple_captcha_valid?
+      return true
+    else
+      return false
+    end
+    
+  end  
+    
   
   def check_for_email_preferrence
   

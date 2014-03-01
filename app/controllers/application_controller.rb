@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  
+   include SimpleCaptcha::ControllerHelpers
+   
   protect_from_forgery
   require 'will_paginate/array'
 
