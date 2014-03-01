@@ -26,8 +26,9 @@
 	    <%= f.input :password, :required => true %>
 	    <%= f.input :password_confirmation, :required => true %>
 	 
-		 <%= f.input :yes_receive_email %> 
-		 <%= show_simple_captcha(:object=>"user") %>
+		 <%= f.input :yes_receive_email, :label=>"Receive Email Updates", :input_html => { :checked => true }, :hint => "You can unsubscribe at anytime" %>  
+ 
+   	  <br>
 	    <%= f.button :submit, 'Create Your Account', :class => 'btn btn-primary btn-flat' %>
 	  <% end %>
 	 
