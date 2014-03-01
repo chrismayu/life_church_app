@@ -25,6 +25,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless current_user.has_role? :admin
+    if current_user != @user 
+      redirect_to root_path, alert: 'Not authorized as an administrator.'
+    end
+    end
+ 
   end
   
   def update
