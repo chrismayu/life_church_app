@@ -26,8 +26,8 @@
 	    <%= f.input :password, :required => true %>
 	    <%= f.input :password_confirmation, :required => true %>
 	 
-		 <%= f.input :yes_receive_email %>
-		 
+		 <%= f.input :yes_receive_email %> 
+		 <%= show_simple_captcha(:object=>"resource") %>
 	    <%= f.button :submit, 'Create Your Account', :class => 'btn btn-primary btn-flat' %>
 	  <% end %>
 	 

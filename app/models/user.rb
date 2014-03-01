@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   rolify
+  apply_simple_captcha
  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -9,14 +10,24 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :approved, :yes_receive_email
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :approved, :yes_receive_email, :captcha, :captcha_key
   
   after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
  
   after_save :check_for_email_preferrence
   
+ # before_create :check_captcha
+  
  # before_destroy :remove_user_from_mailchimp
  
+ def check_captcha
+   if valid_with_captcha?
+     return true
+   else
+     return false, :notice => 'error'
+   end
+ end
+  
   
   def check_for_email_preferrence
   
