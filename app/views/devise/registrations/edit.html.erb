@@ -32,11 +32,21 @@
 		
     	  <%= f.input :address, :label=>'Address:', :placeholder=>"Address"   %>
     	  <%= f.input :city, :label=>'City:', :placeholder=>"City"   %>
-    	  <%= f.input :province,  :as => :state,   :label=>'Province:', :placeholder=>"Province"   %>
+     
+  
+			
+			
+			<%= f.input :country_id, collection: Country.order(:name), label_method: :name, value_method: :id,label: "Country:", include_blank: true  %>
+			
+			
+		 
+		  <div class="field">
+		    <%= f.label :state_id, "State or Province:" %> 
+		    <%= f.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, include_blank: true %>
+		  </div>
 	
 
-	  
-    	<%= f.input :country, label: "Country:",   collection: [ "United States", "Canada"]%> 
+	   
 	
    <%= f.input :postal_code, :label=>'Zip Code:', :placeholder=>"Zip/Postal Code"%> 
  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140301220741) do
+ActiveRecord::Schema.define(:version => 20140302195920) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -132,6 +132,12 @@ ActiveRecord::Schema.define(:version => 20140301220741) do
     t.string   "birth_location"
     t.string   "category"
     t.integer  "rank"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "egivings", :force => true do |t|
@@ -512,6 +518,13 @@ ActiveRecord::Schema.define(:version => 20140301220741) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "summaries", :force => true do |t|
     t.text     "what_we_believe"
     t.datetime "created_at",      :null => false
@@ -546,6 +559,8 @@ ActiveRecord::Schema.define(:version => 20140301220741) do
     t.string   "gender"
     t.boolean  "yes_receive_email"
     t.string   "province"
+    t.integer  "country_id"
+    t.integer  "state_id"
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"

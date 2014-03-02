@@ -10,7 +10,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
-
+require 'csv'
 
 
 
@@ -98,4 +98,18 @@ Summary.create!(:what_we_believe => "We believe in the Holy Spirit’s enduring 
 Summary.create!(:what_we_believe => "We believe the church is the Body of Christ which includes all of the redeemed, believers of every age, from every tribe, and tongue, and people, and nation. God commands that the church assemble itself for the purpose of worship and instruction, the practical outworking of which being the formation and continuation of local churches. ")
 Summary.create!(:what_we_believe => "We believe in Jesus Christ's imminent return personally and visibly in glory to the earth; the dead will be raised; and Christ will judge all men in righteousness.  The righteous, in their resurrected and glorified bodies, will receive their reward and will dwell forever with the Lord. ") 
  
- 
+puts "Importing countries..."
+CSV.foreach(Rails.root.join("countries.csv"), headers: true) do |row|
+  Country.create! do |country|
+    country.id = row[0]
+    country.name = row[1]
+  end
+end
+
+puts "Importing states..."
+CSV.foreach(Rails.root.join("states.csv"), headers: true) do |row|
+  State.create! do |state|
+    state.name = row[0]
+    state.country_id = row[2]
+  end
+end
