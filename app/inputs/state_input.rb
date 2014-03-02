@@ -2,7 +2,7 @@
 
 class StateInput < SimpleForm::Inputs::Base
   def input
-    @builder.select(attribute_name, state_options2, { :selected => ['Florida', 'FL'] },{ :class => "input-medium" })
+    @builder.select(attribute_name, state_options2, { :selected => 'Please Select' },{ :class => "input-medium" })
   end
 
   private
@@ -77,7 +77,8 @@ class StateInput < SimpleForm::Inputs::Base
   def state_options2
  
     state=  {"United States" =>  
-      [[ "Alabama (AL)"],  
+      [[ "Please Select"], 
+        [ "Alabama (AL)"],  
       [ "Alaska (AK)"],  
       [ "Arizona (AZ)"],
       [ "Arkansas (AR)"],             
@@ -132,7 +133,8 @@ class StateInput < SimpleForm::Inputs::Base
       [ "Wisconsin (WI)"],
       [ "Wyoming (WY)"]],
     " Canada" =>
-      [[ "Alberta (AB)"],
+      [[ "Please Select"], 
+      [ "Alberta (AB)"],
       [ "British Columbia (BC)"],
       [ "Manitoba (MB)"],
       [ "New Brunswick (NB)"],
@@ -148,7 +150,7 @@ class StateInput < SimpleForm::Inputs::Base
     }
     
     
-    state
+    state.sort 
     
   end
   
