@@ -30,7 +30,29 @@
 	    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
 	    <%= f.input :password_confirmation, :required => false %>
 	    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-		 <%= f.input :yes_receive_email %>
+		
+    	  <%= f.input :address, :label=>'Address:', :placeholder=>"Address"   %>
+    	  <%= f.input :city, :label=>'City:', :placeholder=>"City"   %>
+    	  <%= f.input :province,  :as => :state,   :label=>'Province:', :placeholder=>"Province"   %>
+	
+
+	  
+    	<%= f.input :country, label: "Country:",   collection: [ "United States", "Canada"]%> 
+	
+   <%= f.input :postal_code, :label=>'Zip Code:', :placeholder=>"Zip/Postal Code"%> 
+ 
+	
+      <%= f.input :birthday, as: :date, :label=>"Birthday:",  start_year: Date.today.year - 90, 
+          end_year: Date.today.year - 2, order: [ :month,:day, :year], :input_html => { :class => "enroll_input span2"}   %>
+	
+ 
+    <%= f.input :gender, :label=>'Gender?',  :collection=>[ ['Male', 'Male' ], ['Female', 'Female'] ], as: :radio_buttons %>
+
+
+    <br>
+    	  <%= f.input :home_phone, :label=>'Home Phone:', :hint => 'Ex: 529-555-4923', :placeholder=>"Home Phone"  %>
+  	  <br>
+		 <%= f.input :yes_receive_email, :label=>"Receive Email Updates" %>  
 	    <%= f.button :submit, 'Update', :class => 'btn btn-primary btn-flat' %>
 	  <% end %>
 	  <br>

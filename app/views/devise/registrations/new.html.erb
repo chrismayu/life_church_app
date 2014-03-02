@@ -25,7 +25,28 @@
 	    <%= f.input :email, :required => true %>
 	    <%= f.input :password, :required => true %>
 	    <%= f.input :password_confirmation, :required => true %>
-	 
+		
+  	  <%= f.input :address, :label=>'Address:', :placeholder=>"Address"   %>
+  	  <%= f.input :city, :label=>'City:', :placeholder=>"City"   %>
+  	  <%= f.input :province,  :as => :state, :selected => ["Ontario"], :label=>'Province:', :placeholder=>"Province"   %>
+	
+
+	  
+  	<%= f.input :country, label: "Country:", :selected=>["Canada"],  collection: [ "United States", "Canada"]%> 
+	
+ <%= f.input :postal_code, :label=>'Zip Code:', :placeholder=>"Zip/Postal Code"%> 
+ 
+	
+    <%= f.input :birthday, as: :date, :label=>"Birthday:",  start_year: Date.today.year - 90, 
+        end_year: Date.today.year - 2, order: [ :month,:day, :year], :input_html => { :class => "enroll_input span2"}   %>
+	
+ 
+  <%= f.input :gender, :label=>'Gender?', :selected=>['Male'], :collection=>[ ['Male', 'Male' ], ['Female', 'Female'] ], as: :radio_buttons %>
+
+
+  <br>
+  	  <%= f.input :home_phone, :label=>'Home Phone:', :hint => 'Ex: 529-555-4923', :placeholder=>"Home Phone"  %>
+	  <br>
 		 <%= f.input :yes_receive_email, :label=>"Receive Email Updates", :input_html => { :checked => true }, :hint => "You can unsubscribe at anytime" %>  
  
    	  <br>

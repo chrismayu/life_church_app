@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140301112432) do
+ActiveRecord::Schema.define(:version => 20140301220741) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -545,6 +545,7 @@ ActiveRecord::Schema.define(:version => 20140301112432) do
     t.string   "cell_phone"
     t.string   "gender"
     t.boolean  "yes_receive_email"
+    t.string   "province"
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"
