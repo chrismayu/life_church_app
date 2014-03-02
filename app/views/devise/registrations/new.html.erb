@@ -37,6 +37,7 @@
     <%= f.label :state_id, "State or Province:" %> 
     <%= f.grouped_collection_select :state_id, Country.order(:name), :states, :name, :id, :name, include_blank: true %>
   </div>
+  
 	
  <%= f.input :postal_code, :label=>'Zip Code:', :placeholder=>"Zip/Postal Code"%> 
  

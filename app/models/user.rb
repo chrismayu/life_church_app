@@ -17,11 +17,24 @@ class User < ActiveRecord::Base
   
   after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
  
-  after_save :check_for_email_preferrence
+  after_save :check_for_email_preferrence 
+  before_save :update_country_state
   
   #validate :check_captcha
   
   before_destroy :remove_user_from_mailchimp
+ 
+ 
+  def update_country_state
+     
+    countrys = Country.where(:id => self.country_id) 
+    state = State.find(self.state_id)  
+   self.country = "#{countrys.name}"
+    self.province = "#{state.name}"
+   # 
+     
+   
+  end
  
  
   def check_captcha
