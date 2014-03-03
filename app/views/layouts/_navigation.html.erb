@@ -163,7 +163,7 @@
 						  <i class="icon-cog"></i> Preferences 		 <% end %>
 						    </li>
  					 
-  						  <% if current_user.has_role? :admin %>
+  						   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
   					      <li> 
     						    <%= link_to announcements_path  do %>
     						  <i class="icon-bullhorn"></i>  Site-Wide Alerts		 <% end %>
@@ -182,7 +182,7 @@
   					      </li>
  						 <% end %>
 						 
-						 	  <% if current_user.has_role? :admin %>
+						 <% if current_user.has_any_role? :editor, {:name => :admin}  %>
 						 <li class="divider"></li>
 						 
 						 
@@ -220,42 +220,48 @@
 			  
 						 <% end %> 
 						 
-						  <% if current_user.has_role? :admin %>
+						 
+						 
+						   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
 						 <li class="divider"></li>
-						 
-						 
-						 
- 						 
-						  
-						  
-						  <li class="dropdown-submenu">
+						 <li class="dropdown-submenu">
 						      <a tabindex="-1" href="#">Life Pulse</a>
 						      <ul class="dropdown-menu">
 		 					      <li> 
 		   						    <%= link_to new_life_pulse_path  do %>
 		   						  <i class="icon-bolt"></i> Create New Post	 <% end %>
-				  
 		 					      </li> 
 		 					      <li> 
 		   						    <%= link_to life_pulse_stock_pictures_path  do %>
 		   						  <i class="icon-stackexchange"></i>  Organize Stock Images <% end %>
-				  
 		 					      </li>
 						      </ul>
 						    </li>
-						  
- 					     
-					  
- 					   
 						 <% end %>
+						 
+						 
+						 
+						 
+				   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
+					 
+					 <li class="divider"></li>
+					  <li class="dropdown-submenu">
+						  <li class="dropdown-submenu">
+						      <a tabindex="-1" href="#">Emailing System</a>
+						      <ul class="dropdown-menu">
+							      <li>
+							      <%= link_to 'MailChimp',  "http://mailchimp.com/" %>
+							      </li>
+						      </ul>
+						    </li>
+					 <% end %>
+					 
+					 
+					 
+						 
 						  <% if current_user.has_role? :admin %>
 						 <li class="divider"></li>
-						 
-						 
-						 
- 						 
-						  
-						  
+ 
 						  <li class="dropdown-submenu">
 						      <a tabindex="-1" href="#">E Giving</a>
 						      <ul class="dropdown-menu">
@@ -274,23 +280,15 @@
 						    <li>
 						    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
 						    </li>
- 
 						  <% if current_user.has_role? :admin %>
-					      
 						      <li>
 						      <%= link_to 'Admin Page', users_path %>
-						      </li>
-						    
-							  
-						    
-							  
-					  		 
+						      </li> 
 						 <% end %>
 						
 						
 							 
                        </ul>
- 					 
                    </li>
 
 
