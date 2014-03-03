@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :address, :city, :province, :country, :country_id, :state_id, :postal_code,  :birthday, :gender, :home_phone, :password, :password_confirmation, :remember_me, :approved, :yes_receive_email, :captcha, :captcha_key
+  attr_accessible :name, :email, :address, :city, :province, :country_selected, :country_id, :state_id, :postal_code,  :birthday, :gender, :home_phone, :password, :password_confirmation, :remember_me, :approved, :yes_receive_email, :captcha, :captcha_key
   
   after_create :send_admin_mail, :assign_default_role, :send_welcome_email#, :add_user_to_mailchimp
  
@@ -27,11 +27,11 @@ class User < ActiveRecord::Base
  
   def update_country_state
      
-    countrys = Country.where(:id => self.country_id) 
+    countrys = Country.find(self.country_id) 
     state = State.find(self.state_id)  
-   self.country = "#{countrys.name}"
-    self.province = "#{state.name}"
-   # 
+    self.country_selected = countrys.name
+    self.province = state.name
+   
      
    
   end

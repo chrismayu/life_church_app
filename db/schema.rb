@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302195920) do
+ActiveRecord::Schema.define(:version => 20140303023957) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -561,6 +561,7 @@ ActiveRecord::Schema.define(:version => 20140302195920) do
     t.string   "province"
     t.integer  "country_id"
     t.integer  "state_id"
+    t.string   "country_selected"
   end
 
   add_index "users", ["approved"], :name => "index_users_on_approved"
