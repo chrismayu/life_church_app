@@ -27,11 +27,16 @@ class User < ActiveRecord::Base
  
   def update_country_state
      
+     
+    unless self.country_id == nil 
     countrys = Country.find(self.country_id) 
+     self.country_selected = countrys.name
+   end
+         
+    unless self.state_id == nil 
     state = State.find(self.state_id)  
-    self.country_selected = countrys.name
     self.province = state.name
-   
+      end
      
    
   end
