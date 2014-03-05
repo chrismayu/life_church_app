@@ -3,7 +3,28 @@
 <div class="page-header">
   <h1>Calendar & Events</h1>
 </div>
+ <div class="s">
+	 <p>
+	<h40>Service Times</h40>
+	
+	
+	   <% @service_times.each do |service_time| %>
+
  
+	<br>
+  <%= service_time.service_name %>&nbsp;- <%= service_time.start_time.strftime("%l:%M %p")  %> 
+
+ <% end %>
+
+	</p>
+	<% if user_signed_in? %>
+	<% if can? :edit, :abouts %>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.trip_setup', :default => t("helpers.links.Setup Service Times")),
+		                      service_times_path, :class => 'btn btn-primary btn-mini-flat' %> 
+			
+				<% end%>
+				<% end%>
+	</div>
 			
 			<div id="events">
 			  <h2 id="month">

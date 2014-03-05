@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   end
   
   def index
-  
+    @service_times = ServiceTime.all
     @events = Event.where(Event.arel_table[:event_type].not_eq(11)) 
     @events_by_date = @events.group_by(&:event_date)
        @date = params[:date] ? Date.parse(params[:date]) : Date.today
