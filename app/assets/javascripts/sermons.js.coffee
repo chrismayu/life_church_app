@@ -8,3 +8,17 @@ jQuery ->
 
 jQuery ->
  $('#remove_sermon_date').datepicker dateFormat: "dd-mm-yy", yearRange: "-1:+5", changeMonth: true, changeYear: true
+
+
+$(document).ready ->
+  audioSection = $("section#audio")
+  $("a.html5").click ->
+    audio = $("<audio>",
+      controls: "controls"
+    )
+    url = $(this).attr("href")
+    $("<source>").attr("src", url).appendTo audio
+    audioSection.html audio
+    false
+
+  return

@@ -13,15 +13,24 @@
   	
  
 							 <% if user_signed_in?  %>
-													 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")), sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+													 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")), sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				
+														 <% if sermon.audio_url?  %> <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-mini-flat btn-success'  %> <% end %>
+ 
 							  <% else %>
 							   <% if sermon.members_only == false %>
 						 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
-						   					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				 
+						   					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>	 			 
+																				 
+																				 <% if sermon.audio_url?  %> <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-flat btn-success'  %> <% end %>
+ 
+ 
+																				 
+																				 
   <% end %>
     <% end %>
-							  
-  			 
+					<br>		  
+			 <section id="audio"> 
+			 </section>
 					<% if user_signed_in? %>
 					 <% if can? :edit, :sermons %>				 
  

@@ -45,8 +45,14 @@
 		  
 	  <dt><strong><%= model_class.human_attribute_name(:members_only) %>:</strong></dt>
 	  <dd><%= @sermon.members_only %></dd>
+ <dt><strong>Listen:</strong></dt><dd>
+ 
+ <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")),
+             @sermon.audio_url, :class => 'html5 btn btn-flat btn-success'  %></dd>
  
  
+ <section id="audio"> 
+ </section>
   
 </dl>
  
