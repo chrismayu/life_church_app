@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
    include SimpleCaptcha::ControllerHelpers
-   before_filter :beta_login_required
-
-  
+   
   protect_from_forgery
   require 'will_paginate/array'
 
@@ -29,17 +27,6 @@ class ApplicationController < ActionController::Base
   
 
   protected
-  
- 
-
-      def beta_login_required
-        authenticate_or_request_with_http_basic do |username, password|
-          username == "foo" && password == "bar"
-        end
-      end
-
-
-
 
   def update_last_sign_in_at
     if user_signed_in? && !session[:logged_signin]
