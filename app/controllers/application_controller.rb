@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   
   
-  before_filter :set_ministries, :setup_about_info, :setup_site_setup_info, :update_last_sign_in_at
+  before_filter :set_ministries, :setup_about_info, :setup_site_setup_info, :update_last_sign_in_at, :require_login
   def set_ministries
     @ministries_menu = Ministry.all
   end
@@ -27,6 +27,16 @@ class ApplicationController < ActionController::Base
   
 
   protected
+  
+  def require_login
+     unless current_user
+        redirect_to new_user_session_path unless request.fullpath == new_user_session_path
+       
+        #redirect_to (:controller => "authentication", :action => "login")
+       
+     end
+   end
+  
 
   def update_last_sign_in_at
     if user_signed_in? && !session[:logged_signin]
