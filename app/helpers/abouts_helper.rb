@@ -67,5 +67,13 @@ module AboutsHelper
     end   
   end
   
+  def status_shutdown(about)
+    if about.shutdown?
+      content_tag(:div, content_tag(:span, "Maintainence Mode"), class: "label label-warning")
+    else
+      content_tag(:div, content_tag(:span, "Normal"), class: "label label-success")   
+    end   
+  end
+  
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140303023957) do
+ActiveRecord::Schema.define(:version => 20140317191659) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -267,8 +267,8 @@ ActiveRecord::Schema.define(:version => 20140303023957) do
     t.text     "description"
     t.date     "remove_event_date"
     t.boolean  "display_main_page"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.time     "event_start_time"
     t.boolean  "use_form_button"
     t.integer  "which_form"
@@ -276,7 +276,7 @@ ActiveRecord::Schema.define(:version => 20140303023957) do
     t.boolean  "share_download"
     t.boolean  "use_contact"
     t.string   "recurring_day"
-    t.boolean  "recurring_on"
+    t.boolean  "recurring_on",       :default => false
     t.boolean  "advertisement"
     t.string   "internal_link_url"
     t.boolean  "internal_link"
@@ -289,6 +289,10 @@ ActiveRecord::Schema.define(:version => 20140303023957) do
     t.boolean  "force_on_main_page"
     t.boolean  "enable_disable_ad"
     t.boolean  "highlight"
+    t.text     "scheduled_when"
+    t.text     "schedule"
+    t.datetime "next_occurence"
+    t.text     "options"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
@@ -488,6 +492,7 @@ ActiveRecord::Schema.define(:version => 20140303023957) do
     t.boolean  "articles"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "shutdown"
   end
 
   create_table "speaker_pictures", :force => true do |t|

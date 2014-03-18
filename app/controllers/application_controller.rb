@@ -30,12 +30,12 @@ class ApplicationController < ActionController::Base
   
   def require_login
      unless current_user
-        redirect_to new_user_session_path unless request.fullpath == new_user_session_path
-       
-        #redirect_to (:controller => "authentication", :action => "login")
-       
+       unless request.fullpath == site_setups_site_down_path 
+        redirect_to site_setups_site_down_path 
+      end
      end
    end
+  
   
 
   def update_last_sign_in_at

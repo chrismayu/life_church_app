@@ -17,7 +17,7 @@ LifeChurchApp::Application.routes.draw do
   
   resources :life_pulses
  
-
+  get "site_setups/site_down"
   resources :site_setups
 
 

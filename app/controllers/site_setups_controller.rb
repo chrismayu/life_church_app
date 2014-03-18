@@ -1,14 +1,23 @@
 class SiteSetupsController < ApplicationController
-  load_and_authorize_resource 
-  before_filter :authenticate_user! 
+  load_and_authorize_resource  :except => [:site_down]
+  before_filter :authenticate_user!, :except => [:site_down] 
  
-  
+   #skip_filter :require_login, :only => [:site_down]
+   
+   
   # GET /site_setups
   # GET /site_setups.json
  
 
   # GET /site_setups/1
   # GET /site_setups/1.json
+  
+  def site_down
+     
+  end
+  
+  
+  
   def show
     authorize! :approve, current_user, :message => 'Sorry - Not authorized - Contact Jason Tucker if page needed.'
   
