@@ -30,15 +30,27 @@ class ApplicationController < ActionController::Base
   
   def require_login
     
-    if @site_setup_menu.shutdown == true
-     unless current_user
-       unless request.fullpath == site_setups_site_down_path 
-        redirect_to site_setups_site_down_path 
-      end
-     end
+        if @site_setup_menu.shutdown == true
+      
+           unless current_user 
+             lockout
+            else
+        
+               unless current_user.has_role? :admin 
+                 lockout
+               end
+           end    
+       end
      
    end
+   
+   
+   def lockout
      
+     unless request.fullpath == site_setups_site_down_path 
+      redirect_to site_setups_site_down_path 
+    end
+    
    end
   
   
