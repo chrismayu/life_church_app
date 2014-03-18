@@ -12,16 +12,17 @@
     <span class="sermon_text_small "> Speaker:</span> <span class="sermon_text_small site_blue"> <%= getspeaker(sermon) %> </span>      &nbsp;&nbsp;<span class="sermon_text_small ">Topic: </span><span class="sermon_text_small site_blue">  <%= sermon.category %> </span>     <br>
   	
  
-							 <% if user_signed_in?  %>
+							 <% if user_signed_in?  %><% if sermon.audio_url?  %> 
 													 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")), sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>				
-														 <% if sermon.audio_url?  %> <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-mini-flat btn-success'  %> <% end %>
+														 <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-mini-flat btn-success'  %> <% end %>
  
 							  <% else %>
 							   <% if sermon.members_only == false %>
+							    <% if sermon.audio_url?  %>
 						 	<%= link_to t('.sign_up', :default => t("helpers.links.Download")),
 						   					 			                         sermon.audio_url, :target => '_blank', :class => 'btn btn-info btn-mini-flat' %>	 			 
 																				 
-																				 <% if sermon.audio_url?  %> <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-flat btn-success'  %> <% end %>
+																				  <%= link_to t('.Listen now', :default => t("helpers.links.Listen now")), sermon.audio_url, :class => 'html5 btn btn-flat btn-success'  %> <% end %>
  
  
 																				 
