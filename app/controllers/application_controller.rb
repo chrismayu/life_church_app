@@ -29,11 +29,16 @@ class ApplicationController < ActionController::Base
   protected
   
   def require_login
+    
+    if @site_setup_menu.shutdown == true
      unless current_user
        unless request.fullpath == site_setups_site_down_path 
         redirect_to site_setups_site_down_path 
       end
      end
+     
+   end
+     
    end
   
   
