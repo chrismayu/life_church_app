@@ -67,7 +67,7 @@
  
 <%end%>
  
-  <%= f.input :card_type , :label=>"Card Type:",  :selected=>["VISA"],  collection: [ "VISA" ,"MasterCard", "American Express", "Other" ]  %>
+  <%= f.input :card_type , :label=>"Card Type:",  :selected=>["VISA"],  collection: [ "VISA" ,"MasterCard" ]  %>
 
  
 <% if @egiving.card_number.blank? %>

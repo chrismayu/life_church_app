@@ -60,7 +60,7 @@ gem 'redcarpet'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem "heroku"
-gem "rmagick"
+#gem "rmagick"
 gem "mini_magick"
 gem "carrierwave"
 gem 'carrierwave_direct'

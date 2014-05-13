@@ -27,7 +27,7 @@ puts 'DEFAULT CHURCH ADDRESS'
 About.create!(:address => "547 Athlone Avenue", :name =>"LifeChurch" ,:postal_code => "N4S 7V8", :phone_number => "(519) 537-7700", :toll_free_phone_number => "1-888-857-LIFE", :city => "Woodstock", :province => "Ontario", :country => "Canada") 
 
 puts 'LIVE_YOUTUBE_ETC'
-SiteSetup.create!(:facebook =>"LifeInYou", :twitter =>"ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :life_pulse => true, :leaders_blog => true, :store => true, :video => true, :articles => true) 
+SiteSetup.create!(:facebook =>"LifeInYou", :shutdown => false, :twitter =>"ChrisReeftank", :youtube => "http://new.livestream.com/accounts/1715194/events/1680559", :life_pulse => true, :leaders_blog => true, :store => true, :video => true, :articles => true) 
 
 puts 'Setting up E-Giving'
 
