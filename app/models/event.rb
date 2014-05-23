@@ -43,6 +43,7 @@ validates_datetime :remove_event_date, :after => :event_date, :after_message => 
 
 
  
+ 
 # Cal Only Events  = 13
 
 #validates    :event_type, :if => :for_event_three?
