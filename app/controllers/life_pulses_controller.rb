@@ -29,7 +29,9 @@ class LifePulsesController < ApplicationController
   # GET /life_pulses/1.json
   def show
     @life_pulse = LifePulse.find(params[:id])
-   
+  
+ 
+
     respond_to do |format|
       format.html  
       format.json { render json: @life_pulse }
