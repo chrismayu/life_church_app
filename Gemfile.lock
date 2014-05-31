@@ -285,6 +285,7 @@ GEM
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.2)
     rolify (3.2.0)
     roo (1.12.1)
       nokogiri
@@ -428,6 +429,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   redcarpet
+  rmagick
   rolify
   roo
   rspec-rails
