@@ -7,28 +7,8 @@
 
 
 	<p><h5><%= ministry_child.name.html_safe %></h5></p>
+		<%= display_ministry_child_picture(ministry_child) %>
 		 
-		
-		
-       <% if ministry_child.ministry_picture_children.present? %> 
-	   
-       <% for event_picture in ministry_child.ministry_picture_children %> 
-             <% if event_picture.image_processed?  %>
-                  <% link_to(image_tag(event_picture.ministrychild_image_url(:thumb), :class =>"img-rounded"), ministry_child_path(ministry_child)) %>
-                    <%= image_tag(event_picture.ministrychild_image_url(:thumb), :class =>"img-rounded")  %>
-               <% end  %>
-             <% end  %>
-        <% else%>
-          
-          
-		   
-		  
-          <%= link_to(image_tag(placeholder_image_url "200x200", :text => "Click Here - Add Picture", :class =>"img-rounded"),  ministry_picture_children_step_1_path(:ministry_id => ministry_child.id)) %>
-     
-     
-       <% end %>
-		
- 	 
  <div class=" ministry_text pull-center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  <%= markdown(ministry_child.description )%> </div>
  
 <% if user_signed_in? %>

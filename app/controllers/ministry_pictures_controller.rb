@@ -31,7 +31,7 @@ class MinistryPicturesController < ApplicationController
 
 
     def step_2
-@ministry = Ministry.find(params[:ministry_id])
+
        @ministry_picture = MinistryPicture.new(key: params[:key], ministry_id: params[:ministry_id])
 
       respond_to do |format|
