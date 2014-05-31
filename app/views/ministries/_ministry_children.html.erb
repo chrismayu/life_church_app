@@ -11,17 +11,19 @@
 		
 		
        <% if ministry_child.ministry_picture_children.present? %> 
-	   Picture present
+	   
        <% for event_picture in ministry_child.ministry_picture_children %> 
              <% if event_picture.image_processed?  %>
-                  <%= link_to(image_tag(event_picture.ministrychild_image_url(:thumb), :class =>"img-rounded"), ministry_child_path(ministry_children)) %>
+                  <% link_to(image_tag(event_picture.ministrychild_image_url(:thumb), :class =>"img-rounded"), ministry_child_path(ministry_child)) %>
                     <%= image_tag(event_picture.ministrychild_image_url(:thumb), :class =>"img-rounded")  %>
                <% end  %>
              <% end  %>
         <% else%>
-          no picture present
           
-          <%= link_to(image_tag(placeholder_image_url "200x200", :class =>"img-rounded"),  ministry_picture_children_step_1_path(:ministry_id => ministry_children.id)) %>
+          
+		   
+		  
+          <%= link_to(image_tag(placeholder_image_url "200x200", :text => "Click Here - Add Picture", :class =>"img-rounded"),  ministry_picture_children_step_1_path(:ministry_id => ministry_child.id)) %>
      
      
        <% end %>
