@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   
   
-  before_filter :set_ministries, :setup_about_info, :setup_site_setup_info, :update_last_sign_in_at 
+  before_filter :set_ministries, :setup_about_info, :setup_site_setup_info, :update_last_sign_in_at, :require_login 
 
 
  def set_ministries
