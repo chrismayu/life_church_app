@@ -17,11 +17,12 @@
    </div>
 <% end %>
 
-
+<% if user_signed_in? %>
  <% if current_user.edit_site == true %>
   <div class="alert alert-error">
    
    Editing Abliity has been enabled &nbsp;&nbsp;&nbsp;&nbsp; 
  
    </div>
+<% end %>
 <% end %>
