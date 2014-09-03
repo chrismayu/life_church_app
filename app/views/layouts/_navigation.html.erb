@@ -28,8 +28,7 @@
 					<li><%= link_to 'Mission & Methods', abouts_mission_method_path %></li>
 	                <li><%= link_to 'What We Believe', abouts_what_we_believe_path %></li>
 					<li><%= link_to 'Our Staff', church_staffs_path %></li>
-					<li><%= link_to 'Our Facilities', abouts_facility_path %></li>
-	                <li><%= link_to 'Membership', abouts_membership_path %></li> 
+					<li><%= link_to 'Our Facilities', abouts_facility_path %></li> 
 	            </ul>
 	        </li>
 	        <li class="column-menu span2">
@@ -241,7 +240,25 @@
 						 <% end %>
 						 
 						 
-						 
+	 				   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
+					 
+	 					 <li class="divider"></li>
+	 					  <li class="dropdown-submenu">
+	 						  <li class="dropdown-submenu">
+	 						      <a tabindex="-1" href="#">Edit the site</a>
+	 						      <ul class="dropdown-menu">
+	 							      <li>
+										<% if current_user.edit_site? %>  
+									<%= link_to "Disable Editing" ,  users_edit_site_path  %>
+									    <% else %> 
+										<%= link_to "Edit the Site" ,  users_edit_site_path  %>
+									  
+									  
+									   <% end %> 
+	 							      </li>
+	 						      </ul>
+	 						    </li>
+	 					 <% end %> 
 						 
 				   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
 					 

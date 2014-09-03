@@ -136,6 +136,7 @@ LifeChurchApp::Application.routes.draw do
   
   get "users/index"
   match "users/approve" => 'users#approve'
+  get "users/edit_site"
   devise_for :users
 
   

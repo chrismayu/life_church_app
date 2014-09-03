@@ -6,7 +6,7 @@
 	 
 		           <div class="caption">  
 		             	<h5><%= bulletin_name(bulletin) %></h5>  
-					 <% if can? :edit, :bulletins %>
+					 <% if can? :edit, :bulletins && current_user.edit_site? %>
 				 
 			            <%= link_to t('.edit', :default => t("helpers.links.edit")),
 			                        edit_bulletin_path(bulletin), :class => 'btn btn-mini-flat' %>

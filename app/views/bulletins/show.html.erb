@@ -17,7 +17,7 @@
 	 
 	 
 	 <% if user_signed_in? %>  
-	   <% if can? :edit, :bulletins %>
+	   <% if can? :edit, :bulletins && current_user.edit_site? %>
 	 
  <dl class="dl-horizontal">
   
@@ -56,7 +56,7 @@
 			   <%= link_to t('.sign_up', :default => t("helpers.links.Download")),
 			                         @bulletin.bulletin_image.to_s, :target => '_blank', :class => 'btn btn-info btn-flat' %>
  			<% if user_signed_in? %> 
-			    <% if can? :edit, :bulletins %>
+			    <% if can? :edit, :bulletins && current_user.edit_site? %>
    <%= link_to t('.edit', :default => t("helpers.links.edit")),
                edit_bulletin_path(@bulletin), :class => 'btn btn-flat' %>
    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

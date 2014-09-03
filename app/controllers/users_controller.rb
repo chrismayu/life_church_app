@@ -24,7 +24,28 @@ class UsersController < ApplicationController
   
 
 
- 
+  def edit_site
+    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    @user = User.find(current_user.id)  
+    if @user.edit_site == false then
+      @user.edit_site = true
+    else
+       @user.edit_site = false     
+   end
+    
+    if @user.update_attributes(params[:edit_site], :as => :admin)
+     
+      if @user.edit_site == true then
+         redirect_to root_path, :alert => "You can now edit the Site."
+      else
+         redirect_to root_path, :notice => "You have disabled your editing abilty"
+       end
+      
+      
+    else
+      redirect_to users_path, :alert => "Unable to update user."
+    end
+  end
 
 
 

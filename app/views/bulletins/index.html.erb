@@ -14,7 +14,7 @@
  <br>
  
 	<% if user_signed_in? %>
-	<% if can? :edit, :bulletins %>
+	<% if can? :edit, :bulletins && current_user.edit_site? %>
 &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.step_1', :default => t("helpers.links.new Bulletin")),
             bulletins_step_1_path,
             :class => 'btn btn-primary btn-flat' %>

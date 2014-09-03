@@ -76,7 +76,7 @@ assembly of disciples glorifying God together. </p>
 
 	</p>
 	<% if user_signed_in? %>
-	<% if can? :edit, :abouts %>
+	<% if can? :edit, :abouts && current_user.edit_site?%>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.trip_setup', :default => t("helpers.links.Setup Service Times")),
 		                      service_times_path, :class => 'btn btn-primary btn-mini-flat' %> 
 			
@@ -106,8 +106,7 @@ assembly of disciples glorifying God together. </p>
 			<%=@abouts.city %><br>
 			<%=@abouts.province %><br>
 			<%=@abouts.postal_code %><br>
-			 <i class="icon-phone"></i>  <%=@abouts.phone_number %><br>
-			<i class="icon-phone"></i>   <%=@abouts.toll_free_phone_number %><br>
+			 <i class="icon-phone"></i>  <%=@abouts.phone_number %><br> 
 		</address>
 		
 		<p><strong>You can see the Church from 401</strong></p>
@@ -116,7 +115,7 @@ assembly of disciples glorifying God together. </p>
 		
 		
 		<% if user_signed_in? %>
-		<% if can? :edit, :abouts %>
+		<% if can? :edit, :abouts && current_user.edit_site? %>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.show', :default => t("helpers.links.Setup About")),
 		                      about_path(1), :class => 'btn btn-primary btn-mini-flat' %>
 				

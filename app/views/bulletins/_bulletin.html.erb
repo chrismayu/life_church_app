@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 
-  <% if can? :edit, :bulletins %>
+  <% if can? :edit, :bulletins && current_user.edit_site? %>
  
 <li class="span2">  
 		         <div class="thumbnail center"> 

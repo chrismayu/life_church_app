@@ -16,7 +16,7 @@
 <div class="span10"  id="main"  >
  
 			<% if user_signed_in? %>
-			<% if can? :edit, :church_staffs %>
+			<% if can? :edit, :church_staffs && current_user.edit_site? %>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.new', :default => t("helpers.links.Setup New Staff")),
 			            new_church_staff_path,
 			            :class => 'btn btn-primary btn-mini-flat' %>  <%= link_to t('.trip_setup', :default => t("helpers.links.Setup Staff Ranking")),
@@ -120,7 +120,7 @@
 
 			<br>
 			 <% if user_signed_in? %>
-			 <% if can? :edit, :church_staffs %>
+			 <% if can? :edit, :church_staffs && current_user.edit_site?%>
 			<%= link_to t('.show', :default => t("helpers.links.view/edit")),
 			            church_staff_path(church_staff), :class => 'btn   btn-success btn-mini-flat ' %>
 			 <% end%>  
