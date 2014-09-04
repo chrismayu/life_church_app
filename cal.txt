@@ -1,0 +1,1 @@
+http://blog.baugues.com/google-calendar-api-oauth2-and-ruby-on-rails
