@@ -69,7 +69,7 @@ rails g migration AddUseraddonToUser address:string city:string country:string p
 
 rails g scaffold Video name:string contact_person:string contact_email:string description:text display_rank:integer ta1:text ta2:text ta3:text ta4:text ta5:text advert_main_page:boolean title:string url:string slug:string:uniq --skip-stylesheets
 
-
+rails generate bootstrap:install less
 
 rails g bootstrap:layout application fixed
 
