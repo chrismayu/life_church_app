@@ -75,12 +75,14 @@ assembly of disciples glorifying God together. </p>
  <% end %>
 
 	</p>
-	<% if user_signed_in? %>
-	<% if can? :edit, :abouts && current_user.edit_site?%>
+	 
+	<% if user_signed_in? %> 
+	<% if can? :edit, :abouts %>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.trip_setup', :default => t("helpers.links.Setup Service Times")),
 		                      service_times_path, :class => 'btn btn-primary btn-mini-flat' %> 
 			
 				<% end%>
+					 
 				<% end%>
 	</div>
  
@@ -114,13 +116,14 @@ assembly of disciples glorifying God together. </p>
 		<p><strong>Click on the Map for Directions</strong></p>
 		
 		
-		<% if user_signed_in? %>
-		<% if can? :edit, :abouts && current_user.edit_site? %>
+		<% if user_signed_in? %> 
+		<% if can? :edit, :abouts  %>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to t('.show', :default => t("helpers.links.Setup About")),
 		                      about_path(1), :class => 'btn btn-primary btn-mini-flat' %>
 				
 					<% end%>
 					<% end%>
+				 
 		
 		
 	</div>

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 
   def edit_site
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    #authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(current_user.id)  
     if @user.edit_site == false then
       @user.edit_site = true

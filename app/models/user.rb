@@ -43,8 +43,16 @@ class User < ActiveRecord::Base
  
  
   def edit_site?
-    self.edit_site == true
-    
+     
+   if self.edit_site == true
+     p "true"
+     return true
+   else
+     p "false"
+     return false
+   end
+     
+     
   end
  
   def check_captcha

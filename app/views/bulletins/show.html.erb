@@ -16,8 +16,8 @@
  
 	 
 	 
-	 <% if user_signed_in? %>  
-	   <% if can? :edit, :bulletins && current_user.edit_site? %>
+	 <% if user_signed_in? %>   
+	   <% if can? :edit, :bulletins %>
 	 
  <dl class="dl-horizontal">
   
@@ -28,7 +28,8 @@
  
  </dl>
  <% end %>
-    <% end %>
+   
+	    <% end %>
   
  <% if @bulletin.image_processed? %>
   

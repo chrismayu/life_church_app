@@ -55,7 +55,7 @@
 </div>
  <div class="span10">  
 
-<% if user_signed_in? %>
+<% if user_signed_in? %> 
 <% if can? :edit, :ministries %>
 <strong>Options:</strong><br>
 Display on Main Page: <%= status_advert_main_page(@ministry) %> <br>
@@ -77,17 +77,20 @@ Display Ranking: <%= @ministry.display_rank %>
 <br>  <br>
  <%end%> 
  <%end%> 
+  
  
   <br>
  <% if @ministry.ministry_children.count >= 1 %>
 <p><h4>&nbsp;&nbsp;&nbsp;&nbsp;<%= @ministry.name %> Ministries:</h4></p>  
 <% if user_signed_in? %>
+ 
 <% if can? :edit, :ministries %>
 <%= link_to t('.picture', :default => t("helpers.links.Add a New Ministry for #{@ministry.name}")),
               new_ministry_child_path(:ministry_id => @ministry.id), :class => 'btn btn-mini-flat btn-success'  %>
   <br>
   <%end%> 
-  <%end%> 
+  <%end%>
+ 
 <%= render :partial => 'ministry_children' %>
    <%end%> 
 </div>

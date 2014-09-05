@@ -6,8 +6,9 @@ class Ability
   
     if user.has_role? :admin 
      
-    
+      if user.edit_site?
       can :manage, :all
+    end
  
       
     elsif user.has_role? :volunteer
