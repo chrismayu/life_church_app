@@ -1,7 +1,9 @@
 
 
 gem 'friendly_id', '~> 5.0.0'
-
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails
 
 rails g scaffold About service_day_1:string service_time_1:string service_day_2:string service_time_2:string service_day_3:string service_time_3:string address:string city:string postal_code:string phone_number:string toll_free_phone_number:string fax_number:string latitude:float longitude:float gmaps:boolean youtube:string facebook:string video_stream:string twitter:string country:string province:string life_pulse:boolean leaders_blog:boolean store:boolean video:boolean articles:boolean name:string slug:string:uniq --skip-stylesheets
 
@@ -69,41 +71,74 @@ rails g scaffold Video name:string contact_person:string contact_email:string de
 
 
 
+rails g bootstrap:layout application fixed
 
 
+rails g bootstrap:themed About -f
 
+rails g bootstrap:themed Announcement -f
 
+rails g bootstrap:themed Article -f
 
+rails g bootstrap:themed Bulletin -f
 
+rails g bootstrap:themed ChurchStaffPicture -f
 
+rails g bootstrap:themed ChurchStaff -f
 
+rails g bootstrap:themed Country -f
 
+rails g bootstrap:themed Egiving -f
 
+rails g bootstrap:themed EventForm -f
 
+rails g bootstrap:themed EventPicture -f
 
+rails g bootstrap:themed EventSetupForm -f
 
+rails g bootstrap:themed Event -f
 
+rails g bootstrap:themed LifePulsePicture -f
 
+rails g bootstrap:themed LifePulseStockPicture -f
 
+rails g bootstrap:themed LifePulse  -f
 
+rails g bootstrap:themed Ministry -f
 
+rails g bootstrap:themed MinistryChildren -f
 
+rails g bootstrap:themed MinistryPictureChildren -f
 
+rails g bootstrap:themed MinistryPicture  -f
 
+rails g bootstrap:themed Notification -f
 
+rails g bootstrap:themed Schedule -f
 
+rails g bootstrap:themed SermonPicture -f
 
+rails g bootstrap:themed Sermon -f
 
+rails g bootstrap:themed ServiceTime -f
 
- 
+rails g bootstrap:themed SiteSetup -f
 
+rails g bootstrap:themed SpeakerPicture -f
 
+rails g bootstrap:themed Speaker -f
 
+rails g bootstrap:themed StaffRank -f
 
+rails g bootstrap:themed State -f
 
+rails g bootstrap:themed Summary -f
 
+rails g bootstrap:themed User -f
 
+rails g bootstrap:themed Devise -f
 
+rails g bootstrap:themed Video -f
 
 
 
