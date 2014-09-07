@@ -1,6 +1,6 @@
 class AboutsController < ApplicationController
-  load_and_authorize_resource :except => [:index, :home, :privacy, :terms, :what_to_expect, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
-  before_filter :authenticate_user!, :except => [:index, :privacy, :terms, :what_to_expect, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+  load_and_authorize_resource :except => [:index, :home, :our_staff, :who_we_are,:privacy, :terms, :what_to_expect, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
+  before_filter :authenticate_user!, :except => [:index, :our_staff, :who_we_are, :privacy, :terms, :what_to_expect, :home, :become_a_believer, :giving, :what_we_believe, :mission_method, :facility, :membership ]
  
   
   def home
@@ -20,6 +20,24 @@ class AboutsController < ApplicationController
      
      @abouts = About.last
     
+  end
+  
+  def our_staff
+    
+    @church_staffs = ChurchStaff.all
+    
+  end
+  
+  def who_we_are
+    @abouts = About.last
+    @service_times = ServiceTime.all
+    @message = Message.new
+    abouts = About.last
+     @json = abouts.to_gmaps4rails
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @abouts }
+    end
   end
   
   def mission_method  

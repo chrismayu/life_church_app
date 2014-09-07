@@ -115,19 +115,7 @@ LifeChurchApp::Application.routes.draw do
 
 # match 'general-info' => 'abouts#index', :as => 'abouts', :via => :get 
 
-  post 'abouts/contact' 
-  get "abouts/home"
-  root :to => 'abouts#home'
-  get "abouts/mission_method"
-  get "abouts/what_we_believe"
-  get "abouts/facility"
-  get "abouts/membership"
-  get "abouts/giving"
-  get "abouts/become_a_believer"
-  get "abouts/terms"
-  get "abouts/privacy"
-  get "abouts/what_to_expect"
-  resources :abouts
+
 
 
   authenticated :user do
@@ -153,4 +141,41 @@ LifeChurchApp::Application.routes.draw do
   
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  
+  
+  
+  root :to => 'abouts#home'
+  
+ post 'abouts/contact' 
+
+   resources :abouts, :path => '' do
+     collection do
+      
+       get "mission_method" 
+       get "what_we_believe"
+       get "facility"
+       get "membership"
+       get "giving"
+       get "become_a_believer"
+       get "terms"
+       get "privacy"
+       get "what_to_expect"
+       get "who_we_are"
+       get "our_staff"
+      
+     end
+   #  post 'abouts/contact' 
+   #  get "abouts/home" 
+     #get "mission_method" 
+   #  get "abouts/what_we_believe"
+   #  get "abouts/facility"
+   #  get "abouts/membership"
+   #  get "abouts/giving"
+   #  get "abouts/become_a_believer"
+   #  get "abouts/terms"
+    # get "abouts/privacy"
+   #  get "abouts/what_to_expect"
+    
+   end
+  
 end

@@ -24,11 +24,11 @@
 	        <li class="column-menu span2 firstcolumn">
 			<p>&nbsp; About Life Church</p>
 	            <ul>
-					<li><%= link_to 'Who We Are', abouts_path %></li>
-					<li><%= link_to 'Mission & Methods', abouts_mission_method_path %></li>
-	                <li><%= link_to 'What We Believe', abouts_what_we_believe_path %></li>
-					<li><%= link_to 'Our Staff', church_staffs_path %></li>
-					<li><%= link_to 'Our Facilities', abouts_facility_path %></li> 
+					<li><%= link_to 'Who We Are', who_we_are_abouts_path %></li>
+					<li><%= link_to 'Mission & Methods', mission_method_abouts_path %></li>
+	                <li><%= link_to 'What We Believe', what_we_believe_abouts_path %></li>
+					<li><%= link_to 'Our Staff', our_staff_abouts_path %></li>
+					<li><%= link_to 'Our Facilities', facility_abouts_path %></li> 
 	            </ul>
 	        </li>
 	        <li class="column-menu span2">
@@ -40,7 +40,7 @@
 	            </ul>
 	        </li>
             <ul class="span4">   
-				<li  class="menu_spacing_lower">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <%= link_to image_tag("new_here_menu.png", size: "20x20"), abouts_what_to_expect_path %> <%= link_to 'New Here, What to Expect?', abouts_what_to_expect_path, :class => "menu_spacing_text" %></li>
+				<li  class="menu_spacing_lower">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <%= link_to image_tag("new_here_menu.png", size: "20x20"), what_to_expect_abouts_path %> <%= link_to 'New Here, What to Expect?', what_to_expect_abouts_path, :class => "menu_spacing_text" %></li>
  
             </ul>
 	 
@@ -61,11 +61,12 @@
 				     <% end %>
 
 				 	<% if user_signed_in? %>
-					<% if current_user.has_role? :admin %>
+				 
+					<% if can? :edit, :ministries  %>
 				  <li>  <%= link_to 'Create New Ministry',  new_ministry_path %></li>
 			     <% end %> 
 			     <% end %>
-					        
+			  		        
 				 
 				  
 	            </ul>
@@ -101,7 +102,7 @@
 	 
 	            <ul>
 					<p>&nbsp; Categories </p> 
-					<li><%= link_to ' Become A Believer',  abouts_become_a_believer_path %></li>
+					<li><%= link_to ' Become A Believer',   become_a_believer_abouts_path %></li>
 				    <% if @site_setup_menu.leaders_blog? %>
 				    <li><a href="#">Leader's Blogs</a></li>
 				    <% end %>
