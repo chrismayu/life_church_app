@@ -7,7 +7,7 @@ gem "twitter-bootstrap-rails
 
 rails g scaffold About service_day_1:string service_time_1:string service_day_2:string service_time_2:string service_day_3:string service_time_3:string address:string city:string postal_code:string phone_number:string toll_free_phone_number:string fax_number:string latitude:float longitude:float gmaps:boolean youtube:string facebook:string video_stream:string twitter:string country:string province:string life_pulse:boolean leaders_blog:boolean store:boolean video:boolean articles:boolean name:string slug:string:uniq --skip-stylesheets
 
-rails g scaffold Announcement message:text starts_at:datetime ends_at:datetime green:boolean colours:string --skip-stylesheets
+run 'rails g scaffold Announcement message:text starts_at:datetime ends_at:datetime green:boolean colours:string --skip-stylesheets'
 
 rails g scaffold Article name:string contact_person:string contact_email:string description:text display_rank:integer ta1:text ta2:text ta3:text ta4:text ta5:text advert_main_page:boolean title:string slug:string:uniq --skip-stylesheets
 

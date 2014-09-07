@@ -8,6 +8,9 @@ class Ability
      
       if user.edit_site?
       can :manage, :all
+    else
+      can :read, :all
+      
     end
  
       
