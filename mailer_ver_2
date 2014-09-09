@@ -1,5 +1,4 @@
 system 'rails g bootstrap:themed admin_mailer new_user_waiting_for_approval let_us_know'
-system 'rails g bootstrap:themed member_mailer'
 system 'rails g bootstrap:themed error_mailer found _error'
 system 'rails g bootstrap:themed event_form_mailer thank_you_we_have_received new_form_submitted'
 system 'rails g bootstrap:themed event_mailer  event_message'
