@@ -11,14 +11,14 @@ class StaffImageUploader < CarrierWave::Uploader::Base
   process :set_content_type
 
   version :main do
-    process resize_to_fill: [220, 205]
+    process resize_to_fill: [220, 220]
   end
 
   version :thumb do
-    process resize_to_fill: [220, 205]
+    process resize_to_fill: [220, 220]
   end
   
   version :stamp do
-    process resize_to_fill: [150, 140]
+    process resize_to_fill: [150, 150]
   end
 end
