@@ -30,7 +30,7 @@ validate :max_forced_on_main_page_advertisments, :if => :for_event_one?
 validates_format_of :contact_email, :with => /.+@.+\..+/i,  :presence => {:message => 'Must enter a email address'}, :if => :for_event_two? 
 #validates   :use_form_button, :if => :for_event_two?
 #validates   :which_form, :if => :for_event_two?
- validates   :download_link  #, :if => :for_event_two?
+ validate :download_link  #, :if => :for_event_two?
 #validates   :share_download, :if => :for_event_two?
 #validates   :description, :if => :for_event_two?
 #validates  :template_selected, :if => :for_event_two?
