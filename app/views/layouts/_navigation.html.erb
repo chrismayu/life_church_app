@@ -184,6 +184,8 @@
  						 <% end %>
 						 
 						 <% if current_user.has_any_role? :editor, {:name => :admin}  %>
+						  <% if current_user.edit_site? %>
+					 
 						 <li class="divider"></li>
 						 
 						 
@@ -220,10 +222,11 @@
 						    </li>
 			  
 						 <% end %> 
+						  <% end %> 
 						 
 						 
 						 
-						   <% if current_user.has_any_role? :editor, {:name => :admin}  %>
+						   <% if current_user.has_any_role? :editor, {:name => :admin}   %>
 						 <li class="divider"></li>
 						 <li class="dropdown-submenu">
 						      <a tabindex="-1" href="#">Life Pulse</a>
