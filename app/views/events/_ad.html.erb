@@ -5,7 +5,10 @@
 <%= f.input :force_on_main_page, :label=>"Force Ad on the Main Page?:" , :hint=>'Must be enabled to select this' %>
 
 
- 
+ <% unless @event.programs.first.present? %> 
 <%= f.input :internal_link_url, :label=>"Link to URL:" , :hint=>'Leave blank if no link needed' %>
+ <%end%>
  
- 
+ <% unless @event.persisted? %>
+ <%= f.input :create_own_page, :label=>"Create Ad Page?:"  %>
+ <%end%>

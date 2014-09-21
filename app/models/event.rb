@@ -2,11 +2,16 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :event_name, use: :history
   
-  attr_accessible :contact_email, :event_type, :highlight,  :summary, :force_on_main_page,  :recurring_day,:template_selected, :no_expiry, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
+  attr_accessible :contact_email, :event_type, :highlight, :create_own_page, :summary, :force_on_main_page,  :recurring_day,:template_selected, :no_expiry, :internal_link_url, :internal_link, :recurring_on, :contact_person, :use_contact, :use_form_button, :which_form, :download_link, :share_download, :description, :event_start_time, :display_main_page, :event_date, :event_name, :event_time, :location, :remove_event_date
 
 has_many :event_pictures, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event, :dependent => :destroy
 has_many :event_setup_forms, :foreign_key => :event_id, :primary_key =>  :id, :inverse_of => :event 
+has_many :programs, :inverse_of => :event, :dependent => :destroy
 
+after_create :add_program_page
+
+
+ 
 
 validates  :event_name, :presence => true, length: { maximum: 250 }  
 
@@ -20,7 +25,7 @@ validate :max_forced_on_main_page_advertisments, :if => :for_event_one?
 # Ad Events  = 11
 
 #validates   :no_expiry, :if => :for_event_one? 
- validates   :internal_link_url, length: { maximum: 30 } #, :if => :for_event_one?
+ validate   :internal_link_url  #, :if => :for_event_one?
 #validates   :internal_link, :if => :for_event_one?
 # validates   :recurring_on, :if => :for_event_one?
 
@@ -30,7 +35,7 @@ validate :max_forced_on_main_page_advertisments, :if => :for_event_one?
 validates_format_of :contact_email, :with => /.+@.+\..+/i,  :presence => {:message => 'Must enter a email address'}, :if => :for_event_two? 
 #validates   :use_form_button, :if => :for_event_two?
 #validates   :which_form, :if => :for_event_two?
- validate :download_link  #, :if => :for_event_two?
+validate :download_link  #, :if => :for_event_two?
 #validates   :share_download, :if => :for_event_two?
 #validates   :description, :if => :for_event_two?
 #validates  :template_selected, :if => :for_event_two?
@@ -58,7 +63,15 @@ after_validation :move_friendly_id_error_to_name
  
  
 
+def add_program_page
+  
+  if self.create_own_page?
+  
+ self.programs.create!({program_name: self.event_name.html_safe})
  
+  end
+ 
+end
 
 
 

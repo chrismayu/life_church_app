@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140903213532) do
+ActiveRecord::Schema.define(:version => 20140920033008) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -293,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20140903213532) do
     t.text     "schedule"
     t.datetime "next_occurence"
     t.text     "options"
+    t.boolean  "create_own_page",    :default => false
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
@@ -411,6 +412,22 @@ ActiveRecord::Schema.define(:version => 20140903213532) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "programs", :force => true do |t|
+    t.string   "program_name"
+    t.string   "contact_email"
+    t.string   "location"
+    t.string   "contact_person"
+    t.text     "description"
+    t.date     "remove_program_date"
+    t.boolean  "display_main_page"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "slug"
+    t.integer  "event_id"
+  end
+
+  add_index "programs", ["slug"], :name => "index_programs_on_slug"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
