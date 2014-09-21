@@ -89,24 +89,30 @@
 				  	    <%end%>  
   	  
 				       <% unless church_staff.facebook.blank? %>	
-				  	 <p>   <i class="icon-facebook"></i> <%= church_staff.facebook %> </p>
+				  	 <p>   <i class="icon-facebook"></i>  
+					 
+					 <%= link_to "Facebook",church_staff.facebook %>
+					 </p>
 	 
 					    <%end%> 
 		
 		
 					   <% unless church_staff.linked_in.blank? %>	
-					  	 <p>  <i class="icon-linkedin"></i>   <%= church_staff.linked_in %> </p> 
+					  	 <p>  <i class="icon-linkedin"></i>  
+						  <%= link_to "Linkedin",church_staff.linked_in %>
+						 </p> 
 	 
 					    <%end%> 
 						
 					   <% unless church_staff.google_plus.blank? %>	
-					  	<p>   <i class="icon-google-plus"></i> <%= church_staff.google_plus %></p> 
+					  	<p>   <i class="icon-google-plus"></i>
+						  <%= link_to "Google Plus",church_staff.google_plus %></p> 
 	 
 					    <%end%> 
    
        
 					   <% unless church_staff.twitter.blank? %>	
-					  	 <p>  <i class="icon-twitter"></i> <%= church_staff.twitter %> </p>
+					  	 <p>  <i class="icon-twitter"></i>   <%= link_to "Twitter",church_staff.twitter %></p>
 	  
 					    <%end%> 
  
@@ -120,7 +126,7 @@
 
 			<br>
 			 <% if user_signed_in? %>
-			 <% if can? :edit, :church_staffs && current_user.edit_site?%>
+			 <% if can? :edit, :church_staffs && current_user.edit_site? %>
 			<%= link_to t('.show', :default => t("helpers.links.view/edit")),
 			            church_staff_path(church_staff), :class => 'btn   btn-success btn-mini-flat ' %>
 			 <% end%>  

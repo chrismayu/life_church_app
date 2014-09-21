@@ -36,9 +36,9 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:edit_site], :as => :admin)
      
       if @user.edit_site == true then
-         redirect_to root_path, :alert => "You can now edit the Site."
+         redirect_to session[:previous_url], :alert => "You can now edit the Site."
       else
-         redirect_to root_path, :notice => "You have disabled your editing abilty"
+         redirect_to session[:previous_url], :notice => "You have disabled your editing abilty"
        end
       
       
