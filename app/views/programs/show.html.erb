@@ -1,0 +1,83 @@
+<%- model_class = Program -%>
+ <% content_for :title,  @program.program_name.html_safe  %>
+ 
+
+<div class="row "> 
+	<div class="span10  mission_bg img-rounded">
+
+
+ 
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%= @program.program_name %></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+<% if @event.event_pictures.present? %>
+ <div class="row ">
+	 
+  <div class="span10">   <br>
+ <%= render :partial => 'picture' %> 
+ <br>
+
+</div>
+</div>
+
+
+  <hr class="round_line_hoz2 " /> 
+  
+  <%end%>
+<div class="row ">
+	 
+ <div class="offset1 span9">  
+
+	 <p class="ministry_text pull-center">
+ 
+ 
+ <br>
+ 
+ <% unless @program.description.blank? %>
+&nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@program.description)  %>  </div>
+ <%end%> 
+  
+ 
+
+</p>
+
+</div>
+ <div class="span10">  
+
+<% if user_signed_in? %> 
+<% if can? :edit, :programs %>
+ 
+ <br>
+ 
+	
+	<div class="span9 form-actions">
+	  <%= link_to t('.back', :default => t("helpers.links.back")),
+	              event_path(@event), :class => 'btn'  %>
+	  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	              edit_program_path(@program), :class => 'btn' %>
+	   
+	</div>
+   
+<br>  <br>
+ <%end%> 
+ <%end%> 
+  
+ 
+  <br>
+  
+</div>
+</div>
+</div> <!-- Span-->
+
+<div class="span1">
+ <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div> <!-- Row-->
+
+
+
+ 

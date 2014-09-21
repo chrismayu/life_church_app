@@ -1,8 +1,9 @@
 class EventPicture < ActiveRecord::Base
   attr_accessible :event_image, :event_id, :eventimage, :image_processed, :linked_event, :title
      mount_uploader :event_image, EventImageUploader
-  belongs_to :event, :inverse_of => :event_pictures
-
+   
+   belongs_to :event, :inverse_of => :event_pictures
+ 
 
  
      after_create :enqueue_image

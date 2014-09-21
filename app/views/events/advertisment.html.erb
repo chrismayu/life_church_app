@@ -27,6 +27,23 @@
 	 
  
          <td><%= event_form_bool(event.display_main_page) %></td>
+		 
+		 <td>
+	 
+		 
+		  
+	    	<% event.programs.each do |app| %>
+	     		<p>
+	  				<%= link_to "View/Edit Page", program_path(app), :class => 'btn btn-success' %>
+
+	  			<br></p>
+	     	 <% end %>
+		  
+ 
+		  
+		  </td>
+	  </li>
+		 ----
         <td>
 			<% if event.event_pictures.present? %>
 			<% for event_picture in event.event_pictures %>

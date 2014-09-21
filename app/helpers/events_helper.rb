@@ -34,31 +34,63 @@ module EventsHelper
    def display_sidebar_event_picture(event_pictures)
 
      if event_pictures.event_type == 11
-
-                 if event_pictures.event_pictures.present?  
-                   for event_picture in event_pictures.event_pictures  
-                    if event_picture.image_processed?  
+ 
+     
+           if  event_pictures.programs.first !=nil 
+                  link = event_pictures.programs.first.program_name 
+             end 
+     
+     
+                 if event_pictures.event_pictures.present? 
             
-                       if event_pictures.internal_link_url.blank?
-                      return  image_tag(event_picture.event_image_url(:side)) 
-                    else
-                      return link_to(image_tag(event_picture.event_image_url(:side)), "#{event_pictures.internal_link_url}") 
-       
-                    end
+                   puts " HI- ------here--------" 
+                       for event_picture in event_pictures.event_pictures 
+                          puts " HI- ------inside for--------"  
+                              if event_picture.image_processed?  
+                                  puts " HI- ------image_processed?--------"  
+                                     if event_pictures.internal_link_url.blank? & link.blank?
+                                    return  image_tag(event_picture.event_image_url(:side)) 
+                                  else
+                                    
+                                    puts " HI- ------ablve link--------" 
+                                  if link.blank?
+                                      puts " HI- ------link--------" 
+                                      return link_to(image_tag(event_picture.event_image_url(:side)), "#{event_pictures.internal_link_url}") 
+                                 else 
+                                      return link_to(image_tag(event_picture.event_image_url(:side)), program_path(link)) 
+                                end
+                        
+                                end
                  
-              
-                    end  
+                        end  
                    end 
        
-                  else
-
-                  if  event_pictures.internal_link_url.blank?
-                      return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
-                    else
-                      return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"),  "#{event_pictures.internal_link_url}") 
-        
-                    end
        
+       
+       
+                  else
+             
+                  
+                          if  event_pictures.internal_link_url.blank?
+                              return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+                            else
+                              return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"),  "#{event_pictures.internal_link_url}") 
+        
+                            end
+                      puts " HI- ---------7687-----"
+                    if  event_pictures.programs !=nil
+                      puts " HI----------------------------------"
+                        
+                	        event.programs.each do |app| 
+                	 
+                	         return link_to(image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px"),  "#{program_path(app)}") 
+                         end
+                          
+                         else
+                           
+                           return  image_tag(placeholder_image_url "216x150", :text => "#{event_pictures.event_name.html_safe}", :bg => "E0E1E2", :fg => "667",:padding =>"33px") 
+                   
+                      end
        
        
                  end
