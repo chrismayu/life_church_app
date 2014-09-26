@@ -46,7 +46,7 @@
 <p> Donation:</p>
 <%= f.input :finalamount, :label=>'Donation Amount (CDN):', :placeholder=>"Ex 100.00", :input_html => { :class => "enroll_input span2 "}    %>
  
-  <%= f.input :propose_of_donation, :label=>"Propose of Donation:",  :placeholder=>'Tithe, Offering, etc',  :input_html => { :class => "enroll_input span3"}  %>
+  <%= f.input :propose_of_donation, :label=>"Purpose of Donation:",  :placeholder=>'Tithe, Offering, etc',  :input_html => { :class => "enroll_input span3"}  %>
 </th>
 </tr>
  <tr>     
@@ -84,11 +84,11 @@
  
 <% if @egiving.date_month.blank? %>
   
-  <%= f.input :date_month, :label=>"Expiry Date Month:",  :selected=>[01],  collection: 01..12  %>
+  <%= f.input :date_month, :label=>"Expiry Date Month:",  :selected=>[01],  collection: 01..12 , :required => true  %>
 
 <%else%>
 
-<%= f.input :date_month ,  :label=>"Expiry Date Month:",   collection: 01..12,  :selected => @egiving.date_month.decrypt(ENV["SECRET_STRONGBOX"]).to_i   %>
+<%= f.input :date_month ,  :label=>"Expiry Date Month:",   collection: 01..12,  :selected => @egiving.date_month.decrypt(ENV["SECRET_STRONGBOX"]).to_i , :required => true   %>
 
 
 <%end%>
@@ -97,11 +97,11 @@
 
 <% if @egiving.date_year.blank? %>
   
-  <%= f.input :date_year , :label=>"Expiry Date Year:",  :selected=>[13],  collection: 2013..2023  %>
+  <%= f.input :date_year , :label=>"Expiry Date Year:",  :selected=>[13],  collection: 2013..2023 , :required => true  %>
 
 <%else%>
 
-<%= f.input :date_year , :label=>"Expiry Date Year:",   collection: 2013..2023,  :selected => @egiving.date_year.decrypt(ENV["SECRET_STRONGBOX"]).to_i   %>
+<%= f.input :date_year , :label=>"Expiry Date Year:",   collection: 2013..2023,  :selected => @egiving.date_year.decrypt(ENV["SECRET_STRONGBOX"]).to_i , :required => true   %>
 
 
 <%end%>
