@@ -97,8 +97,10 @@ park.png: park-3d2a1858a6fdba2f5c44ef6c50c4d5e4.png
 park/index.png: park-3d2a1858a6fdba2f5c44ef6c50c4d5e4.png
 pulse-hover_final.png: pulse-hover_final-d105f72fe65b888ed5f0d15f40fe6373.png
 pulse-hover_final/index.png: pulse-hover_final-d105f72fe65b888ed5f0d15f40fe6373.png
-pulse_page_header.jpeg: pulse_page_header-94a6dad6944fd0bf5e2f9f13b72fd531.jpeg
-pulse_page_header/index.jpeg: pulse_page_header-94a6dad6944fd0bf5e2f9f13b72fd531.jpeg
+pulse_page_header_black.jpeg: pulse_page_header_black-94a6dad6944fd0bf5e2f9f13b72fd531.jpeg
+pulse_page_header_black/index.jpeg: pulse_page_header_black-94a6dad6944fd0bf5e2f9f13b72fd531.jpeg
+pulse_page_header_white.jpeg: pulse_page_header_white-b152de867109f247297839c719f6abf6.jpeg
+pulse_page_header_white/index.jpeg: pulse_page_header_white-b152de867109f247297839c719f6abf6.jpeg
 pulsemini.png: pulsemini-0f2dd8504f2f561e6623efc9a614863c.png
 pulsemini/index.png: pulsemini-0f2dd8504f2f561e6623efc9a614863c.png
 service_time-side.png: service_time-side-ab5d925d1abbab88288f842ef8c51609.png
@@ -123,10 +125,10 @@ volunteer_hand.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 volunteer_hand/index.png: volunteer_hand-cd6cf60d6ebe36cde7ba9c6ff4cfca35.png
 you_are_welcome.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
 you_are_welcome/index.png: you_are_welcome-ef24716c8773e61f858f9c130eb40ba4.png
-application.js: application-0c11556393391724c78f84c172338525.js
-application/index.js: application-0c11556393391724c78f84c172338525.js
-application.css: application-a21e2e738b45b566e02dd0d026196bd9.css
-application/index.css: application-a21e2e738b45b566e02dd0d026196bd9.css
+application.js: application-a2ab3bcb0073fa47f2f629405f93c48a.js
+application/index.js: application-a2ab3bcb0073fa47f2f629405f93c48a.js
+application.css: application-fc4d1bf90044feb2ff0adb4304c5175d.css
+application/index.css: application-fc4d1bf90044feb2ff0adb4304c5175d.css
 FontAwesome.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 FontAwesome/index.otf: FontAwesome-d2e1f2cb067bb8a9b129341f5ed85582.otf
 fontawesome-webfont.eot: fontawesome-webfont-009f6d1f667cc42c25e712ab3429cbc7.eot
