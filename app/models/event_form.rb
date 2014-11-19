@@ -11,3 +11,5 @@ class EventForm < ActiveRecord::Base
 belongs_to :event_setup_forms, :inverse_of => :event_forms
 
 end
+
+
