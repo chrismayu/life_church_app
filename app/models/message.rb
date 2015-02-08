@@ -9,7 +9,7 @@ class Message
  
  validates  :name,  :presence => {:message => 'Must enter your name'}, length: { maximum: 250 }
  
-validates  :subject,  :presence => {:message => 'Must enter your name'}, length: { maximum: 250 }
+validates  :subject,  :presence => {:message => 'Must enter a Subject'}, length: { maximum: 250 }
  
  validates :body, presence: true 
  
