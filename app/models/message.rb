@@ -4,12 +4,12 @@ class Message
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :email, :subject, :body, :staff, :staff_name, :staff_email, :event_name
+  attr_accessor :name, :email, :subject, :body, :staff, :staff_name, :staff_email, :event_name, :ministry_id
 
  
  validates  :name,  :presence => {:message => 'Must enter your name'}, length: { maximum: 250 }
  
- validates  :subject,  :presence => {:message => 'Must enter your name'}, length: { maximum: 250 }
+validates  :subject,  :presence => {:message => 'Must enter your name'}, length: { maximum: 250 }
  
  validates :body, presence: true 
  

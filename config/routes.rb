@@ -132,6 +132,10 @@ LifeChurchApp::Application.routes.draw do
 
   
   resources :users
+
+  match 'contact_ministry' => 'contact_ministry#new', :as => 'contact_ministry', :via => :get
+  match 'contact_ministry' => 'contact_ministry#create', :as => 'contact_ministry', :via => :post
+
   
   match 'contact_event' => 'contact_event#new', :as => 'contact_event', :via => :get
   match 'contact_event' => 'contact_event#create', :as => 'contact_event', :via => :post

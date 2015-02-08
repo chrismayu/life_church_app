@@ -1,0 +1,100 @@
+ <% provide(:title, "Contact Us" ) %>
+<div class="Row">
+	<div class="span10 mission_bg img-rounded ">
+
+
+<div class="mission_bg img-rounded ">
+
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Learn More: <%= @ministries.name%></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+
+<%= debug @message%>
+<%= debug @ministries%>
+<%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_ministry_path do |f| %>
+<table class="table table-striped"> 
+  <tbody>
+  	 <tr>	     
+	  <th>
+		<br>
+		<% if @message.persisted? %> 
+ 
+		<%= f.input :ministry_id, as: :hidden  %>
+		<%= f.input :subject , as: :hidden %>
+			<br>
+				<br>
+		
+		
+		<% else %>
+		<% if @ministries != nil%>
+		
+ 
+		<%= f.input :ministry_id, :input_html => {  :value =>  @ministries.id }, as: :hidden %>
+		<%= f.input :subject, :input_html => {  :value => "Question About #{@ministries.name}" }, as: :hidden %>
+			<br>
+				<br>
+			
+  
+				
+		<% end %>
+		
+		<% end %>
+		
+		<% if @user !=nil  %>
+ <% if @user.name?  %>
+    <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span5", :value =>  @user.name   }  %>
+	<% else %>
+	  <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span5" } %>
+	<% end%>
+	<% else %>
+	  <%= f.input :name, :label=>"Name:", :placeholder=>"Your Name", :input_html => { :class => "enroll_input span5" } %>
+	<% end%>
+       
+  <% if @user !=nil  %>
+    <% if @user.email? %>
+	<%= f.input :email,  :label=>"Email Address:",  :input_html => { :class => "enroll_input span4", :value =>  @user.email}, :wrapper => :append do %>
+	  <%= f.input_field :email, :value =>  @user.email,  :placeholder=>"Your Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
+	<% end %>
+   	<% else %>
+	<%= f.input :email,  :label=>"Email Address:",  :input_html => { :class => "enroll_input span4"}, :wrapper => :append do %>
+	  <%= f.input_field :email,   :placeholder=>"Your Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
+	<% end %>
+   	<% end%>
+ 
+   	<% else %>
+	<%= f.input :email,  :label=>"Email Address:",  :input_html => { :class => "enroll_input span4"}, :wrapper => :append do %>
+	  <%= f.input_field :email,   :placeholder=>"Your Email Address" %><span class="add-on"><i class="icon-envelope"></i></span>
+	<% end %>
+   	<% end%>
+ 
+ 
+
+	<%= f.input :body, :label=>'Message:', as: :text, :input_html => { :class => "enroll_input span4", :rows => 6} %>
+
+ </th>
+</tr>
+</tbody>
+</table>
+  
+<div class="pull-center">
+	    <%= f.button :submit, 'Send Message', :class => 'btn-primary btn btn-flat' %>
+	    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	                root_path, :class => 'btn btn-flat' %>
+	
+			    </div>
+ 
+<% end %>
+
+
+</div>
+</div>  
+
+<div class="span1">
+  <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div>  
+
+
+	
