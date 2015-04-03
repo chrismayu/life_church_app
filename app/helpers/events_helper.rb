@@ -38,6 +38,7 @@ module EventsHelper
      
            if  event_pictures.programs.first !=nil 
                   link = event_pictures.programs.first.program_name 
+                  program_id = event_pictures.programs.first.id
              end 
      
      
@@ -57,7 +58,7 @@ module EventsHelper
                                       puts " HI- ------link--------" 
                                       return link_to(image_tag(event_picture.event_image_url(:side)), "#{event_pictures.internal_link_url}") 
                                  else 
-                                      return link_to(image_tag(event_picture.event_image_url(:side)), program_path(link)) 
+                                      return link_to(image_tag(event_picture.event_image_url(:side)), program_path(program_id)) 
                                 end
                         
                                 end
