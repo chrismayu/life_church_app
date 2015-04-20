@@ -10,8 +10,7 @@
   <td><hr class="round_line_hoz" /></td>
 </table>
 
-<%= debug @message%>
-<%= debug @ministries%>
+ 
 <%= simple_form_for @message, :html => { :class => 'form-horizontal'} , :url => contact_ministry_path do |f| %>
 <table class="table table-striped"> 
   <tbody>
@@ -79,9 +78,19 @@
   
 <div class="pull-center">
 	    <%= f.button :submit, 'Send Message', :class => 'btn-primary btn btn-flat' %>
+	  
+	  <% if @ministries != nil%>
 	    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-	                root_path, :class => 'btn btn-flat' %>
+	                ministry_path(@ministries.id), :class => 'btn btn-flat' %>
 	
+	
+	<% else %>
+	
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path , :class => 'btn btn-flat' %>
+
+	
+	<% end %>
 			    </div>
  
 <% end %>
