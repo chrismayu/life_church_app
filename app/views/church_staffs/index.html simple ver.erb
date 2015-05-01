@@ -1,0 +1,59 @@
+ 
+  <% provide(:title, "Staff") %>
+<div class="Row">
+	<div class="span10">
+
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Church Staff</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+<hr class="round_line_hoz2 " /> 
+<br>
+  
+<div class="span8 text-center "  id="main"  >
+ 
+ 
+ <table class="table   span5">
+  
+   <tbody>
+	<% @church_staffs.each.with_index do |church_staff, index| %>
+     
+       <tr>
+         <td><%= church_staff.first_name %> <%= church_staff.last_name %>  </td>
+			       
+ 
+         <td>
+		   <%= church_staff.title %></td>
+		    <td>   
+	    <i class="icon-envelope"></i> <%= link_to "Contact #{church_staff.first_name}",
+	                      contact_staff_path(:staff => church_staff.email_id) %></td>
+			
+         
+		
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+ 
+ 
+ <br>
+ <br> 
+ <br>
+ <br>
+		 
+		 
+		 
+	</div>
+		</div>
+		
+	</div> <!-- Span-->
+
+	<div class="span1">
+	 <%= render :partial => 'abouts/side_buttons'%>
+      
+	</div>
+	</div> <!-- Row-->
+		
