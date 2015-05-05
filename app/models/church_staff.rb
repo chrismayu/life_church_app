@@ -11,7 +11,7 @@ validates  :first_name,  :presence => {:message => 'Must enter a first name'}
 validates  :last_name,  :presence => {:message => 'Must enter a last name'}
 
  #validates :date_of_birth, :presence => true
-validates :description, presence: true, length: { maximum: 240 }
+validates :description,  length: { maximum: 240 }
 
  
 
