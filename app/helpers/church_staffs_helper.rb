@@ -34,9 +34,9 @@ module ChurchStaffsHelper
   
   
   def email(staff)
-    
+    unless staff.email !=nil
     content_tag(:p, content_tag(:i," ", class: "icon-envelope") + contact_staff_email(staff))
- 
+  end
   end
   
   def url(staff)
