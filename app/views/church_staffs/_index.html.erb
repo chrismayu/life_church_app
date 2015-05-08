@@ -52,18 +52,17 @@
 <br>
 			<div class="span4">
    
-  			  	<div class="pull-left">
+  			  	<div class="pull-center">
 			          <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
 			           <br>  <em> <%= church_staff.title %> </em><br>
 			   </p>
-   
- 	
+  
 			       <% unless church_staff.description.blank? %>	
-			         <div class="pull-left staff_descrip img-rounded"> <p class="pull-left"> <%= markdown(church_staff.description) %></p></div>
-				  <br>
+			         <div class="pull-center staff_descrip img-rounded"> <p class="pull-left"> <%= markdown(church_staff.description) %></p></div>
+				  <br><br><br>
 			 	    <%end%> 
 					
-
+ 
 	  <%= staff_details(church_staff)  %>
 
 			<br>

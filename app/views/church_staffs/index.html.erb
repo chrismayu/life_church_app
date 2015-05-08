@@ -52,14 +52,14 @@
 
 			<div class="span4">
    
-  			  	<div class="pull-left">
+  			  	<div class="pull-center">
 			          <p><strong> <%= church_staff.first_name %> <%= church_staff.last_name %> </strong>  
 			           <br>  <em> <%= church_staff.title %> </em><br>
 			   </p>
    
  	
 			       <% unless church_staff.description.blank? %>	
-			         <div class="pull-left staff_descrip img-rounded"> <p class="pull-left"> <%= markdown(church_staff.description) %></p></div>
+			         <div class="pull-center staff_descrip img-rounded"> <p class="pull-left"> <%= markdown(church_staff.description) %></p></div>
 				  <br>
 			 	    <%end%> 
 			   <p>
@@ -71,53 +71,7 @@
 	  <%= staff_details(church_staff)  %>
 	
 	
-			     
-						
-					  <% unless church_staff.url.blank? %>				
-				    <p>  <i class="icon-globe"></i> <%= church_staff.url %>   </p>
 	 
-				    <%end%> 
-				
-					  	 <% unless church_staff.birthday.blank? %>
-				     <p> <i class="icon-gift"></i>  <%= church_staff.birthday.strftime("%B #{church_staff.birthday.day.ordinalize}") %>   </p>
-	 
-				     <%end%> 
-				 
-				  		<% unless church_staff.spouse_first_name.blank? %>	
-				       <p>   <i class="icon-smile"></i> <%= church_staff.spouse_first_name %> </p>
-		  
-				  	    <%end%>  
-  	  
-				       <% unless church_staff.facebook.blank? %>	
-				  	 <p>   <i class="icon-facebook"></i> <%= church_staff.facebook %> </p>
-	 
-					    <%end%> 
-		
-		
-					   <% unless church_staff.linked_in.blank? %>	
-					  	 <p>  <i class="icon-linkedin"></i>   <%= church_staff.linked_in %> </p> 
-	 
-					    <%end%> 
-						
-					   <% unless church_staff.google_plus.blank? %>	
-					  	<p>   <i class="icon-google-plus"></i> <%= church_staff.google_plus %></p> 
-	 
-					    <%end%> 
-   
-       
-					   <% unless church_staff.twitter.blank? %>	
-					  	 <p>  <i class="icon-twitter"></i> <%= church_staff.twitter %> </p>
-	  
-					    <%end%> 
- 
-  
-				     	<% unless church_staff.started_service.blank? %>	
-				          <% if church_staff.started_service? %>
-				          Length of Service: <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
-				         <% end %>  
-						  <% end %>  
-			  </p>
-
 			<br>
 			 <% if user_signed_in? %>
 			 <% if can? :edit, :church_staffs && current_user.edit_site?%>
