@@ -2,6 +2,23 @@ module ChurchStaffsHelper
   
   
   
+  def contact_staff_email(staff)
+    
+    if staff.rank == 1 
+      return link_to t('.new', :default => t("helpers.links.Contact Pastor #{staff.last_name}")),
+  			                      contact_staff_path(:staff => staff.email_id) 
+    else
+      
+    return link_to t('.new', :default => t("helpers.links.Contact #{staff.first_name}")),
+			                      contact_staff_path(:staff => staff.email_id) 
+                          end
+  end
+  
+  
+  
+  
+  
+  
   def display_sidebar_staff(staffs)
 
       if staffs.church_staff_pictures.present?  

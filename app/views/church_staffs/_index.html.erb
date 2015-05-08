@@ -48,8 +48,8 @@
 	 
 			</div>
 			<% end%>
-
-
+ 
+<br>
 			<div class="span4">
    
   			  	<div class="pull-left">
@@ -73,12 +73,17 @@
 	 <%end%> 
 	
 			     <p>  
-			    <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact #{church_staff.first_name}")),
-			                      contact_staff_path(:staff => church_staff.email_id) %>
+			    <i class="icon-envelope"></i> 
+								  
+						<%= contact_staff_email(church_staff) %>		  
 							 </p>
 						
 					  <% unless church_staff.url.blank? %>				
-				    <p>  <i class="icon-globe"></i> <%= church_staff.url %>   </p>
+				    <p>  <i class="icon-globe"></i>  
+					
+					 <%= link_to "Blog",church_staff.url %>
+					
+					 </p>
 	 
 				    <%end%> 
 				
