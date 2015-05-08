@@ -68,10 +68,10 @@
 			    <%end%> <br>
 				</p>
 	
-			     <p>  
-			    <i class="icon-envelope"></i> <%= link_to t('.new', :default => t("helpers.links.Contact #{church_staff.first_name}")),
-			                      contact_staff_path(:staff => church_staff.email_id) %>
-							 </p>
+	  <%= staff_details(church_staff)  %>
+	
+	
+			     
 						
 					  <% unless church_staff.url.blank? %>				
 				    <p>  <i class="icon-globe"></i> <%= church_staff.url %>   </p>

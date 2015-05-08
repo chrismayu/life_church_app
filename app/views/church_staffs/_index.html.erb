@@ -64,73 +64,12 @@
 			 	    <%end%> 
 					
 		 
-			  <% unless church_staff.birth_location.blank? %>	
-			     <p>
-			      <small><cite title="Source Title"><%= church_staff.birth_location %>  <i class="icon-map-marker"></i></cite></small>
-			   <br>
-				</p>
-				
-	 <%end%> 
-	
-			     <p>  
-			    <i class="icon-envelope"></i> 
-								  
-						<%= contact_staff_email(church_staff) %>		  
-							 </p>
-						
-					  <% unless church_staff.url.blank? %>				
-				    <p>  <i class="icon-globe"></i>  
-					
-					 <%= link_to "Blog",church_staff.url %>
-					
-					 </p>
-	 
-				    <%end%> 
-				
-					  	 <% unless church_staff.birthday.blank? %>
-				     <p> <i class="icon-gift"></i>  <%= church_staff.birthday.strftime("%B #{church_staff.birthday.day.ordinalize}") %>   </p>
-	 
-				     <%end%> 
-				 
-				  		<% unless church_staff.spouse_first_name.blank? %>	
-				       <p>   <i class="icon-smile"></i> <%= church_staff.spouse_first_name %> </p>
-		  
-				  	    <%end%>  
-  	  
-				       <% unless church_staff.facebook.blank? %>	
-				  	 <p>   <i class="icon-facebook"></i>  
-					 
-					 <%= link_to "Facebook",church_staff.facebook %>
-					 </p>
-	 
-					    <%end%> 
-		
-		
-					   <% unless church_staff.linked_in.blank? %>	
-					  	 <p>  <i class="icon-linkedin"></i>  
-						  <%= link_to "Linkedin",church_staff.linked_in %>
-						 </p> 
-	 
-					    <%end%> 
-						
-					   <% unless church_staff.google_plus.blank? %>	
-					  	<p>   <i class="icon-google-plus"></i>
-						  <%= link_to "Google Plus",church_staff.google_plus %></p> 
-	 
-					    <%end%> 
-   
-       
-					   <% unless church_staff.twitter.blank? %>	
-					  	 <p>  <i class="icon-twitter"></i>   <%= link_to "Twitter",church_staff.twitter %></p>
-	  
-					    <%end%> 
+			 
  
-  
-				     	<% unless church_staff.started_service.blank? %>	
-				          <% if church_staff.started_service? %>
-				          Length of Service: <%= time_ago_in_words(church_staff.started_service.to_formatted_s(:long) ) %> <br>    
-				         <% end %>  
-						  <% end %>  
+	  <%= staff_details(church_staff)  %>
+	 
+ 
+    
 		 
 
 			<br>

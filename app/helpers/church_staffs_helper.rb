@@ -5,7 +5,7 @@ module ChurchStaffsHelper
   def contact_staff_email(staff)
     
     if staff.rank == 1 
-      return link_to t('.new', :default => t("helpers.links.Contact Pastor #{staff.last_name}")),
+      return link_to t('.new', :default => t(" Contact Pastor #{staff.last_name}")),
   			                      contact_staff_path(:staff => staff.email_id) 
     else
       
@@ -13,6 +13,125 @@ module ChurchStaffsHelper
 			                      contact_staff_path(:staff => staff.email_id) 
                           end
   end
+  
+  
+  
+  
+  def staff_details(staff)
+    
+     
+    email(staff) +
+    url(staff) +
+    birth_location(staff)
+    birthday(staff) +
+    
+     spouse(staff) + 
+    facebook(staff) +
+    google_plus(staff) +
+    
+    linkedin(staff) +
+    
+    twitter(staff) +
+    
+    length_service(staff)
+   # if egiving.email_of_giver.blank?
+   #   content_tag(:dt, content_tag(:strong, "Giver's Email:"))  
+   #   content_tag(:dd, egiving.email_of_giver )  
+   #  end
+     #tag(:br)
+    
+  end
+  
+  
+  def email(staff)
+    
+    content_tag(:p, content_tag(:i," ", class: "icon-envelope") + contact_staff_email(staff))
+ 
+  end
+  
+  def url(staff)
+    
+	    unless staff.url.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-globe") + link_to(" Blog", staff.url) )
+      end
+      			
+  end
+  
+  def birthday(staff)
+    
+	    unless staff.birthday.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-gift") + staff.birthday.strftime(" %B #{ staff.birthday.day.ordinalize}") )
+      end
+      			
+  end
+ 
+ 
+ 
+  def facebook(staff)
+    
+	    unless staff.facebook.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-facebook") + link_to(" Facebook", staff.facebook))
+      end
+      			
+  end
+  
+  
+  def linkedin(staff)
+    
+	    unless staff.linked_in.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-linkedin") + link_to(" Linkedin", staff.linked_in))
+       end
+  
+ end
+   
+  
+  def twitter(staff)
+    
+	    unless staff.twitter.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-twitter") + link_to(" Twitter", staff.twitter))  			
+      end
+  
+end 
+  
+  def google_plus(staff)
+    
+	    unless staff.google_plus.blank?
+        content_tag(:p, content_tag(:i," ", class: "icon-google-plus") + link_to(" Google Plus", staff.google_plus))  			
+      end
+  
+end 
+  
+  
+  
+  def spouse(staff)
+    
+		  unless staff.spouse_first_name.blank? 
+     content_tag(:p, content_tag(:i," ", class: "icon-smile") + " #{staff.spouse_first_name.capitalize}")
+      end   
+ end
+  
+ def length_service(staff)
+   
+  
+    unless staff.started_service.blank?  	
+        if staff.started_service?  
+       "Length of Service:" + time_ago_in_words(staff.started_service.to_formatted_s(:long) )    
+        end    
+   end    
+  
+ end
+  
+  def birth_location(staff)
+  
+  
+     unless staff.birth_location.blank?
+     content_tag(:p, content_tag(:i," ", class: "icon-icon-map-marker") + "  #{staff.birth_location.capitalize}" + tag(:br))
+    end 
+ 
+    
+    
+  end
+  
   
   
   
