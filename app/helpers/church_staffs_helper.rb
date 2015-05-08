@@ -21,7 +21,7 @@ module ChurchStaffsHelper
      
     email(staff) +
     url(staff) +
-    birth_location(staff)
+    birth_location(staff) +
     birthday(staff) +
      spouse(staff) + 
     facebook(staff) +
