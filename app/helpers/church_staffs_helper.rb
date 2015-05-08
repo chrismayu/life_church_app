@@ -18,27 +18,17 @@ module ChurchStaffsHelper
   
   
   def staff_details(staff)
-    
      
     email(staff) +
     url(staff) +
     birth_location(staff)
     birthday(staff) +
-    
      spouse(staff) + 
     facebook(staff) +
     google_plus(staff) +
-    
     linkedin(staff) +
-    
     twitter(staff) +
-    
     length_service(staff)
-   # if egiving.email_of_giver.blank?
-   #   content_tag(:dt, content_tag(:strong, "Giver's Email:"))  
-   #   content_tag(:dd, egiving.email_of_giver )  
-   #  end
-     #tag(:br)
     
   end
   
