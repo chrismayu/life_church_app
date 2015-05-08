@@ -34,13 +34,13 @@ module ChurchStaffsHelper
   
   
   def email(staff)
-    unless staff.email_id !=nil
+    if staff.email_id !=nil
     content_tag(:p, content_tag(:i," ", class: "icon-envelope") + contact_staff_email(staff))
   end
   end
   
   def url(staff)
-     unless staff.url !=nil
+     if staff.url !=nil
 	    unless staff.url.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-globe") + link_to(" Blog", staff.url) )
       end
@@ -48,7 +48,7 @@ module ChurchStaffsHelper
   end
   
   def birthday(staff)
-    unless staff.birthday !=nil
+    if staff.birthday !=nil
 	    unless staff.birthday.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-gift") + staff.birthday.strftime(" %B #{ staff.birthday.day.ordinalize}") )
       end
@@ -58,7 +58,7 @@ module ChurchStaffsHelper
  
  
   def facebook(staff)
-    unless staff.facebook !=nil
+    if staff.facebook !=nil
 	    unless staff.facebook.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-facebook") + link_to(" Facebook", staff.facebook))
       end
@@ -67,7 +67,7 @@ module ChurchStaffsHelper
   
   
   def linkedin(staff)
-    unless staff.linked_in !=nil
+    if staff.linked_in !=nil
 	    unless staff.linked_in.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-linkedin") + link_to(" Linkedin", staff.linked_in))
        end
@@ -76,7 +76,7 @@ module ChurchStaffsHelper
    
   
   def twitter(staff)
-    unless staff.twitter !=nil
+    if staff.twitter !=nil
 	    unless staff.twitter.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-twitter") + link_to(" Twitter", staff.twitter))  			
       end
@@ -84,7 +84,7 @@ module ChurchStaffsHelper
 end 
   
   def google_plus(staff)
-    unless staff.google_plus !=nil
+    if staff.google_plus !=nil
 	    unless staff.google_plus.blank?
         content_tag(:p, content_tag(:i," ", class: "icon-google-plus") + link_to(" Google Plus", staff.google_plus))  			
       end
@@ -94,7 +94,7 @@ end
   
   
   def spouse(staff)
-    unless staff.spouse_first_name !=nil
+    if staff.spouse_first_name !=nil
 		  unless staff.spouse_first_name.blank? 
      content_tag(:p, content_tag(:i," ", class: "icon-smile") + " #{staff.spouse_first_name.capitalize}")
       end 
@@ -103,7 +103,7 @@ end
   
  def length_service(staff)
    
-  unless staff.started_service !=nil
+  if staff.started_service !=nil
     unless staff.started_service.blank?  	
         if staff.started_service?  
        "Length of Service:" + time_ago_in_words(staff.started_service.to_formatted_s(:long) )    
@@ -115,7 +115,7 @@ end
   
   def birth_location(staff)
   
-  unless staff.birth_location !=nil
+  if staff.birth_location !=nil
      unless staff.birth_location.blank?
      content_tag(:p, content_tag(:i," ", class: "icon-icon-map-marker") + "  #{staff.birth_location.capitalize}" + tag(:br))
     end 
