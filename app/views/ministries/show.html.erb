@@ -52,7 +52,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;<div class="ministry_text"><%=  markdown(@ministry.ta5 )  %>  </div>
   <%end%> 
  
- 
+  
 </p>
 
 </div>
@@ -61,9 +61,11 @@
  <div class="pull-center">
 					 <% if @ministry.contact_email? %>
   					 <%= link_to "Want to Learn More? Click Here",
-                       contact_ministry_path(:ministry => @ministry.id), :class => 'btn   btn-primary btn-mini-flat' %><%end%> 
+                       contact_ministry_path(:ministry => @ministry.id), :class => 'btn   btn-primary btn-mini-flat' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%end%> 
 					   
 				   </div>
+				   
+				  
 
  <div class="span10">  
 
