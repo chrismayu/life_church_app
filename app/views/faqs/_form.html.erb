@@ -5,7 +5,7 @@
   <% if current_user.has_role? :admin %>
   <%= f.input :admin %>
   <% end %>
-   <%= f.input :editor, :label=>"Editors Only", :hint=>' Make this Question Only Visible to Editors :' %>
+   <%= f.input :editor, :label=>"Editors Only", as: :boolean, :hint=>' Make this Question Only Visible to Editors :' %>
   <%= f.input :member_only, :label=>"Members Only", :hint=>'Only Members can be see:' %>
   
  <div class="span12">

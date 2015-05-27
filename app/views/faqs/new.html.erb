@@ -1,6 +1,36 @@
 <%- model_class = Faq -%>
  <% provide(:title, "Frequently Asked Questions" ) %>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
+ 
+<div class="Row">
+	<div class="span10 mission_bg img-rounded ">
+
+
+<div class="mission_bg img-rounded ">
+
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text"><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+
+<div class="span9">
+ 
+ 
 <%= render :partial => 'form' %>
+
+  
+	
+	</div>
+	
+	
+	
+	
+</div>
+</div>  
+
+	
+	
+<div class="span1">
+  <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div>  
