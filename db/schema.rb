@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150527190950) do
+ActiveRecord::Schema.define(:version => 20150527200954) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -312,7 +312,7 @@ ActiveRecord::Schema.define(:version => 20150527190950) do
   create_table "faqs", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.boolean  "admin",       :default => true
+    t.boolean  "admin",       :default => false
     t.boolean  "member_only", :default => false
     t.integer  "answer"
     t.datetime "created_at",                     :null => false
