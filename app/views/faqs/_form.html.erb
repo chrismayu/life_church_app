@@ -1,9 +1,15 @@
 <%= simple_form_for @faq  , :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
-  <%= f.input :user_id %>
+  <%= f.input :user_id, as: :hidden, :input_html => { :value =>  current_user.id} %>
   <%= f.input :admin %>
   <%= f.input :member_only %>
-  <%= f.input :answer %>
+  
+  <%= render :partial => 'abouts/markdown'%>
+ 
+ 	<%= f.input :the_answer , :label=>'The Answer of the Question :', :input_html => { :class => "enroll_input span6", :rows => 9} %>
+	
+	
+ 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

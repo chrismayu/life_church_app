@@ -1,4 +1,4 @@
-        <p><span class="icon-plus-sign"></span> - <%= faq.title %></p>
+        <p><span class="icon-caret-down "></span> <%= faq.title %></p>
 
  <div>
 
@@ -17,7 +17,7 @@
         faq_path(faq), :method => :delete, :data => { :confirm => t('.confirm', :default =>
         t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini
         btn-danger' %>
-		
+		<br>
 		<% end %>
 			<% end %>
 
