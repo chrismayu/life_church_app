@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140920033008) do
+ActiveRecord::Schema.define(:version => 20150527190950) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(:version => 20140920033008) do
     t.datetime "updated_at", :null => false
     t.boolean  "green"
     t.string   "colours"
+  end
+
+  create_table "answers", :force => true do |t|
+    t.string   "title"
+    t.boolean  "admin",       :default => true
+    t.boolean  "member_only", :default => false
+    t.text     "answer"
+    t.integer  "faq_id",                         :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "articles", :force => true do |t|
@@ -298,6 +309,17 @@ ActiveRecord::Schema.define(:version => 20140920033008) do
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
 
+  create_table "faqs", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.boolean  "admin",       :default => true
+    t.boolean  "member_only", :default => false
+    t.integer  "answer"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.text     "the_answer"
+  end
+
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
     t.integer  "sluggable_id",                 :null => false
@@ -400,6 +422,51 @@ ActiveRecord::Schema.define(:version => 20140920033008) do
     t.boolean  "image_processed"
     t.integer  "ministries_id"
     t.integer  "ministry_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "monologue_posts", :force => true do |t|
+    t.integer  "posts_revision_id"
+    t.boolean  "published"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "monologue_posts_revisions", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "url"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "published_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "monologue_posts_revisions", ["id"], :name => "index_monologue_posts_revisions_on_id", :unique => true
+  add_index "monologue_posts_revisions", ["post_id"], :name => "index_monologue_posts_revisions_on_post_id"
+  add_index "monologue_posts_revisions", ["published_at"], :name => "index_monologue_posts_revisions_on_published_at"
+  add_index "monologue_posts_revisions", ["url"], :name => "index_monologue_posts_revisions_on_url"
+
+  create_table "monologue_taggings", :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "monologue_taggings", ["post_id"], :name => "index_monologue_taggings_on_post_id"
+  add_index "monologue_taggings", ["tag_id"], :name => "index_monologue_taggings_on_tag_id"
+
+  create_table "monologue_tags", :force => true do |t|
+    t.string "name"
+  end
+
+  add_index "monologue_tags", ["name"], :name => "index_monologue_tags_on_name"
+
+  create_table "monologue_users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

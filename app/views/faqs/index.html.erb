@@ -1,0 +1,49 @@
+<%- model_class = Faq -%>
+ <% provide(:title, "Frequently Asked Questions" ) %>
+
+<div class="row">
+	<div class="span10 mission_bg img-rounded ">
+
+
+<div class="mission_bg img-rounded ">
+	<br>
+<table width="100%" class="table_zero"> 
+ <td style="width:5px; padding: 0 50px; white-space: nowrap;"><span class="main_text">Frequently Asked Questions</span> </td>
+  <td><hr class="round_line_hoz" /></td>
+</table>
+ <hr class="round_line_hoz2 " /> 
+ 
+ <br>
+ 
+ <% if user_signed_in? %>
+						 
+ 						  <% if current_user.has_role? :admin %>
+ <%= link_to "Add New FAQ",
+             new_faq_path,
+             :class => 'btn btn-mini btn-primary' %>
+ <br>
+<% end %>
+	<% end %>
+ <div class="row">
+	 	<div class="span1" ></div>
+ 	<div class="span8" >
+		  <div id="faqs">
+			  
+<%= render @faqs %>
+
+</div>
+
+</div>
+</div>
+ 
+
+</div>
+</div>  
+
+<div class="span1">
+  <%= render :partial => 'abouts/side_buttons'%>
+      
+</div>
+</div>  
+
+ 
