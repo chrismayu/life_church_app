@@ -17,11 +17,14 @@
  
  <% if user_signed_in? %>
 						 
- 						 	<% if can? :edit, :abouts  %>
-
+ <% if can? :edit, :abouts  %>
+<div class="row">
+	<div class="offset1 span10 ">
  <%= link_to "Add New FAQ",
              new_faq_path,
-             :class => 'btn btn-mini btn-primary' %>
+             :class => 'btn btn-mini btn-primary  btn-flat' %>
+			 
+		 </div></div>
  <br>
 <% end %>
 	<% end %>

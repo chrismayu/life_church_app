@@ -1,86 +1,42 @@
+<br> 
+ 
+<div class="span10"> 
+	<div class="offset1 span6"> 
+		<div class="pull-center"> 
+			<br> <%=
+markdown('**Use Markdown for formatting.**' ) %> <%= link_to_function "See Examples",
+"$('.markdown').toggle(300)" %> 
+<br> <br> 
 
-<br>
-	<div class="span10">
-	<div class="offset1 span6">
-		<div class="pull-center">
-			<br>
-<%=  markdown('**Use Markdown for formatting.**'  )  %> <%= link_to_function "See Examples", "$('.markdown').toggle(300)" %>
-<br>
-<br>
- <div class="markdown" id="markdown">
-<table class="table span4  " >
-	<caption><h5>  Markdown Examples</h5></caption>
-	<tr>
-		<td>
-			[Link](http://example.com/)
-		</td>
-		<td>
-			  <%=  markdown('[Link](http://example.com/)'  )  %>
-		</td>
+	<div class="markdown" id="markdown"> 
+		<table class="table span4 " > 
+			<caption><h5> Markdown Examples</h5></caption> 
+			<tr> <td> [Link](http://example.com/)
+</td> <td> <%= markdown('[Link](http://example.com/)' ) %> </td> </tr> 
 
+ <tr> <td> *Italic* </td> <td> <%= markdown('*Italic*') %> </td>
 
-	</tr>
-	<tr>
-		<td>
-			*Italic*
-		</td>
-		<td>
-			  <%=  markdown('*Italic*') %>
-		</td>
- 
-		
-	</tr>
-	<tr>
-		<td>
-			**Bold**
-		</td>
- 
-		<td>
-			  <%=  markdown('**Bold**')  %>
-		</td>
-		
-	</tr>
-	 
-	 
-	<tr>
-		<td>
-			>
-		</td>
- 
-		<td>
-			   <%=  markdown('> Indent Whole Paragraph')  %>  
-		</td>
-		
-	</tr>
-	<tr>
-		<td>
-			#
-		</td>
- 
-		<td>
-			 <%=  markdown('# Header1')  %> 
-		</td>
-		
-	</tr>
-	<tr>
-		<td>
-			##
-		</td>
- 
-		<td>
-			 <%=  markdown('## Header2')  %> 
-		</td>
-		
-	</tr>
-	<tr>
-		<td>
-			### 
-		</td>
- 
-		<td>
-			 <%=  markdown('### Header3')  %> 
-		</td>
-		
-	</tr>
-</table><br>
-<br></div></div></div></div><br>
+ </tr> <tr> <td> **Bold** </td>
+
+ <td> <%= markdown('**Bold**') %> </td>
+
+ </tr>
+
+ <tr> <td> > </td>
+
+ <td> <%= markdown('> Indent Whole Paragraph') %> </td>
+
+ </tr> <tr> <td> # </td>
+
+ <td> <%= markdown('# Header1') %> </td>
+
+ </tr> <tr> <td> ## </td>
+
+ <td> <%= markdown('## Header2') %> </td>
+
+ </tr> <tr> <td> ### </td>
+
+ <td> <%= markdown('### Header3') %> </td>
+
+ </tr> </table> <br>
+</div></div></div></div><br>

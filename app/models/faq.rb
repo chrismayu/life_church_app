@@ -1,5 +1,5 @@
 class Faq < ActiveRecord::Base 
-  attr_accessible :admin, :answer, :member_only, :title, :user_id, :the_answer
+  attr_accessible :admin, :answer, :member_only, :title, :user_id, :the_answer, :editor
   has_many :answers
   
 end

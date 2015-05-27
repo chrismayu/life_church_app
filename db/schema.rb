@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150527200954) do
+ActiveRecord::Schema.define(:version => 20150527231610) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -318,6 +318,7 @@ ActiveRecord::Schema.define(:version => 20150527200954) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.text     "the_answer"
+    t.boolean  "editor"
   end
 
   create_table "friendly_id_slugs", :force => true do |t|

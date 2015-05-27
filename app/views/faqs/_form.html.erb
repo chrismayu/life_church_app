@@ -1,14 +1,20 @@
 <%= simple_form_for @faq  , :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title,:label=>"The Question:", :input_html => { :class => "enroll_input span3"}  %>
   <%= f.input :user_id, as: :hidden, :input_html => { :value =>  current_user.id} %>
-  <%= f.input :admin %>
-  <%= f.input :member_only %>
-  
-  <%= render :partial => 'abouts/markdown'%>
  
+  <% if current_user.has_role? :admin %>
+  <%= f.input :admin %>
+  <% end %>
+   <%= f.input :editor, :label=>"Editors Only", :hint=>' Make this Question Only Visible to Editors :' %>
+  <%= f.input :member_only, :label=>"Members Only", :hint=>'Only Members can be see:' %>
+  
+ <div class="span12">
+ 	 <%= render :partial => 'abouts/markdown'%>
+ </div>
  	<%= f.input :the_answer , :label=>'The Answer of the Question :', :input_html => { :class => "enroll_input span6", :rows => 9} %>
 	
-	
+
+	 <br>
  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
