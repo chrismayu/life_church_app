@@ -22,7 +22,7 @@ class MemberMailer < ActionMailer::Base
     #@member = member
     #mail(to: member.email, :subject => "Welcome to LifeChurch WebSite")
     subject = "Welcome to LifeChurch WebSite"
-    body = "Your application has been sent to the Church and We will be in contact once you have been approved.
+    body = "Your application has been sent to the Church and we will be in contact once you have been approved.
 Until then enjoy the rest of our site."
     
     send_using_Mandrill(member, subject, body)
