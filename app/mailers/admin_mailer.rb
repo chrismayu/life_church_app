@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default from: ENV["SITE_EMAIL"]
  
-    default :to => @site_setup_menu.approval , :bcc => ENV["ADMIN_EMAIL"]
+    default :to =>   ENV["ADMIN_EMAIL"]
  
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
