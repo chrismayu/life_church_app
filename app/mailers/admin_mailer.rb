@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default from: ENV["SITE_EMAIL"]
  
-    default :to =>   ENV["ADMIN_EMAIL"]
+   default :bcc => ENV["ADMIN_EMAIL"]
  
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,13 +10,16 @@ class AdminMailer < ActionMailer::Base
   #
   def new_user_waiting_for_approval(member)
     @member = member
-    mail(:subject => "#{member.name} - Approval Needed")
+   @site_setup = SiteSetup.last
+    
+    mail(:subject => "#{member.name} - Approval Needed", :to => @site_setup.approval )
   end
   
   
   def let_us_know(member)
     @member = member
-    mail(:subject => "#{member.name} - Would like to be a volunteer")
+    @site_setup = SiteSetup.last
+    mail(:subject => "#{member.name} - Would like to be a volunteer", :to => @site_setup.approval )
   end
   
   
