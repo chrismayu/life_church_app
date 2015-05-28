@@ -9,16 +9,7 @@ class FaqsController < ApplicationController
     end
   end
 
-  # GET /faqs/1
-  # GET /faqs/1.json
-  def show
-    @faq = Faq.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb 
-    end
-  end
-
+ 
   # GET /faqs/new
   # GET /faqs/new.json
   def new

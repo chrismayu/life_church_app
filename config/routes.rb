@@ -6,9 +6,8 @@ LifeChurchApp::Application.routes.draw do
 
   #resources :faq, :controller => :faqs
   
-  resources :faqs
-  #, :except => :index
-  #match "faq" => "faqs#index", :as => :faq
+  resources :faqs, :except => :index
+  match "FAQ" => "faqs#index", :as => :faqs
   #match "faqs" => "faqs#index", :as => :faq
 
   resources :programs
