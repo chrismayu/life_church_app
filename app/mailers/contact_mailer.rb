@@ -1,10 +1,12 @@
 class ContactMailer < ActionMailer::Base
   default from: ENV["SITE_EMAIL"]
  
-    default :to => ENV["ADMIN_EMAIL"]
+    default :bcc => ENV["ADMIN_EMAIL"]
 
     def site_message(message)
       @message = message
-      mail(:subject => "Life Church #{message.subject}")
+      @site_setup = SiteSetup.last
+ 
+      mail(:subject => "Life Church #{message.subject}", :to => @site_setup.approval )
     end
 end

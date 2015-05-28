@@ -13,7 +13,7 @@ class MemberMailer < ActionMailer::Base
   #mail(to: member.email, :subject => "Welcome to LifeChurch")
   
   subject = "Welcome to LifeChurch"
-  body = "Your account has been approved and ready for use: #{root_url}"
+  body = "Your account has been approved and ready for use: #{ENV["WEBSITE"]}"
   
   send_using_Mandrill(member, subject, body)
  end
@@ -48,8 +48,8 @@ Until then enjoy the rest of our site."
        "view_content_link"=>nil,
        "from_email"=>ENV["SITE_EMAIL"],
        "return_path_domain"=>nil,
-       "metadata"=>{"website"=>"#{root_url}"},
-       "global_merge_vars"=>[{"content"=>"#{root_url}", "name"=>"website_url"},{"content"=>"#{body}", "name"=>"body_data"},{"content"=>"#{member.email}", "name"=>"sender_email"},{"name"=>"fullname", "content"=>"#{member.name}"}],
+       "metadata"=>{"website"=>"#{ENV["WEBSITE"]}"},
+       "global_merge_vars"=>[{"content"=>"#{ENV["WEBSITE"]}", "name"=>"website_url"},{"content"=>"#{body}", "name"=>"body_data"},{"content"=>"#{member.email}", "name"=>"sender_email"},{"name"=>"fullname", "content"=>"#{member.name}"}],
        "headers"=>{"reply-to" => "#{member.email}"},
        "to"=>
           [{"type"=>"to",
