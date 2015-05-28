@@ -24,6 +24,15 @@
   <dt><strong>Article Section Status:</strong></dt>
   <dd><%= status_article(@site_setup) %></dd>
   
+  <dt><strong>Member Approvals:</strong></dt>
+  <dd><%= @site_setup.approval %></dd>
+  
+  <dt><strong>Contact Email:</strong></dt>
+  <dd><%= @site_setup.contact %></dd>
+  
+  <dt><strong>General Question Email:</strong></dt>
+  <dd><%= @site_setup.general_questions %></dd>
+  
   <dt><strong>Site Availability Status:</strong></dt>
   <dd><%= status_shutdown(@site_setup) %></dd>
  
