@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150527231610) do
+ActiveRecord::Schema.define(:version => 20150528190000) do
 
   create_table "abouts", :force => true do |t|
     t.string   "service_day_1"
@@ -575,9 +575,12 @@ ActiveRecord::Schema.define(:version => 20150527231610) do
     t.boolean  "store"
     t.boolean  "video"
     t.boolean  "articles"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.boolean  "shutdown"
+    t.string   "approval"
+    t.string   "general_questions"
+    t.string   "contact"
   end
 
   create_table "speaker_pictures", :force => true do |t|
