@@ -117,6 +117,10 @@
 				    <% if @site_setup_menu.store? %>
 				    <li><a href="#">Store</a></li>
 				    <% end %>
+					
+					<li><%= link_to 'FAQ', faqs_path %></li>
+				 
+					
 				 
 	            </ul>
 	        </li>
@@ -130,8 +134,10 @@
 					
 					
 	                 <li><%= link_to 'Bulletin', bulletins_path %></li>
+					 	<% if user_signed_in? %>
 					  <li><%= link_to 'Master Schedule', schedules_path %></li>
-	             
+	              <% end %>
+				 
 	            </ul>
 	        </li>
 	    </ul>
