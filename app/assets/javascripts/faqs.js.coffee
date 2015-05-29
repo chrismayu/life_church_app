@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  $('#faqs p').each ->
+  $('#faqs h4').each ->
     tis = $(this)
     state = false
     answer = tis.next('div').hide().css('height', 'auto').slideUp()

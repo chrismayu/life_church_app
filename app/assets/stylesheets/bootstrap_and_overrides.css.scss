@@ -21,8 +21,8 @@ body { padding-top: 85px;
 /* FAQs */
 
 #faqs { position:relative; }
-#faqs p	{ cursor:pointer; }
-#faqs p.active	{ color:#d74646; }
+#faqs h4	{ cursor:pointer; }
+#faqs h4.active	{ color:#d74646; }
 #faqs div { height:0; overflow:hidden; position:relative; }
 #faqs div p	{ padding:0; margin-bottom:15px; }
 
