@@ -9,6 +9,8 @@ class Faq < ActiveRecord::Base
 #  scope :current, -> { where("starts_at <= :now and ends_at >= :now", now: Time.zone.now) }
   #scope :featured_order, order('(case when editor then 1 else 0 end) DESC, created_at DESC')
   
- #  scope :featured_order, where(admin: true)
+  scope :editor, where(admin: false)
+  scope :non_members, where(admin: false ,editor: false, member_only: false )
+  scope :members, where(admin: false ,editor: false )
   
 end

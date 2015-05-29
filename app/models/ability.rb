@@ -15,15 +15,15 @@ class Ability
  
       
     elsif user.has_role? :volunteer
-      can :read, [Schedule, Bulletin]
+      can :read, [Schedule, Bulletin, Faq]
       
     elsif user.has_role? :editor 
    
-      can :manage, [Schedule, Bulletin]
+      can :manage, [Schedule, Bulletin, Faq]
  
   
     else 
-      can :read, [Bulletin, ChurchStaff, Event]
+      can :read, [Bulletin, ChurchStaff, Event, Faq]
     end
     
     

@@ -2,7 +2,27 @@ class FaqsController < ApplicationController
 
  before_filter :authenticate_user!, :except => [:faq]
   def faq
-    @faqs = Faq.all
+    
+     if user_signed_in?  
+       @faqs = Faq.members
+       
+    if current_user.has_role? :editor
+       @faqs = Faq.editor
+    end
+    
+    if current_user.has_role? :admin 
+       @faqs = Faq.all
+    end
+    
+ 
+    
+  else
+    
+    @faqs = Faq.non_members
+    
+  end
+      
+ 
 
     respond_to do |format|
       format.html # index.html.erb 
