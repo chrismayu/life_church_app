@@ -1,4 +1,4 @@
-<%= simple_form_for @faq, :url => faqs_path, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @faq,  :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title,:label=>"The Question:", :input_html => { :class => "enroll_input span3"}  %>
   <%= f.input :user_id, as: :hidden, :input_html => { :value =>  current_user.id} %>
  

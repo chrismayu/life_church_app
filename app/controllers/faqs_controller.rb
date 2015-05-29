@@ -96,7 +96,7 @@ class FaqsController < ApplicationController
     @faq.destroy
 
     respond_to do |format|
-      format.html { redirect_to faqs_url }
+      format.html { redirect_to faq_s_url }
       format.json { head :no_content }
     end
   end
