@@ -12,7 +12,7 @@ class ContactTechController < ApplicationController
 
        if @message.valid?
          
-          word_wrap(@message.body, line_width: 550)
+          #word_wrap(@message.body, line_width: 550)
          
          TechMailer.tech_support(@message).deliver
          redirect_to(root_path, :notice => "Your message was successfully sent.")
