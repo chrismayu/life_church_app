@@ -90,7 +90,7 @@
  
   <dt><strong><%= model_class.human_attribute_name(:date_month) %>:</strong></dt>
   <dd>	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
-	    <%= @egiving.date_month .decrypt(ENV["SECRET_STRONGBOX"])%>
+	    <%= @egiving.date_month.decrypt(ENV["SECRET_STRONGBOX"])%>
 		<%else%>	
 		<%= @egiving.date_month  %>
 		<%end%></dd>
