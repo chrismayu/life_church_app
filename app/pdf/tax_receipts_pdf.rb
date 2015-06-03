@@ -45,7 +45,7 @@ class TaxReceiptsPdf < Prawn::Document
      
 
 end
-
+ 
 
 def amount(num)
    @view.number_to_currency(num)
