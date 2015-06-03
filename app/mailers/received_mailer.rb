@@ -1,6 +1,6 @@
 class ReceivedMailer < ActionMailer::Base
 
- default from: ENV["return_email_address"]
+ default from: ENV["SITE_EMAIL"]
   
   
   def new_e_giving(egiving, email)
