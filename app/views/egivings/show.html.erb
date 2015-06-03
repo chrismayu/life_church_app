@@ -99,7 +99,7 @@
   <dd> 
  
 	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
-		    <%= @egiving.date_year .decrypt(ENV["SECRET_STRONGBOX"])%>
+		    <%= @egiving.date_year.decrypt(ENV["SECRET_STRONGBOX"])%>
 			<%else%>	
 			<%= @egiving.date_year  %>
 			<%end%></dd>
