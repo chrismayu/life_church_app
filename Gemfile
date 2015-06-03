@@ -86,6 +86,7 @@ gem 'money-rails'
 gem "friendly_id", "~> 4.0.10"
 gem "gibbon", "0.4.6"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem 'rollbar', '~> 1.5.1'
 
 group :development, :test do
 
