@@ -11,6 +11,7 @@ class Egiving < ActiveRecord::Base
    validates :address,   :presence => true
    validates :postal_code, :presence => true
   
+
    validates_formatting_of :phone_number, :using => :us_phone
  
   
@@ -34,5 +35,16 @@ class Egiving < ActiveRecord::Base
               :key_pair => Rails.root.join('config','keypair.pem')
  
  default_scope order: 'egivings.created_at DESC'
+ 
+ 
+  before_create :downcase_fields
+ 
+ 
+ 
+ def downcase_fields
+   self.email_of_giver.downcase!
+ end
+ 
+ 
 
 end
