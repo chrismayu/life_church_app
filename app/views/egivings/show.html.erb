@@ -84,9 +84,6 @@
 				<%else%>	
 				<%= @egiving.card_number %>
 				<%end%></dd>
-   
-   
-	 
  
   <dt><strong><%= model_class.human_attribute_name(:date_month) %>:</strong></dt>
   <dd>	 <% if current_user.has_any_role? :VIP, {:name => :admin}  %>
