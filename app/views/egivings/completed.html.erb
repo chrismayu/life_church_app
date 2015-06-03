@@ -16,17 +16,17 @@
   
  <p class="mission_bg ">
 	 
-	 Thank you <%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you <%= @egiving.first_name.capitalize %> <%= @egiving.last_name.capitalize %>   
 	 <br>
+	 <br>
+ 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We have received your donation of <%= number_to_currency(@egiving.finalamount) %>.  
 	 <br>
 
-	 We have received your donation of <%= number_to_currency(@egiving.finalamount) %>.  
-	 <br>
-
 	 <br>
 	 <br>
 	 <br>
-  <%= link_to 'Return to the Main Page', root_path , :class => 'btn btn-flat btn-primary'  %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Return to the Main Page', root_path , :class => 'btn btn-flat btn-primary'  %>
   
  <br>
  <br>
