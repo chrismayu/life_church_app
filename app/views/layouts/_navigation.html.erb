@@ -75,9 +75,7 @@
 				            <ul>
 								<p>Ways to Connect</p>  
 				              
-				                <li class="menu_spacing"><%= link_to image_tag("event_menu.png", size: "20x20"), events_path %>
-								<%= link_to 'Calendar & Events', events_path %></li>
-								
+				             
 								
 				            <li class="menu_spacing"> <%= link_to image_tag("live_menu.png", size: "22x22"), @site_setup_menu.youtube %> <%= link_to 'Live Broadcast', @site_setup_menu.youtube %></li>
 							
@@ -118,9 +116,7 @@
 				    <li><a href="#">Store</a></li>
 				    <% end %>
 					
-					<li><%= link_to 'FAQ', faq_s_path %></li>
-				 
-					
+				
 				 
 	            </ul>
 	        </li>
@@ -194,7 +190,7 @@
 						 <li class="divider"></li>
 						 
 						 
-						 
+	 			
  					
 						  
 						  
@@ -233,7 +229,14 @@
 						 
 						   <% if current_user.has_any_role? :editor, {:name => :admin}   %>
 						 <li class="divider"></li>
+						 
+ 	 					<li><%= link_to 'FAQ', faq_s_path %></li>
+				 
+						 
+						 <li class="divider"></li>
+						 
 						 <li class="dropdown-submenu">
+							 
 						      <a tabindex="-1" href="#">Life Pulse</a>
 						      <ul class="dropdown-menu">
 		 					      <li> 
