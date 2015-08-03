@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>11560</WindowHeight>
+    <WindowWidth>15800</WindowWidth>
+    <WindowTopX>360</WindowTopX>
+    <WindowTopY>40</WindowTopY>
+    <TabRatio>600</TabRatio>
+    <ActiveSheet>1</ActiveSheet>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+   </ExcelWorkbook>
+  <Worksheet ss:Name="faq">
+     <Table>
+      <Row>
+		  
+		  
+ 
+		  
+  
+  <Cell><Data ss:Type="String">Id </Data></Cell>
+   <Cell><Data ss:Type="String">admin</Data></Cell>
+  <Cell><Data ss:Type="String">answer</Data></Cell>
+  <Cell><Data ss:Type="String">member_only</Data></Cell> 
+  <Cell><Data ss:Type="String">title</Data></Cell> 
+    <Cell><Data ss:Type="String">user_id</Data></Cell>
+	<Cell><Data ss:Type="String">the_answer</Data></Cell>
+   <Cell><Data ss:Type="String">editor </Data></Cell>
+ 
+
+
+
+      </Row>
+    <% @faqs.each do |applicant| %> 
+	
+ 
+      <Row>
+ 
+ 
+  
+   <Cell><Data ss:Type="String"><%= applicant.id if applicant.id !=nil %></Data></Cell>
+   <Cell><Data ss:Type="String"><%= applicant.admin if applicant.admin !=nil %></Data></Cell>
+  <Cell><Data ss:Type="String"><%= applicant.answer if applicant.answer !=nil %></Data></Cell> 
+  <Cell><Data ss:Type="String"><%= applicant.member_only if applicant.member_only !=nil %></Data></Cell>
+ 
+  <Cell><Data ss:Type="String"><%= applicant.title if applicant.title !=nil %></Data></Cell>
+  <Cell><Data ss:Type="String"><%= applicant.user_id if applicant.user_id !=nil %></Data></Cell>
+    <Cell><Data ss:Type="String"><%= applicant.the_answer if applicant.the_answer !=nil %></Data></Cell>
+ 
+     <Cell><Data ss:Type="String"><%= applicant.editor if applicant.editor !=nil %></Data></Cell>
+  
+   
+
+      </Row>
+ 
+ 
+ 
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

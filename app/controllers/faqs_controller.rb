@@ -38,7 +38,20 @@ class FaqsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb 
+      format.xls do 
+   
+        
+         render :xls => @faqs,
+             :columns => [ :id, :admin, :answer, :member_only, :title, :user_id, :the_answer, :editor ],
+           :headers => %w[ ID admin answer member_only title user_id the_answer editor ] 
+
+        end
+    
+    
     end
+    
+    
+    
   end
 
  
